@@ -30,6 +30,13 @@ class Settings(BaseSettings):
     IDRIVEE2_SECRET_ACCESS_KEY: str = ""
     IDRIVEE2_BUCKET_NAME: str = ""
 
+    # Document Processing
+    UNSTRUCTURED_API_KEY: str = ""
+    UNSTRUCTURED_API_URL: str = ""
+
+    # File Storage
+    PRESIGNED_URL_EXPIRATION: int = 604800  # 7 days in seconds (maximum)
+
     # Observability
 
 

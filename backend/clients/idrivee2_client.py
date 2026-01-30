@@ -1,9 +1,9 @@
 """
 iDrive E2 Storage Client
-S3-compatible cloud storage using boto3
+S3-compatible cloud storage using aioboto3 for async operations
 """
 
-import boto3
+import aioboto3
 from typing import Optional, BinaryIO
 from botocore.exceptions import ClientError
 from app.settings import settings
@@ -14,31 +14,29 @@ class IDriveE2Client:
     """Client for iDrive E2 cloud storage operations"""
 
     def __init__(self):
-        """Initialize iDrive E2 client with boto3"""
+        """Initialize iDrive E2 client with aioboto3"""
         self.endpoint_url = settings.IDRIVEE2_ENDPOINT_URL
         self.access_key = settings.IDRIVEE2_ACCESS_KEY_ID
         self.secret_key = settings.IDRIVEE2_SECRET_ACCESS_KEY
         self.bucket_name = settings.IDRIVEE2_BUCKET_NAME
 
-        # Initialize S3 client
-        self.client = boto3.client(
-            's3',
-            endpoint_url=self.endpoint_url,
+        # Initialize aioboto3 session
+        self.session = aioboto3.Session(
             aws_access_key_id=self.access_key,
             aws_secret_access_key=self.secret_key,
-            region_name='us-east-1'  # iDrive E2 doesn't strictly require region
+            region_name='us-east-1'
         )
 
         logger.info(f"✅ iDrive E2 client initialized for bucket: {self.bucket_name}")
 
-    def upload_file(
+    async def upload_file(
         self,
         file_obj: BinaryIO,
         object_name: str,
         content_type: Optional[str] = None
     ) -> str:
         """
-        Upload a file to iDrive E2 storage
+        Upload a file to iDrive E2 storage (async)
 
         Args:
             file_obj: File object to upload
@@ -46,7 +44,7 @@ class IDriveE2Client:
             content_type: MIME type of the file
 
         Returns:
-            str: Public URL of the uploaded file
+            str: Object key (not URL since bucket is private)
 
         Raises:
             Exception: If upload fails
@@ -56,26 +54,24 @@ class IDriveE2Client:
             if content_type:
                 extra_args['ContentType'] = content_type
 
-            self.client.upload_fileobj(
-                file_obj,
-                self.bucket_name,
-                object_name,
-                ExtraArgs=extra_args
-            )
-
-            # Construct file URL
-            file_url = f"{self.endpoint_url}/{self.bucket_name}/{object_name}"
+            async with self.session.client('s3', endpoint_url=self.endpoint_url) as client:
+                await client.upload_fileobj(
+                    file_obj,
+                    self.bucket_name,
+                    object_name,
+                    ExtraArgs=extra_args
+                )
 
             logger.info(f"✅ File uploaded successfully: {object_name}")
-            return file_url
+            return object_name
 
         except ClientError as e:
             logger.error(f"❌ Failed to upload file {object_name}: {str(e)}")
             raise Exception(f"Failed to upload file: {str(e)}")
 
-    def download_file(self, object_name: str) -> bytes:
+    async def download_file(self, object_name: str) -> bytes:
         """
-        Download a file from iDrive E2 storage
+        Download a file from iDrive E2 storage (async)
 
         Args:
             object_name: S3 object name (key) in the bucket
@@ -87,12 +83,13 @@ class IDriveE2Client:
             Exception: If download fails
         """
         try:
-            response = self.client.get_object(
-                Bucket=self.bucket_name,
-                Key=object_name
-            )
+            async with self.session.client('s3', endpoint_url=self.endpoint_url) as client:
+                response = await client.get_object(
+                    Bucket=self.bucket_name,
+                    Key=object_name
+                )
+                file_content = await response['Body'].read()
 
-            file_content = response['Body'].read()
             logger.info(f"✅ File downloaded successfully: {object_name}")
             return file_content
 
@@ -100,9 +97,9 @@ class IDriveE2Client:
             logger.error(f"❌ Failed to download file {object_name}: {str(e)}")
             raise Exception(f"Failed to download file: {str(e)}")
 
-    def delete_file(self, object_name: str) -> bool:
+    async def delete_file(self, object_name: str) -> bool:
         """
-        Delete a file from iDrive E2 storage
+        Delete a file from iDrive E2 storage (async)
 
         Args:
             object_name: S3 object name (key) in the bucket
@@ -114,10 +111,11 @@ class IDriveE2Client:
             Exception: If deletion fails
         """
         try:
-            self.client.delete_object(
-                Bucket=self.bucket_name,
-                Key=object_name
-            )
+            async with self.session.client('s3', endpoint_url=self.endpoint_url) as client:
+                await client.delete_object(
+                    Bucket=self.bucket_name,
+                    Key=object_name
+                )
 
             logger.info(f"✅ File deleted successfully: {object_name}")
             return True
@@ -188,13 +186,13 @@ class IDriveE2Client:
         """
         return f"{self.endpoint_url}/{self.bucket_name}/{object_name}"
 
-    def generate_presigned_url(
+    async def generate_presigned_url(
         self,
         object_name: str,
         expiration: int = 3600
     ) -> str:
         """
-        Generate a presigned URL for temporary file access
+        Generate a presigned URL for temporary file access (async)
 
         Args:
             object_name: S3 object name (key) in the bucket
@@ -207,14 +205,15 @@ class IDriveE2Client:
             Exception: If URL generation fails
         """
         try:
-            url = self.client.generate_presigned_url(
-                'get_object',
-                Params={
-                    'Bucket': self.bucket_name,
-                    'Key': object_name
-                },
-                ExpiresIn=expiration
-            )
+            async with self.session.client('s3', endpoint_url=self.endpoint_url) as client:
+                url = await client.generate_presigned_url(
+                    'get_object',
+                    Params={
+                        'Bucket': self.bucket_name,
+                        'Key': object_name
+                    },
+                    ExpiresIn=expiration
+                )
 
             logger.info(f"✅ Presigned URL generated for: {object_name}")
             return url

@@ -6,7 +6,7 @@ Uses LangChain for vector storage and retrieval operations
 from typing import Optional, List, Dict, Any
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import OpenAIEmbeddings
-from langchain.schema import Document
+from langchain_core.documents import Document
 from pinecone import Pinecone, ServerlessSpec
 from app.settings import settings
 from app.logger import logger
@@ -79,7 +79,8 @@ class PineconeClient:
         self,
         texts: List[str],
         metadatas: List[Dict[str, Any]],
-        ids: Optional[List[str]] = None
+        ids: Optional[List[str]] = None,
+        namespace: Optional[str] = None
     ) -> List[str]:
         """
         Add documents to Pinecone vector store
@@ -88,6 +89,7 @@ class PineconeClient:
             texts: List of text chunks to embed and store
             metadatas: List of metadata dicts for each text chunk
             ids: Optional list of IDs for each document
+            namespace: Optional namespace for multi-tenancy (e.g., organization_id)
 
         Returns:
             List[str]: List of document IDs
@@ -102,13 +104,23 @@ class PineconeClient:
                 for text, metadata in zip(texts, metadatas)
             ]
 
+            # Create vector store with namespace if provided
+            if namespace:
+                vector_store = PineconeVectorStore(
+                    index_name=self.index_name,
+                    embedding=self.embeddings,
+                    namespace=namespace
+                )
+            else:
+                vector_store = self.vector_store
+
             # Add to vector store
             if ids:
-                doc_ids = self.vector_store.add_documents(documents, ids=ids)
+                doc_ids = vector_store.add_documents(documents, ids=ids)
             else:
-                doc_ids = self.vector_store.add_documents(documents)
+                doc_ids = vector_store.add_documents(documents)
 
-            logger.info(f"✅ Added {len(doc_ids)} documents to Pinecone")
+            logger.info(f"✅ Added {len(doc_ids)} documents to Pinecone (namespace: {namespace or 'default'})")
             return doc_ids
 
         except Exception as e:
@@ -119,7 +131,8 @@ class PineconeClient:
         self,
         query: str,
         k: int = 5,
-        filter: Optional[Dict[str, Any]] = None
+        filter: Optional[Dict[str, Any]] = None,
+        namespace: Optional[str] = None
     ) -> List[Document]:
         """
         Search for similar documents using semantic similarity
@@ -128,6 +141,7 @@ class PineconeClient:
             query: Query text
             k: Number of results to return
             filter: Optional metadata filter
+            namespace: Optional namespace for multi-tenancy
 
         Returns:
             List[Document]: List of similar documents with metadata
@@ -136,16 +150,26 @@ class PineconeClient:
             Exception: If search fails
         """
         try:
+            # Create vector store with namespace if provided
+            if namespace:
+                vector_store = PineconeVectorStore(
+                    index_name=self.index_name,
+                    embedding=self.embeddings,
+                    namespace=namespace
+                )
+            else:
+                vector_store = self.vector_store
+
             if filter:
-                results = self.vector_store.similarity_search(
+                results = vector_store.similarity_search(
                     query,
                     k=k,
                     filter=filter
                 )
             else:
-                results = self.vector_store.similarity_search(query, k=k)
+                results = vector_store.similarity_search(query, k=k)
 
-            logger.info(f"✅ Found {len(results)} similar documents")
+            logger.info(f"✅ Found {len(results)} similar documents (namespace: {namespace or 'default'})")
             return results
 
         except Exception as e:
@@ -156,7 +180,8 @@ class PineconeClient:
         self,
         query: str,
         k: int = 5,
-        filter: Optional[Dict[str, Any]] = None
+        filter: Optional[Dict[str, Any]] = None,
+        namespace: Optional[str] = None
     ) -> List[tuple]:
         """
         Search for similar documents with relevance scores
@@ -165,6 +190,7 @@ class PineconeClient:
             query: Query text
             k: Number of results to return
             filter: Optional metadata filter
+            namespace: Optional namespace for multi-tenancy
 
         Returns:
             List[tuple]: List of (Document, score) tuples
@@ -173,16 +199,26 @@ class PineconeClient:
             Exception: If search fails
         """
         try:
+            # Create vector store with namespace if provided
+            if namespace:
+                vector_store = PineconeVectorStore(
+                    index_name=self.index_name,
+                    embedding=self.embeddings,
+                    namespace=namespace
+                )
+            else:
+                vector_store = self.vector_store
+
             if filter:
-                results = self.vector_store.similarity_search_with_score(
+                results = vector_store.similarity_search_with_score(
                     query,
                     k=k,
                     filter=filter
                 )
             else:
-                results = self.vector_store.similarity_search_with_score(query, k=k)
+                results = vector_store.similarity_search_with_score(query, k=k)
 
-            logger.info(f"✅ Found {len(results)} similar documents with scores")
+            logger.info(f"✅ Found {len(results)} similar documents with scores (namespace: {namespace or 'default'})")
             return results
 
         except Exception as e:
@@ -192,7 +228,8 @@ class PineconeClient:
     def delete_documents(
         self,
         ids: Optional[List[str]] = None,
-        filter: Optional[Dict[str, Any]] = None
+        filter: Optional[Dict[str, Any]] = None,
+        namespace: Optional[str] = None
     ) -> bool:
         """
         Delete documents from Pinecone by IDs or filter
@@ -200,6 +237,7 @@ class PineconeClient:
         Args:
             ids: Optional list of document IDs to delete
             filter: Optional metadata filter for deletion
+            namespace: Optional namespace for multi-tenancy
 
         Returns:
             bool: True if deletion was successful
@@ -211,11 +249,17 @@ class PineconeClient:
             index = self.pc.Index(self.index_name)
 
             if ids:
-                index.delete(ids=ids)
-                logger.info(f"✅ Deleted {len(ids)} documents from Pinecone")
+                if namespace:
+                    index.delete(ids=ids, namespace=namespace)
+                else:
+                    index.delete(ids=ids)
+                logger.info(f"✅ Deleted {len(ids)} documents from Pinecone (namespace: {namespace or 'default'})")
             elif filter:
-                index.delete(filter=filter)
-                logger.info(f"✅ Deleted documents matching filter from Pinecone")
+                if namespace:
+                    index.delete(filter=filter, namespace=namespace)
+                else:
+                    index.delete(filter=filter)
+                logger.info(f"✅ Deleted documents matching filter from Pinecone (namespace: {namespace or 'default'})")
             else:
                 raise ValueError("Either ids or filter must be provided")
 

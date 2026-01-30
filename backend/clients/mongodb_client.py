@@ -3,8 +3,9 @@ MongoDB Client
 Database operations for document metadata and raw content storage
 """
 
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING, DESCENDING
 from motor.motor_asyncio import AsyncIOMotorClient
+from bson import ObjectId
 from typing import Optional, Dict, Any, List
 from datetime import datetime
 from app.settings import settings
@@ -16,8 +17,8 @@ class MongoDBClient:
 
     def __init__(self):
         """Initialize MongoDB client"""
-        self.connection_string = settings.DATABASE_URL or settings.MONGODB_URL
-        self.database_name = settings.DB_NAME or settings.MONGODB_DATABASE
+        self.connection_string =  settings.MONGODB_URL
+        self.database_name =  settings.MONGODB_DATABASE
 
         if not self.connection_string:
             raise ValueError("MongoDB connection string not configured")
@@ -37,6 +38,37 @@ class MongoDBClient:
         except Exception as e:
             logger.error(f"❌ MongoDB connection failed: {str(e)}")
             raise
+
+    @staticmethod
+    def to_object_id(id_string: Optional[str]) -> Optional[ObjectId]:
+        """
+        Convert string ID to ObjectId
+
+        Args:
+            id_string: String representation of ObjectId
+
+        Returns:
+            ObjectId or None if conversion fails
+        """
+        if not id_string:
+            return None
+        try:
+            return ObjectId(id_string)
+        except Exception:
+            return None
+
+    @staticmethod
+    def is_valid_object_id(id_string: str) -> bool:
+        """
+        Check if string is a valid ObjectId
+
+        Args:
+            id_string: String to validate
+
+        Returns:
+            True if valid ObjectId format
+        """
+        return ObjectId.is_valid(id_string)
 
     # Document Operations
     def insert_document(self, collection: str, document: Dict[str, Any]) -> str:
@@ -190,12 +222,12 @@ class MongoDBClient:
         Args:
             collection: Collection name
             query: Query filter
-            update: Update operations
+            update: Update operations (should include operators like $set, $push, etc.)
 
         Returns:
             int: Number of documents modified
         """
-        result = await self.async_db[collection].update_one(query, {"$set": update})
+        result = await self.async_db[collection].update_one(query, update)
         logger.info(f"✅ Updated {result.modified_count} document(s) in {collection}")
         return result.modified_count
 
