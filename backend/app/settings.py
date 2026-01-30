@@ -11,12 +11,10 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     # Database
-    DATABASE_URL: str = ""
-    DB_NAME: str = "soldieriq"
+    MONGODB_URL: str = ""
+    MONGODB_DATABASE: str = "soldieriq"
 
-    # Redis
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
+
 
     # Vector Database
     PINECONE_API_KEY: str = ""
@@ -24,22 +22,16 @@ class Settings(BaseSettings):
 
     # LLM APIs
     OPENAI_API_KEY: str = ""
-    ANTHROPIC_API_KEY: str = ""
 
-    # AWS
-    AWS_ACCESS_KEY_ID: str = ""
-    AWS_SECRET_ACCESS_KEY: str = ""
-    AWS_S3_BUCKET: str = ""
-    AWS_S3_REGION: str = "us-east-1"
 
-    # Auth
-    JWT_SECRET: str = ""
-    AWS_COGNITO_USER_POOL_ID: str = ""
-    AWS_COGNITO_CLIENT_ID: str = ""
-    AWS_COGNITO_REGION: str = "us-east-1"
+    # iDrive E2 Storage
+    IDRIVEE2_ENDPOINT_URL: str = ""
+    IDRIVEE2_ACCESS_KEY_ID: str = ""
+    IDRIVEE2_SECRET_ACCESS_KEY: str = ""
+    IDRIVEE2_BUCKET_NAME: str = ""
 
     # Observability
-    SENTRY_DSN: str = ""
+
 
     class Config:
         env_file = ".env"
