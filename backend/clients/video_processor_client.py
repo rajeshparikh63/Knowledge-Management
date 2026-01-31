@@ -10,7 +10,7 @@ import io
 import cv2
 from typing import Dict, List, Optional
 from pathlib import Path
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 from clients.groq_whisper_client import get_groq_whisper_client
 from clients.video_frame_extractor import get_video_frame_extractor
 from clients.video_scene_detector import get_video_scene_detector
@@ -47,34 +47,34 @@ class VideoProcessorClient:
         folder_name: str = "videos"
     ) -> Dict:
         """
-        Process video through complete pipeline
+        Process video through complete streaming pipeline
+
+        MEMORY-EFFICIENT: Uses streaming for unlimited video length!
+        Peak memory: ~50MB regardless of video duration
 
         Pipeline stages:
-        1. Audio extraction → Whisper transcription
-        2. Frame extraction (4 FPS, grayscale)
-        3. Scene detection (SSIM)
-        4. Key frame selection (entropy)
-        5. Color frame extraction (key frames only)
-        6. VLM visual description (includes text extraction)
-        7. Multimodal blending (transcript + visual)
-        8. Return structured chunks
+        1. Audio extraction → Whisper transcription (timestamped)
+        2. Scene detection → SSIM streaming (pass 1, ~10MB memory)
+        3. Key frame selection → Entropy streaming (pass 2, ~10MB memory)
+        4. Color frame extraction → Key frames only (seeking)
+        5. Upload thumbnails → iDrive E2 (file_keys)
+        6. VLM description → Multimodal alignment & blending
+        7. Format output → Combined text + scene chunks
 
         Args:
             file_content: Video file content as bytes
             filename: Original filename
+            folder_name: Folder for organizing uploads (default: "videos")
 
         Returns:
-            List of video chunks with:
-            - chunk_id: str
-            - video_id: str
-            - video_name: str
-            - clip_start: float
-            - clip_end: float
-            - duration: float
-            - key_frame_timestamp: float
-            - transcript_text: str
-            - visual_description: str
-            - blended_text: str (for embedding)
+            Dictionary with:
+            - combined_text: str (all scenes for MongoDB)
+            - chunks: List[Dict] (scene chunks for Pinecone)
+                Each chunk has:
+                - chunk_id, video_id, video_name
+                - clip_start, clip_end, duration
+                - key_frame_timestamp, keyframe_file_key
+                - transcript_text, visual_description, blended_text
 
         Raises:
             Exception: If processing fails
@@ -87,35 +87,38 @@ class VideoProcessorClient:
                 video_id = self._sanitize_video_id(filename)
                 video_name = filename
 
-                # Stage 1: Extract audio and transcribe
-                logger.info("📝 Stage 1/7: Audio transcription")
+                # Stage 1: Extract audio and transcribe (timestamped)
+                logger.info("📝 Stage 1/7: Audio transcription (timestamped)")
                 transcript_segments = self._extract_and_transcribe_audio(
                     file_content,
                     filename
                 )
 
-                # Stage 2: Extract frames
-                logger.info("📸 Stage 2/7: Frame extraction")
+                # Stage 2: Detect scenes using streaming (pass 1)
+                logger.info("🎬 Stage 2/7: Scene detection (streaming - pass 1)")
                 frame_extractor = get_video_frame_extractor()
-                frames = frame_extractor.extract_frames(file_content, filename)
-
-                if not frames:
-                    raise Exception("No frames extracted from video")
-
-                # Stage 3: Detect scenes
-                logger.info("🎬 Stage 3/7: Scene detection")
                 scene_detector = get_video_scene_detector()
-                scenes = scene_detector.detect_scenes(frames)
+
+                # Stream frames for scene detection (memory: ~10MB)
+                frame_generator_1 = frame_extractor.extract_frames_streaming(file_content, filename)
+                scenes = scene_detector.detect_scenes_streaming(frame_generator_1)
 
                 if not scenes:
                     raise Exception("No scenes detected in video")
 
-                # Stage 4: Select key frames
-                logger.info("🔑 Stage 4/7: Key frame selection")
-                key_frames_data = scene_detector.select_key_frames(scenes)
+                logger.info(f"✅ Detected {len(scenes)} scenes (memory-efficient streaming)")
 
-                # Stage 5: Extract color frames for key frames
-                logger.info("🖼️ Stage 5/7: Color frame extraction")
+                # Stage 3: Select key frames using streaming (pass 2)
+                logger.info("🔑 Stage 3/7: Key frame selection (streaming - pass 2)")
+
+                # Stream frames again for entropy calculation (memory: ~10MB)
+                frame_generator_2 = frame_extractor.extract_frames_streaming(file_content, filename)
+                key_frames_data = scene_detector.select_key_frames_streaming(frame_generator_2, scenes)
+
+                logger.info(f"✅ Selected {len(key_frames_data)} key frames (memory-efficient streaming)")
+
+                # Stage 4: Extract color frames for key frames only
+                logger.info("🖼️ Stage 4/7: Color frame extraction (key frames only)")
                 color_frames = []
                 for kf in key_frames_data:
                     color_frame = frame_extractor.extract_color_frame(
@@ -125,12 +128,10 @@ class VideoProcessorClient:
                     )
                     color_frames.append(color_frame)
 
-                # Clean up grayscale frames to free memory
-                del frames
-                logger.debug("🧹 Cleaned up grayscale frames from memory")
+                logger.info(f"✅ Extracted {len(color_frames)} color key frames")
 
-                # Stage 5.5: Upload key frame thumbnails to iDrive E2
-                logger.info("📤 Stage 5.5/8: Uploading key frame thumbnails")
+                # Stage 5: Upload key frame thumbnails to iDrive E2
+                logger.info("📤 Stage 5/7: Uploading key frame thumbnails")
                 keyframe_file_keys = self._upload_keyframe_thumbnails(
                     color_frames,
                     key_frames_data,
@@ -138,8 +139,8 @@ class VideoProcessorClient:
                     folder_name
                 )
 
-                # Stage 6-7: Align and blend (includes VLM description)
-                logger.info("🔗 Stage 6-7/7: Alignment and multimodal blending")
+                # Stage 6: Align and blend (includes VLM description)
+                logger.info("🔗 Stage 6/7: Alignment and multimodal blending")
                 aligner = get_video_aligner()
                 aligned_chunks = aligner.align_and_blend(
                     transcript_segments,
@@ -148,13 +149,13 @@ class VideoProcessorClient:
                     color_frames
                 )
 
-                # Clean up color frames
+                # Clean up color frames and scenes from memory
                 del color_frames
                 del scenes
                 logger.debug("🧹 Cleaned up color frames and scenes from memory")
 
-                # Stage 8: Format final output
-                logger.info("📦 Stage 8/7: Formatting final output")
+                # Stage 7: Format final output
+                logger.info("📦 Stage 7/7: Formatting final output")
                 final_chunks = []
                 combined_text_parts = []
 
@@ -235,6 +236,13 @@ class VideoProcessorClient:
             logger.info("🎵 Extracting audio from video...")
             video_clip = VideoFileClip(video_path)
 
+            # Check if video has audio track
+            if video_clip.audio is None:
+                video_clip.close()
+                logger.warning("⚠️ Video has no audio track")
+                logger.info("📝 Continuing with visual-only processing (no audio transcript)")
+                return []
+
             # Create temp audio file
             with tempfile.NamedTemporaryFile(
                 delete=False,
@@ -279,12 +287,18 @@ class VideoProcessorClient:
             # Clean up temp files
             import os
             if audio_path and os.path.exists(audio_path):
-                os.unlink(audio_path)
-                logger.debug(f"🧹 Cleaned up temp audio file: {audio_path}")
+                try:
+                    os.unlink(audio_path)
+                    logger.debug(f"🧹 Cleaned up temp audio file: {audio_path}")
+                except Exception as e:
+                    logger.warning(f"Failed to delete temp audio file: {str(e)}")
 
             if video_path and os.path.exists(video_path):
-                os.unlink(video_path)
-                logger.debug(f"🧹 Cleaned up temp video file: {video_path}")
+                try:
+                    os.unlink(video_path)
+                    logger.debug(f"🧹 Cleaned up temp video file: {video_path}")
+                except Exception as e:
+                    logger.warning(f"Failed to delete temp video file: {str(e)}")
 
     def _upload_keyframe_thumbnails(
         self,

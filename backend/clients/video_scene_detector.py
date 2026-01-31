@@ -33,6 +33,101 @@ class VideoSceneDetector:
             self._initialized = True
             logger.info("✅ Video scene detector initialized")
 
+    def detect_scenes_streaming(
+        self,
+        frame_generator,
+        ssim_threshold: Optional[float] = None
+    ) -> List[Dict]:
+        """
+        Detect scene boundaries using streaming SSIM (memory-efficient)
+
+        Uses sliding window - only keeps 2 frames in memory at a time!
+        Perfect for videos of any length.
+
+        Args:
+            frame_generator: Generator yielding frame dicts
+            ssim_threshold: Similarity threshold (default: from settings)
+
+        Returns:
+            List of scene boundary dictionaries with:
+            - scene_id: int
+            - start_frame: int
+            - end_frame: int
+            - start_time: float
+            - end_time: float
+
+        Raises:
+            Exception: If detection fails
+        """
+        with self._detection_lock:
+            try:
+                ssim_threshold = ssim_threshold or settings.VIDEO_SSIM_THRESHOLD
+
+                logger.info(f"🔍 Detecting scenes with streaming SSIM (threshold: {ssim_threshold})")
+
+                # Scene boundaries: list of (frame_number, timestamp) tuples
+                boundaries = [(0, 0.0)]  # Start with first frame
+
+                prev_frame = None
+                frame_count = 0
+                last_frame = None
+
+                for current_frame in frame_generator:
+                    if prev_frame is not None:
+                        # Compare only with previous frame (sliding window!)
+                        similarity = ssim(
+                            prev_frame['gray'],
+                            current_frame['gray'],
+                            data_range=255
+                        )
+
+                        # If similarity drops below threshold, mark scene boundary
+                        if similarity < ssim_threshold:
+                            boundaries.append((current_frame['frame_number'], current_frame['timestamp']))
+                            logger.debug(
+                                f"Scene boundary at frame {current_frame['frame_number']} "
+                                f"(SSIM: {similarity:.3f})"
+                            )
+
+                    # Update prev_frame (only keep 1 frame in memory!)
+                    prev_frame = current_frame
+                    last_frame = current_frame
+                    frame_count += 1
+
+                    # Log progress every 5000 frames
+                    if frame_count % 5000 == 0:
+                        logger.info(f"⏳ Scene detection progress: {frame_count} frames, {len(boundaries)-1} scenes found")
+
+                # Add last frame as boundary
+                if last_frame:
+                    boundaries.append((last_frame['frame_number'], last_frame['timestamp']))
+
+                # Convert boundaries to scenes
+                scenes = []
+                for i in range(len(boundaries) - 1):
+                    start_frame, start_time = boundaries[i]
+                    end_frame, end_time = boundaries[i + 1]
+
+                    scenes.append({
+                        'scene_id': i,
+                        'start_frame': start_frame,
+                        'end_frame': end_frame,
+                        'start_time': start_time,
+                        'end_time': end_time,
+                        'num_frames': end_frame - start_frame
+                    })
+
+                logger.info(
+                    f"✅ Detected {len(scenes)} scenes using streaming "
+                    f"(processed {frame_count} frames)"
+                )
+
+                return scenes
+
+            except Exception as e:
+                logger.error(f"❌ Streaming scene detection failed: {str(e)}")
+                raise Exception(f"Streaming scene detection failed: {str(e)}")
+
     def detect_scenes(
         self,
         frames: List[Dict],
@@ -179,6 +274,91 @@ class VideoSceneDetector:
             except Exception as e:
                 logger.error(f"❌ Key frame selection failed: {str(e)}")
                 raise Exception(f"Key frame selection failed: {str(e)}")
+
+    def select_key_frames_streaming(
+        self,
+        frame_generator,
+        scenes: List[Dict]
+    ) -> List[Dict]:
+        """
+        Select key frames from scenes using streaming (memory-efficient)
+
+        Streams through frames once, calculates entropy for frames in each scene,
+        and selects the best frame per scene.
+
+        Args:
+            frame_generator: Generator yielding frame dicts
+            scenes: List of scene dicts from detect_scenes_streaming()
+
+        Returns:
+            List of key frame dictionaries with:
+            - frame_number: int
+            - timestamp: float
+            - scene_id: int
+            - scene_start: float
+            - scene_end: float
+            - entropy: float
+
+        Raises:
+            Exception: If selection fails
+        """
+        with self._detection_lock:
+            try:
+                logger.info(f"🔑 Selecting key frames from {len(scenes)} scenes (streaming)")
+
+                # Create a dict to track best frame for each scene
+                scene_best_frames = {}
+                for scene in scenes:
+                    scene_best_frames[scene['scene_id']] = {
+                        'entropy': -1,
+                        'frame_number': None,
+                        'timestamp': None
+                    }
+
+                # Stream through frames once
+                for frame in frame_generator:
+                    frame_num = frame['frame_number']
+
+                    # Find which scene this frame belongs to
+                    for scene in scenes:
+                        if scene['start_frame'] <= frame_num < scene['end_frame']:
+                            # Calculate entropy for this frame
+                            entropy = self._calculate_entropy(frame['gray'])
+
+                            # Update if this is better than current best
+                            if entropy > scene_best_frames[scene['scene_id']]['entropy']:
+                                scene_best_frames[scene['scene_id']] = {
+                                    'entropy': entropy,
+                                    'frame_number': frame_num,
+                                    'timestamp': frame['timestamp']
+                                }
+                            break
+
+                # Convert to list
+                key_frames = []
+                for scene in scenes:
+                    best = scene_best_frames[scene['scene_id']]
+                    if best['frame_number'] is not None:
+                        key_frames.append({
+                            'frame_number': best['frame_number'],
+                            'timestamp': best['timestamp'],
+                            'scene_id': scene['scene_id'],
+                            'scene_start': scene['start_time'],
+                            'scene_end': scene['end_time'],
+                            'entropy': best['entropy']
+                        })
+                        logger.debug(
+                            f"Key frame for scene {scene['scene_id']}: "
+                            f"frame {best['frame_number']} (entropy: {best['entropy']:.2f})"
+                        )
+
+                logger.info(f"✅ Selected {len(key_frames)} key frames using streaming")
+
+                return key_frames
+
+            except Exception as e:
+                logger.error(f"❌ Streaming key frame selection failed: {str(e)}")
+                raise Exception(f"Streaming key frame selection failed: {str(e)}")
 
     def _calculate_entropy(self, image: np.ndarray) -> float:
         """

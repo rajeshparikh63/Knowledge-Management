@@ -1223,6 +1223,15 @@
         "documentation": {}
     },
     {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
         "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
@@ -1250,10 +1259,10 @@
     },
     {
         "label": "VideoFileClip",
-        "importPath": "moviepy.editor",
-        "description": "moviepy.editor",
+        "importPath": "moviepy",
+        "description": "moviepy",
         "isExtraImport": true,
-        "detail": "moviepy.editor",
+        "detail": "moviepy",
         "documentation": {}
     },
     {
@@ -1334,15 +1343,6 @@
         "description": "models.health",
         "isExtraImport": true,
         "detail": "models.health",
-        "documentation": {}
-    },
-    {
-        "label": "asyncio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "asyncio",
-        "description": "asyncio",
-        "detail": "asyncio",
         "documentation": {}
     },
     {

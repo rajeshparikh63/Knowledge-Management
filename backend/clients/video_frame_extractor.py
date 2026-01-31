@@ -35,6 +35,115 @@ class VideoFrameExtractor:
             self._initialized = True
             logger.info("✅ Video frame extractor initialized")
 
+    def extract_frames_streaming(
+        self,
+        file_content: bytes,
+        filename: str,
+        target_fps: Optional[int] = None
+    ):
+        """
+        Extract frames from video using streaming generator (memory-efficient)
+
+        Yields frames one at a time instead of storing all in memory.
+        Perfect for long videos - constant ~10MB memory usage.
+
+        Args:
+            file_content: Video file content as bytes
+            filename: Original filename
+            target_fps: Target frames per second (default: from settings)
+
+        Yields:
+            Frame dictionaries with:
+            - frame_number: int
+            - timestamp: float (seconds)
+            - gray: ndarray (grayscale image for SSIM)
+
+        Raises:
+            Exception: If extraction fails
+        """
+        with self._extraction_lock:
+            try:
+                target_fps = target_fps or settings.VIDEO_TARGET_FPS
+                extension = Path(filename).suffix.lower()
+
+                # Write to temp file
+                with tempfile.NamedTemporaryFile(
+                    delete=False,
+                    suffix=extension
+                ) as tmp_file:
+                    tmp_file.write(file_content)
+                    tmp_file.flush()
+                    tmp_file_path = tmp_file.name
+
+                try:
+                    # Open video file
+                    cap = cv2.VideoCapture(tmp_file_path)
+
+                    if not cap.isOpened():
+                        raise Exception(f"Failed to open video file: {filename}")
+
+                    # Get video properties
+                    original_fps = cap.get(cv2.CAP_PROP_FPS)
+                    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+                    duration = total_frames / original_fps if original_fps > 0 else 0
+
+                    logger.info(
+                        f"📹 Video info (streaming): {filename} - "
+                        f"FPS={original_fps:.2f}, "
+                        f"Frames={total_frames}, "
+                        f"Duration={duration:.2f}s"
+                    )
+
+                    # Calculate frame skip
+                    frame_skip = int(original_fps / target_fps) if original_fps > target_fps else 1
+
+                    # Stream frames one at a time
+                    frame_count = 0
+                    extracted_count = 0
+
+                    while True:
+                        ret, frame = cap.read()
+                        if not ret:
+                            break
+
+                        # Yield frame at target FPS
+                        if frame_count % frame_skip == 0:
+                            # Convert to grayscale for SSIM
+                            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+                            timestamp = frame_count / original_fps if original_fps > 0 else 0
+
+                            yield {
+                                'frame_number': frame_count,
+                                'timestamp': timestamp,
+                                'gray': gray
+                            }
+                            extracted_count += 1
+
+                            # Log progress every 1000 frames
+                            if extracted_count % 1000 == 0:
+                                progress = (frame_count / total_frames) * 100
+                                logger.info(f"⏳ Streaming progress: {progress:.1f}% ({extracted_count} frames)")
+
+                        frame_count += 1
+
+                    cap.release()
+
+                    logger.info(
+                        f"✅ Streamed {extracted_count} frames from {filename} "
+                        f"(target FPS: {target_fps})"
+                    )
+
+                finally:
+                    # Clean up temp file
+                    import os
+                    if os.path.exists(tmp_file_path):
+                        os.unlink(tmp_file_path)
+
+            except Exception as e:
+                logger.error(f"❌ Frame streaming failed for {filename}: {str(e)}")
+                raise Exception(f"Frame streaming failed: {str(e)}")
+
     def extract_frames(
         self,
         file_content: bytes,

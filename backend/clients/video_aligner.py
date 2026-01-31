@@ -7,6 +7,7 @@ Thread-safe singleton implementation
 import base64
 import cv2
 import threading
+import asyncio
 from typing import List, Dict, Optional
 import numpy as np
 from langchain_core.prompts import ChatPromptTemplate
@@ -68,56 +69,16 @@ class VideoAligner:
             try:
                 logger.info(
                     f"🔗 Aligning {len(transcript_segments)} transcript segments "
-                    f"with {len(scenes)} scenes"
+                    f"with {len(scenes)} scenes (parallel with max 5 concurrent)"
                 )
 
-                aligned_chunks = []
-
-                for i, scene in enumerate(scenes):
-                    # Find overlapping transcript segments for this scene
-                    scene_start = scene['start_time']
-                    scene_end = scene['end_time']
-
-                    overlapping_segments = self._find_overlapping_segments(
-                        transcript_segments,
-                        scene_start,
-                        scene_end
-                    )
-
-                    # Combine transcript text
-                    transcript_text = " ".join([seg['text'] for seg in overlapping_segments])
-
-                    # Get visual description from VLM for key frame
-                    key_frame_data = key_frames_data[i]
-                    color_frame = color_frames[i]
-
-                    visual_description = self._describe_frame_with_vlm(
-                        color_frame,
-                        key_frame_data['timestamp']
-                    )
-
-                    # Blend transcript + visual description
-                    blended_text = self._blend_multimodal_content(
-                        transcript_text,
-                        visual_description
-                    )
-
-                    aligned_chunks.append({
-                        'scene_id': scene['scene_id'],
-                        'clip_start': scene_start,
-                        'clip_end': scene_end,
-                        'transcript_text': transcript_text,
-                        'visual_description': visual_description,
-                        'blended_text': blended_text,
-                        'key_frame_timestamp': key_frame_data['timestamp']
-                    })
-
-                    logger.debug(
-                        f"Aligned scene {scene['scene_id']}: "
-                        f"{len(overlapping_segments)} segments, "
-                        f"{len(transcript_text)} chars transcript, "
-                        f"{len(visual_description)} chars visual"
-                    )
+                # Process all scenes in parallel with semaphore limit of 5
+                aligned_chunks = self._process_scenes_parallel(
+                    scenes,
+                    transcript_segments,
+                    key_frames_data,
+                    color_frames
+                )
 
                 logger.info(f"✅ Created {len(aligned_chunks)} aligned chunks")
 
@@ -126,6 +87,100 @@ class VideoAligner:
             except Exception as e:
                 logger.error(f"❌ Alignment and blending failed: {str(e)}")
                 raise Exception(f"Alignment and blending failed: {str(e)}")
+
+    def _process_scenes_parallel(
+        self,
+        scenes: List[Dict],
+        transcript_segments: List[Dict],
+        key_frames_data: List[Dict],
+        color_frames: List
+    ) -> List[Dict]:
+        """
+        Process all scenes in parallel with semaphore limit using pure asyncio
+
+        Uses pure asyncio with ainvoke for optimal I/O-bound API calls.
+        More efficient than ThreadPoolExecutor - no thread overhead.
+
+        Args:
+            scenes: List of scene dicts
+            transcript_segments: List of transcript segments
+            key_frames_data: List of key frame metadata
+            color_frames: List of color frames
+
+        Returns:
+            List of aligned chunks (same order as scenes)
+        """
+        async def process_single_scene(
+            semaphore: asyncio.Semaphore,
+            scene: Dict,
+            i: int
+        ) -> Dict:
+            """Process one scene with semaphore limit"""
+            async with semaphore:  # Max 5 concurrent
+                # Find overlapping transcript segments
+                scene_start = scene['start_time']
+                scene_end = scene['end_time']
+
+                overlapping_segments = self._find_overlapping_segments(
+                    transcript_segments,
+                    scene_start,
+                    scene_end
+                )
+
+                # Combine transcript text
+                transcript_text = " ".join([seg['text'] for seg in overlapping_segments])
+
+                # Get visual description from VLM (pure async)
+                key_frame_data = key_frames_data[i]
+                color_frame = color_frames[i]
+
+                visual_description = await self._describe_frame_with_vlm_async(
+                    color_frame,
+                    key_frame_data['timestamp']
+                )
+
+                # Blend transcript + visual (pure async)
+                blended_text = await self._blend_multimodal_content_async(
+                    transcript_text,
+                    visual_description
+                )
+
+                logger.debug(
+                    f"✓ Scene {scene['scene_id']}: "
+                    f"{len(overlapping_segments)} segments, "
+                    f"{len(transcript_text)} chars transcript"
+                )
+
+                return {
+                    'scene_id': scene['scene_id'],
+                    'clip_start': scene_start,
+                    'clip_end': scene_end,
+                    'transcript_text': transcript_text,
+                    'visual_description': visual_description,
+                    'blended_text': blended_text,
+                    'key_frame_timestamp': key_frame_data['timestamp']
+                }
+
+        async def process_all_scenes():
+            """Process all scenes concurrently with semaphore"""
+            semaphore = asyncio.Semaphore(5)  # Max 5 concurrent API calls
+
+            tasks = [
+                process_single_scene(semaphore, scene, i)
+                for i, scene in enumerate(scenes)
+            ]
+
+            results = await asyncio.gather(*tasks)
+            return results
+
+        # Run async processing
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            aligned_chunks = loop.run_until_complete(process_all_scenes())
+            return aligned_chunks
+        finally:
+            loop.close()
 
     def _find_overlapping_segments(
         self,
@@ -158,15 +213,16 @@ class VideoAligner:
 
         return overlapping
 
-    def _describe_frame_with_vlm(
+    async def _describe_frame_with_vlm_async(
         self,
         frame: np.ndarray,
         timestamp: float
     ) -> str:
         """
-        Describe frame using VLM (extracts text + visual content)
+        Describe frame using VLM (extracts text + visual content) - ASYNC VERSION
 
-        Uses same prompt as image_analysis_client.py for consistency
+        Uses same prompt as image_analysis_client.py for consistency.
+        Uses ainvoke for true async I/O without thread overhead.
 
         Args:
             frame: Color frame as BGR numpy array
@@ -224,9 +280,9 @@ class VideoAligner:
                 )
             ])
 
-            # Execute chain
+            # Execute chain with ainvoke for true async
             chain = prompt | llm
-            response = chain.invoke({})
+            response = await chain.ainvoke({})
 
             visual_description = response.content
 
@@ -242,13 +298,15 @@ class VideoAligner:
             # Return fallback
             return f"[Visual description unavailable for frame at {timestamp:.2f}s]"
 
-    def _blend_multimodal_content(
+    async def _blend_multimodal_content_async(
         self,
         transcript_text: str,
         visual_description: str
     ) -> str:
         """
-        Blend transcript and visual description using LLM
+        Blend transcript and visual description using LLM - ASYNC VERSION
+
+        Uses ainvoke for true async I/O without thread overhead.
 
         Args:
             transcript_text: Spoken words from transcript
@@ -294,7 +352,7 @@ class VideoAligner:
             ])
 
             chain = prompt | llm
-            response = chain.invoke({
+            response = await chain.ainvoke({
                 "transcript": transcript_text,
                 "visual": visual_description
             })
