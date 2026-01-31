@@ -60,3 +60,4 @@ htmlcov/
 *.db
 *.sqlite
 .claude
+.vscode/

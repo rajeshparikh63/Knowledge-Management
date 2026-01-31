@@ -7,6 +7,7 @@ from typing import Optional
 from agno.agent import Agent
 from utils.agno_tools import create_knowledge_retriever
 from clients.ultimate_llm import get_llm_agno
+from clients.agent_memory import get_agent_db, get_memory_manager
 from app.logger import logger
 
 
@@ -37,6 +38,10 @@ async def create_chat_agent(
 
         # Get LLM (Agno-compatible)
         llm = get_llm_agno(model=model, provider=provider)
+
+        # Get database and memory manager
+        db_instance = get_agent_db()
+        memory_manager = get_memory_manager()
 
         # Create knowledge retriever
         knowledge_retriever = create_knowledge_retriever(
@@ -156,6 +161,10 @@ Deliver precise, high-quality answers that prioritize knowledge base sources whe
             add_history_to_context=True,
             num_history_runs=3,  # Keep last 3 conversation turns
             add_datetime_to_context=True,
+            db=db_instance,
+            memory_manager=memory_manager,
+            enable_agentic_memory=True,
+            enable_user_memories=True,
             debug_mode=True
         )
 
