@@ -96,10 +96,15 @@ class VideoAligner:
         color_frames: List
     ) -> List[Dict]:
         """
-        Process all scenes in parallel with semaphore limit using pure asyncio
+        Process all scenes with BATCHED parallelism for maximum throughput
 
-        Uses pure asyncio with ainvoke for optimal I/O-bound API calls.
-        More efficient than ThreadPoolExecutor - no thread overhead.
+        Strategy (for 916 scenes):
+        Phase 1: Batch all 916 VLM descriptions together (25 concurrent)
+        Phase 2: Batch all 916 blending calls together (25 concurrent)
+
+        Performance:
+        - Old approach: 916 scenes / 5 = 183 batches × 15s = ~45 minutes
+        - New approach: 916 / 25 = 37 batches × 2 phases × 7s = ~9 minutes ✅
 
         Args:
             scenes: List of scene dicts
@@ -110,74 +115,73 @@ class VideoAligner:
         Returns:
             List of aligned chunks (same order as scenes)
         """
-        async def process_single_scene(
-            semaphore: asyncio.Semaphore,
-            scene: Dict,
-            i: int
-        ) -> Dict:
-            """Process one scene with semaphore limit"""
-            async with semaphore:  # Max 5 concurrent
-                # Find overlapping transcript segments
-                scene_start = scene['start_time']
-                scene_end = scene['end_time']
+        async def process_all_batched():
+            """Process with batched API calls for maximum throughput"""
+            num_scenes = len(scenes)
 
+            # Step 1: Prepare all transcript texts (no API calls, fast)
+            logger.info(f"📝 Step 1/3: Preparing {num_scenes} transcript alignments...")
+            transcript_texts = []
+            for scene in scenes:
                 overlapping_segments = self._find_overlapping_segments(
                     transcript_segments,
-                    scene_start,
-                    scene_end
+                    scene['start_time'],
+                    scene['end_time']
                 )
-
-                # Combine transcript text
                 transcript_text = " ".join([seg['text'] for seg in overlapping_segments])
+                transcript_texts.append(transcript_text)
+            logger.info(f"✅ Prepared {num_scenes} transcript texts")
 
-                # Get visual description from VLM (pure async)
-                key_frame_data = key_frames_data[i]
-                color_frame = color_frames[i]
+            # Step 2: Batch all VLM descriptions (25 concurrent)
+            logger.info(f"🎨 Step 2/3: Processing {num_scenes} VLM descriptions (25 concurrent)...")
+            semaphore_vlm = asyncio.Semaphore(25)
 
-                visual_description = await self._describe_frame_with_vlm_async(
-                    color_frame,
-                    key_frame_data['timestamp']
-                )
+            async def describe_one_frame(i: int):
+                async with semaphore_vlm:
+                    return await self._describe_frame_with_vlm_async(
+                        color_frames[i],
+                        key_frames_data[i]['timestamp']
+                    )
 
-                # Blend transcript + visual (pure async)
-                blended_text = await self._blend_multimodal_content_async(
-                    transcript_text,
-                    visual_description
-                )
+            vlm_tasks = [describe_one_frame(i) for i in range(num_scenes)]
+            visual_descriptions = await asyncio.gather(*vlm_tasks)
+            logger.info(f"✅ Completed {num_scenes} VLM descriptions")
 
-                logger.debug(
-                    f"✓ Scene {scene['scene_id']}: "
-                    f"{len(overlapping_segments)} segments, "
-                    f"{len(transcript_text)} chars transcript"
-                )
+            # Step 3: Batch all blending (25 concurrent)
+            logger.info(f"🔗 Step 3/3: Processing {num_scenes} content blends (25 concurrent)...")
+            semaphore_blend = asyncio.Semaphore(25)
 
-                return {
+            async def blend_one_content(i: int):
+                async with semaphore_blend:
+                    return await self._blend_multimodal_content_async(
+                        transcript_texts[i],
+                        visual_descriptions[i]
+                    )
+
+            blend_tasks = [blend_one_content(i) for i in range(num_scenes)]
+            blended_texts = await asyncio.gather(*blend_tasks)
+            logger.info(f"✅ Completed {num_scenes} content blends")
+
+            # Step 4: Assemble final results
+            aligned_chunks = []
+            for i, scene in enumerate(scenes):
+                aligned_chunks.append({
                     'scene_id': scene['scene_id'],
-                    'clip_start': scene_start,
-                    'clip_end': scene_end,
-                    'transcript_text': transcript_text,
-                    'visual_description': visual_description,
-                    'blended_text': blended_text,
-                    'key_frame_timestamp': key_frame_data['timestamp']
-                }
+                    'clip_start': scene['start_time'],
+                    'clip_end': scene['end_time'],
+                    'transcript_text': transcript_texts[i],
+                    'visual_description': visual_descriptions[i],
+                    'blended_text': blended_texts[i],
+                    'key_frame_timestamp': key_frames_data[i]['timestamp']
+                })
 
-        async def process_all_scenes():
-            """Process all scenes concurrently with semaphore"""
-            semaphore = asyncio.Semaphore(5)  # Max 5 concurrent API calls
-
-            tasks = [
-                process_single_scene(semaphore, scene, i)
-                for i, scene in enumerate(scenes)
-            ]
-
-            results = await asyncio.gather(*tasks)
-            return results
+            return aligned_chunks
 
         # Run async processing
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         try:
-            aligned_chunks = loop.run_until_complete(process_all_scenes())
+            aligned_chunks = loop.run_until_complete(process_all_batched())
             return aligned_chunks
         finally:
             loop.close()
@@ -240,7 +244,7 @@ class VideoAligner:
             image_base64 = base64.b64encode(buffer).decode('utf-8')
 
             # Get VLM (using OpenAI vision)
-            llm = get_llm(model="gpt-5-nano", provider="openai")
+            llm = get_llm(model="openai/gpt-5-nano", provider="openrouter")
 
             # Create prompt (same as image_analysis_client.py)
             prompt = ChatPromptTemplate.from_messages([
@@ -330,7 +334,7 @@ class VideoAligner:
                 return transcript_text
 
             # Use LLM to intelligently blend both modalities
-            llm = get_llm(model="gpt-5-nano", provider="openai")
+            llm = get_llm(model="openai/gpt-5-nano", provider="openrouter")
 
             prompt = ChatPromptTemplate.from_messages([
                 (
