@@ -9,6 +9,7 @@ from clients.markitdown_client import get_markitdown_client, MarkItDownClient
 from clients.unstructured_client import get_unstructured_client, UnstructuredClient
 from clients.image_analysis_client import get_image_analysis_client
 from clients.groq_whisper_client import get_groq_whisper_client
+from clients.video_processor_client import get_video_processor_client
 from app.logger import logger
 
 
@@ -67,7 +68,7 @@ def is_audio_file(extension: str) -> bool:
     return extension in audio_formats
 
 
-def extract_raw_data(file_content: bytes, file_name: str) -> str:
+def extract_raw_data(file_content: bytes, file_name: str, folder_name: str = "files") -> str:
     """
     Extract raw text content from file
 
@@ -97,11 +98,17 @@ def extract_raw_data(file_content: bytes, file_name: str) -> str:
         image_client = get_image_analysis_client()
         return image_client.analyze_image(file_content, file_name)
 
-    # Check if video file - skip for now
+    # Check if video file - process with video processor
     if is_video_file(extension):
-        logger.warning(f"⚠️ Video files not supported yet: {file_name}")
-        pass
-        return f"[Video file skipped: {file_name}]"
+        logger.info(f"🎬 Processing video file: {file_name}")
+        video_client = get_video_processor_client()
+        result = video_client.process_video(file_content, file_name, folder_name)
+        # Return special format: combined_text for MongoDB + chunks for Pinecone
+        return {
+            'type': 'video',
+            'combined_text': result['combined_text'],
+            'chunks': result['chunks']
+        }
 
     # Check if audio file - use Groq Whisper for transcription
     if is_audio_file(extension):

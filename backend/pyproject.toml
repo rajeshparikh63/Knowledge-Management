@@ -49,5 +49,9 @@ dependencies = [
     "chonkie>=1.5.4",
     "agno>=2.4.7",
     "groq>=1.0.0",
+    "opencv-python>=4.13.0.90",
+    "moviepy>=2.2.1",
+    "scikit-image>=0.26.0",
+    "numpy>=2.4.1",
 ]
 

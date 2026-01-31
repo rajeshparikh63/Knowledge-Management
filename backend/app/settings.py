@@ -36,6 +36,12 @@ class Settings(BaseSettings):
     UNSTRUCTURED_API_KEY: str = ""
     UNSTRUCTURED_API_URL: str = ""
 
+    # Video Processing
+    VIDEO_TARGET_FPS: int = 4  # Frame extraction rate (frames per second)
+    VIDEO_SSIM_THRESHOLD: float = 0.6  # Scene detection sensitivity (0-1)
+    VIDEO_MIN_CLIP_DURATION: float = 10.0  # Minimum scene length in seconds
+    VIDEO_MAX_CLIP_DURATION: float = 45.0  # Maximum scene length in seconds
+
     # File Storage
     PRESIGNED_URL_EXPIRATION: int = 604800  # 7 days in seconds (maximum)
 

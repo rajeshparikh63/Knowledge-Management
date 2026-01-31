@@ -49,7 +49,26 @@ class GroqWhisperClient:
             filename: Original filename
 
         Returns:
-            Transcribed text
+            Transcribed text (plain text, no timestamps)
+
+        Raises:
+            Exception: If transcription fails
+        """
+        segments = self.transcribe_audio_with_timestamps(file_content, filename)
+        # Combine all segment texts
+        return " ".join([seg['text'] for seg in segments])
+
+    def transcribe_audio_with_timestamps(self, file_content: bytes, filename: str) -> list:
+        """
+        Transcribe audio file with timestamps using Groq's Whisper Large V3
+
+        Args:
+            file_content: Audio file content as bytes
+            filename: Original filename
+
+        Returns:
+            List of segments with timestamps:
+            [{'start': float, 'end': float, 'text': str}, ...]
 
         Raises:
             Exception: If transcription fails
@@ -68,20 +87,33 @@ class GroqWhisperClient:
                     tmp_file_path = tmp_file.name
 
                 try:
-                    # Transcribe using Groq Whisper Large V3
+                    # Transcribe using Groq Whisper Large V3 with verbose JSON for timestamps
                     with open(tmp_file_path, "rb") as audio_file:
                         transcription = self.client.audio.transcriptions.create(
                             file=(filename, audio_file.read()),
                             model="whisper-large-v3",
-                            response_format="text",
+                            response_format="verbose_json",  # Get timestamps
                             language="en",  # Optional: specify language or let it auto-detect
                             temperature=0.0
                         )
 
-                    transcribed_text = transcription if isinstance(transcription, str) else transcription.text
+                    # Extract segments with timestamps
+                    segments = []
+                    if hasattr(transcription, 'segments') and transcription.segments:
+                        for seg in transcription.segments:
+                            segments.append({
+                                'start': seg.start,
+                                'end': seg.end,
+                                'text': seg.text.strip()
+                            })
+                    else:
+                        # Fallback if no segments (shouldn't happen with verbose_json)
+                        logger.warning(f"No segments returned for {filename}, using full text")
+                        text = transcription.text if hasattr(transcription, 'text') else str(transcription)
+                        segments = [{'start': 0.0, 'end': 0.0, 'text': text}]
 
-                    logger.info(f"✅ Groq Whisper transcribed {len(transcribed_text)} chars from {filename}")
-                    return transcribed_text
+                    logger.info(f"✅ Groq Whisper transcribed {len(segments)} segments from {filename}")
+                    return segments
 
                 finally:
                     # Clean up temp file
