@@ -29,11 +29,15 @@ class TAKCredentials(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    """Request model for chat endpoint"""
+    """Request model for chat endpoint.
+
+    Note: `file_names` was removed — filenames were never authoritative and the
+    LLM was told to ignore them anyway. The agent learns what's in each
+    selected doc from the actual retrieved chunks via document_ids scoping.
+    """
     message: str
     session_id: Optional[str] = None
     document_ids: Optional[list[str]] = None
-    file_names: Optional[list[str]] = None  # Titles of selected documents
     model: Optional[str] = "anthropic/claude-sonnet-4.5"  # Use "functiongemma:270m" for hybrid mode
     tak_credentials: Optional[TAKCredentials] = None  # Optional TAK integration
     # user_id and organization_id are extracted from JWT token by backend
@@ -76,7 +80,6 @@ async def chat(request: ChatRequest, current_user: dict = Depends(get_current_us
             user_id=user_id,
             organization_id=organization_id,
             document_ids=request.document_ids,
-            file_names=request.file_names,
             model=request.model,
             tak_credentials=request.tak_credentials
         )

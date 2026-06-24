@@ -890,13 +890,20 @@ class IngestionService:
             "failed_at": None
         }
 
-        # Add additional metadata if provided
+        # Add additional metadata if provided. `id` is a top-level column;
+        # everything else (source, drive_file_id, …) must go into the `metadata`
+        # jsonb column — NOT spread at the top level, where insert_document
+        # would silently drop it (which broke Drive dedup + the import banner).
         if additional_metadata:
-            document_data.update(additional_metadata)
+            extra = dict(additional_metadata)
+            if "id" in extra:
+                document_data["id"] = extra.pop("id")
+            if extra:
+                document_data["metadata"] = extra
 
         await self.postgres_client.insert_document(document_data)
 
-        return document_id
+        return document_data["id"]
 
     async def _update_document_status(
         self,
@@ -1218,13 +1225,14 @@ class IngestionService:
             offset=skip
         )
 
-        # Convert file_key to presigned URL for each document
-        documents_with_urls = []
-        for doc in documents:
-            doc = await self._convert_file_key_to_url(doc)
-            documents_with_urls.append(doc)
-
-        return documents_with_urls
+        # NOTE: We deliberately do NOT mint presigned URLs here. This list is
+        # re-fetched on every poll (every few seconds while anything is
+        # processing) for potentially hundreds of documents — generating a URL
+        # per doc per poll was wasteful and flooded the logs. The frontend asks
+        # for a fresh URL on demand via GET /documents/{id} only when the user
+        # actually clicks a filename. We keep `file_key` so the UI knows a
+        # downloadable file exists.
+        return documents
 
     async def list_folders(
         self,

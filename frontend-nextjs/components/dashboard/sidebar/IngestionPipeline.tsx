@@ -34,7 +34,8 @@ const STEPS: Step[] = [
 // Anything not listed defaults to step 2 (embed) so we never look "stuck"
 // at the very start.
 const STAGE_TO_STEP: Record<string, number> = {
-  // Step 0 — Upload
+  // Step 0 — Upload (incl. the just-created "initializing" state)
+  initializing: 0,
   uploading: 0,
   uploading_extracting: 0,
 

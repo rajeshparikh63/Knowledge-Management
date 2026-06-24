@@ -16,6 +16,10 @@ export interface Document {
   organization_id: string;
   created_at: string;
   updated_at: string;
+  // Present in the list response to signal "a downloadable file exists". The
+  // actual presigned download URL is fetched on demand (GET /documents/{id})
+  // when the user clicks the filename — not pre-generated for every doc.
+  file_key?: string;
   file_url?: string;
   // Processing status fields
   status?: 'processing' | 'completed' | 'failed';
@@ -29,6 +33,9 @@ export interface Document {
   error?: string;
   completed_at?: string;
   failed_at?: string;
+  // Arbitrary metadata stamped at ingest time (e.g. { source: 'google_drive',
+  // drive_file_id, drive_file_name }).
+  metadata?: Record<string, any>;
 }
 
 // Knowledge Base Types

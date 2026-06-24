@@ -21,7 +21,9 @@ export function useDocuments(organizationId?: string, folderName?: string) {
     refetchInterval: (query) => {
       const docs = query.state.data;
       if (docs?.some((d) => d.status === 'processing')) {
-        return 30_000; // 30s polling while processing
+        // Poll quickly while anything is processing so the sidebar pipeline
+        // indicators and the Drive-import banner update promptly.
+        return 5_000;
       }
       return false;
     },

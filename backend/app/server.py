@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from app.settings import settings
 from app.middleware import  SecurityHeadersMiddleware
 from app.logger import logger
-from routers import health, upload, chat, models, auth, mindmap, report_suggestions, reports, flashcards, podcast, tak, simple_chat
+from routers import health, upload, chat, models, auth, mindmap, report_suggestions, reports, flashcards, podcast, tak, simple_chat, google_drive, public_pages
 
 
 def _prewarm_clients():
@@ -77,10 +77,10 @@ app.add_middleware(
 app.add_middleware(SecurityHeadersMiddleware)
 
 
-# Root endpoint
-@app.get("/")
-async def root():
-    """Root endpoint - health check"""
+# JSON status endpoint (kept for uptime/health probes that expect JSON).
+# The human-facing landing page is served at "/" by the public_pages router.
+@app.get("/status")
+async def status_json():
     return JSONResponse(
         content={
             "message": "SoldierIQ Backend is operational",
@@ -90,6 +90,10 @@ async def root():
         status_code=200
     )
 
+
+# Public, unauthenticated pages (home / privacy / terms) at the domain root —
+# required for Google OAuth verification. No /api prefix.
+app.include_router(public_pages.router)
 
 # Register routers with /api prefix
 app.include_router(auth.router, prefix="/api")
@@ -104,6 +108,7 @@ app.include_router(reports.router, prefix="/api")
 app.include_router(flashcards.router, prefix="/api")
 app.include_router(podcast.router, prefix="/api")
 app.include_router(tak.router, prefix="/api")
+app.include_router(google_drive.router, prefix="/api")
 
 
 if __name__ == "__main__":
