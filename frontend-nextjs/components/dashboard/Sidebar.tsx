@@ -9,6 +9,7 @@ import { useDeleteDocument, useDeleteKnowledgeBase } from "@/lib/hooks/useDelete
 import SidebarHeader from "./sidebar/SidebarHeader";
 import FolderTree from "./sidebar/FolderTree";
 import UploadModal from "./sidebar/UploadModal";
+import DriveImportBanner from "./sidebar/DriveImportBanner";
 
 export default function Sidebar() {
   const user = useAuthStore((s) => s.user);
@@ -134,6 +135,9 @@ export default function Sidebar() {
       ) {
         try {
           await deleteKBMutation.mutateAsync({ folderName, organizationId: user?.organization_id || "" });
+          // The Drive pickers derive their "added" state from the live document
+          // list, so deleting the KB folder automatically frees those items to
+          // be re-selected — no extra bookkeeping needed here.
           setExpandedFolders((prev) => {
             const next = new Set(prev);
             next.delete(folderName);
@@ -157,6 +161,9 @@ export default function Sidebar() {
         onUploadClick={handleUploadClick}
         uploadStatus={uploadStatus}
       />
+
+      {/* Live progress for a Google Drive folder import */}
+      <DriveImportBanner documents={documents} />
 
       <div className="flex-1 overflow-y-auto tactical-scrollbar p-4">
         <FolderTree

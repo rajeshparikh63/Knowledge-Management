@@ -11,6 +11,47 @@ from pathlib import Path
 from markitdown import MarkItDown
 from app.logger import logger
 
+# Plain-text formats we handle ourselves — MarkItDown's PlainTextConverter
+# falls back to the system default codec (which on macOS without LC_ALL set
+# is ASCII), so any UTF-8 file with smart quotes / em-dashes / bullets
+# (byte 0xe2 onward) blows up with UnicodeDecodeError. These formats ARE
+# the text already; there's nothing for MarkItDown to convert.
+_PLAIN_TEXT_EXTENSIONS = {".txt", ".md", ".markdown", ".csv", ".log", ".tsv"}
+
+# Encoding waterfall — tried in order. cp1252 covers most Windows-authored
+# Western text; latin-1 NEVER raises (1-byte mapping), so it's the always-works
+# safety net before our final replace-bad-bytes fallback.
+_TEXT_DECODE_ATTEMPTS = ("utf-8-sig", "utf-8", "utf-16", "cp1252", "latin-1")
+
+
+def _decode_text_bytes(data: bytes, filename: str) -> str:
+    """Best-effort text decode with a defined waterfall.
+
+    Tries UTF-8 (with optional BOM) first, then UTF-16 (catches Windows
+    Notepad's "Unicode" save), then cp1252 (Windows Western), then latin-1
+    (which never raises). If somehow all fail, returns UTF-8 with
+    `errors='replace'` so we never lose the document — bad bytes become `�`.
+    """
+    # Encodings considered "expected" — no log unless we fall past them.
+    utf8_family = {"utf-8", "utf-8-sig", "utf-16"}
+    for enc in _TEXT_DECODE_ATTEMPTS:
+        try:
+            text = data.decode(enc)
+            if enc not in utf8_family:
+                logger.info(
+                    f"📝 Decoded {filename} as {enc} "
+                    f"(UTF-8 failed; likely Windows-authored file)"
+                )
+            return text
+        except UnicodeDecodeError:
+            continue
+    # Should be unreachable since latin-1 can't fail, but be defensive.
+    logger.warning(
+        f"⚠️ All encodings failed for {filename}; falling back to UTF-8 with "
+        f"replacement characters"
+    )
+    return data.decode("utf-8", errors="replace")
+
 
 class MarkItDownClient:
     """Thread-safe MarkItDown client for document extraction"""
@@ -52,7 +93,19 @@ class MarkItDownClient:
             try:
                 extension = Path(filename).suffix.lower()
 
-                # Write to temp file
+                # Fast path: plain-text formats — decode bytes ourselves with
+                # a robust encoding waterfall. MarkItDown's PlainTextConverter
+                # uses the system default codec and fails on non-ASCII UTF-8
+                # (smart quotes, em-dashes, bullets), which is most real text.
+                if extension in _PLAIN_TEXT_EXTENSIONS:
+                    extracted_text = _decode_text_bytes(file_content, filename)
+                    logger.info(
+                        f"✅ Plain-text decode extracted {len(extracted_text)} "
+                        f"chars from {filename} ({extension})"
+                    )
+                    return extracted_text
+
+                # Write to temp file (MarkItDown wants a path for non-text formats)
                 with tempfile.NamedTemporaryFile(
                     delete=False,
                     suffix=extension

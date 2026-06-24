@@ -57,6 +57,46 @@
         "documentation": {}
     },
     {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -288,7 +328,47 @@
         "documentation": {}
     },
     {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncIterator",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -313,6 +393,70 @@
     },
     {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Awaitable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -744,6 +888,38 @@
         "documentation": {}
     },
     {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -968,6 +1144,14 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1088,15 +1272,7 @@
         "documentation": {}
     },
     {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
+        "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1105,6 +1281,14 @@
     },
     {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1588,6 +1772,54 @@
         "documentation": {}
     },
     {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -1653,6 +1885,14 @@
     },
     {
         "label": "BackgroundTasks",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -2260,6 +2500,22 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -2278,6 +2534,30 @@
     },
     {
         "label": "StreamingResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "RedirectResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
         "importPath": "fastapi.responses",
         "description": "fastapi.responses",
         "isExtraImport": true,
@@ -2322,6 +2602,38 @@
         "description": "contextlib",
         "isExtraImport": true,
         "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
         "documentation": {}
     },
     {
@@ -2597,6 +2909,22 @@
         "documentation": {}
     },
     {
+        "label": "google_drive",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
+        "label": "public_pages",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
         "label": "BaseSettings",
         "importPath": "pydantic_settings",
         "description": "pydantic_settings",
@@ -2654,6 +2982,22 @@
         "documentation": {}
     },
     {
+        "label": "discover_drive_files_task",
+        "importPath": "tasks.ingestion_tasks",
+        "description": "tasks.ingestion_tasks",
+        "isExtraImport": true,
+        "detail": "tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
+        "label": "process_drive_file_task",
+        "importPath": "tasks.ingestion_tasks",
+        "description": "tasks.ingestion_tasks",
+        "isExtraImport": true,
+        "detail": "tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
         "label": "process_document_ids_task",
         "importPath": "tasks.ingestion_tasks",
         "description": "tasks.ingestion_tasks",
@@ -2670,6 +3014,14 @@
         "documentation": {}
     },
     {
+        "label": "process_drive_file_task",
+        "importPath": "tasks.ingestion_tasks",
+        "description": "tasks.ingestion_tasks",
+        "isExtraImport": true,
+        "detail": "tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -2742,6 +3094,30 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -2775,6 +3151,30 @@
     },
     {
         "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -3095,11 +3495,12 @@
         "documentation": {}
     },
     {
-        "label": "lru_cache",
-        "importPath": "functools",
-        "description": "functools",
+        "label": "pydantic",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "functools",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -3255,6 +3656,22 @@
         "documentation": {}
     },
     {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -3354,91 +3771,270 @@
         "documentation": {}
     },
     {
-        "label": "ConnectionConfig",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "Embedder",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "EntityType",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "FalkorDBConnection",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "GraphRAG",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "GraphSchema",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "LiteLLM",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "LiteLLMEmbedder",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "LLMInterface",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "RelationType",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "SemanticResolution",
-        "importPath": "graphrag_sdk",
-        "description": "graphrag_sdk",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "graphrag_sdk",
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncOpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunker_client",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "validate_content_for_embeddings",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_entity_vector_cache",
+        "importPath": "clients.entity_vector_cache",
+        "description": "clients.entity_vector_cache",
+        "isExtraImport": true,
+        "detail": "clients.entity_vector_cache",
         "documentation": {}
     },
     {
@@ -3448,110 +4044,6 @@
         "importPath": "tempfile",
         "description": "tempfile",
         "detail": "tempfile",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -3949,15 +4441,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
         "label": "ChatPromptTemplate",
         "importPath": "langchain_core.prompts",
         "description": "langchain_core.prompts",
@@ -4200,6 +4683,14 @@
         "documentation": {}
     },
     {
+        "label": "get_current_user_keycloak",
+        "importPath": "auth.keycloak_auth",
+        "description": "auth.keycloak_auth",
+        "isExtraImport": true,
+        "detail": "auth.keycloak_auth",
+        "documentation": {}
+    },
+    {
         "label": "create_chat_agent",
         "importPath": "services.chat",
         "description": "services.chat",
@@ -4296,6 +4787,159 @@
         "documentation": {}
     },
     {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveClient",
+        "importPath": "clients.google_drive_client",
+        "description": "clients.google_drive_client",
+        "isExtraImport": true,
+        "detail": "clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveError",
+        "importPath": "clients.google_drive_client",
+        "description": "clients.google_drive_client",
+        "isExtraImport": true,
+        "detail": "clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "build_authorize_url",
+        "importPath": "clients.google_drive_client",
+        "description": "clients.google_drive_client",
+        "isExtraImport": true,
+        "detail": "clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "exchange_code_for_tokens",
+        "importPath": "clients.google_drive_client",
+        "description": "clients.google_drive_client",
+        "isExtraImport": true,
+        "detail": "clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_userinfo",
+        "importPath": "clients.google_drive_client",
+        "description": "clients.google_drive_client",
+        "isExtraImport": true,
+        "detail": "clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_ingestion_service",
+        "importPath": "services.ingestion_service",
+        "description": "services.ingestion_service",
+        "isExtraImport": true,
+        "detail": "services.ingestion_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_ingestion_service",
+        "importPath": "services.ingestion_service",
+        "description": "services.ingestion_service",
+        "isExtraImport": true,
+        "detail": "services.ingestion_service",
+        "documentation": {}
+    },
+    {
+        "label": "IngestionService",
+        "importPath": "services.ingestion_service",
+        "description": "services.ingestion_service",
+        "isExtraImport": true,
+        "detail": "services.ingestion_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_ingestion_service",
+        "importPath": "services.ingestion_service",
+        "description": "services.ingestion_service",
+        "isExtraImport": true,
+        "detail": "services.ingestion_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_extension",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_filename",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_size_mb",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_extension",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "extract_raw_data",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "validate_extracted_content",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_filename",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_size_mb",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_extension",
+        "importPath": "utils.file_utils",
+        "description": "utils.file_utils",
+        "isExtraImport": true,
+        "detail": "utils.file_utils",
+        "documentation": {}
+    },
+    {
         "label": "HealthCheckResponse",
         "importPath": "models.health",
         "description": "models.health",
@@ -4349,70 +4993,6 @@
         "description": "services.podcast_service",
         "isExtraImport": true,
         "detail": "services.podcast_service",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
         "documentation": {}
     },
     {
@@ -4536,99 +5116,11 @@
         "documentation": {}
     },
     {
-        "label": "get_ingestion_service",
-        "importPath": "services.ingestion_service",
-        "description": "services.ingestion_service",
-        "isExtraImport": true,
-        "detail": "services.ingestion_service",
-        "documentation": {}
-    },
-    {
-        "label": "IngestionService",
-        "importPath": "services.ingestion_service",
-        "description": "services.ingestion_service",
-        "isExtraImport": true,
-        "detail": "services.ingestion_service",
-        "documentation": {}
-    },
-    {
-        "label": "get_ingestion_service",
-        "importPath": "services.ingestion_service",
-        "description": "services.ingestion_service",
-        "isExtraImport": true,
-        "detail": "services.ingestion_service",
-        "documentation": {}
-    },
-    {
         "label": "get_youtube_downloader",
         "importPath": "clients.youtube_downloader",
         "description": "clients.youtube_downloader",
         "isExtraImport": true,
         "detail": "clients.youtube_downloader",
-        "documentation": {}
-    },
-    {
-        "label": "sanitize_filename",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_file_size_mb",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_file_extension",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "extract_raw_data",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "validate_extracted_content",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "sanitize_filename",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_file_size_mb",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_file_extension",
-        "importPath": "utils.file_utils",
-        "description": "utils.file_utils",
-        "isExtraImport": true,
-        "detail": "utils.file_utils",
         "documentation": {}
     },
     {
@@ -4736,14 +5228,6 @@
         "documentation": {}
     },
     {
-        "label": "validate_content_for_embeddings",
-        "importPath": "clients.chunker_client",
-        "description": "clients.chunker_client",
-        "isExtraImport": true,
-        "detail": "clients.chunker_client",
-        "documentation": {}
-    },
-    {
         "label": "PodcastScript",
         "importPath": "models.podcast",
         "description": "models.podcast",
@@ -4774,6 +5258,14 @@
         "description": "app.worker",
         "isExtraImport": true,
         "detail": "app.worker",
+        "documentation": {}
+    },
+    {
+        "label": "worker_ready",
+        "importPath": "celery.signals",
+        "description": "celery.signals",
+        "isExtraImport": true,
+        "detail": "celery.signals",
         "documentation": {}
     },
     {
@@ -5413,7 +5905,7 @@
         "kind": 6,
         "importPath": "backend.app.settings",
         "description": "backend.app.settings",
-        "peekOfCode": "class Settings(BaseSettings):\n    # Application\n    APP_NAME: str = \"SoldierIQ Backend\"\n    ENVIRONMENT: str = \"development\"\n    DEBUG: bool = False\n    # Database\n    MONGODB_URL: str = \"\"\n    MONGODB_DATABASE: str = \"soldieriq\"\n    # Vector Database\n    PINECONE_API_KEY: str = \"\"",
+        "peekOfCode": "class Settings(BaseSettings):\n    # Application\n    APP_NAME: str = \"SoldierIQ Backend\"\n    ENVIRONMENT: str = \"development\"\n    DEBUG: bool = False\n    # Database\n    MONGODB_URL: str = \"\"\n    MONGODB_DATABASE: str = \"soldieriq\"\n    # LLM APIs\n    OPENAI_API_KEY: str = \"\"",
         "detail": "backend.app.settings",
         "documentation": {}
     },
@@ -5431,7 +5923,7 @@
         "kind": 2,
         "importPath": "backend.app.worker",
         "description": "backend.app.worker",
-        "peekOfCode": "def build_redis_url(db: int) -> str:\n    \"\"\"Build Redis URL with optional authentication\"\"\"\n    if settings.REDIS_PASSWORD:\n        # Include password in URL (format: redis://:password@host:port/db)\n        return f\"redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:{settings.REDIS_PORT}/{db}\"\n    else:\n        # No password (local development)\n        return f\"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}/{db}\"\n# Initialize Celery app\ncelery_app = Celery(",
+        "peekOfCode": "def build_redis_url(db: int) -> str:\n    \"\"\"Build Redis URL with optional authentication\"\"\"\n    if settings.REDIS_PASSWORD:\n        # Include password in URL (format: redis://:password@host:port/db)\n        return f\"redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:{settings.REDIS_PORT}/{db}\"\n    else:\n        # No password (local development)\n        return f\"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}/{db}\"\n# IMPORTANT — broker/queue isolation.\n# Another project on this machine (AI-Agency) runs its OWN Celery worker against",
         "detail": "backend.app.worker",
         "documentation": {}
     },
@@ -5440,7 +5932,7 @@
         "kind": 5,
         "importPath": "backend.app.worker",
         "description": "backend.app.worker",
-        "peekOfCode": "celery_app = Celery(\n    \"soldieriq_worker\",\n    broker=build_redis_url(0),\n    backend=build_redis_url(1),\n)\n# Import task modules to register them with Celery\n# This must happen after celery_app is created\nimport tasks.ingestion_tasks  # noqa: E402, F401\n# Celery configuration\ncelery_app.conf.update(",
+        "peekOfCode": "celery_app = Celery(\n    \"soldieriq_worker\",\n    broker=build_redis_url(5),\n    backend=build_redis_url(6),\n)\n# Import task modules to register them with Celery\n# This must happen after celery_app is created\nimport tasks.ingestion_tasks  # noqa: E402, F401\n# Celery configuration\ncelery_app.conf.update(",
         "detail": "backend.app.worker",
         "documentation": {}
     },
@@ -5949,11 +6441,182 @@
         "documentation": {}
     },
     {
+        "label": "_OrgCache",
+        "kind": 6,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "class _OrgCache:\n    \"\"\"In-memory state for one org's FAISS index + name list.\"\"\"\n    __slots__ = (\"org_id\", \"index\", \"names\", \"name_to_pos\", \"lock\", \"_dirty\")\n    def __init__(self, org_id: str, dim: int):\n        if faiss is None:\n            raise RuntimeError(\"faiss-cpu is not installed\")\n        self.org_id = org_id\n        # IndexFlatIP on L2-normalized vectors → cosine similarity\n        self.index = faiss.IndexFlatIP(dim)\n        self.names: List[str] = []",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "EntityVectorCache",
+        "kind": 6,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "class EntityVectorCache:\n    \"\"\"Process-wide registry of per-org caches.\"\"\"\n    def __init__(self, dim: int = None):\n        self.dim = dim or settings.EMBEDDING_DIM\n        self._orgs: Dict[str, _OrgCache] = {}\n        self._registry_lock = asyncio.Lock()\n    async def _get_or_load(self, org_id: str) -> _OrgCache:\n        if org_id in self._orgs:\n            return self._orgs[org_id]\n        async with self._registry_lock:",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "get_entity_vector_cache",
+        "kind": 2,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "def get_entity_vector_cache() -> EntityVectorCache:\n    global _singleton\n    if _singleton is None:\n        _singleton = EntityVectorCache()\n    return _singleton",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "DriveFile",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class DriveFile:\n    \"\"\"One discovered file's metadata — kept lean since we only need this much.\"\"\"\n    id: str\n    name: str\n    mime_type: str\n    size: int\n    modified_at: Optional[datetime]\n    web_url: Optional[str]\nclass GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveError",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"\n@dataclass\nclass _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_Tokens",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveClient",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class GoogleDriveClient:\n    \"\"\"Per-(org, user) Drive client. Refreshes + persists tokens automatically.\"\"\"\n    def __init__(\n        self,\n        organization_id: str,\n        user_id: str,\n        tokens: _Tokens,\n    ):\n        self.organization_id = organization_id\n        self.user_id = user_id",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "build_authorize_url",
+        "kind": 2,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "def build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )\n    from urllib.parse import urlencode\n    params = {\n        \"client_id\": settings.GOOGLE_CLIENT_ID,\n        \"response_type\": \"code\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Google endpoints\nTOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "TOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHORIZE_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "AUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "USERINFO_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "USERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "DRIVE_API",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "DRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_REFRESH_LEEWAY",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}\n# Only enumerate these during auto-discovery. Everything else is either\n# unparseable for our pipeline, irrelevant (images, video unless we add",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_INCLUDE_MIME",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "_INCLUDE_MIME = {\n    # Google-native (handled via export to text/csv)\n    \"application/vnd.google-apps.document\",\n    \"application/vnd.google-apps.spreadsheet\",\n    \"application/vnd.google-apps.presentation\",\n    # Documents\n    \"application/pdf\",\n    \"application/msword\",\n    \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\n    \"application/vnd.ms-excel\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "ExtractedEntity",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class ExtractedEntity(pydantic.BaseModel):\n    name: str\n    type: str\nclass ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "ExtractedTriple",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts\n# ---------------------------------------------------------------------------\n_ONTOLOGY_PROMPT = \"\"\"\\\nYou are designing a knowledge-graph ontology for a corpus.\nRead the SAMPLE TEXT and propose a compact ontology that captures the kinds of\nthings and relationships present. Aim for 6–12 entity types and 6–14 relation",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_OntologySchema",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class _OntologySchema:\n    def __init__(self):\n        self.entity_labels: List[str] = []\n        self.relation_labels: List[str] = []\n_schemas: Dict[str, _OntologySchema] = {}\n_schema_locks: Dict[str, asyncio.Lock] = {}\ndef _schema_lock(graph_name: str) -> asyncio.Lock:\n    if graph_name not in _schema_locks:\n        _schema_locks[graph_name] = asyncio.Lock()\n    return _schema_locks[graph_name]",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
         "label": "GraphRAGClient",
         "kind": 6,
         "importPath": "backend.clients.graphrag_client",
         "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class GraphRAGClient:\n    \"\"\"Thin wrapper around the FalkorDB GraphRAG-SDK.\n    Shares one ``FalkorDBConnection`` (and therefore one connection pool)\n    per organization graph. Auto-detects an ontology per organization on\n    first ingest and caches it for the lifetime of the process.\n    \"\"\"\n    def __init__(self) -> None:\n        self._host = os.getenv(\"GRAPH_DATABASE_URL\", \"localhost\")\n        self._port = _env_int(\"GRAPH_DATABASE_PORT\", 6379)\n        self._username = os.getenv(\"GRAPH_DATABASE_USERNAME\") or None",
+        "peekOfCode": "class GraphRAGClient:\n    \"\"\"\n    Drop-in replacement for the SDK-based GraphRAGClient.\n    Public interface (ingest_text, ingest_chunks, search, delete_document, delete_org)\n    is identical so ingestion_service.py requires no changes.\n    \"\"\"\n    # ---- ingest ---------------------------------------------------------------\n    async def ingest_text(\n        self,\n        text: str,",
         "detail": "backend.clients.graphrag_client",
         "documentation": {}
     },
@@ -5967,11 +6630,56 @@
         "documentation": {}
     },
     {
-        "label": "_ONTOLOGY_DETECT_PROMPT",
+        "label": "ProgressCallback",
         "kind": 5,
         "importPath": "backend.clients.graphrag_client",
         "description": "backend.clients.graphrag_client",
-        "peekOfCode": "_ONTOLOGY_DETECT_PROMPT = \"\"\"\\\nYou are designing a knowledge-graph ontology for a corpus.\nRead the SAMPLE TEXT below and propose a compact, faithful ontology that\ncaptures the *kinds of things* and *kinds of relationships* present in\nthis domain. Aim for breadth, not exhaustiveness — 8 to 14 entity types\nand 8 to 16 relationship types is the sweet spot. Prefer specific labels\nover generic ones (e.g. ``MoneyAmount`` over ``Number``,\n``LaborPosition`` over ``JobTitle``, ``Rate`` over ``Percentage``).\nStrict rules:\n- Entity labels: PascalCase, singular, no spaces.",
+        "peekOfCode": "ProgressCallback = Callable[\n    [str, str, Optional[int], Optional[int]], Awaitable[None]\n]\nimport numpy as np\nfrom openai import AsyncOpenAI\nimport pydantic\nfrom app.logger import logger\nfrom app.settings import settings\nfrom clients.chunker_client import get_chunker_client\nfrom clients.entity_vector_cache import get_entity_vector_cache",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_JSON_DECODER",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_JSON_DECODER = json.JSONDecoder()\ndef _parse_first_json(text: str) -> Any:\n    \"\"\"Parse the first valid JSON object/array in `text`, ignoring trailing junk.\n    The LLM sometimes returns a valid JSON object followed by extra text\n    (a comment, a second object, markdown commentary). `json.loads` rejects\n    the whole response → we lose that chunk's entities. raw_decode reads\n    only the first JSON value and returns the byte offset where it ended,\n    so any trailing garbage is harmless.\n    Also strips ``` fences first and skips any leading whitespace/text\n    up to the first `{` or `[`.",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_ONTOLOGY_PROMPT",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_ONTOLOGY_PROMPT = \"\"\"\\\nYou are designing a knowledge-graph ontology for a corpus.\nRead the SAMPLE TEXT and propose a compact ontology that captures the kinds of\nthings and relationships present. Aim for 6–12 entity types and 6–14 relation\ntypes.\nRules:\n- Entity labels: PascalCase, singular, no spaces, length >= 3.\n- Relation labels: SCREAMING_SNAKE_CASE, verb phrase, length >= 3.\n- Every relation MUST list at least one (source_label, target_label) pair from\n  your entity labels.",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_EMBED_BATCH",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_EMBED_BATCH = 1024\nasync def _embed_texts(texts: List[str]) -> List[List[float]]:\n    if not texts:\n        return []\n    client = _openai_client()\n    # Fast path — single call for small lists\n    if len(texts) <= _EMBED_BATCH:\n        resp = await client.embeddings.create(\n            model=settings.EMBEDDING_MODEL,\n            input=texts,",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_BATCH",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_BATCH = 500\n_connections: Dict[str, Any] = {}\n_conn_lock = asyncio.Lock()\ndef _get_falkor_connection(graph_name: str):\n    \"\"\"Return a synchronous FalkorDB graph handle (cached).\"\"\"\n    if graph_name not in _connections:\n        db = falkordb.FalkorDB(\n            host=settings.GRAPH_DATABASE_URL,\n            port=settings.GRAPH_DATABASE_PORT,\n            username=settings.GRAPH_DATABASE_USERNAME or None,",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_conn_lock",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_conn_lock = asyncio.Lock()\ndef _get_falkor_connection(graph_name: str):\n    \"\"\"Return a synchronous FalkorDB graph handle (cached).\"\"\"\n    if graph_name not in _connections:\n        db = falkordb.FalkorDB(\n            host=settings.GRAPH_DATABASE_URL,\n            port=settings.GRAPH_DATABASE_PORT,\n            username=settings.GRAPH_DATABASE_USERNAME or None,\n            password=settings.GRAPH_DATABASE_PASSWORD or None,\n            ssl=settings.GRAPH_DATABASE_SSL,",
         "detail": "backend.clients.graphrag_client",
         "documentation": {}
     },
@@ -6062,6 +6770,24 @@
         "importPath": "backend.clients.markitdown_client",
         "description": "backend.clients.markitdown_client",
         "peekOfCode": "def get_markitdown_client() -> MarkItDownClient:\n    \"\"\"\n    Get or create thread-safe MarkItDownClient singleton instance\n    Returns:\n        MarkItDownClient: Singleton client instance\n    \"\"\"\n    global _markitdown_client\n    if _markitdown_client is None:\n        with _client_lock:\n            if _markitdown_client is None:",
+        "detail": "backend.clients.markitdown_client",
+        "documentation": {}
+    },
+    {
+        "label": "_PLAIN_TEXT_EXTENSIONS",
+        "kind": 5,
+        "importPath": "backend.clients.markitdown_client",
+        "description": "backend.clients.markitdown_client",
+        "peekOfCode": "_PLAIN_TEXT_EXTENSIONS = {\".txt\", \".md\", \".markdown\", \".csv\", \".log\", \".tsv\"}\n# Encoding waterfall — tried in order. cp1252 covers most Windows-authored\n# Western text; latin-1 NEVER raises (1-byte mapping), so it's the always-works\n# safety net before our final replace-bad-bytes fallback.\n_TEXT_DECODE_ATTEMPTS = (\"utf-8-sig\", \"utf-8\", \"utf-16\", \"cp1252\", \"latin-1\")\ndef _decode_text_bytes(data: bytes, filename: str) -> str:\n    \"\"\"Best-effort text decode with a defined waterfall.\n    Tries UTF-8 (with optional BOM) first, then UTF-16 (catches Windows\n    Notepad's \"Unicode\" save), then cp1252 (Windows Western), then latin-1\n    (which never raises). If somehow all fail, returns UTF-8 with",
+        "detail": "backend.clients.markitdown_client",
+        "documentation": {}
+    },
+    {
+        "label": "_TEXT_DECODE_ATTEMPTS",
+        "kind": 5,
+        "importPath": "backend.clients.markitdown_client",
+        "description": "backend.clients.markitdown_client",
+        "peekOfCode": "_TEXT_DECODE_ATTEMPTS = (\"utf-8-sig\", \"utf-8\", \"utf-16\", \"cp1252\", \"latin-1\")\ndef _decode_text_bytes(data: bytes, filename: str) -> str:\n    \"\"\"Best-effort text decode with a defined waterfall.\n    Tries UTF-8 (with optional BOM) first, then UTF-16 (catches Windows\n    Notepad's \"Unicode\" save), then cp1252 (Windows Western), then latin-1\n    (which never raises). If somehow all fail, returns UTF-8 with\n    `errors='replace'` so we never lose the document — bad bytes become `�`.\n    \"\"\"\n    # Encodings considered \"expected\" — no log unless we fall past them.\n    utf8_family = {\"utf-8\", \"utf-8-sig\", \"utf-16\"}",
         "detail": "backend.clients.markitdown_client",
         "documentation": {}
     },
@@ -6583,7 +7309,7 @@
         "kind": 6,
         "importPath": "backend.routers.chat",
         "description": "backend.routers.chat",
-        "peekOfCode": "class TAKCredentials(BaseModel):\n    \"\"\"TAK server credentials from frontend\"\"\"\n    tak_host: str\n    tak_port: int\n    tak_username: str\n    tak_password: str\n    agent_callsign: Optional[str] = \"SoldierIQ-Agent\"\nclass ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint\"\"\"\n    message: str",
+        "peekOfCode": "class TAKCredentials(BaseModel):\n    \"\"\"TAK server credentials from frontend\"\"\"\n    tak_host: str\n    tak_port: int\n    tak_username: str\n    tak_password: str\n    agent_callsign: Optional[str] = \"SoldierIQ-Agent\"\nclass ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint.\n    Note: `file_names` was removed — filenames were never authoritative and the",
         "detail": "backend.routers.chat",
         "documentation": {}
     },
@@ -6592,7 +7318,7 @@
         "kind": 6,
         "importPath": "backend.routers.chat",
         "description": "backend.routers.chat",
-        "peekOfCode": "class ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint\"\"\"\n    message: str\n    session_id: Optional[str] = None\n    document_ids: Optional[list[str]] = None\n    file_names: Optional[list[str]] = None  # Titles of selected documents\n    model: Optional[str] = \"anthropic/claude-sonnet-4.5\"  # Use \"functiongemma:270m\" for hybrid mode\n    tak_credentials: Optional[TAKCredentials] = None  # Optional TAK integration\n    # user_id and organization_id are extracted from JWT token by backend\n@router.post(\"/chat\")",
+        "peekOfCode": "class ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint.\n    Note: `file_names` was removed — filenames were never authoritative and the\n    LLM was told to ignore them anyway. The agent learns what's in each\n    selected doc from the actual retrieved chunks via document_ids scoping.\n    \"\"\"\n    message: str\n    session_id: Optional[str] = None\n    document_ids: Optional[list[str]] = None\n    model: Optional[str] = \"anthropic/claude-sonnet-4.5\"  # Use \"functiongemma:270m\" for hybrid mode",
         "detail": "backend.routers.chat",
         "documentation": {}
     },
@@ -6601,7 +7327,7 @@
         "kind": 5,
         "importPath": "backend.routers.chat",
         "description": "backend.routers.chat",
-        "peekOfCode": "router = APIRouter(tags=[\"chat\"])\nclass TAKCredentials(BaseModel):\n    \"\"\"TAK server credentials from frontend\"\"\"\n    tak_host: str\n    tak_port: int\n    tak_username: str\n    tak_password: str\n    agent_callsign: Optional[str] = \"SoldierIQ-Agent\"\nclass ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint\"\"\"",
+        "peekOfCode": "router = APIRouter(tags=[\"chat\"])\nclass TAKCredentials(BaseModel):\n    \"\"\"TAK server credentials from frontend\"\"\"\n    tak_host: str\n    tak_port: int\n    tak_username: str\n    tak_password: str\n    agent_callsign: Optional[str] = \"SoldierIQ-Agent\"\nclass ChatRequest(BaseModel):\n    \"\"\"Request model for chat endpoint.",
         "detail": "backend.routers.chat",
         "documentation": {}
     },
@@ -6612,6 +7338,60 @@
         "description": "backend.routers.flashcards",
         "peekOfCode": "router = APIRouter(prefix=\"/flashcards\", tags=[\"flashcards\"])\n@router.post(\"/generate\")\nasync def generate_flashcards(request: GenerateFlashcardsRequest, current_user: dict = Depends(get_current_user_keycloak)) -> Dict[str, Any]:\n    \"\"\"\n    Generate flashcards from documents using Map-Reduce\n    Args:\n        request: Flashcard generation request with document IDs\n    Returns:\n        Dict with flashcard data (title, cards, workflow_id)\n    \"\"\"",
         "detail": "backend.routers.flashcards",
+        "documentation": {}
+    },
+    {
+        "label": "DrivePickedFile",
+        "kind": 6,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "class DrivePickedFile(BaseModel):\n    \"\"\"One file as returned by Google Picker.\"\"\"\n    id: str = Field(..., description=\"Google Drive file id\")\n    name: str = Field(..., description=\"File name as shown in Drive\")\n    mime_type: str = Field(..., description=\"MIME type Picker reported\")\n    size: Optional[int] = Field(default=None, description=\"Size in bytes if known\")\nclass DriveIngestRequest(BaseModel):\n    folder_name: str = Field(default=\"Google Drive\", description=\"Folder to file ingested docs under\")\n    files: List[DrivePickedFile] = Field(..., min_length=1)\n@router.post(\"/ingest\")",
+        "detail": "backend.routers.google_drive",
+        "documentation": {}
+    },
+    {
+        "label": "DriveIngestRequest",
+        "kind": 6,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "class DriveIngestRequest(BaseModel):\n    folder_name: str = Field(default=\"Google Drive\", description=\"Folder to file ingested docs under\")\n    files: List[DrivePickedFile] = Field(..., min_length=1)\n@router.post(\"/ingest\")\nasync def ingest(\n    body: DriveIngestRequest,\n    current_user: dict = Depends(get_current_user_keycloak),\n) -> Dict[str, Any]:\n    \"\"\"Queue one Celery task per picked file. Returns the doc ids it created.\n    Mirrors the regular /upload flow: we create document rows in PostgreSQL",
+        "detail": "backend.routers.google_drive",
+        "documentation": {}
+    },
+    {
+        "label": "IngestFolderSpec",
+        "kind": 6,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "class IngestFolderSpec(BaseModel):\n    id: str = Field(..., description=\"Drive folder (or shared-drive) id\")\n    name: str = Field(..., description=\"Folder name — used as the KB folder\")\nclass IngestFoldersRequest(BaseModel):\n    folders: List[IngestFolderSpec] = Field(..., min_length=1)\n@router.post(\"/ingest-folders\")\nasync def ingest_folders(\n    body: IngestFoldersRequest,\n    current_user: dict = Depends(get_current_user_keycloak),\n) -> Dict[str, Any]:",
+        "detail": "backend.routers.google_drive",
+        "documentation": {}
+    },
+    {
+        "label": "IngestFoldersRequest",
+        "kind": 6,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "class IngestFoldersRequest(BaseModel):\n    folders: List[IngestFolderSpec] = Field(..., min_length=1)\n@router.post(\"/ingest-folders\")\nasync def ingest_folders(\n    body: IngestFoldersRequest,\n    current_user: dict = Depends(get_current_user_keycloak),\n) -> Dict[str, Any]:\n    \"\"\"Ingest every supported file under the selected Drive folders.\n    Each selected folder's files (recursively, including subfolders) land in a\n    KB folder named after that Drive folder — so \"HR\" / \"Services\" show up as",
+        "detail": "backend.routers.google_drive",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "router = APIRouter(prefix=\"/google-drive\", tags=[\"google-drive\"])\n# Single-use state tokens (CSRF protection for OAuth round-trip).\n# In-memory is fine — they expire in 10 minutes and we have one worker.\n# For multi-worker prod, move this to Redis.\n_state_store: Dict[str, Dict[str, Any]] = {}\n_STATE_TTL = timedelta(minutes=10)\ndef _new_state(organization_id: str, user_id: str, folder_name: str) -> str:\n    \"\"\"Generate a CSRF state token + remember which user it belongs to.\"\"\"\n    state = secrets.token_urlsafe(32)\n    _state_store[state] = {",
+        "detail": "backend.routers.google_drive",
+        "documentation": {}
+    },
+    {
+        "label": "_STATE_TTL",
+        "kind": 5,
+        "importPath": "backend.routers.google_drive",
+        "description": "backend.routers.google_drive",
+        "peekOfCode": "_STATE_TTL = timedelta(minutes=10)\ndef _new_state(organization_id: str, user_id: str, folder_name: str) -> str:\n    \"\"\"Generate a CSRF state token + remember which user it belongs to.\"\"\"\n    state = secrets.token_urlsafe(32)\n    _state_store[state] = {\n        \"organization_id\": organization_id,\n        \"user_id\": user_id,\n        \"folder_name\": folder_name,\n        \"created_at\": datetime.now(timezone.utc),\n    }",
+        "detail": "backend.routers.google_drive",
         "documentation": {}
     },
     {
@@ -6666,6 +7446,51 @@
         "description": "backend.routers.podcast",
         "peekOfCode": "router = APIRouter(prefix=\"/podcasts\", tags=[\"Podcasts\"])\nclass PodcastGenerateRequest(BaseModel):\n    document_ids: List[str]\nclass PodcastResponse(BaseModel):\n    episode_id: str\n    status: str\n    message: str\n@router.post(\"/generate\", summary=\"Start podcast generation (Background Task)\", response_model=PodcastResponse)\nasync def generate_podcast(\n    request: PodcastGenerateRequest,",
         "detail": "backend.routers.podcast",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.public_pages",
+        "description": "backend.routers.public_pages",
+        "peekOfCode": "router = APIRouter(tags=[\"public\"])\nAPP_NAME = \"SoldierIQ\"\nSUPPORT_EMAIL = \"gargkeshav5042004@gmail.com\"\nLAST_UPDATED = \"June 25, 2026\"\n# Shared page chrome (dark, on-brand)\n_STYLE = \"\"\"\n  :root { color-scheme: dark; }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0; background: #0a0a0a; color: #e4e4e7;",
+        "detail": "backend.routers.public_pages",
+        "documentation": {}
+    },
+    {
+        "label": "APP_NAME",
+        "kind": 5,
+        "importPath": "backend.routers.public_pages",
+        "description": "backend.routers.public_pages",
+        "peekOfCode": "APP_NAME = \"SoldierIQ\"\nSUPPORT_EMAIL = \"gargkeshav5042004@gmail.com\"\nLAST_UPDATED = \"June 25, 2026\"\n# Shared page chrome (dark, on-brand)\n_STYLE = \"\"\"\n  :root { color-scheme: dark; }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0; background: #0a0a0a; color: #e4e4e7;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;",
+        "detail": "backend.routers.public_pages",
+        "documentation": {}
+    },
+    {
+        "label": "SUPPORT_EMAIL",
+        "kind": 5,
+        "importPath": "backend.routers.public_pages",
+        "description": "backend.routers.public_pages",
+        "peekOfCode": "SUPPORT_EMAIL = \"gargkeshav5042004@gmail.com\"\nLAST_UPDATED = \"June 25, 2026\"\n# Shared page chrome (dark, on-brand)\n_STYLE = \"\"\"\n  :root { color-scheme: dark; }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0; background: #0a0a0a; color: #e4e4e7;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n    line-height: 1.7;",
+        "detail": "backend.routers.public_pages",
+        "documentation": {}
+    },
+    {
+        "label": "LAST_UPDATED",
+        "kind": 5,
+        "importPath": "backend.routers.public_pages",
+        "description": "backend.routers.public_pages",
+        "peekOfCode": "LAST_UPDATED = \"June 25, 2026\"\n# Shared page chrome (dark, on-brand)\n_STYLE = \"\"\"\n  :root { color-scheme: dark; }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0; background: #0a0a0a; color: #e4e4e7;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n    line-height: 1.7;\n  }",
+        "detail": "backend.routers.public_pages",
+        "documentation": {}
+    },
+    {
+        "label": "_STYLE",
+        "kind": 5,
+        "importPath": "backend.routers.public_pages",
+        "description": "backend.routers.public_pages",
+        "peekOfCode": "_STYLE = \"\"\"\n  :root { color-scheme: dark; }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0; background: #0a0a0a; color: #e4e4e7;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n    line-height: 1.7;\n  }\n  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }\n  header { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }",
+        "detail": "backend.routers.public_pages",
         "documentation": {}
     },
     {
@@ -6975,6 +7800,24 @@
         "documentation": {}
     },
     {
+        "label": "_worker_loop_lock",
+        "kind": 5,
+        "importPath": "backend.services.ingestion_service",
+        "description": "backend.services.ingestion_service",
+        "peekOfCode": "_worker_loop_lock = threading.Lock()\n_worker_loop_ready = threading.Event()\ndef _ensure_worker_loop() -> asyncio.AbstractEventLoop:\n    \"\"\"Start the background loop+thread if not already running. Returns the loop.\"\"\"\n    global _worker_loop_singleton, _worker_loop_thread\n    if (_worker_loop_singleton is not None\n            and _worker_loop_thread is not None\n            and _worker_loop_thread.is_alive()):\n        return _worker_loop_singleton\n    with _worker_loop_lock:",
+        "detail": "backend.services.ingestion_service",
+        "documentation": {}
+    },
+    {
+        "label": "_worker_loop_ready",
+        "kind": 5,
+        "importPath": "backend.services.ingestion_service",
+        "description": "backend.services.ingestion_service",
+        "peekOfCode": "_worker_loop_ready = threading.Event()\ndef _ensure_worker_loop() -> asyncio.AbstractEventLoop:\n    \"\"\"Start the background loop+thread if not already running. Returns the loop.\"\"\"\n    global _worker_loop_singleton, _worker_loop_thread\n    if (_worker_loop_singleton is not None\n            and _worker_loop_thread is not None\n            and _worker_loop_thread.is_alive()):\n        return _worker_loop_singleton\n    with _worker_loop_lock:\n        # Double-checked after acquiring the lock",
+        "detail": "backend.services.ingestion_service",
+        "documentation": {}
+    },
+    {
         "label": "_ingestion_service",
         "kind": 5,
         "importPath": "backend.services.ingestion_service",
@@ -7092,11 +7935,29 @@
         "documentation": {}
     },
     {
+        "label": "process_drive_file_task",
+        "kind": 2,
+        "importPath": "backend.tasks.ingestion_tasks",
+        "description": "backend.tasks.ingestion_tasks",
+        "peekOfCode": "def process_drive_file_task(\n    self,\n    document_id: str,\n    drive_file_id: str,\n    drive_mime_type: str,\n    file_name: str,\n    file_key: str,\n    folder_name: str,\n    user_id: str,\n    organization_id: str,",
+        "detail": "backend.tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
+        "label": "discover_drive_files_task",
+        "kind": 2,
+        "importPath": "backend.tasks.ingestion_tasks",
+        "description": "backend.tasks.ingestion_tasks",
+        "peekOfCode": "def discover_drive_files_task(\n    self,\n    organization_id: str,\n    user_id: str,\n    folder_name: str = \"Google Drive\",\n    folder_ids: \"Optional[List[str]]\" = None,\n    folders: \"Optional[List[Dict[str, Any]]]\" = None,\n) -> Dict[str, Any]:\n    \"\"\"\n    Worker task — enumerate the user's connected Drive, fan out per-file",
+        "detail": "backend.tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
         "label": "create_knowledge_retriever",
         "kind": 2,
         "importPath": "backend.utils.agno_tools",
         "description": "backend.utils.agno_tools",
-        "peekOfCode": "def create_knowledge_retriever(\n    organization_id: Optional[str] = None,\n    user_id: Optional[str] = None,\n    document_ids: Optional[list[str]] = None,\n    num_documents: int = 10,\n):\n    \"\"\"\n    Create a knowledge retriever tool for the Agno agent.\n    Returns a callable that performs hybrid retrieval (vector + graph) via\n    Cognee over the organization's dataset. Optional document_ids filter",
+        "peekOfCode": "def create_knowledge_retriever(\n    organization_id: Optional[str] = None,\n    user_id: Optional[str] = None,       # accepted for interface compat, unused\n    document_ids: Optional[List[str]] = None,\n    num_documents: int = 10,\n):\n    \"\"\"Return an async Agno tool that retrieves chunks + triples from the org graph.\n    `organization_id` and `document_ids` are captured at creation time — the\n    LLM cannot change which org or which documents are searched.\n    Args:",
         "detail": "backend.utils.agno_tools",
         "documentation": {}
     },
@@ -7260,6 +8121,15 @@
         "description": "backend.main",
         "peekOfCode": "def main():\n    print(\"Hello from backend!\")\nif __name__ == \"__main__\":\n    main()",
         "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.requeue_drive_folder",
+        "description": "backend.requeue_drive_folder",
+        "peekOfCode": "def main() -> None:\n    ap = argparse.ArgumentParser()\n    ap.add_argument(\"folder_name\")\n    ap.add_argument(\"--org\", default=None, help=\"restrict to one organization_id\")\n    args = ap.parse_args()\n    n = asyncio.run(_requeue(args.folder_name, args.org))\n    print(f\"\\n✅ Re-queued {n} document(s) from folder '{args.folder_name}'\")\nif __name__ == \"__main__\":\n    main()",
+        "detail": "backend.requeue_drive_folder",
         "documentation": {}
     },
     {

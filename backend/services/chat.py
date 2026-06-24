@@ -17,7 +17,6 @@ async def create_chat_agent(
     user_id: Optional[str] = None,
     organization_id: Optional[str] = None,
     document_ids: Optional[list[str]] = None,
-    file_names: Optional[list[str]] = None,
     model: str = "google/gemini-2.5-pro",
     tak_credentials: Optional[dict] = None,
 ) -> Agent:
@@ -29,7 +28,6 @@ async def create_chat_agent(
         user_id: Optional user ID for filtering
         organization_id: Optional organization ID for namespace
         document_ids: Optional list of document IDs to filter search results
-        file_names: Optional list of document titles/filenames to show in context
         model: LLM model name (default: google/gemini-2.5-pro via OpenRouter)
                Special case: "functiongemma:270m" enables hybrid mode with FunctionGemma for tool calling
         tak_credentials: Optional TAK server credentials for TAK integration
@@ -116,25 +114,13 @@ async def create_chat_agent(
 You have access to a comprehensive knowledge base containing all user-uploaded files including PDFs, documents, presentations, images, and videos.""",
         ]
 
-        # Add selected files context if file_names are provided
-        if file_names and len(file_names) > 0:
-            files_list = "\n".join([f"- {name}" for name in file_names])
-            instructions.append(f"""<selected_files>
-**Currently Selected Files:**
-The user has selected the following files for this conversation:
-
-{files_list}
-
-**Important Context About File Names:**
-- File names are provided purely for reference and identification purposes
-- Do NOT make assumptions about document content based solely on the filename
-- File names may be arbitrary, generic, or unrelated to the actual content inside
-- Always rely on the actual document content from search results, not filename interpretation
-- A file named "report.pdf" could contain anything - a contract, a manual, meeting notes, etc.
-- Focus your search and responses on the actual content retrieved from these files
-
-Your search will be focused on these files when answering questions. When the user asks about content, prioritize searching within these selected files.
-</selected_files>""")
+        # Note: the <selected_files> context block has been removed. The agent
+        # already has the user's selected document_ids passed into
+        # search_knowledge_base via the closure (utils/agno_tools.py), so the
+        # search is automatically scoped — the LLM doesn't need filenames to
+        # know what to look at. Filenames were noisy (often generic) and the
+        # block previously told the LLM to ignore them anyway, so it was
+        # pure prompt overhead.
 
         instructions.extend([
             """<response_style>

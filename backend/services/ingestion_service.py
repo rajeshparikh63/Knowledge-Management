@@ -10,7 +10,7 @@ Orchestrates the complete ingestion pipeline:
 
 import io
 import asyncio
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 from fastapi import UploadFile
 from clients.idrivee2_client import get_idrivee2_client
@@ -27,6 +27,101 @@ from utils.file_utils import (
 from app.logger import logger
 from app.settings import settings
 import uuid
+
+
+# ---------------------------------------------------------------------------
+# Persistent worker event loop (background-thread variant)
+#
+# Celery (default prefork pool) runs tasks as sync function calls. We need
+# to drive async code from inside those sync calls.
+#
+# Two problems we have to solve at once:
+#   1. `asyncio.run` creates+destroys a fresh loop per call → module-level
+#      asyncio.Lock objects get stranded → "bound to a different event loop".
+#   2. A "persistent loop + run_until_complete" approach raises "This event
+#      loop is already running" when something else (a Celery internal,
+#      kombu, an async DB client) leaves the loop in a running state between
+#      tasks.
+#
+# Robust fix: run ONE event loop forever in a dedicated background daemon
+# thread. From the Celery task thread, submit coroutines to it via
+# `run_coroutine_threadsafe`, which returns a concurrent.futures.Future we
+# can `.result()` on to block until done.
+#
+# Why this works:
+#   * The loop is always-running in its own thread → never "stopped between
+#     calls" → no rebinding issues, no "already running" errors at our
+#     submit site.
+#   * Every module-level asyncio.Lock binds to this loop on first use and
+#     stays valid for the worker's lifetime.
+#   * Celery's main thread is untouched — whatever loops Celery/kombu run
+#     in their own threads don't collide with ours.
+# ---------------------------------------------------------------------------
+import threading
+
+_worker_loop_singleton: Optional[asyncio.AbstractEventLoop] = None
+_worker_loop_thread: Optional[threading.Thread] = None
+_worker_loop_lock = threading.Lock()
+_worker_loop_ready = threading.Event()
+
+
+def _ensure_worker_loop() -> asyncio.AbstractEventLoop:
+    """Start the background loop+thread if not already running. Returns the loop."""
+    global _worker_loop_singleton, _worker_loop_thread
+
+    if (_worker_loop_singleton is not None
+            and _worker_loop_thread is not None
+            and _worker_loop_thread.is_alive()):
+        return _worker_loop_singleton
+
+    with _worker_loop_lock:
+        # Double-checked after acquiring the lock
+        if (_worker_loop_singleton is not None
+                and _worker_loop_thread is not None
+                and _worker_loop_thread.is_alive()):
+            return _worker_loop_singleton
+
+        _worker_loop_singleton = asyncio.new_event_loop()
+        _worker_loop_ready.clear()
+
+        def _runner(loop: asyncio.AbstractEventLoop) -> None:
+            asyncio.set_event_loop(loop)
+            _worker_loop_ready.set()
+            try:
+                loop.run_forever()
+            finally:
+                loop.close()
+
+        _worker_loop_thread = threading.Thread(
+            target=_runner,
+            args=(_worker_loop_singleton,),
+            name="ingestion-async-loop",
+            daemon=True,
+        )
+        _worker_loop_thread.start()
+        # Wait until the loop is set up in its thread before returning
+        _worker_loop_ready.wait()
+        logger.info("✅ Started persistent ingestion event loop (background thread)")
+        return _worker_loop_singleton
+
+
+def _run_in_worker_loop(coro):
+    """Submit a coroutine to the worker's persistent loop and block until done.
+
+    Use this from sync Celery task code instead of asyncio.run().
+    """
+    loop = _ensure_worker_loop()
+    future = asyncio.run_coroutine_threadsafe(coro, loop)
+    return future.result()
+
+
+# Back-compat alias — code that imported _worker_loop() previously called
+# .run_until_complete(...) on it. New code should call _run_in_worker_loop().
+def _worker_loop():  # pragma: no cover - kept only to avoid import errors
+    raise RuntimeError(
+        "_worker_loop() is deprecated — use _run_in_worker_loop(coro) "
+        "to submit work to the persistent loop instead."
+    )
 
 
 class IngestionService:
@@ -251,7 +346,10 @@ class IngestionService:
         additional_metadata: Dict[str, Any] = None
     ) -> Dict[str, Any]:
         """
-        Synchronous wrapper for Celery tasks - creates event loop once
+        Synchronous wrapper for Celery tasks - runs the async pipeline on a
+        process-wide persistent event loop so module-level asyncio.Locks
+        (e.g. _schema_locks, EntityVectorCache locks) stay bound to the same
+        loop across multiple tasks handled by the same Celery worker.
 
         Args:
             document_id: Document UUID
@@ -264,7 +362,7 @@ class IngestionService:
             organization_id: Optional organization ID
             additional_metadata: Optional metadata
         """
-        return asyncio.run(self._process_single_document_async(
+        return _run_in_worker_loop(self._process_single_document_async(
             document_id=document_id,
             file_key=file_key,
             file_content=file_content,
@@ -482,6 +580,22 @@ class IngestionService:
                 stage_description="Building semantic memory (chunks + graph)"
             )
 
+            # Forward GraphRAG sub-stages to the document row so the UI can
+            # show a live pipeline (chunking → extracting N/M → resolving → writing).
+            async def _graphrag_progress(
+                stage: str,
+                description: str,
+                current: Optional[int] = None,
+                total: Optional[int] = None,
+            ) -> None:
+                await self._update_document_status(
+                    document_id=document_id,
+                    stage=stage,
+                    stage_description=description,
+                    progress_current=current,
+                    progress_total=total,
+                )
+
             try:
                 if is_video:
                     scene_texts = [c['blended_text'] for c in video_chunks if c.get('blended_text')]
@@ -489,6 +603,7 @@ class IngestionService:
                         chunks=scene_texts,
                         organization_id=organization_id,
                         document_id=document_id,
+                        progress_callback=_graphrag_progress,
                     )
                     total_chunks = len(scene_texts)
                 else:
@@ -497,6 +612,7 @@ class IngestionService:
                         organization_id=organization_id,
                         document_id=document_id,
                         filename=file.filename,
+                        progress_callback=_graphrag_progress,
                     )
                     total_chunks = max(1, len(raw_content) // 1000)
 
@@ -653,6 +769,22 @@ class IngestionService:
                 stage_description="Building semantic memory (chunks + graph)"
             )
 
+            # Forward GraphRAG sub-stages to the document row so the UI can
+            # show a live pipeline (chunking → extracting N/M → resolving → writing).
+            async def _graphrag_progress(
+                stage: str,
+                description: str,
+                current: Optional[int] = None,
+                total: Optional[int] = None,
+            ) -> None:
+                await self._update_document_status(
+                    document_id=document_id,
+                    stage=stage,
+                    stage_description=description,
+                    progress_current=current,
+                    progress_total=total,
+                )
+
             try:
                 if is_video:
                     scene_texts = [c['blended_text'] for c in video_chunks if c.get('blended_text')]
@@ -660,6 +792,7 @@ class IngestionService:
                         chunks=scene_texts,
                         organization_id=organization_id,
                         document_id=document_id,
+                        progress_callback=_graphrag_progress,
                     )
                     total_chunks = len(scene_texts)
                 else:
@@ -668,6 +801,7 @@ class IngestionService:
                         organization_id=organization_id,
                         document_id=document_id,
                         filename=file.filename,
+                        progress_callback=_graphrag_progress,
                     )
                     total_chunks = max(1, len(raw_content) // 1000)
 
@@ -756,13 +890,20 @@ class IngestionService:
             "failed_at": None
         }
 
-        # Add additional metadata if provided
+        # Add additional metadata if provided. `id` is a top-level column;
+        # everything else (source, drive_file_id, …) must go into the `metadata`
+        # jsonb column — NOT spread at the top level, where insert_document
+        # would silently drop it (which broke Drive dedup + the import banner).
         if additional_metadata:
-            document_data.update(additional_metadata)
+            extra = dict(additional_metadata)
+            if "id" in extra:
+                document_data["id"] = extra.pop("id")
+            if extra:
+                document_data["metadata"] = extra
 
         await self.postgres_client.insert_document(document_data)
 
-        return document_id
+        return document_data["id"]
 
     async def _update_document_status(
         self,
@@ -1084,13 +1225,14 @@ class IngestionService:
             offset=skip
         )
 
-        # Convert file_key to presigned URL for each document
-        documents_with_urls = []
-        for doc in documents:
-            doc = await self._convert_file_key_to_url(doc)
-            documents_with_urls.append(doc)
-
-        return documents_with_urls
+        # NOTE: We deliberately do NOT mint presigned URLs here. This list is
+        # re-fetched on every poll (every few seconds while anything is
+        # processing) for potentially hundreds of documents — generating a URL
+        # per doc per poll was wasteful and flooded the logs. The frontend asks
+        # for a fresh URL on demand via GET /documents/{id} only when the user
+        # actually clicks a filename. We keep `file_key` so the UI knows a
+        # downloadable file exists.
+        return documents
 
     async def list_folders(
         self,

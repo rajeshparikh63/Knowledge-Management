@@ -316,7 +316,11 @@ class IDriveE2Client:
                     ExpiresIn=expiration
                 )
 
-            logger.info(f"✅ Presigned URL generated for: {object_name}")
+            # DEBUG, not INFO: this is generated for EVERY document on EVERY
+            # document-list fetch (and the sidebar polls every 5s while anything
+            # is processing), so at INFO it floods the console. It's cheap local
+            # signing, not a network call — just noisy.
+            logger.debug(f"Presigned URL generated for: {object_name}")
             return url
 
         except ClientError as e:

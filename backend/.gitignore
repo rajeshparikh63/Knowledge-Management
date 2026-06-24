@@ -61,3 +61,6 @@ htmlcov/
 *.sqlite
 .claude
 .vscode/
+
+data/
+dump.rdb

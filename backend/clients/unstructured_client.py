@@ -43,51 +43,82 @@ class UnstructuredClient:
 
     def extract_content(self, file_content: bytes, filename: str) -> str:
         """
-        Extract content from file using Unstructured API with FAST strategy
-        For PDFs: also extracts and analyzes images using PyMuPDF + Vision LLM
+        Extract text from a file.
+
+        For PDFs we first try Unstructured's FAST strategy (reads the embedded
+        text layer — instant and cheap for normal documents). If that comes back
+        essentially empty, the PDF is image-based / scanned (e.g. a designed
+        brochure where the text is baked into the artwork), so we fall back to
+        full-page VLM transcription via the vision model.
 
         Args:
             file_content: File content as bytes
             filename: Original filename
 
         Returns:
-            Extracted text with image analysis (for PDFs)
+            Extracted text
 
         Raises:
             Exception: If extraction fails
         """
+        extension = Path(filename).suffix.lower()
+
+        # 1. FAST text-layer extraction — works for normal PDFs and other formats.
+        fast_text = ""
         try:
-            # Pass bytes directly to Unstructured API — no temp file needed
-            req = {
-                "partition_parameters": {
-                    "files": {
-                        "content": file_content,
-                        "file_name": filename,
-                    },
-                    "strategy": shared.Strategy.FAST,
-                    "split_pdf_page": False,
-                    "split_pdf_allow_failed": False,
-                    "split_pdf_concurrency_level": 1,
-                }
-            }
-
-            res = self.client.general.partition(request=req)
-
-            extracted_text = "\n\n".join([
-                element.get("text", "")
-                for element in res.elements
-                if element.get("text")
-            ])
-
-            logger.info(
-                f"✅ Unstructured API (fast) extracted {len(extracted_text)} chars from {filename}"
-            )
-
-            return extracted_text
-
+            fast_text = self._extract_fast(file_content, filename)
         except Exception as e:
-            logger.error(f"❌ Unstructured API extraction failed for {filename}: {str(e)}")
-            raise Exception(f"Unstructured extraction failed: {str(e)}")
+            # PDFs have a VLM fallback below; anything else is a hard failure.
+            if extension != ".pdf":
+                logger.error(f"❌ Unstructured API extraction failed for {filename}: {str(e)}")
+                raise Exception(f"Unstructured extraction failed: {str(e)}")
+            logger.warning(f"⚠️ FAST extraction errored for {filename} ({str(e)}); will try VLM")
+
+        # 2. Image/scanned PDF → FAST yields ~nothing → full-page VLM transcription.
+        if extension == ".pdf" and len(fast_text.strip()) < 50:
+            logger.info(
+                f"🔎 FAST extracted only {len(fast_text.strip())} chars from {filename} "
+                f"— treating as an image PDF and transcribing pages with the vision model"
+            )
+            try:
+                vlm_text = get_pdf_image_extractor().extract_pages_via_vlm(
+                    file_content, filename
+                )
+                if len(vlm_text.strip()) > len(fast_text.strip()):
+                    return vlm_text
+            except Exception as e:
+                logger.error(f"❌ VLM fallback failed for {filename}: {str(e)}")
+
+        return fast_text
+
+    def _extract_fast(self, file_content: bytes, filename: str) -> str:
+        """Unstructured API FAST strategy — embedded text-layer extraction only."""
+        req = {
+            "partition_parameters": {
+                "files": {
+                    "content": file_content,
+                    "file_name": filename,
+                },
+                "strategy": shared.Strategy.FAST,
+                "split_pdf_page": False,
+                "split_pdf_allow_failed": False,
+                "split_pdf_concurrency_level": 1,
+            }
+        }
+
+        res = self.client.general.partition(request=req)
+
+        extracted_text = "\n\n".join([
+            element.get("text", "")
+            for element in res.elements
+            if element.get("text")
+        ])
+
+        logger.info(
+            f"✅ Unstructured API (fast) extracted {len(extracted_text)} chars from {filename}"
+        )
+
+        return extracted_text
 
     @staticmethod
     def is_supported(extension: str) -> bool:
