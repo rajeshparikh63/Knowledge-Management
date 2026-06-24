@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useChatStore, DocumentSource } from "@/lib/stores/chatStore";
 import type { ChatMessage, KnowledgeGraph } from "@/types";
 import { useDocumentStore } from "@/lib/stores/documentStore";
-import { chatApi, documentsApi, TAKCredentials } from "@/lib/api/documents";
+import { chatApi, TAKCredentials } from "@/lib/api/documents";
 import { getTAKConfig } from "@/lib/api/tak";
 import { usePresignedUrls } from "@/lib/hooks/usePresignedUrls";
 import VideoClipViewer from "./VideoClipViewer";
@@ -245,29 +245,16 @@ export default function ChatArea() {
       try {
         const documentIds = Array.from(selectedDocs);
 
-        // Resolve each ID to its real file_name; fetch from API for any not yet in the store
-        const resolvedNames = await Promise.all(
-          documentIds.map(async (docId) => {
-            const cached = documents.find((d) => d.id === docId)?.file_name;
-            if (cached) return cached;
-            try {
-              const doc = await documentsApi.getDocument(docId);
-              return doc.file_name;
-            } catch {
-              return null;
-            }
-          })
-        );
-        const finalFileNames = resolvedNames.filter(
-          (name): name is string => !!name
-        );
-
+        // Note: we used to resolve filenames here and pass them along, but
+        // the backend doesn't use them anymore (the agent reads doc content
+        // from search_knowledge_base via document_ids scoping). Sending only
+        // ids keeps the payload small and avoids a pointless N-call lookup
+        // for unloaded docs.
         const stream = await chatApi.sendMessage(
           userMessage,
           documentIds,
           sessionId,
           selectedModel,
-          finalFileNames,
           takEnabled && takCredentials ? takCredentials : undefined
         );
 

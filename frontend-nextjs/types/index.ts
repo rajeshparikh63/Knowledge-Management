@@ -29,6 +29,9 @@ export interface Document {
   error?: string;
   completed_at?: string;
   failed_at?: string;
+  // Arbitrary metadata stamped at ingest time (e.g. { source: 'google_drive',
+  // drive_file_id, drive_file_name }).
+  metadata?: Record<string, any>;
 }
 
 // Knowledge Base Types

@@ -890,13 +890,20 @@ class IngestionService:
             "failed_at": None
         }
 
-        # Add additional metadata if provided
+        # Add additional metadata if provided. `id` is a top-level column;
+        # everything else (source, drive_file_id, …) must go into the `metadata`
+        # jsonb column — NOT spread at the top level, where insert_document
+        # would silently drop it (which broke Drive dedup + the import banner).
         if additional_metadata:
-            document_data.update(additional_metadata)
+            extra = dict(additional_metadata)
+            if "id" in extra:
+                document_data["id"] = extra.pop("id")
+            if extra:
+                document_data["metadata"] = extra
 
         await self.postgres_client.insert_document(document_data)
 
-        return document_id
+        return document_data["id"]
 
     async def _update_document_status(
         self,

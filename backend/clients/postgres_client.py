@@ -43,6 +43,17 @@ class PostgresClient:
             if isinstance(value, uuid_module.UUID):
                 doc[key] = str(value)
 
+        # asyncpg returns JSONB columns as strings (no codec registered).
+        # Parse them so consumers get real dicts (e.g. metadata.source,
+        # processing_progress.current).
+        for json_key in ("metadata", "processing_progress"):
+            v = doc.get(json_key)
+            if isinstance(v, str):
+                try:
+                    doc[json_key] = json.loads(v)
+                except (ValueError, TypeError):
+                    pass
+
         return doc
 
     async def get_pool(self) -> asyncpg.Pool:
@@ -897,6 +908,171 @@ class PostgresClient:
 
         count = int(result.split()[-1])
         logger.info(f"✅ Deleted {count} TAK config(s)")
+        return count > 0
+
+    # ----------------------------------------------------------------------
+    # Google Drive connection tokens (one row per (org, user) pair)
+    # ----------------------------------------------------------------------
+
+    async def upsert_google_drive_connection(
+        self,
+        *,
+        organization_id: str,
+        user_id: str,
+        email: Optional[str],
+        display_name: Optional[str],
+        access_token: str,
+        refresh_token: str,
+        access_token_expires_at: datetime,
+    ) -> str:
+        """Insert or update a Google Drive OAuth connection for (org, user).
+
+        Returns the row id. Updates refresh_token on conflict because Google
+        sometimes re-issues it when you re-consent.
+        """
+        pool = await self.get_pool()
+
+        query = """
+            INSERT INTO google_drive_connections (
+                id, organization_id, user_id, email, display_name,
+                access_token, refresh_token, access_token_expires_at,
+                created_at, updated_at
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            ON CONFLICT (organization_id, user_id) DO UPDATE SET
+                email = EXCLUDED.email,
+                display_name = EXCLUDED.display_name,
+                access_token = EXCLUDED.access_token,
+                refresh_token = EXCLUDED.refresh_token,
+                access_token_expires_at = EXCLUDED.access_token_expires_at,
+                updated_at = EXCLUDED.updated_at
+            RETURNING id
+        """
+
+        now = datetime.utcnow()
+        async with pool.acquire() as conn:
+            row_id = await conn.fetchval(
+                query,
+                uuid.uuid4(),
+                uuid.UUID(organization_id),
+                uuid.UUID(user_id),
+                email,
+                display_name,
+                access_token,
+                refresh_token,
+                access_token_expires_at,
+                now,
+                now,
+            )
+        logger.info(f"✅ Google Drive connection upserted: {row_id} for user={user_id[:8]}…")
+        return str(row_id)
+
+    async def get_google_drive_connection(
+        self, organization_id: str, user_id: str
+    ) -> Optional[Dict[str, Any]]:
+        """Return the connection row for (org, user) or None."""
+        pool = await self.get_pool()
+        query = """
+            SELECT * FROM google_drive_connections
+            WHERE organization_id = $1 AND user_id = $2
+        """
+        async with pool.acquire() as conn:
+            row = await conn.fetchrow(
+                query, uuid.UUID(organization_id), uuid.UUID(user_id)
+            )
+        return dict(row) if row else None
+
+    async def set_google_drive_needs_reconnect(
+        self, organization_id: str, user_id: str, value: bool
+    ) -> None:
+        """Flag (or clear) the needs_reconnect state for a Drive connection.
+
+        Set True when a token refresh fails with invalid_grant; cleared back
+        to False when the user reconnects. Wrapped defensively by callers in
+        case the column doesn't exist yet (pre-migration).
+        """
+        pool = await self.get_pool()
+        query = """
+            UPDATE google_drive_connections
+            SET needs_reconnect = $1, updated_at = NOW()
+            WHERE organization_id = $2 AND user_id = $3
+        """
+        async with pool.acquire() as conn:
+            await conn.execute(
+                query, value, uuid.UUID(organization_id), uuid.UUID(user_id)
+            )
+
+    async def update_google_drive_tokens(
+        self,
+        *,
+        organization_id: str,
+        user_id: str,
+        access_token: str,
+        access_token_expires_at: datetime,
+        refresh_token: Optional[str] = None,
+    ) -> None:
+        """Persist a refreshed access token (called by DriveClient after refresh)."""
+        pool = await self.get_pool()
+        if refresh_token is not None:
+            query = """
+                UPDATE google_drive_connections
+                SET access_token = $1, access_token_expires_at = $2,
+                    refresh_token = $3, updated_at = NOW()
+                WHERE organization_id = $4 AND user_id = $5
+            """
+            args = (access_token, access_token_expires_at, refresh_token,
+                    uuid.UUID(organization_id), uuid.UUID(user_id))
+        else:
+            query = """
+                UPDATE google_drive_connections
+                SET access_token = $1, access_token_expires_at = $2,
+                    updated_at = NOW()
+                WHERE organization_id = $3 AND user_id = $4
+            """
+            args = (access_token, access_token_expires_at,
+                    uuid.UUID(organization_id), uuid.UUID(user_id))
+        async with pool.acquire() as conn:
+            await conn.execute(query, *args)
+
+    async def list_ingested_drive_file_ids(
+        self, organization_id: str, user_id: str
+    ) -> set:
+        """Return the set of Drive file ids this user has already ingested.
+
+        Used by the discovery task to skip files that are already in our system
+        — so re-running sync doesn't create duplicate document rows.
+
+        We store the Drive file id in the document's metadata jsonb under the
+        key `drive_file_id` (set by the Drive router during ingest fan-out).
+        """
+        pool = await self.get_pool()
+        query = """
+            SELECT metadata->>'drive_file_id' AS drive_file_id
+            FROM documents
+            WHERE organization_id = $1
+              AND user_id = $2
+              AND metadata->>'source' = 'google_drive'
+              AND metadata->>'drive_file_id' IS NOT NULL
+        """
+        async with pool.acquire() as conn:
+            rows = await conn.fetch(
+                query, uuid.UUID(organization_id), uuid.UUID(user_id)
+            )
+        return {r["drive_file_id"] for r in rows if r["drive_file_id"]}
+
+    async def delete_google_drive_connection(
+        self, organization_id: str, user_id: str
+    ) -> bool:
+        """Delete the connection (revoke). Returns True if a row was deleted."""
+        pool = await self.get_pool()
+        query = """
+            DELETE FROM google_drive_connections
+            WHERE organization_id = $1 AND user_id = $2
+        """
+        async with pool.acquire() as conn:
+            result = await conn.execute(
+                query, uuid.UUID(organization_id), uuid.UUID(user_id)
+            )
+        count = int(result.split()[-1])
         return count > 0
 
 

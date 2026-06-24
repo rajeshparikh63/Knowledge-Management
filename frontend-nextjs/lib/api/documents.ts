@@ -29,7 +29,11 @@ interface ApiResponse<T> {
 }
 
 export const documentsApi = {
-  // Get all documents
+  // Get all documents.
+  // Note: backend default limit is 100, but a single Google Drive ingest can
+  // produce thousands of docs — we explicitly request a larger ceiling so the
+  // sidebar shows everything. If you ever hit this cap, switch to proper
+  // pagination instead of just bumping the number.
   listDocuments: async (folderName?: string): Promise<Document[]> => {
     const userParams = getUserParams();
     if (!userParams) {
@@ -38,6 +42,7 @@ export const documentsApi = {
 
     const params = new URLSearchParams({
       organization_id: userParams.organization_id,
+      limit: '5000',
     });
 
     if (folderName && folderName !== 'All Knowledge Bases') {
@@ -139,13 +144,15 @@ export interface TAKCredentials {
 }
 
 export const chatApi = {
-  // Send chat message with SSE streaming
+  // Send chat message with SSE streaming.
+  // Note: filenames are NOT sent — the backend resolves doc context from
+  // document_ids via search_knowledge_base. Filenames were noisy/optional
+  // and the backend prompt explicitly ignored them.
   sendMessage: async (
     message: string,
     documentIds: string[],
     sessionId: string,
     model: string,
-    fileNames?: string[],
     takCredentials?: TAKCredentials
   ): Promise<ReadableStream> => {
     // Use fetchWithRefresh for automatic token refresh on 401
@@ -154,7 +161,6 @@ export const chatApi = {
       body: JSON.stringify({
         message,
         document_ids: documentIds,
-        file_names: fileNames,
         session_id: sessionId,
         model,
         tak_credentials: takCredentials,

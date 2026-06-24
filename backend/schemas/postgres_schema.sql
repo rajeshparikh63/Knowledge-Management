@@ -51,3 +51,31 @@ CREATE INDEX IF NOT EXISTS idx_workflows_org_user ON public.workflows USING btre
 CREATE INDEX IF NOT EXISTS idx_workflows_type ON public.workflows USING btree (type);
 CREATE INDEX IF NOT EXISTS idx_workflows_user ON public.workflows USING btree (user_id);
 
+
+-- ============================================================================
+-- TABLE: google_drive_connections
+-- One row per (organization_id, user_id) pair. Stores OAuth tokens for the
+-- user's connected Google Drive. Refresh tokens never expire (until revoked);
+-- access tokens get refreshed lazily by GoogleDriveClient when expired.
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS public.google_drive_connections (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    organization_id UUID NOT NULL,
+    user_id UUID NOT NULL,
+    email TEXT,
+    display_name TEXT,
+    access_token TEXT NOT NULL,
+    refresh_token TEXT NOT NULL,
+    access_token_expires_at TIMESTAMPTZ NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    UNIQUE (organization_id, user_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_gdrive_org_user
+    ON public.google_drive_connections USING btree (organization_id, user_id);
+
+-- Flag set when a token refresh fails with invalid_grant (user revoked the
+-- app, or the refresh token expired). The UI shows a "reconnect" banner.
+ALTER TABLE public.google_drive_connections
+    ADD COLUMN IF NOT EXISTS needs_reconnect BOOLEAN NOT NULL DEFAULT FALSE;

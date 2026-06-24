@@ -154,7 +154,13 @@ interface DocumentState {
   uploadProgress: { current: number; total: number } | null;
   deletingKB: string | null;
 
+  // Google Drive import tracking (for the live progress banner)
+  driveImportStartedAt: number | null;
+  driveImportFolder: string | null;
+
   // Actions
+  startDriveImport: (folderName: string) => void;
+  clearDriveImport: () => void;
   fetchDocuments: () => Promise<void>;
   fetchKnowledgeBases: () => Promise<void>;
   uploadDocuments: (files: File[], folderName: string) => Promise<void>;
@@ -182,8 +188,16 @@ export const useDocumentStore = create<DocumentState>((set, get) => ({
   uploadStatus: null,
   uploadProgress: null,
   deletingKB: null,
+  driveImportStartedAt: null,
+  driveImportFolder: null,
 
   // Actions
+  startDriveImport: (folderName: string) =>
+    set({ driveImportStartedAt: Date.now(), driveImportFolder: folderName }),
+
+  clearDriveImport: () =>
+    set({ driveImportStartedAt: null, driveImportFolder: null }),
+
   fetchDocuments: async () => {
     try {
       set({ isLoading: true, error: null });

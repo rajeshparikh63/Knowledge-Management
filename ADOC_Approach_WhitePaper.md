@@ -98,20 +98,11 @@ This technical approach addresses six critical gaps identified in publicly-avail
 
 The solution is organized into ten integrated capability pillars across two architectural layers. The Information-Architecture layer (Pillars 1–5) is platform-agnostic and validated in a working reference implementation; the Deployment + Operations layer (Pillars 6–10) is the engineering work required to harden the reference into an IL-5 / IL-6 deployable system.
 
-```
-+----------------------------------------------------------------------+
-|              PILLAR 9 — Tactical Transport Adapter (NGC2)            |
-+----------------------------------------------------------------------+
-| PILLAR 1 — Dynamic Ontology  |  PILLAR 2 — Provenance Graph         |
-| PILLAR 3 — Hybrid Retrieval  |  PILLAR 4 — Tenant Isolation         |
-| PILLAR 5 — Per-Source Query Scoping                                  |
-+----------------------------------------------------------------------+
-|              PILLAR 6 — Mission-System Connector Library             |
-|        PILLAR 7 — Classification Fidelity   |   PILLAR 10 — ZT-SOC   |
-+----------------------------------------------------------------------+
-|             PILLAR 8 — DevSecOps + cATO Pipeline                     |
-+----------------------------------------------------------------------+
-```
+The end-to-end data flow — from source mission system to a grounded, cited operational answer — is illustrated below. Metadata travels with every element of the pipeline, supporting both classification fidelity and ATO-grade provenance.
+
+![End-to-End Data Flow](data_flow_diagram.png)
+
+*Figure 1. End-to-end data flow. Every data element carries classification marking, source document identifier, chunk-and-span location, and extraction model + confidence from ingestion through to the final answer.*
 
 Each pillar is described in detail in Sections 3.2 through 3.11.
 
@@ -426,6 +417,12 @@ A working reference implementation of Pillars 1–5 has been built and validated
 - Supports per-document query scoping via the pre-filter mechanism described abstractly in Pillar 5
 - Demonstrates dynamic ontology growth: 9 entity types after Document 1 (financial proposal) → 23 entity types and 19 typed relations after Document 3 (heterogeneous corpus: financial proposal, CRM dashboard, research notes)
 
+A live view of the reference implementation's knowledge graph for a single organization is shown below.
+
+![Live Knowledge Graph — Reference Implementation](knowledge_graph_presentation.png)
+
+*Figure 2. Live knowledge graph from the reference implementation. The radial pattern is characteristic of a property graph: a small number of high-connectivity entities (the central hub) with thousands of supporting chunks and lower-degree concepts radiating outward. Every connection is a typed semantic relationship, fully traceable to a source document and character span.*
+
 ### 5.2 Validation Test Suite
 
 | Test | Result |
@@ -436,6 +433,12 @@ A working reference implementation of Pillars 1–5 has been built and validated
 | Per-document query scoping | ✅ Pre-filtered retrieval correctly returned only in-scope content (zero false positives in 30-query test set) |
 | Type-fidelity in answers | ✅ With strict agent system prompt, model refused to conflate entity types and correctly stated "no direct relationship in the knowledge base" for trap questions |
 | Query latency | ✅ Filtered queries P95 = 2.8s; unfiltered queries P95 = 11.2s (within 5-second commander's-decision-support threshold for filtered case) |
+
+The schema-growth measurement is shown below.
+
+![Schema Growth — Auto-Discovered Ontology](schema_growth_chart.png)
+
+*Figure 3. Schema growth across three heterogeneous document ingestions. The ontology expanded from 9 entity types and 5 typed relationships after Document 1 to 23 entity types and 19 typed relationships after Document 3 — with no hand-authored schema at any step. Each new domain extended the unified ontology automatically.*
 
 ### 5.3 Government Demonstration Plan
 

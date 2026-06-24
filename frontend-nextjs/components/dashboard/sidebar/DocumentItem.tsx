@@ -49,9 +49,28 @@ const DocumentItem = React.memo(function DocumentItem({
         />
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-2">
-            <div className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight">
-              {doc.file_name}
-            </div>
+            {/*
+              Filename is clickable when we have a presigned `file_url` and
+              the doc isn't mid-processing / failed / being deleted. Opens
+              in a new tab. We stopPropagation on the click so it doesn't
+              toggle the row's selection state.
+            */}
+            {doc.file_url && !isDeleting && doc.status === "completed" ? (
+              <a
+                href={doc.file_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-50 hover:underline underline-offset-2 decoration-zinc-400 dark:decoration-zinc-600"
+                title="Open file in a new tab"
+              >
+                {doc.file_name}
+              </a>
+            ) : (
+              <div className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight">
+                {doc.file_name}
+              </div>
+            )}
             {isDeleting && (
               <div className="w-3 h-3 border-2 border-red-300 border-t-red-600 rounded-full animate-spin flex-shrink-0 mt-0.5" />
             )}

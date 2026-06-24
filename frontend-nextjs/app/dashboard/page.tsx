@@ -99,6 +99,31 @@ export default function DashboardPage() {
     }
   }, [user, isInitializing, router]);
 
+  // Google Drive OAuth redirect fallback: when the popup is blocked, the
+  // backend callback redirects here with ?drive_connected=0&drive_message=…
+  // instead of postMessage. Surface the message, then clean the URL.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("drive_connected")) return;
+    const ok = params.get("drive_connected") === "1";
+    const message = params.get("drive_message");
+    if (!ok && message) {
+      // Defer so it doesn't fight with first paint
+      setTimeout(() => alert(`Google Drive: ${message}`), 100);
+    }
+    // Strip the drive_* params from the URL without a reload
+    ["drive_connected", "drive_email", "drive_message"].forEach((k) =>
+      params.delete(k)
+    );
+    const qs = params.toString();
+    window.history.replaceState(
+      {},
+      "",
+      window.location.pathname + (qs ? `?${qs}` : "")
+    );
+  }, []);
+
   // React Query: cached, deduped, auto-refetches when stale
   useDocuments(user?.organization_id);
   useKnowledgeBases(user?.organization_id);

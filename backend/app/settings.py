@@ -91,6 +91,19 @@ class Settings(BaseSettings):
     ENTITY_RESOLUTION_THRESHOLD: float = 0.10  # cosine distance — lower = stricter merge
     ENTITY_CACHE_DIR: str = "./data/entity_cache"  # per-org FAISS indices live here
 
+    # ---- Google Drive connector ----------------------------------------
+    # OAuth client created in Google Cloud Console. Paste values into .env.
+    # REDIRECT_URI must EXACTLY match what's registered in the OAuth client
+    # (e.g. http://localhost:8000/api/google-drive/callback for dev).
+    GOOGLE_CLIENT_ID: str = ""
+    GOOGLE_CLIENT_SECRET: str = ""
+    GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/google-drive/callback"
+    # drive.readonly is the minimum scope; openid+email are for identifying
+    # which Google account got connected (shown in our UI).
+    GOOGLE_SCOPES: str = "openid email profile https://www.googleapis.com/auth/drive.readonly"
+    # Where the OAuth flow redirects the user back to in the frontend.
+    FRONTEND_URL: str = "http://localhost:3000"
+
     # Observability
 
     class Config:
