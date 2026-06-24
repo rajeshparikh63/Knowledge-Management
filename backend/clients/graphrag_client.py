@@ -551,6 +551,24 @@ def _schema_lock(graph_name: str) -> asyncio.Lock:
     return _schema_locks[graph_name]
 
 
+# Serializes the entity-resolution → graph-write critical section per org.
+# Resolution reads the current entity set and resolves each doc's new names
+# against it; if two documents did this concurrently they'd each miss the
+# other's not-yet-written entities and create DUPLICATE canonicals (and race on
+# the shared FAISS cache). Holding this lock from "load existing entities"
+# through "write to graph" keeps cross-document dedup correct. The expensive
+# per-chunk LLM extraction runs BEFORE this section, so it stays fully parallel
+# — only this short tail (~load + resolve + write) serializes, which lets the
+# worker run at high concurrency safely.
+_write_locks: Dict[str, asyncio.Lock] = {}
+
+
+def _write_lock(graph_name: str) -> asyncio.Lock:
+    if graph_name not in _write_locks:
+        _write_locks[graph_name] = asyncio.Lock()
+    return _write_locks[graph_name]
+
+
 async def _ensure_schema(organization_id: str, sample_text: str) -> _OntologySchema:
     """Detect ontology for this doc and merge into org's running schema."""
     graph_name = _graph_name(organization_id)
@@ -831,93 +849,101 @@ class GraphRAGClient:
                     if n:
                         all_entity_names.append(n)
 
-        # Fetch existing entity names from graph to seed cross-document resolution
-        existing_entity_names: List[str] = []
-        try:
-            g_pre = await asyncio.to_thread(_get_falkor_connection, graph_name)
-            rows = await asyncio.to_thread(
-                lambda: g_pre.query("MATCH (e:Entity) RETURN e.name").result_set
+        # ── Critical section: serialize resolution → write per org graph ────
+        # Everything above (chunk embedding + LLM entity/triple extraction) ran
+        # in parallel across documents. From here we read the current entity
+        # set, resolve THIS doc's names against it, and write — which must not
+        # interleave with another doc doing the same, or both miss each other's
+        # not-yet-written entities and create duplicate canonicals. This tail is
+        # short (~load + resolve + write), so high worker concurrency stays safe.
+        async with _write_lock(graph_name):
+            # Fetch existing entity names from graph to seed cross-document resolution
+            existing_entity_names: List[str] = []
+            try:
+                g_pre = await asyncio.to_thread(_get_falkor_connection, graph_name)
+                rows = await asyncio.to_thread(
+                    lambda: g_pre.query("MATCH (e:Entity) RETURN e.name").result_set
+                )
+                existing_entity_names = [row[0] for row in rows if row[0]]
+                logger.info(f"Loaded {len(existing_entity_names)} existing entities from graph for resolution seeding")
+            except Exception as e:
+                logger.warning(f"Could not load existing entities for resolution: {e}")
+
+            await _emit(
+                "resolving",
+                f"Resolving {len(set(all_entity_names))} entity names",
             )
-            existing_entity_names = [row[0] for row in rows if row[0]]
-            logger.info(f"Loaded {len(existing_entity_names)} existing entities from graph for resolution seeding")
-        except Exception as e:
-            logger.warning(f"Could not load existing entities for resolution: {e}")
+            entity_map = await _resolve_entities(
+                list(dict.fromkeys(all_entity_names)),
+                threshold=settings.ENTITY_RESOLUTION_THRESHOLD,
+                existing_canonicals=existing_entity_names,
+                organization_id=organization_id,
+            )
 
-        await _emit(
-            "resolving",
-            f"Resolving {len(set(all_entity_names))} entity names",
-        )
-        entity_map = await _resolve_entities(
-            list(dict.fromkeys(all_entity_names)),
-            threshold=settings.ENTITY_RESOLUTION_THRESHOLD,
-            existing_canonicals=existing_entity_names,
-            organization_id=organization_id,
-        )
+            # Step 5: build write payloads
+            chunk_rows = []
+            mention_rows: List[Tuple[str, str]] = []
+            triple_rows: List[Dict[str, Any]] = []
+            entity_types: Dict[str, str] = {}
+            seen_triples: set = set()
 
-        # Step 5: build write payloads
-        chunk_rows = []
-        mention_rows: List[Tuple[str, str]] = []
-        triple_rows: List[Dict[str, Any]] = []
-        entity_types: Dict[str, str] = {}
-        seen_triples: set = set()
-
-        for cid, chunk_text, embedding, extraction in results:
-            chunk_rows.append({
-                "id": cid,
-                "document_id": document_id,
-                "text": chunk_text,
-                "embedding": [float(x) for x in embedding],
-            })
-
-            for e in extraction.entities:
-                raw = e.name.strip()
-                if not raw:
-                    continue
-                canon = entity_map.get(raw, _norm(raw))
-                entity_types.setdefault(canon, e.type)
-                mention_rows.append((cid, canon))
-
-            for tr in extraction.triples:
-                if tr.confidence < settings.MIN_TRIPLE_CONFIDENCE:
-                    continue
-                subj_raw = tr.subject.strip()
-                obj_raw = tr.object.strip()
-                if not subj_raw or not obj_raw:
-                    continue
-                subj = entity_map.get(subj_raw, _norm(subj_raw))
-                obj = entity_map.get(obj_raw, _norm(obj_raw))
-                if subj == obj:
-                    continue
-                if subj not in entity_types or obj not in entity_types:
-                    continue
-                tid = _triple_id(subj, tr.predicate, obj, cid)
-                if tid in seen_triples:
-                    continue
-                seen_triples.add(tid)
-                triple_rows.append({
-                    "triple_id": tid,
-                    "subj": subj,
-                    "obj": obj,
-                    "predicate": tr.predicate,
-                    "source_chunk": cid,
-                    "confidence": tr.confidence,
+            for cid, chunk_text, embedding, extraction in results:
+                chunk_rows.append({
+                    "id": cid,
+                    "document_id": document_id,
+                    "text": chunk_text,
+                    "embedding": [float(x) for x in embedding],
                 })
 
-        # Deduplicate mention_rows
-        mention_rows = list(set(mention_rows))
+                for e in extraction.entities:
+                    raw = e.name.strip()
+                    if not raw:
+                        continue
+                    canon = entity_map.get(raw, _norm(raw))
+                    entity_types.setdefault(canon, e.type)
+                    mention_rows.append((cid, canon))
 
-        # Step 6: write to FalkorDB (sync client, run in thread)
-        await _emit(
-            "writing",
-            f"Writing {len(chunk_rows)} chunks · {len(entity_map)} entities · "
-            f"{len(triple_rows)} relations to graph",
-        )
-        g = await asyncio.to_thread(_get_falkor_connection, graph_name)
-        await asyncio.to_thread(_ensure_indexes, g)
-        counts = await asyncio.to_thread(
-            _write_to_graph, g, chunk_rows, entity_map,
-            triple_rows, mention_rows, entity_types,
-        )
+                for tr in extraction.triples:
+                    if tr.confidence < settings.MIN_TRIPLE_CONFIDENCE:
+                        continue
+                    subj_raw = tr.subject.strip()
+                    obj_raw = tr.object.strip()
+                    if not subj_raw or not obj_raw:
+                        continue
+                    subj = entity_map.get(subj_raw, _norm(subj_raw))
+                    obj = entity_map.get(obj_raw, _norm(obj_raw))
+                    if subj == obj:
+                        continue
+                    if subj not in entity_types or obj not in entity_types:
+                        continue
+                    tid = _triple_id(subj, tr.predicate, obj, cid)
+                    if tid in seen_triples:
+                        continue
+                    seen_triples.add(tid)
+                    triple_rows.append({
+                        "triple_id": tid,
+                        "subj": subj,
+                        "obj": obj,
+                        "predicate": tr.predicate,
+                        "source_chunk": cid,
+                        "confidence": tr.confidence,
+                    })
+
+            # Deduplicate mention_rows
+            mention_rows = list(set(mention_rows))
+
+            # Step 6: write to FalkorDB (sync client, run in thread)
+            await _emit(
+                "writing",
+                f"Writing {len(chunk_rows)} chunks · {len(entity_map)} entities · "
+                f"{len(triple_rows)} relations to graph",
+            )
+            g = await asyncio.to_thread(_get_falkor_connection, graph_name)
+            await asyncio.to_thread(_ensure_indexes, g)
+            counts = await asyncio.to_thread(
+                _write_to_graph, g, chunk_rows, entity_map,
+                triple_rows, mention_rows, entity_types,
+            )
 
         logger.info(
             f"Ingest complete: doc={document_id} "

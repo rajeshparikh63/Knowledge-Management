@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { Document } from "@/types";
+import { documentsApi } from "@/lib/api/documents";
 import IngestionPipeline from "./IngestionPipeline";
 
 interface DocumentItemProps {
@@ -23,6 +24,37 @@ const DocumentItem = React.memo(function DocumentItem({
   index = 0,
 }: DocumentItemProps) {
   const isFailed = doc.status === "failed";
+  const [opening, setOpening] = useState(false);
+
+  // A downloadable file exists when the doc finished and has a file_key. We do
+  // NOT have a URL yet — fetch a fresh presigned one only on click, so the list
+  // endpoint never has to mint URLs for every doc on every poll.
+  const canOpen = doc.status === "completed" && !!doc.file_key && !isDeleting;
+
+  const handleOpen = useCallback(
+    async (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!canOpen || opening) return;
+      setOpening(true);
+      // Open a blank tab synchronously (inside the click) so the popup blocker
+      // doesn't kill it; we set its location once the URL comes back.
+      const win = window.open("", "_blank");
+      try {
+        const fresh = await documentsApi.getDocument(doc.id);
+        if (fresh.file_url) {
+          if (win) win.location.href = fresh.file_url;
+          else window.open(fresh.file_url, "_blank", "noopener,noreferrer");
+        } else if (win) {
+          win.close();
+        }
+      } catch {
+        if (win) win.close();
+      } finally {
+        setOpening(false);
+      }
+    },
+    [canOpen, opening, doc.id]
+  );
 
   return (
     <motion.div
@@ -50,22 +82,22 @@ const DocumentItem = React.memo(function DocumentItem({
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-2">
             {/*
-              Filename is clickable when we have a presigned `file_url` and
-              the doc isn't mid-processing / failed / being deleted. Opens
-              in a new tab. We stopPropagation on the click so it doesn't
-              toggle the row's selection state.
+              Filename is clickable when the doc finished and has a file. We
+              fetch a FRESH presigned URL on click (not pre-generated for the
+              whole list) and open it in a new tab. stopPropagation so the click
+              doesn't toggle the row's selection state.
             */}
-            {doc.file_url && !isDeleting && doc.status === "completed" ? (
-              <a
-                href={doc.file_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-50 hover:underline underline-offset-2 decoration-zinc-400 dark:decoration-zinc-600"
+            {canOpen ? (
+              <button
+                type="button"
+                onClick={handleOpen}
+                disabled={opening}
+                className="text-left text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-50 hover:underline underline-offset-2 decoration-zinc-400 dark:decoration-zinc-600 disabled:opacity-60"
                 title="Open file in a new tab"
               >
                 {doc.file_name}
-              </a>
+                {opening && " …"}
+              </button>
             ) : (
               <div className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight">
                 {doc.file_name}

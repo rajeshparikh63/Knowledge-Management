@@ -1225,13 +1225,14 @@ class IngestionService:
             offset=skip
         )
 
-        # Convert file_key to presigned URL for each document
-        documents_with_urls = []
-        for doc in documents:
-            doc = await self._convert_file_key_to_url(doc)
-            documents_with_urls.append(doc)
-
-        return documents_with_urls
+        # NOTE: We deliberately do NOT mint presigned URLs here. This list is
+        # re-fetched on every poll (every few seconds while anything is
+        # processing) for potentially hundreds of documents — generating a URL
+        # per doc per poll was wasteful and flooded the logs. The frontend asks
+        # for a fresh URL on demand via GET /documents/{id} only when the user
+        # actually clicks a filename. We keep `file_key` so the UI knows a
+        # downloadable file exists.
+        return documents
 
     async def list_folders(
         self,
