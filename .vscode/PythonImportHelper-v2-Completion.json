@@ -97,6 +97,22 @@
         "documentation": {}
     },
     {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -632,6 +648,46 @@
         "documentation": {}
     },
     {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -937,6 +993,38 @@
     },
     {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1964,6 +2052,30 @@
         "documentation": {}
     },
     {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -2081,6 +2193,22 @@
         "description": "starlette.responses",
         "isExtraImport": true,
         "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
         "documentation": {}
     },
     {
@@ -2781,6 +2909,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
         "label": "Settings",
         "importPath": "app.settings",
         "description": "app.settings",
@@ -2917,6 +3053,14 @@
         "documentation": {}
     },
     {
+        "label": "sharepoint",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
         "label": "public_pages",
         "importPath": "routers",
         "description": "routers",
@@ -2991,6 +3135,14 @@
     },
     {
         "label": "process_drive_file_task",
+        "importPath": "tasks.ingestion_tasks",
+        "description": "tasks.ingestion_tasks",
+        "isExtraImport": true,
+        "detail": "tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
+        "label": "discover_sharepoint_files_task",
         "importPath": "tasks.ingestion_tasks",
         "description": "tasks.ingestion_tasks",
         "isExtraImport": true,
@@ -3625,6 +3777,22 @@
     },
     {
         "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -4365,6 +4533,14 @@
         "documentation": {}
     },
     {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
         "label": "xml.etree.ElementTree",
         "kind": 6,
         "isExtraImport": true,
@@ -4412,14 +4588,6 @@
         "description": "unstructured_client.models",
         "isExtraImport": true,
         "detail": "unstructured_client.models",
-        "documentation": {}
-    },
-    {
-        "label": "get_pdf_image_extractor",
-        "importPath": "clients.pdf_image_extractor",
-        "description": "clients.pdf_image_extractor",
-        "isExtraImport": true,
-        "detail": "clients.pdf_image_extractor",
         "documentation": {}
     },
     {
@@ -4604,6 +4772,14 @@
     },
     {
         "label": "get_keycloak_admin",
+        "importPath": "auth.keycloak_auth",
+        "description": "auth.keycloak_auth",
+        "isExtraImport": true,
+        "detail": "auth.keycloak_auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user_keycloak",
         "importPath": "auth.keycloak_auth",
         "description": "auth.keycloak_auth",
         "isExtraImport": true,
@@ -5025,6 +5201,30 @@
         "description": "services.report_generator",
         "isExtraImport": true,
         "detail": "services.report_generator",
+        "documentation": {}
+    },
+    {
+        "label": "SharePointClient",
+        "importPath": "clients.sharepoint_client",
+        "description": "clients.sharepoint_client",
+        "isExtraImport": true,
+        "detail": "clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "SharePointError",
+        "importPath": "clients.sharepoint_client",
+        "description": "clients.sharepoint_client",
+        "isExtraImport": true,
+        "detail": "clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_sharepoint_client",
+        "importPath": "clients.sharepoint_client",
+        "description": "clients.sharepoint_client",
+        "isExtraImport": true,
+        "detail": "clients.sharepoint_client",
         "documentation": {}
     },
     {
@@ -6900,6 +7100,60 @@
         "documentation": {}
     },
     {
+        "label": "SharePointError",
+        "kind": 6,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "class SharePointError(Exception):\n    \"\"\"Raised for any SharePoint/Composio interaction failure.\"\"\"\n# File types our ingestion pipeline can handle (mirrors the Drive whitelist).\n_SUPPORTED_EXT = {\n    \"pdf\", \"doc\", \"docx\", \"ppt\", \"pptx\", \"txt\", \"md\", \"markdown\",\n    \"csv\", \"tsv\", \"xls\", \"xlsx\", \"rtf\", \"html\", \"htm\", \"epub\",\n}\n_client_singleton = None\n_client_lock = threading.Lock()\ndef _composio():",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "SharePointClient",
+        "kind": 6,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "class SharePointClient:\n    \"\"\"Per-user SharePoint access via Composio. Methods are synchronous (the\n    Composio SDK is sync); async callers wrap with asyncio.to_thread, the Celery\n    worker calls directly.\"\"\"\n    TOOLKIT = \"share_point\"\n    def __init__(self, user_id: str):\n        if not user_id:\n            raise SharePointError(\"user_id is required\")\n        self.user_id = str(user_id)\n        self._c = _composio()",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_sharepoint_client",
+        "kind": 2,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "def get_sharepoint_client(user_id: str) -> SharePointClient:\n    return SharePointClient(user_id)",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "_SUPPORTED_EXT",
+        "kind": 5,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "_SUPPORTED_EXT = {\n    \"pdf\", \"doc\", \"docx\", \"ppt\", \"pptx\", \"txt\", \"md\", \"markdown\",\n    \"csv\", \"tsv\", \"xls\", \"xlsx\", \"rtf\", \"html\", \"htm\", \"epub\",\n}\n_client_singleton = None\n_client_lock = threading.Lock()\ndef _composio():\n    \"\"\"Process-wide singleton Composio client (cheap to reuse, thread-safe).\"\"\"\n    global _client_singleton\n    if _client_singleton is None:",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "_client_singleton",
+        "kind": 5,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "_client_singleton = None\n_client_lock = threading.Lock()\ndef _composio():\n    \"\"\"Process-wide singleton Composio client (cheap to reuse, thread-safe).\"\"\"\n    global _client_singleton\n    if _client_singleton is None:\n        with _client_lock:\n            if _client_singleton is None:\n                from composio import Composio\n                if not settings.COMPOSIO_API_KEY:",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
+        "label": "_client_lock",
+        "kind": 5,
+        "importPath": "backend.clients.sharepoint_client",
+        "description": "backend.clients.sharepoint_client",
+        "peekOfCode": "_client_lock = threading.Lock()\ndef _composio():\n    \"\"\"Process-wide singleton Composio client (cheap to reuse, thread-safe).\"\"\"\n    global _client_singleton\n    if _client_singleton is None:\n        with _client_lock:\n            if _client_singleton is None:\n                from composio import Composio\n                if not settings.COMPOSIO_API_KEY:\n                    raise SharePointError(\"COMPOSIO_API_KEY is not configured\")",
+        "detail": "backend.clients.sharepoint_client",
+        "documentation": {}
+    },
+    {
         "label": "TAKClient",
         "kind": 6,
         "importPath": "backend.clients.tak_client",
@@ -7512,6 +7766,42 @@
         "documentation": {}
     },
     {
+        "label": "ConnectRequest",
+        "kind": 6,
+        "importPath": "backend.routers.sharepoint",
+        "description": "backend.routers.sharepoint",
+        "peekOfCode": "class ConnectRequest(BaseModel):\n    # Where Composio redirects the browser after the user finishes consent.\n    # The frontend passes `${origin}/oauth-callback`. The tenant subdomain is\n    # collected by Composio's own hosted connect page — not by us.\n    callback_url: Optional[str] = Field(\n        default=None,\n        description=\"URL Composio redirects to after the hosted OAuth flow completes.\",\n    )\n@router.post(\"/connect\")\nasync def connect(",
+        "detail": "backend.routers.sharepoint",
+        "documentation": {}
+    },
+    {
+        "label": "IngestLibrarySpec",
+        "kind": 6,
+        "importPath": "backend.routers.sharepoint",
+        "description": "backend.routers.sharepoint",
+        "peekOfCode": "class IngestLibrarySpec(BaseModel):\n    id: str = Field(..., description=\"Drive (document library) id\")\n    name: str = Field(..., description=\"Library name — used as the KB folder\")\nclass IngestLibrariesRequest(BaseModel):\n    libraries: List[IngestLibrarySpec] = Field(..., min_length=1)\n@router.post(\"/ingest-libraries\")\nasync def ingest_libraries(\n    body: IngestLibrariesRequest,\n    current_user: dict = Depends(get_current_user_keycloak),\n) -> Dict[str, Any]:",
+        "detail": "backend.routers.sharepoint",
+        "documentation": {}
+    },
+    {
+        "label": "IngestLibrariesRequest",
+        "kind": 6,
+        "importPath": "backend.routers.sharepoint",
+        "description": "backend.routers.sharepoint",
+        "peekOfCode": "class IngestLibrariesRequest(BaseModel):\n    libraries: List[IngestLibrarySpec] = Field(..., min_length=1)\n@router.post(\"/ingest-libraries\")\nasync def ingest_libraries(\n    body: IngestLibrariesRequest,\n    current_user: dict = Depends(get_current_user_keycloak),\n) -> Dict[str, Any]:\n    \"\"\"Queue discovery for each selected library. Each library's files\n    (recursively) land in a KB folder named after the library. Files already\n    ingested are skipped via metadata.sharepoint_item_id dedup.\"\"\"",
+        "detail": "backend.routers.sharepoint",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.sharepoint",
+        "description": "backend.routers.sharepoint",
+        "peekOfCode": "router = APIRouter(prefix=\"/sharepoint\", tags=[\"sharepoint\"])\ndef _client(current_user: dict) -> SharePointClient:\n    user_id = current_user.get(\"id\")\n    if not user_id:\n        raise HTTPException(status_code=400, detail=\"User missing id\")\n    try:\n        return get_sharepoint_client(user_id)\n    except SharePointError as e:\n        # COMPOSIO_API_KEY not configured, etc.\n        raise HTTPException(status_code=503, detail=str(e))",
+        "detail": "backend.routers.sharepoint",
+        "documentation": {}
+    },
+    {
         "label": "SimpleQuery",
         "kind": 6,
         "importPath": "backend.routers.simple_chat",
@@ -7949,6 +8239,24 @@
         "importPath": "backend.tasks.ingestion_tasks",
         "description": "backend.tasks.ingestion_tasks",
         "peekOfCode": "def discover_drive_files_task(\n    self,\n    organization_id: str,\n    user_id: str,\n    folder_name: str = \"Google Drive\",\n    folder_ids: \"Optional[List[str]]\" = None,\n    folders: \"Optional[List[Dict[str, Any]]]\" = None,\n) -> Dict[str, Any]:\n    \"\"\"\n    Worker task — enumerate the user's connected Drive, fan out per-file",
+        "detail": "backend.tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
+        "label": "discover_sharepoint_files_task",
+        "kind": 2,
+        "importPath": "backend.tasks.ingestion_tasks",
+        "description": "backend.tasks.ingestion_tasks",
+        "peekOfCode": "def discover_sharepoint_files_task(\n    self,\n    organization_id: str,\n    user_id: str,\n    libraries: List[Dict[str, Any]],\n) -> Dict[str, Any]:\n    \"\"\"Walk each selected SharePoint document library (drive) and fan out\n    per-file ingestion for every new (un-ingested) supported file. Each\n    library's files land in a KB folder named after the library.\n    Dedup: any SharePoint item already represented in this user's documents",
+        "detail": "backend.tasks.ingestion_tasks",
+        "documentation": {}
+    },
+    {
+        "label": "process_sharepoint_file_task",
+        "kind": 2,
+        "importPath": "backend.tasks.ingestion_tasks",
+        "description": "backend.tasks.ingestion_tasks",
+        "peekOfCode": "def process_sharepoint_file_task(\n    self,\n    document_id: str,\n    web_url: str,\n    file_name: str,\n    file_key: str,\n    folder_name: str,\n    user_id: str,\n    organization_id: str,\n) -> Dict[str, Any]:",
         "detail": "backend.tasks.ingestion_tasks",
         "documentation": {}
     },

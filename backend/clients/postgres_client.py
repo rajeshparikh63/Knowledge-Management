@@ -1059,6 +1059,30 @@ class PostgresClient:
             )
         return {r["drive_file_id"] for r in rows if r["drive_file_id"]}
 
+    async def list_ingested_sharepoint_item_ids(
+        self, organization_id: str, user_id: str
+    ) -> set:
+        """Return the set of SharePoint drive-item ids this user already ingested.
+
+        Mirrors list_ingested_drive_file_ids — dedup so re-running discovery
+        doesn't create duplicate document rows. The item id is stored under
+        metadata.sharepoint_item_id by the SharePoint discovery task.
+        """
+        pool = await self.get_pool()
+        query = """
+            SELECT metadata->>'sharepoint_item_id' AS item_id
+            FROM documents
+            WHERE organization_id = $1
+              AND user_id = $2
+              AND metadata->>'source' = 'sharepoint'
+              AND metadata->>'sharepoint_item_id' IS NOT NULL
+        """
+        async with pool.acquire() as conn:
+            rows = await conn.fetch(
+                query, uuid.UUID(organization_id), uuid.UUID(user_id)
+            )
+        return {r["item_id"] for r in rows if r["item_id"]}
+
     async def delete_google_drive_connection(
         self, organization_id: str, user_id: str
     ) -> bool:
