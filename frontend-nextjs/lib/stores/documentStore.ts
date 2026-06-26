@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { Document, KnowledgeBase } from '@/types';
 import { documentsApi } from '../api/documents';
 
@@ -177,7 +178,9 @@ interface DocumentState {
   deselectDocs: (ids: string[]) => void;
 }
 
-export const useDocumentStore = create<DocumentState>((set, get) => ({
+export const useDocumentStore = create<DocumentState>()(
+  persist(
+    (set, get) => ({
   // State
   documents: [],
   knowledgeBases: [],
@@ -465,4 +468,22 @@ export const useDocumentStore = create<DocumentState>((set, get) => ({
     saveSelectedDocs(newSelected);
     set({ selectedDocs: newSelected });
   },
-}));
+    }),
+    {
+      // Cache the ingested-documents list + folder list across reloads so the
+      // sidebar renders instantly from cache instead of waiting on the backend.
+      // fetchDocuments still runs to refresh in the background; this just removes
+      // the empty-then-populate flash and the hard dependency on a fresh call.
+      name: 'soldieriq-documents-cache',
+      storage: createJSONStorage(() => localStorage),
+      version: 1,
+      // Persist ONLY the cacheable data. Transient state (loading/upload/error,
+      // drive-import flags) and selection (handled separately, and a Set isn't
+      // JSON-serializable) are deliberately excluded.
+      partialize: (state) => ({
+        documents: state.documents,
+        knowledgeBases: state.knowledgeBases,
+      }),
+    }
+  )
+);

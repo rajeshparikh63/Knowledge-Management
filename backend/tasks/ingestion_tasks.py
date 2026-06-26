@@ -646,3 +646,190 @@ def _reconcile_stuck_drive_docs(**_kwargs):
             logger.info("♻️  No stuck Drive docs to reconcile on boot")
     except Exception as e:  # pragma: no cover - defensive
         logger.warning(f"Stuck-doc reconciliation failed (non-fatal): {e}")
+
+
+# ---------------------------------------------------------------------------
+# SharePoint (via Composio) — discovery + per-file ingestion
+# ---------------------------------------------------------------------------
+
+@celery_app.task(bind=True)
+def discover_sharepoint_files_task(
+    self,
+    organization_id: str,
+    user_id: str,
+    libraries: List[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Walk each selected SharePoint document library (drive) and fan out
+    per-file ingestion for every new (un-ingested) supported file. Each
+    library's files land in a KB folder named after the library.
+
+    Dedup: any SharePoint item already represented in this user's documents
+    (matched by metadata.sharepoint_item_id) is skipped, so re-running is
+    idempotent.
+    """
+    import asyncio as _asyncio
+    import uuid as _uuid
+
+    from services.ingestion_service import _run_in_worker_loop
+    from clients.sharepoint_client import get_sharepoint_client
+    from clients.postgres_client import get_postgres_client
+    from utils.file_utils import get_file_extension
+
+    logger.info(
+        f"🔍 SharePoint discovery starting: user={str(user_id)[:8]}… "
+        f"{len(libraries)} library(ies)"
+    )
+
+    async def _discover_and_queue() -> Dict[str, Any]:
+        pg = get_postgres_client()
+        already = await pg.list_ingested_sharepoint_item_ids(organization_id, user_id)
+        logger.info(f"📋 Dedup: {len(already)} SharePoint items already ingested — skipping")
+
+        ingestion_service = IngestionService()
+        counters = {"discovered": 0, "queued": 0, "skipped": 0}
+        sp = get_sharepoint_client(user_id)
+
+        try:
+            for lib in libraries:
+                drive_id = lib.get("id")
+                kb = _sanitize_kb_folder(lib.get("name", ""))
+                if not drive_id:
+                    continue
+                logger.info(f"📂 Walking SharePoint library '{kb}' (drive={drive_id[:10]}…)")
+                # walk_drive is sync (Composio SDK) + slow (many API calls) — run
+                # off the event loop so concurrent file-ingests aren't blocked.
+                files = await _asyncio.to_thread(sp.walk_drive, drive_id)
+
+                for f in files:
+                    counters["discovered"] += 1
+                    item_id = f.get("id") or f.get("Id")
+                    name = f.get("name") or f.get("Name") or "file"
+                    web_url = f.get("webUrl")
+                    if not item_id or item_id in already:
+                        counters["skipped"] += 1
+                        continue
+                    already.add(item_id)
+
+                    document_id = str(_uuid.uuid4())
+                    ext = get_file_extension(name) or ""
+                    file_key = f"{organization_id}/{kb}/{document_id}{ext}"
+
+                    await ingestion_service._create_document_with_status(
+                        file_name=name,
+                        folder_name=kb,
+                        file_key=file_key,
+                        file_size_mb=(f.get("size") or 0) / (1024 * 1024),
+                        user_id=user_id,
+                        organization_id=organization_id,
+                        additional_metadata={
+                            "id": document_id,
+                            "source": "sharepoint",
+                            "sharepoint_item_id": item_id,
+                            "sharepoint_web_url": web_url,
+                            "sharepoint_file_name": name,
+                            "sharepoint_drive_id": drive_id,
+                        },
+                    )
+                    process_sharepoint_file_task.delay(
+                        document_id=document_id,
+                        web_url=web_url,
+                        file_name=name,
+                        file_key=file_key,
+                        folder_name=kb,
+                        user_id=str(user_id),
+                        organization_id=str(organization_id),
+                    )
+                    counters["queued"] += 1
+                    if counters["discovered"] % 50 == 0:
+                        logger.info(
+                            f"🔍 SP discovery progress: {counters['discovered']} examined, "
+                            f"{counters['queued']} queued, {counters['skipped']} skipped"
+                        )
+        finally:
+            try:
+                ingestion_service.cleanup()
+            except Exception as cleanup_error:
+                logger.warning(f"SharePoint discovery cleanup warning: {cleanup_error}")
+
+        return dict(counters)
+
+    try:
+        result = _run_in_worker_loop(_discover_and_queue())
+        logger.info(
+            f"✅ SharePoint discovery complete for user={str(user_id)[:8]}…: "
+            f"{result['discovered']} discovered, {result['queued']} queued, "
+            f"{result['skipped']} skipped (already ingested)"
+        )
+        return {"status": "success", **result}
+    except Exception as e:
+        logger.error(f"❌ SharePoint discovery failed: {e}", exc_info=True)
+        return {"status": "error", "error": str(e)}
+    finally:
+        gc.collect()
+
+
+@celery_app.task(bind=True)
+def process_sharepoint_file_task(
+    self,
+    document_id: str,
+    web_url: str,
+    file_name: str,
+    file_key: str,
+    folder_name: str,
+    user_id: str,
+    organization_id: str,
+) -> Dict[str, Any]:
+    """Download ONE SharePoint file via Composio, then run the same async
+    ingestion pipeline as direct uploads + Drive."""
+    from services.ingestion_service import _run_in_worker_loop
+    from clients.sharepoint_client import get_sharepoint_client
+
+    ingestion_service = None
+    try:
+        logger.info(f"📥 SharePoint worker processing: {file_name} (doc_id={document_id})")
+
+        sp = get_sharepoint_client(user_id)
+        content, effective_mime, effective_name = sp.download_file(web_url, file_name)
+        logger.info(
+            f"✅ SharePoint download complete: {file_name} "
+            f"({len(content) / 1024:.1f} KB, mime={effective_mime})"
+        )
+
+        async def _ingest() -> Dict[str, Any]:
+            nonlocal ingestion_service
+            ingestion_service = IngestionService()
+            return await ingestion_service._process_single_document_async(
+                document_id=document_id,
+                file_key=file_key,
+                file_content=content,
+                filename=effective_name,
+                content_type=effective_mime,
+                folder_name=folder_name,
+                user_id=user_id,
+                organization_id=organization_id,
+                additional_metadata=None,  # router/discovery already wrote source metadata
+            )
+
+        result = _run_in_worker_loop(_ingest())
+        logger.info(f"✅ SharePoint worker completed: {file_name}")
+        return {
+            "status": "success",
+            "document_id": document_id,
+            "filename": file_name,
+            "result": result,
+        }
+    except Exception as e:
+        logger.error(f"❌ SharePoint worker failed for {file_name}: {e}", exc_info=True)
+        return {
+            "status": "error",
+            "document_id": document_id,
+            "filename": file_name,
+            "error": str(e),
+        }
+    finally:
+        if ingestion_service:
+            try:
+                ingestion_service.cleanup()
+            except Exception as cleanup_error:
+                logger.warning(f"Cleanup warning for {file_name}: {cleanup_error}")
+        gc.collect()
