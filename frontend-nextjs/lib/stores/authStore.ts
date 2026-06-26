@@ -108,6 +108,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       localStorage.removeItem('refresh_token');
       localStorage.removeItem('user');
 
+      // Clear the persisted Zustand caches so the next user on this browser
+      // never sees the previous user's ingested documents or chat history.
+      try {
+        localStorage.removeItem('soldieriq-documents-cache');
+        localStorage.removeItem('soldieriq-chat-session');
+      } catch {
+        /* ignore */
+      }
+
       // Clear user from state
       set({ user: null });
     }

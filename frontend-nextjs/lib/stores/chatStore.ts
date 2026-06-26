@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { ChatMessage, SourceReference, KnowledgeGraph } from '@/types';
 
 const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -55,7 +56,9 @@ interface ChatState {
   setTAKEnabled: (enabled: boolean) => void;
 }
 
-export const useChatStore = create<ChatState>((set) => ({
+export const useChatStore = create<ChatState>()(
+  persist(
+    (set) => ({
   messages: [],
   sessionId: generateId(),
   isLoading: false,
@@ -99,4 +102,20 @@ export const useChatStore = create<ChatState>((set) => ({
   setTAKCredentials: (credentials) => set({ takCredentials: credentials }),
 
   setTAKEnabled: (enabled) => set({ takEnabled: enabled }),
-}));
+    }),
+    {
+      // Keep the current conversation (and chosen model) across reloads so the
+      // session history survives a refresh without re-fetching from the backend.
+      name: 'soldieriq-chat-session',
+      storage: createJSONStorage(() => localStorage),
+      version: 1,
+      // Persist only the conversation + model. NOT transient flags (loading,
+      // input draft) and NOT takCredentials (contains a password).
+      partialize: (state) => ({
+        messages: state.messages,
+        sessionId: state.sessionId,
+        selectedModel: state.selectedModel,
+      }),
+    }
+  )
+);

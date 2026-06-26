@@ -8,7 +8,6 @@ from unstructured_client import UnstructuredClient as UnstructuredAPIClient
 from unstructured_client.models import shared
 from app.logger import logger
 from app.settings import settings
-from clients.pdf_image_extractor import get_pdf_image_extractor
 
 
 class UnstructuredClient:
@@ -49,7 +48,8 @@ class UnstructuredClient:
         text layer — instant and cheap for normal documents). If that comes back
         essentially empty, the PDF is image-based / scanned (e.g. a designed
         brochure where the text is baked into the artwork), so we fall back to
-        full-page VLM transcription via the vision model.
+        Unstructured's native VLM strategy (a vision model reads the rendered
+        pages).
 
         Args:
             file_content: File content as bytes
@@ -74,22 +74,53 @@ class UnstructuredClient:
                 raise Exception(f"Unstructured extraction failed: {str(e)}")
             logger.warning(f"⚠️ FAST extraction errored for {filename} ({str(e)}); will try VLM")
 
-        # 2. Image/scanned PDF → FAST yields ~nothing → full-page VLM transcription.
+        # 2. Image/scanned PDF → FAST yields ~nothing → Unstructured VLM strategy.
         if extension == ".pdf" and len(fast_text.strip()) < 50:
             logger.info(
                 f"🔎 FAST extracted only {len(fast_text.strip())} chars from {filename} "
-                f"— treating as an image PDF and transcribing pages with the vision model"
+                f"— treating as an image PDF and re-parsing with the VLM strategy"
             )
             try:
-                vlm_text = get_pdf_image_extractor().extract_pages_via_vlm(
-                    file_content, filename
-                )
+                vlm_text = self._extract_vlm(file_content, filename)
                 if len(vlm_text.strip()) > len(fast_text.strip()):
                     return vlm_text
             except Exception as e:
-                logger.error(f"❌ VLM fallback failed for {filename}: {str(e)}")
+                logger.error(f"❌ VLM extraction failed for {filename}: {str(e)}")
 
         return fast_text
+
+    def _extract_vlm(self, file_content: bytes, filename: str) -> str:
+        """Unstructured API VLM strategy — a vision model reads the rendered
+        pages. Best for image-based / scanned PDFs with no text layer."""
+        req = {
+            "partition_parameters": {
+                "files": {
+                    "content": file_content,
+                    "file_name": filename,
+                },
+                "strategy": shared.Strategy.VLM,
+                "vlm_model_provider": settings.VLM_MODEL_PROVIDER,
+                "vlm_model": settings.VLM_MODEL,
+                "split_pdf_page": False,
+                "split_pdf_allow_failed": False,
+                "split_pdf_concurrency_level": 1,
+            }
+        }
+
+        res = self.client.general.partition(request=req)
+
+        extracted_text = "\n\n".join([
+            element.get("text", "")
+            for element in res.elements
+            if element.get("text")
+        ])
+
+        logger.info(
+            f"✅ Unstructured API (VLM:{settings.VLM_MODEL}) extracted "
+            f"{len(extracted_text)} chars from {filename}"
+        )
+
+        return extracted_text
 
     def _extract_fast(self, file_content: bytes, filename: str) -> str:
         """Unstructured API FAST strategy — embedded text-layer extraction only."""

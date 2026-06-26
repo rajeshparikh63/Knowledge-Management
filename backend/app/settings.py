@@ -33,6 +33,12 @@ class Settings(BaseSettings):
     # Document Processing
     UNSTRUCTURED_API_KEY: str = ""
     UNSTRUCTURED_API_URL: str = ""
+    # For image-based / scanned PDFs (no text layer), parse with Unstructured's
+    # native VLM strategy: a vision model reads the rendered pages. Provider must
+    # be one Unstructured supports (openai | anthropic | google | bedrock |
+    # vertexai | azure_openai); model is that provider's vision model id.
+    VLM_MODEL_PROVIDER: str = "openai"
+    VLM_MODEL: str = "gpt-4o-mini"  # smaller/cheaper vision model; gpt-4o for higher fidelity
 
     # Video Processing
     VIDEO_TARGET_FPS: int = 4  # Frame extraction rate (frames per second)
@@ -103,6 +109,15 @@ class Settings(BaseSettings):
     GOOGLE_SCOPES: str = "openid email profile https://www.googleapis.com/auth/drive.readonly"
     # Where the OAuth flow redirects the user back to in the frontend.
     FRONTEND_URL: str = "http://localhost:3000"
+
+    # ---- Composio (manages SharePoint OAuth + tokens for us) -------------
+    # We don't store Microsoft tokens ourselves; Composio owns the OAuth flow
+    # and refresh. We just call its SDK with our user_id as the Composio
+    # "entity". The auth config (an OAuth app registered in the Composio
+    # dashboard) is referenced by id; the share_point one requires a per-user
+    # `subdomain` (tenant name) collected at connect time.
+    COMPOSIO_API_KEY: str = ""
+    COMPOSIO_SHAREPOINT_AUTH_CONFIG_ID: str = "ac_yZpaj2ORI7Fx"
 
     # Observability
 

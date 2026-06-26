@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GoogleDriveSection from "./GoogleDriveSection";
+import SharePointSection from "./SharePointSection";
 
 interface UploadModalProps {
   isOpen: boolean;
@@ -22,9 +23,9 @@ const UploadModal = React.memo(function UploadModal({
   uploadStatus,
 }: UploadModalProps) {
   const [selectedFolderName, setSelectedFolderName] = useState("");
-  const [uploadMode, setUploadMode] = useState<"files" | "youtube" | "drive">(
-    "files"
-  );
+  const [uploadMode, setUploadMode] = useState<
+    "files" | "youtube" | "drive" | "sharepoint"
+  >("files");
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [uploadingFiles, setUploadingFiles] = useState<string[]>([]);
@@ -145,9 +146,11 @@ const UploadModal = React.memo(function UploadModal({
                   ? "UPLOADING FILES"
                   : uploadMode === "drive"
                     ? "GOOGLE DRIVE"
-                    : uploadMode === "youtube"
-                      ? "YOUTUBE VIDEO"
-                      : "SELECT FOLDER"}
+                    : uploadMode === "sharepoint"
+                      ? "SHAREPOINT"
+                      : uploadMode === "youtube"
+                        ? "YOUTUBE VIDEO"
+                        : "SELECT FOLDER"}
               </h3>
             </div>
 
@@ -219,6 +222,16 @@ const UploadModal = React.memo(function UploadModal({
                   >
                     DRIVE
                   </button>
+                  <button
+                    onClick={() => setUploadMode("sharepoint")}
+                    className={`flex-1 py-2 px-2 text-[11px] font-semibold tracking-wider transition-all ${
+                      uploadMode === "sharepoint"
+                        ? "bg-amber-400 text-slate-900"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    SHAREPOINT
+                  </button>
                 </div>
 
                 {/* Drive mode replaces the folder input + proceed button
@@ -229,8 +242,14 @@ const UploadModal = React.memo(function UploadModal({
                   <GoogleDriveSection onIngestStarted={handleClose} />
                 )}
 
+                {/* SharePoint connector — like Drive, uses its own per-library
+                    KB folder names, so no folder input needed here. */}
+                {uploadMode === "sharepoint" && (
+                  <SharePointSection onIngestStarted={handleClose} />
+                )}
+
                 {/* Folder Name Input — only for files / youtube modes */}
-                {uploadMode !== "drive" && (
+                {uploadMode !== "drive" && uploadMode !== "sharepoint" && (
                 <div>
                   <label className="block text-xs text-slate-500 tracking-widest mb-2 uppercase">
                     Folder Name (New or Existing)
@@ -282,8 +301,8 @@ const UploadModal = React.memo(function UploadModal({
                 )}
 
                 {/* Proceed button — only for files / youtube modes.
-                    Drive mode has its own action buttons inside the section. */}
-                {uploadMode !== "drive" && (
+                    Drive + SharePoint have their own action buttons inside the section. */}
+                {uploadMode !== "drive" && uploadMode !== "sharepoint" && (
                 <button
                   onClick={handleProceedWithUpload}
                   disabled={
