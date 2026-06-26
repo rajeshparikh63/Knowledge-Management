@@ -824,6 +824,38 @@
         "documentation": {}
     },
     {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1057,6 +1089,14 @@
     },
     {
         "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1200,15 +1240,7 @@
         "documentation": {}
     },
     {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
+        "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1217,6 +1249,14 @@
     },
     {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -4215,6 +4255,170 @@
         "documentation": {}
     },
     {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_postgres_client",
+        "importPath": "clients.postgres_client",
+        "description": "clients.postgres_client",
+        "isExtraImport": true,
+        "detail": "clients.postgres_client",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncOpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunker_client",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "validate_content_for_embeddings",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_entity_vector_cache",
+        "importPath": "clients.entity_vector_cache",
+        "description": "clients.entity_vector_cache",
+        "isExtraImport": true,
+        "detail": "clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
         "label": "Groq",
         "importPath": "groq",
         "description": "groq",
@@ -6638,6 +6842,177 @@
         "description": "backend.clients.cot_builder",
         "peekOfCode": "class CoTBuilder:\n    \"\"\"Build CoT XML messages for TAK server\"\"\"\n    @staticmethod\n    def build_marker(\n        lat: float,\n        lon: float,\n        callsign: str,\n        message: Optional[str] = None,\n        uid: Optional[str] = None,\n        stale_minutes: int = 60",
         "detail": "backend.clients.cot_builder",
+        "documentation": {}
+    },
+    {
+        "label": "_OrgCache",
+        "kind": 6,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "class _OrgCache:\n    \"\"\"In-memory state for one org's FAISS index + name list.\"\"\"\n    __slots__ = (\"org_id\", \"index\", \"names\", \"name_to_pos\", \"lock\", \"_dirty\")\n    def __init__(self, org_id: str, dim: int):\n        if faiss is None:\n            raise RuntimeError(\"faiss-cpu is not installed\")\n        self.org_id = org_id\n        # IndexFlatIP on L2-normalized vectors → cosine similarity\n        self.index = faiss.IndexFlatIP(dim)\n        self.names: List[str] = []",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "EntityVectorCache",
+        "kind": 6,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "class EntityVectorCache:\n    \"\"\"Process-wide registry of per-org caches.\"\"\"\n    def __init__(self, dim: int = None):\n        self.dim = dim or settings.EMBEDDING_DIM\n        self._orgs: Dict[str, _OrgCache] = {}\n        self._registry_lock = asyncio.Lock()\n    async def _get_or_load(self, org_id: str) -> _OrgCache:\n        if org_id in self._orgs:\n            return self._orgs[org_id]\n        async with self._registry_lock:",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "get_entity_vector_cache",
+        "kind": 2,
+        "importPath": "backend.clients.entity_vector_cache",
+        "description": "backend.clients.entity_vector_cache",
+        "peekOfCode": "def get_entity_vector_cache() -> EntityVectorCache:\n    global _singleton\n    if _singleton is None:\n        _singleton = EntityVectorCache()\n    return _singleton",
+        "detail": "backend.clients.entity_vector_cache",
+        "documentation": {}
+    },
+    {
+        "label": "DriveFile",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class DriveFile:\n    \"\"\"One discovered file's metadata — kept lean since we only need this much.\"\"\"\n    id: str\n    name: str\n    mime_type: str\n    size: int\n    modified_at: Optional[datetime]\n    web_url: Optional[str]\nclass GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveError",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"\n@dataclass\nclass _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_Tokens",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleDriveClient",
+        "kind": 6,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "class GoogleDriveClient:\n    \"\"\"Per-(org, user) Drive client. Refreshes + persists tokens automatically.\"\"\"\n    def __init__(\n        self,\n        organization_id: str,\n        user_id: str,\n        tokens: _Tokens,\n    ):\n        self.organization_id = organization_id\n        self.user_id = user_id",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "build_authorize_url",
+        "kind": 2,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "def build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )\n    from urllib.parse import urlencode\n    params = {\n        \"client_id\": settings.GOOGLE_CLIENT_ID,\n        \"response_type\": \"code\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Google endpoints\nTOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "TOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHORIZE_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "AUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "USERINFO_URL",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "USERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "DRIVE_API",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "DRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_REFRESH_LEEWAY",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}\n# Only enumerate these during auto-discovery. Everything else is either\n# unparseable for our pipeline, irrelevant (images, video unless we add",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "_INCLUDE_MIME",
+        "kind": 5,
+        "importPath": "backend.clients.google_drive_client",
+        "description": "backend.clients.google_drive_client",
+        "peekOfCode": "_INCLUDE_MIME = {\n    # Google-native (handled via export to text/csv)\n    \"application/vnd.google-apps.document\",\n    \"application/vnd.google-apps.spreadsheet\",\n    \"application/vnd.google-apps.presentation\",\n    # Documents\n    \"application/pdf\",\n    \"application/msword\",\n    \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\n    \"application/vnd.ms-excel\",",
+        "detail": "backend.clients.google_drive_client",
+        "documentation": {}
+    },
+    {
+        "label": "ExtractedEntity",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class ExtractedEntity(pydantic.BaseModel):\n    name: str\n    type: str\nclass ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "ExtractedTriple",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts\n# ---------------------------------------------------------------------------\n_ONTOLOGY_PROMPT = \"\"\"\\\nYou are designing a knowledge-graph ontology for a corpus.\nRead the SAMPLE TEXT and propose a compact ontology that captures the kinds of\nthings and relationships present. Aim for 6–12 entity types and 6–14 relation",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_OntologySchema",
+        "kind": 6,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "class _OntologySchema:\n    def __init__(self):\n        self.entity_labels: List[str] = []\n        self.relation_labels: List[str] = []\n_schemas: Dict[str, _OntologySchema] = {}\n_schema_locks: Dict[str, asyncio.Lock] = {}\ndef _schema_lock(graph_name: str) -> asyncio.Lock:\n    if graph_name not in _schema_locks:\n        _schema_locks[graph_name] = asyncio.Lock()\n    return _schema_locks[graph_name]",
+        "detail": "backend.clients.graphrag_client",
         "documentation": {}
     },
     {
