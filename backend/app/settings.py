@@ -117,7 +117,11 @@ class Settings(BaseSettings):
     # dashboard) is referenced by id; the share_point one requires a per-user
     # `subdomain` (tenant name) collected at connect time.
     COMPOSIO_API_KEY: str = ""
-    COMPOSIO_SHAREPOINT_AUTH_CONFIG_ID: str = "ac_yZpaj2ORI7Fx"
+    # Composio-managed (multi-tenant) SharePoint auth config — works across orgs
+    # without us managing an Azure app/secret. Replaced the custom Kroolo app
+    # (ac_yZpaj2ORI7Fx), which only worked for its own tenant (invalid_client
+    # for others).
+    COMPOSIO_SHAREPOINT_AUTH_CONFIG_ID: str = "ac_4sOSygt9E5zf"
 
     # Observability
 

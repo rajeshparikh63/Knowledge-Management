@@ -43,6 +43,18 @@ export default function Sidebar() {
 
   const totalDocs = Array.isArray(documents) ? documents.length : 0;
 
+  // Count only selections that still correspond to an existing document. The
+  // persisted selection set can otherwise carry stale IDs (deleted docs, or an
+  // older cached doc list), which would show a "selected" count higher than the
+  // number of documents.
+  const validSelectedCount = useMemo(
+    () =>
+      Array.isArray(documents)
+        ? documents.filter((d) => selectedDocs.has(d.id)).length
+        : 0,
+    [documents, selectedDocs]
+  );
+
   const folderList = useMemo(() => {
     const allFolders = new Set<string>();
     (Array.isArray(knowledgeBases) ? knowledgeBases : []).forEach((kb) =>
@@ -155,7 +167,7 @@ export default function Sidebar() {
     <div className="flex-1 bg-white dark:bg-[#0a0a0a] border-r border-zinc-200 dark:border-zinc-800 flex flex-col relative">
       <SidebarHeader
         totalDocs={totalDocs}
-        selectedCount={selectedDocs.size}
+        selectedCount={validSelectedCount}
         onSelectAll={selectAllDocs}
         onClearSelection={deselectAllDocs}
         onUploadClick={handleUploadClick}
