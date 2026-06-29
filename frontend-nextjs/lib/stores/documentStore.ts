@@ -484,6 +484,21 @@ export const useDocumentStore = create<DocumentState>()(
         documents: state.documents,
         knowledgeBases: state.knowledgeBases,
       }),
+      // After restoring the cached documents, drop any persisted selection IDs
+      // that no longer match an existing document. Without this, the separately-
+      // stored selection set can carry stale IDs and show a "selected" count
+      // higher than the document count until the next fetchDocuments runs.
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        const validIds = new Set((state.documents || []).map((d) => d.id));
+        const pruned = new Set(
+          Array.from(state.selectedDocs).filter((id) => validIds.has(id))
+        );
+        if (pruned.size !== state.selectedDocs.size) {
+          state.selectedDocs = pruned;
+          saveSelectedDocs(pruned);
+        }
+      },
     }
   )
 );
