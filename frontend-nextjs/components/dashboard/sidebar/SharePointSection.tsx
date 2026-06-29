@@ -10,7 +10,9 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { sharepointApi } from "@/lib/api/sharepoint";
+import { documentKeys } from "@/lib/hooks/useDocuments";
 import SharePointLibraryPickerModal from "./SharePointLibraryPickerModal";
 
 interface Props {
@@ -18,6 +20,7 @@ interface Props {
 }
 
 export default function SharePointSection({ onIngestStarted }: Props) {
+  const queryClient = useQueryClient();
   const [status, setStatus] = useState<{ connected: boolean; loaded: boolean }>({
     connected: false,
     loaded: false,
@@ -115,7 +118,19 @@ export default function SharePointSection({ onIngestStarted }: Props) {
   const handleLibrariesIngested = useCallback(() => {
     setPickerOpen(false);
     onIngestStarted?.();
-  }, [onIngestStarted]);
+    // Discovery creates the document rows over the next several seconds. React
+    // Query only auto-polls once it SEES a processing doc, so right after ingest
+    // it would otherwise sit idle and the new folder wouldn't appear until a
+    // window refocus / re-login. Nudge it to refetch across the first ~20s so
+    // the folder shows up as soon as the docs are created; once a processing doc
+    // exists, useDocuments' own 5s polling takes over until ingestion completes.
+    [800, 2500, 5000, 9000, 14000, 20000].forEach((ms) =>
+      setTimeout(
+        () => queryClient.invalidateQueries({ queryKey: documentKeys.all }),
+        ms
+      )
+    );
+  }, [onIngestStarted, queryClient]);
 
   return (
     <div className="space-y-3">

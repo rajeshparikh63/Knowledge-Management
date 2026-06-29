@@ -136,38 +136,59 @@ class SharePointClient:
             raise SharePointError(f"{slug} failed: {err}")
         return _resp_data(resp)
 
-    # ---- listing (site-scoped, mirrors AI-Agency crawl) -----------------
+    # ---- listing -------------------------------------------------------
     def list_libraries(self) -> List[Dict[str, Optional[str]]]:
-        """Document libraries (drives) across the user's team sites — the
-        pickable units, analogous to Drive folders. Each carries its site scope
-        so walk/download can target it."""
+        """Document libraries (drives) across EVERY SharePoint site the user can
+        see — the root/communication site, all /sites/ team sites, and any other
+        site — EXCEPT personal OneDrive. Each is a pickable unit (like a Drive
+        folder) and carries enough scope info for walk/download to target it.
+
+        Scoping per site (LIST_DRIVES_REST_API):
+          - /sites/<name>           → site_name=<name>          (team site)
+          - bare root host          → no scope arg              (root/comms site)
+          - anything else           → sharepoint_site_url=<url> (best effort)
+        """
         out: List[Dict[str, Optional[str]]] = []
+        seen_drives: set = set()
         sites = _items(self._execute("SHARE_POINT_LIST_SITES", {"search": "*", "top": 200}))
         for s in sites:
             web_url = _first(s, "webUrl", "name", "url", default="")
-            scope = _site_scope(web_url)
-            if not scope:
-                continue  # skip personal / root sites (no team libraries)
-            site_disp = _first(s, "displayName", "Title", "name", default=scope)
-            try:
-                drives = _items(self._execute(
-                    "SHARE_POINT_LIST_DRIVES_REST_API",
-                    {"site_name": scope, "select": "id,name,webUrl,driveType", "top": 100},
-                ))
-            except SharePointError as e:
-                logger.warning(f"list drives failed for site '{scope}': {e}")
+            if not web_url:
                 continue
+            low = web_url.lower()
+            # Skip personal OneDrive only — include all real SharePoint sites.
+            if "-my.sharepoint.com" in low or "/personal/" in low:
+                continue
+
+            scope = _site_scope(web_url)  # '<name>' for /sites/<name>, else None
+            site_disp = _first(s, "displayName", "Title", "name", default=scope or "SharePoint")
+
+            args: Dict[str, Any] = {"select": "id,name,webUrl,driveType", "top": 100}
+            if scope:
+                args["site_name"] = scope
+            elif urlparse(web_url).path.strip("/"):
+                # Non-root, non-/sites/ site (e.g. contentstorage) — scope by URL.
+                args["sharepoint_site_url"] = web_url
+            # else: bare root host → no scope arg (defaults to the root site).
+
+            try:
+                drives = _items(self._execute("SHARE_POINT_LIST_DRIVES_REST_API", args))
+            except SharePointError as e:
+                logger.warning(f"list drives failed for site '{site_disp}': {e}")
+                continue
+
             for d in drives:
                 did = _first(d, "id", "Id")
-                if not did:
+                if not did or did in seen_drives:
                     continue
+                seen_drives.add(did)
                 lib_name = _first(d, "name", "Name", default="Documents")
                 out.append({
                     "id": did,
                     "name": lib_name,
                     "site_name": scope,
                     "site_display": site_disp,
-                    "path": f"{scope}/{lib_name}",
+                    "path": f"{site_disp}/{lib_name}",
                     "web_url": _first(d, "webUrl"),
                 })
         return out
