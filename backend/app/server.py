@@ -20,10 +20,10 @@ def _prewarm_clients():
             _ = get_ingestion_service()
             logger.info("✅ IngestionService pre-warmed")
 
-            from clients.graphrag_client import get_graphrag_client
-            logger.info("🔥 Pre-warming GraphRAG client...")
-            _ = get_graphrag_client()
-            logger.info("✅ GraphRAG client pre-warmed — first chat query will be fast")
+            from clients.kg.pipeline import get_kg_pipeline
+            logger.info("🔥 Pre-warming KG pipeline...")
+            _ = get_kg_pipeline()
+            logger.info("✅ KG pipeline pre-warmed — first chat query will be fast")
         except Exception as e:
             logger.warning(f"⚠️ Pre-warm failed (non-fatal): {e}")
 

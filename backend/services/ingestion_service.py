@@ -15,7 +15,10 @@ from datetime import datetime
 from fastapi import UploadFile
 from clients.idrivee2_client import get_idrivee2_client
 from clients.postgres_client import get_postgres_client
-from clients.graphrag_client import get_graphrag_client
+# New two-layer KG engine (replaces graphrag_client). Same public surface
+# (ingest_text / ingest_chunks / delete_document), so this is a drop-in swap.
+# Rollback = restore `from clients.graphrag_client import get_graphrag_client`.
+from clients.kg.pipeline import get_kg_pipeline
 from clients.chunker_client import validate_content_for_embeddings
 from utils.file_utils import (
     extract_raw_data,
@@ -132,7 +135,9 @@ class IngestionService:
         from clients.unstructured_client import get_unstructured_client
         self.idrivee2_client = get_idrivee2_client()
         self.postgres_client = get_postgres_client()
-        self.graphrag_client = get_graphrag_client()
+        # Attribute name kept as `graphrag_client` for a minimal diff; it is now
+        # the new two-layer KG pipeline (drop-in interface).
+        self.graphrag_client = get_kg_pipeline()
         self.unstructured_client = get_unstructured_client()
 
     def cleanup(self):

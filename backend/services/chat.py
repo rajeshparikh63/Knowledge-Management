@@ -159,6 +159,24 @@ ALWAYS REPLY IN A CONFIDENT MANNER BE CONFIDENT IN THE INFORMATION YOU PROVIDE
 </tool_usage_guidelines>""",
         ])
 
+        # When the user has selected specific documents in the UI, the search
+        # tool is invisibly scoped to them (closure in agno_tools) — the agent
+        # otherwise has NO signal that a document is in context, so it asks the
+        # user "which document?". Tell it the selection exists (count only, no
+        # noisy filenames) so it treats "this document" as the selection and
+        # searches directly instead of asking.
+        if document_ids:
+            n = len(document_ids)
+            instructions.append(
+                f"""<selected_documents>
+The user has ALREADY SELECTED {n} specific document{'s' if n != 1 else ''} for this conversation. Your search_knowledge_base tool is automatically scoped to ONLY the selected document{'s' if n != 1 else ''} — you don't see their filenames, but they are exactly what the user is referring to.
+
+When the user says "this document", "this doc", "this file", "the selected document", "summarize this", "what does this say", or makes ANY request that refers to the current document(s) without naming a specific file, they mean the selected document(s). Do NOT ask which document — immediately call search_knowledge_base and answer from the results.
+
+To summarize or give an overview of the selected document(s), call search_knowledge_base with a broad query (e.g. "overview summary key points main topics") to pull representative content, then synthesize the summary.
+</selected_documents>"""
+            )
+
         # Add TAK-specific instructions if TAK tools are enabled
         if tak_tools:
             instructions.append("""<tak_integration>
