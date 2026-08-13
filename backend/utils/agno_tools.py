@@ -14,7 +14,8 @@ from typing import Any, List, Optional
 from agno.agent import Agent
 
 from app.logger import logger
-from clients.graphrag_client import get_graphrag_client
+# New two-layer KG engine — same search() result shape as graphrag_client.
+from clients.kg.pipeline import get_kg_pipeline
 
 
 def create_knowledge_retriever(
@@ -75,7 +76,7 @@ def create_knowledge_retriever(
         )
 
         try:
-            client = get_graphrag_client()
+            client = get_kg_pipeline()
             results = await client.search(
                 query=query.strip(),
                 organization_id=organization_id,

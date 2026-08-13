@@ -113,6 +113,118 @@
         "documentation": {}
     },
     {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -281,6 +393,302 @@
     },
     {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1120,6 +1528,30 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Dict",
         "importPath": "typing",
         "description": "typing",
@@ -1129,6 +1561,62 @@
     },
     {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -2684,6 +3172,102 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -2770,6 +3354,46 @@
         "description": "contextlib",
         "isExtraImport": true,
         "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
         "documentation": {}
     },
     {
@@ -3239,6 +3863,38 @@
     },
     {
         "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -3913,6 +4569,401 @@
         "documentation": {}
     },
     {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "llm_json",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "embed_texts",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "cosine_distance",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "llm_json",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "llm_yes_no",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "embed_texts",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "embed_texts",
+        "importPath": "clients.kg.llm",
+        "description": "clients.kg.llm",
+        "isExtraImport": true,
+        "detail": "clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "validate",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "MIN_CONFIDENCE",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "extract_chunk",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "extract_chunk",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "importPath": "clients.kg.extraction",
+        "description": "clients.kg.extraction",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "GlinerRelexExtractor",
+        "importPath": "clients.kg.extraction_gliner",
+        "description": "clients.kg.extraction_gliner",
+        "isExtraImport": true,
+        "detail": "clients.kg.extraction_gliner",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncOpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncOpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "ontology",
+        "importPath": "clients.kg",
+        "description": "clients.kg",
+        "isExtraImport": true,
+        "detail": "clients.kg",
+        "documentation": {}
+    },
+    {
+        "label": "retrieval",
+        "importPath": "clients.kg",
+        "description": "clients.kg",
+        "isExtraImport": true,
+        "detail": "clients.kg",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_indexes",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_indexes",
+        "importPath": "clients.kg.store",
+        "description": "clients.kg.store",
+        "isExtraImport": true,
+        "detail": "clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "OntologyManager",
+        "importPath": "clients.kg.ontology_manager",
+        "description": "clients.kg.ontology_manager",
+        "isExtraImport": true,
+        "detail": "clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunker_client",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "get_chunker_client",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "validate_content_for_embeddings",
+        "importPath": "clients.chunker_client",
+        "description": "clients.chunker_client",
+        "isExtraImport": true,
+        "detail": "clients.chunker_client",
+        "documentation": {}
+    },
+    {
+        "label": "load_manager",
+        "importPath": "clients.kg.ontology_store",
+        "description": "clients.kg.ontology_store",
+        "isExtraImport": true,
+        "detail": "clients.kg.ontology_store",
+        "documentation": {}
+    },
+    {
+        "label": "save_manager",
+        "importPath": "clients.kg.ontology_store",
+        "description": "clients.kg.ontology_store",
+        "isExtraImport": true,
+        "detail": "clients.kg.ontology_store",
+        "documentation": {}
+    },
+    {
+        "label": "GraphWriter",
+        "importPath": "clients.kg.writer",
+        "description": "clients.kg.writer",
+        "isExtraImport": true,
+        "detail": "clients.kg.writer",
+        "documentation": {}
+    },
+    {
+        "label": "ChunkData",
+        "importPath": "clients.kg.writer",
+        "description": "clients.kg.writer",
+        "isExtraImport": true,
+        "detail": "clients.kg.writer",
+        "documentation": {}
+    },
+    {
+        "label": "RBACManager",
+        "importPath": "clients.kg.rbac",
+        "description": "clients.kg.rbac",
+        "isExtraImport": true,
+        "detail": "clients.kg.rbac",
+        "documentation": {}
+    },
+    {
+        "label": "falkordb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "falkordb",
+        "description": "falkordb",
+        "detail": "falkordb",
+        "documentation": {}
+    },
+    {
         "label": "MongoDb",
         "importPath": "agno.db.mongo",
         "description": "agno.db.mongo",
@@ -3970,15 +5021,6 @@
         "documentation": {}
     },
     {
-        "label": "asyncio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "asyncio",
-        "description": "asyncio",
-        "detail": "asyncio",
-        "documentation": {}
-    },
-    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -4091,20 +5133,11 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "dataclass",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -4211,30 +5244,6 @@
         "importPath": "hashlib",
         "description": "hashlib",
         "detail": "hashlib",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncOpenAI",
-        "importPath": "openai",
-        "description": "openai",
-        "isExtraImport": true,
-        "detail": "openai",
-        "documentation": {}
-    },
-    {
-        "label": "get_chunker_client",
-        "importPath": "clients.chunker_client",
-        "description": "clients.chunker_client",
-        "isExtraImport": true,
-        "detail": "clients.chunker_client",
-        "documentation": {}
-    },
-    {
-        "label": "validate_content_for_embeddings",
-        "importPath": "clients.chunker_client",
-        "description": "clients.chunker_client",
-        "isExtraImport": true,
-        "detail": "clients.chunker_client",
         "documentation": {}
     },
     {
@@ -5616,19 +6625,19 @@
         "documentation": {}
     },
     {
-        "label": "get_graphrag_client",
-        "importPath": "clients.graphrag_client",
-        "description": "clients.graphrag_client",
+        "label": "get_kg_pipeline",
+        "importPath": "clients.kg.pipeline",
+        "description": "clients.kg.pipeline",
         "isExtraImport": true,
-        "detail": "clients.graphrag_client",
+        "detail": "clients.kg.pipeline",
         "documentation": {}
     },
     {
-        "label": "get_graphrag_client",
-        "importPath": "clients.graphrag_client",
-        "description": "clients.graphrag_client",
+        "label": "get_kg_pipeline",
+        "importPath": "clients.kg.pipeline",
+        "description": "clients.kg.pipeline",
         "isExtraImport": true,
-        "detail": "clients.graphrag_client",
+        "detail": "clients.kg.pipeline",
         "documentation": {}
     },
     {
@@ -6566,6 +7575,447 @@
         "documentation": {}
     },
     {
+        "label": "Entity",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "class Entity:\n    name: str\n    type: str\n@dataclass\nclass Triple:\n    subject: str\n    predicate: str\n    object: str\n    confidence: float\n@dataclass",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "Triple",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "class Triple:\n    subject: str\n    predicate: str\n    object: str\n    confidence: float\n@dataclass\nclass Extraction:\n    entities: List[Entity] = field(default_factory=list)\n    triples: List[Triple] = field(default_factory=list)\n    dropped: Dict[str, int] = field(default_factory=dict)   # reason -> count (observability)",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "Extraction",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "class Extraction:\n    entities: List[Entity] = field(default_factory=list)\n    triples: List[Triple] = field(default_factory=list)\n    dropped: Dict[str, int] = field(default_factory=dict)   # reason -> count (observability)\ndef _clean_name(raw: str) -> str:\n    return _WHITESPACE.sub(\" \", (raw or \"\").replace(\"\\x00\", \"\")).strip()\ndef is_junk_entity(name: str) -> Optional[str]:\n    \"\"\"Return a reason string if the name is junk, else None.\"\"\"\n    if not name:\n        return \"empty\"",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "is_junk_entity",
+        "kind": 2,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "def is_junk_entity(name: str) -> Optional[str]:\n    \"\"\"Return a reason string if the name is junk, else None.\"\"\"\n    if not name:\n        return \"empty\"\n    if len(name) < MIN_NAME_LEN:\n        return \"too_short\"\n    if len(name) > MAX_NAME_LEN:\n        return \"fragment\"\n    if _BARE_NUMBER.match(name):\n        return \"bare_number\"",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "validate",
+        "kind": 2,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "def validate(raw: dict, ontology: dict) -> Extraction:\n    \"\"\"Enforce the ontology + junk rules on a raw LLM extraction.\"\"\"\n    result = Extraction()\n    dropped: Dict[str, int] = {}\n    def drop(reason: str):\n        dropped[reason] = dropped.get(reason, 0) + 1\n    valid_types = set(ontology[\"entity_types\"].keys())\n    # ---- entities ----\n    entity_type: Dict[str, str] = {}   # cleaned name -> type (first wins)\n    for e in (raw.get(\"entities\") or []):",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_NAME_LEN",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "MAX_NAME_LEN = 60          # longer than this = a clause, not an entity\nMIN_NAME_LEN = 2\nMAX_NAME_WORDS = 8         # real entity names are rarely longer\n_BARE_NUMBER = re.compile(r\"^[\\d\\s.,%$€£+\\-/()x×]+$\", re.IGNORECASE)\n# Monetary / quantity amounts are VALUES, not entities (\"$57.0 billion\",\n# \"45 billion dollars\", \"25 basis points\", \"$1.50 per share\"). The named metric\n# (\"net revenue\", \"ROTCE\") is the entity; the amount belongs in the chunk text.\n_AMOUNT = re.compile(\n    r\"^[\\$€£]?\\s*[\\d.,]+\\s*\"\n    r\"(billion|million|trillion|thousand|bn|mn|k|percent|%|basis\\s+points|bps|\"",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "MIN_NAME_LEN",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "MIN_NAME_LEN = 2\nMAX_NAME_WORDS = 8         # real entity names are rarely longer\n_BARE_NUMBER = re.compile(r\"^[\\d\\s.,%$€£+\\-/()x×]+$\", re.IGNORECASE)\n# Monetary / quantity amounts are VALUES, not entities (\"$57.0 billion\",\n# \"45 billion dollars\", \"25 basis points\", \"$1.50 per share\"). The named metric\n# (\"net revenue\", \"ROTCE\") is the entity; the amount belongs in the chunk text.\n_AMOUNT = re.compile(\n    r\"^[\\$€£]?\\s*[\\d.,]+\\s*\"\n    r\"(billion|million|trillion|thousand|bn|mn|k|percent|%|basis\\s+points|bps|\"\n    r\"dollars?|euros?|pounds?|cents?|per\\s+share|x|times)\\b\",",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_NAME_WORDS",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "MAX_NAME_WORDS = 8         # real entity names are rarely longer\n_BARE_NUMBER = re.compile(r\"^[\\d\\s.,%$€£+\\-/()x×]+$\", re.IGNORECASE)\n# Monetary / quantity amounts are VALUES, not entities (\"$57.0 billion\",\n# \"45 billion dollars\", \"25 basis points\", \"$1.50 per share\"). The named metric\n# (\"net revenue\", \"ROTCE\") is the entity; the amount belongs in the chunk text.\n_AMOUNT = re.compile(\n    r\"^[\\$€£]?\\s*[\\d.,]+\\s*\"\n    r\"(billion|million|trillion|thousand|bn|mn|k|percent|%|basis\\s+points|bps|\"\n    r\"dollars?|euros?|pounds?|cents?|per\\s+share|x|times)\\b\",\n    re.IGNORECASE,",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_BARE_NUMBER",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_BARE_NUMBER = re.compile(r\"^[\\d\\s.,%$€£+\\-/()x×]+$\", re.IGNORECASE)\n# Monetary / quantity amounts are VALUES, not entities (\"$57.0 billion\",\n# \"45 billion dollars\", \"25 basis points\", \"$1.50 per share\"). The named metric\n# (\"net revenue\", \"ROTCE\") is the entity; the amount belongs in the chunk text.\n_AMOUNT = re.compile(\n    r\"^[\\$€£]?\\s*[\\d.,]+\\s*\"\n    r\"(billion|million|trillion|thousand|bn|mn|k|percent|%|basis\\s+points|bps|\"\n    r\"dollars?|euros?|pounds?|cents?|per\\s+share|x|times)\\b\",\n    re.IGNORECASE,\n)",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_AMOUNT",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_AMOUNT = re.compile(\n    r\"^[\\$€£]?\\s*[\\d.,]+\\s*\"\n    r\"(billion|million|trillion|thousand|bn|mn|k|percent|%|basis\\s+points|bps|\"\n    r\"dollars?|euros?|pounds?|cents?|per\\s+share|x|times)\\b\",\n    re.IGNORECASE,\n)\n_WHITESPACE = re.compile(r\"\\s+\")\n# Fragment signals: a real entity name doesn't END on a function word, and\n# doesn't contain a linking verb in the middle (\"... data is the\" is a clause).\n_TRAILING_STOP = {",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_WHITESPACE",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_WHITESPACE = re.compile(r\"\\s+\")\n# Fragment signals: a real entity name doesn't END on a function word, and\n# doesn't contain a linking verb in the middle (\"... data is the\" is a clause).\n_TRAILING_STOP = {\n    \"the\", \"a\", \"an\", \"of\", \"is\", \"are\", \"was\", \"were\", \"and\", \"or\", \"to\", \"in\",\n    \"for\", \"with\", \"on\", \"at\", \"by\", \"from\", \"as\", \"that\", \"this\", \"these\",\n    \"those\", \"its\", \"their\", \"our\", \"his\", \"her\",\n}\n_LINKING_VERBS = {\"is\", \"are\", \"was\", \"were\", \"be\", \"been\", \"being\"}\n# Generic nouns that must never be entities (extend as needed).",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_TRAILING_STOP",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_TRAILING_STOP = {\n    \"the\", \"a\", \"an\", \"of\", \"is\", \"are\", \"was\", \"were\", \"and\", \"or\", \"to\", \"in\",\n    \"for\", \"with\", \"on\", \"at\", \"by\", \"from\", \"as\", \"that\", \"this\", \"these\",\n    \"those\", \"its\", \"their\", \"our\", \"his\", \"her\",\n}\n_LINKING_VERBS = {\"is\", \"are\", \"was\", \"were\", \"be\", \"been\", \"being\"}\n# Generic nouns that must never be entities (extend as needed).\n_GENERIC_NOUNS = {\n    \"company\", \"companies\", \"organization\", \"organizations\", \"system\", \"systems\",\n    \"tool\", \"tools\", \"user\", \"users\", \"people\", \"person\", \"team\", \"teams\",",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_LINKING_VERBS",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_LINKING_VERBS = {\"is\", \"are\", \"was\", \"were\", \"be\", \"been\", \"being\"}\n# Generic nouns that must never be entities (extend as needed).\n_GENERIC_NOUNS = {\n    \"company\", \"companies\", \"organization\", \"organizations\", \"system\", \"systems\",\n    \"tool\", \"tools\", \"user\", \"users\", \"people\", \"person\", \"team\", \"teams\",\n    \"employee\", \"employees\", \"product\", \"products\", \"service\", \"services\",\n    \"data\", \"information\", \"report\", \"reports\", \"document\", \"documents\",\n    \"market\", \"markets\", \"revenue\", \"growth\", \"value\", \"assets\", \"capital\",\n    \"management\", \"shareholders\", \"customers\", \"clients\", \"business\",\n    \"businesses\", \"solution\", \"solutions\", \"firm\", \"firms\", \"platform\",",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "_GENERIC_NOUNS",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "_GENERIC_NOUNS = {\n    \"company\", \"companies\", \"organization\", \"organizations\", \"system\", \"systems\",\n    \"tool\", \"tools\", \"user\", \"users\", \"people\", \"person\", \"team\", \"teams\",\n    \"employee\", \"employees\", \"product\", \"products\", \"service\", \"services\",\n    \"data\", \"information\", \"report\", \"reports\", \"document\", \"documents\",\n    \"market\", \"markets\", \"revenue\", \"growth\", \"value\", \"assets\", \"capital\",\n    \"management\", \"shareholders\", \"customers\", \"clients\", \"business\",\n    \"businesses\", \"solution\", \"solutions\", \"firm\", \"firms\", \"platform\",\n    \"platforms\", \"consumers\", \"franchises\", \"process\", \"processes\", \"thing\",\n    \"things\", \"item\", \"items\", \"record\", \"records\", \"entity\", \"entities\",",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "MIN_CONFIDENCE",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction",
+        "description": "backend.clients.kg.extraction",
+        "peekOfCode": "MIN_CONFIDENCE = settings.MIN_TRIPLE_CONFIDENCE  # 0.7\n@dataclass\nclass Entity:\n    name: str\n    type: str\n@dataclass\nclass Triple:\n    subject: str\n    predicate: str\n    object: str",
+        "detail": "backend.clients.kg.extraction",
+        "documentation": {}
+    },
+    {
+        "label": "GlinerExtractor",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction_gliner",
+        "description": "backend.clients.kg.extraction_gliner",
+        "peekOfCode": "class GlinerExtractor:\n    def __init__(\n        self,\n        ontology: dict,\n        model_name: str = \"fastino/gliner2-base-v1\",\n        device: str = \"cpu\",\n        entity_threshold: float = 0.5,\n        relation_threshold: float = 0.5,\n    ):\n        from gliner2 import GLiNER2  # lazy: heavy import",
+        "detail": "backend.clients.kg.extraction_gliner",
+        "documentation": {}
+    },
+    {
+        "label": "GlinerRelexExtractor",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction_gliner",
+        "description": "backend.clients.kg.extraction_gliner",
+        "peekOfCode": "class GlinerRelexExtractor:\n    \"\"\"Joint entity+relation extraction with a single GLiNER-Relex model, through\n    the same ontology validate(). Uses the `gliner` package's inference() API\n    (flat entity + relation label lists, no per-type descriptions).\"\"\"\n    def __init__(\n        self,\n        ontology: dict,\n        model_name: str = \"knowledgator/gliner-relex-large-v1.0\",\n        device: str = \"cpu\",\n        entity_threshold: float = 0.5,",
+        "detail": "backend.clients.kg.extraction_gliner",
+        "documentation": {}
+    },
+    {
+        "label": "HybridExtractor",
+        "kind": 6,
+        "importPath": "backend.clients.kg.extraction_hybrid",
+        "description": "backend.clients.kg.extraction_hybrid",
+        "peekOfCode": "class HybridExtractor:\n    \"\"\"Built once per document with that document's active ontology. The heavy\n    GLiNER-Relex model is process-cached, so construction is cheap.\"\"\"\n    def __init__(self, ontology: dict, relex_model: str = \"knowledgator/gliner-relex-large-v1.0\"):\n        self.ontology = ontology\n        self.encoder = GlinerRelexExtractor(ontology, model_name=relex_model)\n        self.stats = {\"encoder\": 0, \"llm\": 0, \"encoder_offline\": 0}\n    async def extract_chunk(self, text: str, sem: asyncio.Semaphore) -> Extraction:\n        result, _ = await self.extract_chunk_traced(text, sem)\n        return result",
+        "detail": "backend.clients.kg.extraction_hybrid",
+        "documentation": {}
+    },
+    {
+        "label": "MIN_KEPT_TRIPLES",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction_hybrid",
+        "description": "backend.clients.kg.extraction_hybrid",
+        "peekOfCode": "MIN_KEPT_TRIPLES = 3\nDROP_RATIO = 1.5   # dropped relations > kept * ratio -> encoder mistyped, fall back\ndef _relation_drops(ex: Extraction) -> int:\n    return sum(v for k, v in ex.dropped.items() if k.startswith(\"rel_\"))\ndef _is_thin(ex: Extraction) -> bool:\n    kept = len(ex.triples)\n    if kept < MIN_KEPT_TRIPLES:\n        return True\n    if _relation_drops(ex) > kept * DROP_RATIO:\n        return True",
+        "detail": "backend.clients.kg.extraction_hybrid",
+        "documentation": {}
+    },
+    {
+        "label": "DROP_RATIO",
+        "kind": 5,
+        "importPath": "backend.clients.kg.extraction_hybrid",
+        "description": "backend.clients.kg.extraction_hybrid",
+        "peekOfCode": "DROP_RATIO = 1.5   # dropped relations > kept * ratio -> encoder mistyped, fall back\ndef _relation_drops(ex: Extraction) -> int:\n    return sum(v for k, v in ex.dropped.items() if k.startswith(\"rel_\"))\ndef _is_thin(ex: Extraction) -> bool:\n    kept = len(ex.triples)\n    if kept < MIN_KEPT_TRIPLES:\n        return True\n    if _relation_drops(ex) > kept * DROP_RATIO:\n        return True\n    return False",
+        "detail": "backend.clients.kg.extraction_hybrid",
+        "documentation": {}
+    },
+    {
+        "label": "cosine_distance",
+        "kind": 2,
+        "importPath": "backend.clients.kg.llm",
+        "description": "backend.clients.kg.llm",
+        "peekOfCode": "def cosine_distance(a: List[float], b: List[float]) -> float:\n    \"\"\"1 - cosine similarity. 0 = identical, higher = more different.\"\"\"\n    va, vb = np.asarray(a, dtype=np.float32), np.asarray(b, dtype=np.float32)\n    na, nb = np.linalg.norm(va), np.linalg.norm(vb)\n    if na == 0 or nb == 0:\n        return 1.0\n    return float(1.0 - np.dot(va, vb) / (na * nb))\ndef _strip_fences(text: str) -> str:\n    t = text.strip()\n    if t.startswith(\"```\"):",
+        "detail": "backend.clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "parse_json",
+        "kind": 2,
+        "importPath": "backend.clients.kg.llm",
+        "description": "backend.clients.kg.llm",
+        "peekOfCode": "def parse_json(text: str) -> Any:\n    \"\"\"Best-effort parse of an LLM JSON reply (tolerates fences / surrounding prose).\"\"\"\n    t = _strip_fences(text)\n    try:\n        return json.loads(t)\n    except json.JSONDecodeError:\n        pass\n    # Grab the first {...} or [...] block.\n    for open_c, close_c in ((\"{\", \"}\"), (\"[\", \"]\")):\n        i, j = t.find(open_c), t.rfind(close_c)",
+        "detail": "backend.clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "_EMBED_BATCH",
+        "kind": 5,
+        "importPath": "backend.clients.kg.llm",
+        "description": "backend.clients.kg.llm",
+        "peekOfCode": "_EMBED_BATCH = 1024  # OpenAI caps input arrays; batch defensively\ndef _openai() -> AsyncOpenAI:\n    return AsyncOpenAI(api_key=settings.OPENAI_API_KEY)\ndef _openrouter() -> AsyncOpenAI:\n    return AsyncOpenAI(\n        api_key=settings.OPENROUTER_API_KEY,\n        base_url=\"https://openrouter.ai/api/v1\",\n    )\nasync def embed_texts(texts: List[str]) -> List[List[float]]:\n    \"\"\"Embed a list of strings, preserving order. One request per <=1024 items.\"\"\"",
+        "detail": "backend.clients.kg.llm",
+        "documentation": {}
+    },
+    {
+        "label": "entity_type_names",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def entity_type_names() -> List[str]:\n    return list(ENTITY_TYPES.keys())\ndef relation_type_names() -> List[str]:\n    return list(RELATION_TYPES.keys())\ndef is_valid_entity_type(t: str) -> bool:\n    return t in ENTITY_TYPES\ndef is_valid_relation(predicate: str) -> bool:\n    return predicate in RELATION_TYPES\ndef relation_allows(predicate: str, src_type: str, tgt_type: str) -> bool:\n    \"\"\"True if a predicate may connect src_type -> tgt_type per the ontology.\"\"\"",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "relation_type_names",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def relation_type_names() -> List[str]:\n    return list(RELATION_TYPES.keys())\ndef is_valid_entity_type(t: str) -> bool:\n    return t in ENTITY_TYPES\ndef is_valid_relation(predicate: str) -> bool:\n    return predicate in RELATION_TYPES\ndef relation_allows(predicate: str, src_type: str, tgt_type: str) -> bool:\n    \"\"\"True if a predicate may connect src_type -> tgt_type per the ontology.\"\"\"\n    spec = RELATION_TYPES.get(predicate)\n    if not spec:",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "is_valid_entity_type",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def is_valid_entity_type(t: str) -> bool:\n    return t in ENTITY_TYPES\ndef is_valid_relation(predicate: str) -> bool:\n    return predicate in RELATION_TYPES\ndef relation_allows(predicate: str, src_type: str, tgt_type: str) -> bool:\n    \"\"\"True if a predicate may connect src_type -> tgt_type per the ontology.\"\"\"\n    spec = RELATION_TYPES.get(predicate)\n    if not spec:\n        return False\n    src = spec[\"src\"]",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "is_valid_relation",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def is_valid_relation(predicate: str) -> bool:\n    return predicate in RELATION_TYPES\ndef relation_allows(predicate: str, src_type: str, tgt_type: str) -> bool:\n    \"\"\"True if a predicate may connect src_type -> tgt_type per the ontology.\"\"\"\n    spec = RELATION_TYPES.get(predicate)\n    if not spec:\n        return False\n    src = spec[\"src\"]\n    tgt = spec[\"tgt\"]\n    src_ok = \"*\" in src or src_type in src",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "relation_allows",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def relation_allows(predicate: str, src_type: str, tgt_type: str) -> bool:\n    \"\"\"True if a predicate may connect src_type -> tgt_type per the ontology.\"\"\"\n    spec = RELATION_TYPES.get(predicate)\n    if not spec:\n        return False\n    src = spec[\"src\"]\n    tgt = spec[\"tgt\"]\n    src_ok = \"*\" in src or src_type in src\n    tgt_ok = \"*\" in tgt or tgt_type in tgt\n    return src_ok and tgt_ok",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_pairs",
+        "kind": 2,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "def allowed_pairs() -> Set[Tuple[str, str, str]]:\n    \"\"\"Every (predicate, src_type, tgt_type) the ontology permits — for validation.\"\"\"\n    out: Set[Tuple[str, str, str]] = set()\n    ents = entity_type_names()\n    for pred, spec in RELATION_TYPES.items():\n        srcs = ents if \"*\" in spec[\"src\"] else spec[\"src\"]\n        tgts = ents if \"*\" in spec[\"tgt\"] else spec[\"tgt\"]\n        for s in srcs:\n            for t in tgts:\n                out.add((pred, s, t))",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "FALLBACK_RELATION",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology",
+        "description": "backend.clients.kg.ontology",
+        "peekOfCode": "FALLBACK_RELATION = \"RELATED_TO\"\n# ---------------------------------------------------------------------------\n# Relation types  (predicate -> {description, source_types, target_types})\n# \"*\" in source/target means \"any entity type\".\n# ---------------------------------------------------------------------------\nRELATION_TYPES: Dict[str, Dict[str, object]] = {\n    \"PART_OF\":         {\"desc\": \"X is a component or subunit of Y.\",\n                        \"src\": [\"Organization\", \"Location\", \"Equipment\", \"System\", \"Concept\"],\n                        \"tgt\": [\"Organization\", \"Location\", \"Equipment\", \"System\", \"Concept\"]},\n    \"LOCATED_IN\":      {\"desc\": \"X is physically located within place Y.\",",
+        "detail": "backend.clients.kg.ontology",
+        "documentation": {}
+    },
+    {
+        "label": "TypeEntry",
+        "kind": 6,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "class TypeEntry:\n    name: str\n    description: str\n    status: str = \"active\"          # \"active\" | \"pending\"\n    doc_count: int = 1              # how many documents proposed it (recurrence)\n    src: List[str] = field(default_factory=list)   # relations only\n    tgt: List[str] = field(default_factory=list)   # relations only\n    embedding: Optional[List[float]] = None        # of description, cached (not persisted)\n    def to_dict(self) -> dict:\n        d = asdict(self)",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "OntologyManager",
+        "kind": 6,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "class OntologyManager:\n    def __init__(self, organization_id: str):\n        self.org_id = organization_id\n        self.entities: Dict[str, TypeEntry] = {}\n        self.relations: Dict[str, TypeEntry] = {}\n        self.pending_entities: Dict[str, TypeEntry] = {}\n        self.pending_relations: Dict[str, TypeEntry] = {}\n    # -- construction ------------------------------------------------------\n    @classmethod\n    def seeded(cls, organization_id: str) -> \"OntologyManager\":",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "MERGE_DISTANCE",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "MERGE_DISTANCE = 0.35      # below -> clearly same concept, auto-merge\nDISTINCT_DISTANCE = 0.55   # above -> clearly different, auto-distinct\n# between the two -> ask the LLM judge (the synonym band lives here)\nPROMOTE_AFTER_DOCS = 2     # a pending type must recur in >= N docs to promote\nCAP_ENTITY_TYPES = 40\nCAP_RELATION_TYPES = 50\n@dataclass\nclass TypeEntry:\n    name: str\n    description: str",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "DISTINCT_DISTANCE",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "DISTINCT_DISTANCE = 0.55   # above -> clearly different, auto-distinct\n# between the two -> ask the LLM judge (the synonym band lives here)\nPROMOTE_AFTER_DOCS = 2     # a pending type must recur in >= N docs to promote\nCAP_ENTITY_TYPES = 40\nCAP_RELATION_TYPES = 50\n@dataclass\nclass TypeEntry:\n    name: str\n    description: str\n    status: str = \"active\"          # \"active\" | \"pending\"",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "PROMOTE_AFTER_DOCS",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "PROMOTE_AFTER_DOCS = 2     # a pending type must recur in >= N docs to promote\nCAP_ENTITY_TYPES = 40\nCAP_RELATION_TYPES = 50\n@dataclass\nclass TypeEntry:\n    name: str\n    description: str\n    status: str = \"active\"          # \"active\" | \"pending\"\n    doc_count: int = 1              # how many documents proposed it (recurrence)\n    src: List[str] = field(default_factory=list)   # relations only",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "CAP_ENTITY_TYPES",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "CAP_ENTITY_TYPES = 40\nCAP_RELATION_TYPES = 50\n@dataclass\nclass TypeEntry:\n    name: str\n    description: str\n    status: str = \"active\"          # \"active\" | \"pending\"\n    doc_count: int = 1              # how many documents proposed it (recurrence)\n    src: List[str] = field(default_factory=list)   # relations only\n    tgt: List[str] = field(default_factory=list)   # relations only",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "CAP_RELATION_TYPES",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_manager",
+        "description": "backend.clients.kg.ontology_manager",
+        "peekOfCode": "CAP_RELATION_TYPES = 50\n@dataclass\nclass TypeEntry:\n    name: str\n    description: str\n    status: str = \"active\"          # \"active\" | \"pending\"\n    doc_count: int = 1              # how many documents proposed it (recurrence)\n    src: List[str] = field(default_factory=list)   # relations only\n    tgt: List[str] = field(default_factory=list)   # relations only\n    embedding: Optional[List[float]] = None        # of description, cached (not persisted)",
+        "detail": "backend.clients.kg.ontology_manager",
+        "documentation": {}
+    },
+    {
+        "label": "_NODE",
+        "kind": 5,
+        "importPath": "backend.clients.kg.ontology_store",
+        "description": "backend.clients.kg.ontology_store",
+        "peekOfCode": "_NODE = \"_KGOntology\"\nasync def load_manager(organization_id: str) -> OntologyManager:\n    \"\"\"Load the org's persisted ontology, or a fresh seeded manager.\"\"\"\n    def _load() -> OntologyManager:\n        try:\n            g = get_graph(organization_id)\n            rows = g.query(\n                f\"MATCH (o:{_NODE} {{id: 'singleton'}}) RETURN o.data\"\n            ).result_set\n            if rows and rows[0][0]:",
+        "detail": "backend.clients.kg.ontology_store",
+        "documentation": {}
+    },
+    {
+        "label": "_LLMExtractor",
+        "kind": 6,
+        "importPath": "backend.clients.kg.pipeline",
+        "description": "backend.clients.kg.pipeline",
+        "peekOfCode": "class _LLMExtractor:\n    \"\"\"Fallback extractor (same async interface as HybridExtractor) used when the\n    GLiNER-Relex model can't be loaded in this process (missing package / OOM /\n    no download). Keeps ingestion working rather than crashing.\"\"\"\n    def __init__(self, ontology: dict):\n        self.ontology = ontology\n    async def extract_chunk(self, text: str, sem: asyncio.Semaphore) -> Extraction:\n        return await _llm_extract_chunk(text, self.ontology, sem)\ndef _build_extractor(ontology: dict):\n    \"\"\"Hybrid if the encoder loads; else graceful LLM-only.\"\"\"",
+        "detail": "backend.clients.kg.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "KGPipeline",
+        "kind": 6,
+        "importPath": "backend.clients.kg.pipeline",
+        "description": "backend.clients.kg.pipeline",
+        "peekOfCode": "class KGPipeline:\n    async def ingest_text(\n        self,\n        text: str,\n        organization_id: str,\n        document_id: str,\n        filename: Optional[str] = None,\n        metadata: Optional[Dict[str, Any]] = None,\n        progress_callback=None,\n    ) -> Dict[str, Any]:",
+        "detail": "backend.clients.kg.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "get_kg_pipeline",
+        "kind": 2,
+        "importPath": "backend.clients.kg.pipeline",
+        "description": "backend.clients.kg.pipeline",
+        "peekOfCode": "def get_kg_pipeline() -> KGPipeline:\n    global _pipeline\n    if _pipeline is None:\n        _pipeline = KGPipeline()\n    return _pipeline",
+        "detail": "backend.clients.kg.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "RBACManager",
+        "kind": 6,
+        "importPath": "backend.clients.kg.rbac",
+        "description": "backend.clients.kg.rbac",
+        "peekOfCode": "class RBACManager:\n    def __init__(self, organization_id: str):\n        self.org_id = organization_id\n    def _run(self, cypher: str, params: Optional[dict] = None):\n        g = get_graph(self.org_id)\n        return g.query(cypher, params or {}).result_set\n    # -- organization / users ---------------------------------------------\n    async def ensure_organization(self, name: str = \"\") -> None:\n        await asyncio.to_thread(lambda: (\n            ensure_indexes(get_graph(self.org_id)),",
+        "detail": "backend.clients.kg.rbac",
+        "documentation": {}
+    },
+    {
+        "label": "graph_name",
+        "kind": 2,
+        "importPath": "backend.clients.kg.store",
+        "description": "backend.clients.kg.store",
+        "peekOfCode": "def graph_name(organization_id: str) -> str:\n    return f\"org_{organization_id}\"\ndef get_graph(organization_id: str):\n    name = graph_name(organization_id)\n    if name not in _connections:\n        db = falkordb.FalkorDB(\n            host=settings.GRAPH_DATABASE_URL,\n            port=settings.GRAPH_DATABASE_PORT,\n            username=settings.GRAPH_DATABASE_USERNAME or None,\n            password=settings.GRAPH_DATABASE_PASSWORD or None,",
+        "detail": "backend.clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "get_graph",
+        "kind": 2,
+        "importPath": "backend.clients.kg.store",
+        "description": "backend.clients.kg.store",
+        "peekOfCode": "def get_graph(organization_id: str):\n    name = graph_name(organization_id)\n    if name not in _connections:\n        db = falkordb.FalkorDB(\n            host=settings.GRAPH_DATABASE_URL,\n            port=settings.GRAPH_DATABASE_PORT,\n            username=settings.GRAPH_DATABASE_USERNAME or None,\n            password=settings.GRAPH_DATABASE_PASSWORD or None,\n            ssl=settings.GRAPH_DATABASE_SSL,\n        )",
+        "detail": "backend.clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_indexes",
+        "kind": 2,
+        "importPath": "backend.clients.kg.store",
+        "description": "backend.clients.kg.store",
+        "peekOfCode": "def ensure_indexes(g) -> None:\n    \"\"\"Idempotently create the vector + range indexes the two-layer graph needs.\"\"\"\n    # Vector index on Chunk.embedding (DDL form; dimension inlined, params rejected).\n    try:\n        g.query(\n            f\"CREATE VECTOR INDEX FOR (c:Chunk) ON (c.embedding) \"\n            f\"OPTIONS {{dimension: {int(settings.EMBEDDING_DIM)}, \"\n            f\"similarityFunction: 'cosine'}}\"\n        )\n        logger.info(\"Created Chunk.embedding vector index\")",
+        "detail": "backend.clients.kg.store",
+        "documentation": {}
+    },
+    {
+        "label": "ChunkData",
+        "kind": 6,
+        "importPath": "backend.clients.kg.writer",
+        "description": "backend.clients.kg.writer",
+        "peekOfCode": "class ChunkData:\n    id: str\n    text: str\n    embedding: List[float]\n    seq_index: int\ndef _resolve_entities(extractions: List[Extraction]) -> Tuple[Dict[str, str], Dict[str, str]]:\n    \"\"\"Basic normalize-and-merge resolution.\n    Returns (raw_name -> canonical_name, canonical_name -> type). Canonical form\n    is the first surface form seen for a normalized key. The semantic resolution\n    pass (task #4) replaces this function's body without changing the writer.",
+        "detail": "backend.clients.kg.writer",
+        "documentation": {}
+    },
+    {
+        "label": "GraphWriter",
+        "kind": 6,
+        "importPath": "backend.clients.kg.writer",
+        "description": "backend.clients.kg.writer",
+        "peekOfCode": "class GraphWriter:\n    def __init__(self, organization_id: str):\n        self.org_id = organization_id\n    async def write_document(\n        self,\n        document_id: str,\n        chunks: List[ChunkData],\n        extractions: List[Extraction],\n        metadata: Optional[Dict[str, Any]] = None,\n    ) -> Dict[str, int]:",
+        "detail": "backend.clients.kg.writer",
+        "documentation": {}
+    },
+    {
+        "label": "_BATCH",
+        "kind": 5,
+        "importPath": "backend.clients.kg.writer",
+        "description": "backend.clients.kg.writer",
+        "peekOfCode": "_BATCH = 500\n_norm_re = re.compile(r\"\\s+\")\ndef _norm(s: str) -> str:\n    return _norm_re.sub(\" \", (s or \"\").strip().lower())\n@dataclass\nclass ChunkData:\n    id: str\n    text: str\n    embedding: List[float]\n    seq_index: int",
+        "detail": "backend.clients.kg.writer",
+        "documentation": {}
+    },
+    {
+        "label": "_norm_re",
+        "kind": 5,
+        "importPath": "backend.clients.kg.writer",
+        "description": "backend.clients.kg.writer",
+        "peekOfCode": "_norm_re = re.compile(r\"\\s+\")\ndef _norm(s: str) -> str:\n    return _norm_re.sub(\" \", (s or \"\").strip().lower())\n@dataclass\nclass ChunkData:\n    id: str\n    text: str\n    embedding: List[float]\n    seq_index: int\ndef _resolve_entities(extractions: List[Extraction]) -> Tuple[Dict[str, str], Dict[str, str]]:",
+        "detail": "backend.clients.kg.writer",
+        "documentation": {}
+    },
+    {
         "label": "LimitedMemoryManager",
         "kind": 6,
         "importPath": "backend.clients.agent_memory",
@@ -7011,7 +8461,7 @@
         "kind": 6,
         "importPath": "backend.clients.graphrag_client",
         "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class _OntologySchema:\n    def __init__(self):\n        self.entity_labels: List[str] = []\n        self.relation_labels: List[str] = []\n_schemas: Dict[str, _OntologySchema] = {}\n_schema_locks: Dict[str, asyncio.Lock] = {}\ndef _schema_lock(graph_name: str) -> asyncio.Lock:\n    if graph_name not in _schema_locks:\n        _schema_locks[graph_name] = asyncio.Lock()\n    return _schema_locks[graph_name]",
+        "peekOfCode": "class _OntologySchema:\n    \"\"\"Per-org ontology.\n    `*_descriptions` hold the one-line definition the detector produces for each\n    label. _ONTOLOGY_PROMPT has always asked for these; they used to be parsed\n    and dropped. They are kept now because label strings alone are a weak signal\n    for \"is this type new?\" — \"Company\" vs \"Enterprise\" are only moderately\n    similar as strings, while their definitions are near-identical. Descriptions\n    are also the schema format encoder extractors (GLiNER2) accept directly.\n    `relation_patterns` holds the (source_label, target_label) pairs the detector\n    proposes per relation, which is what makes inverse pairs detectable —",
         "detail": "backend.clients.graphrag_client",
         "documentation": {}
     },
@@ -7255,6 +8705,33 @@
         "importPath": "backend.clients.graphrag_client",
         "description": "backend.clients.graphrag_client",
         "peekOfCode": "_conn_lock = asyncio.Lock()\ndef _get_falkor_connection(graph_name: str):\n    \"\"\"Return a synchronous FalkorDB graph handle (cached).\"\"\"\n    if graph_name not in _connections:\n        db = falkordb.FalkorDB(\n            host=settings.GRAPH_DATABASE_URL,\n            port=settings.GRAPH_DATABASE_PORT,\n            username=settings.GRAPH_DATABASE_USERNAME or None,\n            password=settings.GRAPH_DATABASE_PASSWORD or None,\n            ssl=settings.GRAPH_DATABASE_SSL,",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_ONTOLOGY_SAMPLE_CHARS",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_ONTOLOGY_SAMPLE_CHARS = 12000\n_ONTOLOGY_SAMPLE_WINDOWS = 6\nclass _OntologySchema:\n    \"\"\"Per-org ontology.\n    `*_descriptions` hold the one-line definition the detector produces for each\n    label. _ONTOLOGY_PROMPT has always asked for these; they used to be parsed\n    and dropped. They are kept now because label strings alone are a weak signal\n    for \"is this type new?\" — \"Company\" vs \"Enterprise\" are only moderately\n    similar as strings, while their definitions are near-identical. Descriptions\n    are also the schema format encoder extractors (GLiNER2) accept directly.",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_ONTOLOGY_SAMPLE_WINDOWS",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_ONTOLOGY_SAMPLE_WINDOWS = 6\nclass _OntologySchema:\n    \"\"\"Per-org ontology.\n    `*_descriptions` hold the one-line definition the detector produces for each\n    label. _ONTOLOGY_PROMPT has always asked for these; they used to be parsed\n    and dropped. They are kept now because label strings alone are a weak signal\n    for \"is this type new?\" — \"Company\" vs \"Enterprise\" are only moderately\n    similar as strings, while their definitions are near-identical. Descriptions\n    are also the schema format encoder extractors (GLiNER2) accept directly.\n    `relation_patterns` holds the (source_label, target_label) pairs the detector",
+        "detail": "backend.clients.graphrag_client",
+        "documentation": {}
+    },
+    {
+        "label": "_SCHEMA_NODE_LABEL",
+        "kind": 5,
+        "importPath": "backend.clients.graphrag_client",
+        "description": "backend.clients.graphrag_client",
+        "peekOfCode": "_SCHEMA_NODE_LABEL = \"_OntologySchema\"\ndef _load_schema_from_graph(graph_name: str) -> Optional[_OntologySchema]:\n    \"\"\"Read the persisted ontology for this graph, or None if absent.\"\"\"\n    try:\n        g = _get_falkor_connection(graph_name)\n        rows = g.query(\n            f\"MATCH (s:{_SCHEMA_NODE_LABEL} {{id: 'singleton'}}) \"\n            \"RETURN s.entity_labels, s.relation_labels, s.entity_descriptions, \"\n            \"s.relation_descriptions, s.relation_patterns\"\n        ).result_set",
         "detail": "backend.clients.graphrag_client",
         "documentation": {}
     },
@@ -8249,6 +9726,15 @@
         "documentation": {}
     },
     {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.scripts.backfill_vector_indexes",
+        "description": "backend.scripts.backfill_vector_indexes",
+        "peekOfCode": "def main() -> int:\n    ap = argparse.ArgumentParser(description=__doc__,\n                                 formatter_class=argparse.RawDescriptionHelpFormatter)\n    ap.add_argument(\"--apply\", action=\"store_true\",\n                    help=\"Actually create indexes (default is a dry run)\")\n    ap.add_argument(\"--verify\", action=\"store_true\",\n                    help=\"After creating, run a queryNodes probe on each graph\")\n    ap.add_argument(\"--only\", help=\"Comma-separated graph names to restrict to\")\n    args = ap.parse_args()\n    db = _connect()",
+        "detail": "backend.scripts.backfill_vector_indexes",
+        "documentation": {}
+    },
+    {
         "label": "create_documents_indexes",
         "kind": 2,
         "importPath": "backend.scripts.create_indexes",
@@ -8345,6 +9831,321 @@
         "description": "backend.scripts.generate_training_data",
         "peekOfCode": "PROMPT_MULTI_TOOLS = \"\"\"Generate {num_examples} examples where the user needs {num_tools} tools used IN PARALLEL.\nTools to use: {tool_names}\nContext: Military/tactical system. User requests should naturally require all {num_tools} tools at once.\nExamples of multi-tool scenarios:\n- Search knowledge + place marker + send message: \"Find intel on area X, mark it, and alert the team\"\n- Search + create route + send message: \"Find patrol procedures, plan route from A to B, notify team\"\n- Place marker + send message: \"Mark enemy position at coordinates and alert everyone\"\n- All 4 tools: \"Search for mission brief, mark objective coordinates, create route, and broadcast mission start\"\nReturn JSON array:\n[",
         "detail": "backend.scripts.generate_training_data",
+        "documentation": {}
+    },
+    {
+        "label": "Entity",
+        "kind": 6,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "class Entity:\n    name: str\n    type: str\n    score: float = 0.0\n@dataclass\nclass Triple:\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = 0.0",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "Triple",
+        "kind": 6,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "class Triple:\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = 0.0\n@dataclass\nclass ChunkResult:\n    index: int\n    text: str\n    entities: List[Entity] = field(default_factory=list)",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "ChunkResult",
+        "kind": 6,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "class ChunkResult:\n    index: int\n    text: str\n    entities: List[Entity] = field(default_factory=list)\n    triples: List[Triple] = field(default_factory=list)\n    entity_ms: float = 0.0\n    relation_ms: float = 0.0\n# ---------------------------------------------------------------------------\n# Text extraction\n# ---------------------------------------------------------------------------",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "GlinerRelexExtractor",
+        "kind": 6,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "class GlinerRelexExtractor:\n    \"\"\"Joint entity + relation extraction with a single GLiNER-Relex model.\n    Same public interface as GlinerGlirelExtractor, but one model does both\n    halves in a single forward pass — no tokenization, no span→token mapping,\n    no windowing, and no second model.\n    \"\"\"\n    def __init__(\n        self,\n        entity_labels: Sequence[str],\n        relation_labels: Sequence[str],",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "GlinerGlirelExtractor",
+        "kind": 6,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "class GlinerGlirelExtractor:\n    \"\"\"Drop-in replacement for graphrag_client._extract_chunk, sans LLM.\"\"\"\n    def __init__(\n        self,\n        entity_labels: Sequence[str],\n        relation_labels: Sequence[str],\n        gliner_model: str = DEFAULT_GLINER_MODEL,\n        glirel_model: str = DEFAULT_GLIREL_MODEL,\n        device: str = \"cpu\",\n        entity_threshold: float = 0.5,",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "extract_text",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def extract_text(path: Path) -> str:\n    \"\"\"Pull raw text out of a PDF / DOCX / TXT / MD file.\"\"\"\n    suffix = path.suffix.lower()\n    if suffix in {\".txt\", \".md\"}:\n        return path.read_text(encoding=\"utf-8\", errors=\"replace\")\n    # markitdown[all] is already a dependency and handles pdf/docx/pptx/xlsx.\n    try:\n        from markitdown import MarkItDown\n        log.info(\"Extracting text with markitdown: %s\", path.name)\n        result = MarkItDown().convert(str(path))",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "clean_pdf_text",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def clean_pdf_text(text: str) -> str:\n    \"\"\"Rejoin wrapped lines so entity spans stop straddling line breaks.\"\"\"\n    text = _UNICODE_SPACE.sub(\" \", text)\n    text = _HYPHEN_BREAK.sub(r\"\\1\\2\", text)          # \"com-\\npany\" -> \"company\"\n    # Split on any run of newlines, then decide per boundary whether to rejoin.\n    parts = re.split(r\"\\n+\", text)\n    out: List[str] = []\n    for part in parts:\n        part = _MULTISPACE.sub(\" \", part).strip()\n        if not part:",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_text",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def chunk_text(\n    text: str,\n    chunk_size: int = DEFAULT_CHUNK_SIZE,\n    overlap: int = DEFAULT_CHUNK_OVERLAP,\n) -> List[str]:\n    \"\"\"Split on paragraph boundaries, packing up to chunk_size characters.\"\"\"\n    paragraphs = [p.strip() for p in re.split(r\"\\n\\s*\\n\", text) if p.strip()]\n    chunks: List[str] = []\n    current = \"\"\n    for para in paragraphs:",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "tokenize_with_spans",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def tokenize_with_spans(text: str) -> Tuple[List[str], List[Tuple[int, int]]]:\n    \"\"\"Approximate spaCy tokenization, keeping (start, end) char spans.\"\"\"\n    tokens: List[str] = []\n    spans: List[Tuple[int, int]] = []\n    for m in _TOKEN_RE.finditer(text):\n        tokens.append(m.group())\n        spans.append((m.start(), m.end()))\n    return tokens, spans\ndef char_span_to_token_range(\n    spans: Sequence[Tuple[int, int]],",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "char_span_to_token_range",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def char_span_to_token_range(\n    spans: Sequence[Tuple[int, int]],\n    start: int,\n    end: int,\n) -> Optional[Tuple[int, int]]:\n    \"\"\"Map a character span to an INCLUSIVE token index range (GLiREL's format).\"\"\"\n    hits = [i for i, (s, e) in enumerate(spans) if s < end and e > start]\n    return (hits[0], hits[-1]) if hits else None\n# ---------------------------------------------------------------------------\n# Label handling",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "humanize_entity_label",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def humanize_entity_label(label: str) -> str:\n    spaced = re.sub(r\"(?<!^)(?=[A-Z])\", \" \", label.replace(\"_\", \" \"))\n    return re.sub(r\"\\s+\", \" \", spaced).strip().lower()\ndef humanize_relation_label(label: str) -> str:\n    return re.sub(r\"\\s+\", \" \", label.replace(\"_\", \" \")).strip().lower()\ndef build_label_maps(\n    entity_labels: Sequence[str],\n    relation_labels: Sequence[str],\n) -> Tuple[Dict[str, str], Dict[str, str]]:\n    \"\"\"Return (humanized -> original) maps for entities and relations.\"\"\"",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "humanize_relation_label",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def humanize_relation_label(label: str) -> str:\n    return re.sub(r\"\\s+\", \" \", label.replace(\"_\", \" \")).strip().lower()\ndef build_label_maps(\n    entity_labels: Sequence[str],\n    relation_labels: Sequence[str],\n) -> Tuple[Dict[str, str], Dict[str, str]]:\n    \"\"\"Return (humanized -> original) maps for entities and relations.\"\"\"\n    ent_map: Dict[str, str] = {}\n    for label in entity_labels:\n        ent_map.setdefault(humanize_entity_label(label), label)",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "build_label_maps",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def build_label_maps(\n    entity_labels: Sequence[str],\n    relation_labels: Sequence[str],\n) -> Tuple[Dict[str, str], Dict[str, str]]:\n    \"\"\"Return (humanized -> original) maps for entities and relations.\"\"\"\n    ent_map: Dict[str, str] = {}\n    for label in entity_labels:\n        ent_map.setdefault(humanize_entity_label(label), label)\n    rel_map: Dict[str, str] = {}\n    for label in relation_labels:",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "detect_ontology_via_llm",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def detect_ontology_via_llm(text: str) -> Tuple[List[str], List[str]]:\n    \"\"\"Run the repo's own _detect_schema so the ontology matches production.\"\"\"\n    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))\n    from clients.graphrag_client import _detect_schema  # noqa: E402\n    log.info(\"Detecting ontology via LLM (same path as ingestion)\")\n    schema = asyncio.run(_detect_schema(text, \"spike\"))\n    if not schema.entity_labels:\n        log.warning(\"Ontology detection returned nothing — using defaults\")\n        return DEFAULT_ENTITY_LABELS, DEFAULT_RELATION_LABELS\n    return schema.entity_labels, schema.relation_labels",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "extract_via_llm",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def extract_via_llm(\n    chunks: Sequence[str],\n    entity_labels: Sequence[str],\n    relation_labels: Sequence[str],\n) -> List[ChunkResult]:\n    \"\"\"Run the current LLM extractor on the same chunks, for diffing.\"\"\"\n    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))\n    from clients.graphrag_client import _extract_chunk, _OntologySchema  # noqa: E402\n    schema = _OntologySchema()\n    schema.entity_labels = list(entity_labels)",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "summarize",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def summarize(results: Sequence[ChunkResult], label: str) -> Dict[str, Any]:\n    entities = _entity_keys(results)\n    triples = _triple_keys(results)\n    total_ms = sum(r.entity_ms + r.relation_ms for r in results)\n    types: Dict[str, int] = {}\n    for r in results:\n        for e in r.entities:\n            types[e.type] = types.get(e.type, 0) + 1\n    print(f\"\\n{'=' * 62}\")\n    print(f\"  {label}\")",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "print_diff",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def print_diff(encoder: Sequence[ChunkResult], llm: Sequence[ChunkResult]) -> Dict[str, Any]:\n    e_ents, l_ents = _entity_keys(encoder), _entity_keys(llm)\n    e_trip, l_trip = _triple_keys(encoder), _triple_keys(llm)\n    ent_overlap = len(e_ents & l_ents)\n    trip_overlap = len(e_trip & l_trip)\n    def pct(n: int, d: int) -> str:\n        return f\"{(100 * n / d):.0f}%\" if d else \"n/a\"\n    print(f\"\\n{'=' * 62}\")\n    print(\"  ENCODER vs LLM\")\n    print(f\"{'=' * 62}\")",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "def main() -> int:\n    ap = argparse.ArgumentParser(\n        description=\"Extract a knowledge graph from a document using GLiNER + GLiREL.\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n    )\n    ap.add_argument(\"file\", type=Path, help=\"PDF, DOCX, TXT or MD file\")\n    ap.add_argument(\"--entity-labels\", help=\"Comma-separated entity types\")\n    ap.add_argument(\"--relation-labels\", help=\"Comma-separated relation types\")\n    ap.add_argument(\"--auto-ontology\", action=\"store_true\",\n                    help=\"Detect the ontology with the repo's LLM detector (needs API keys)\")",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "log",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "log = logging.getLogger(\"gliner_extract\")\n# ---------------------------------------------------------------------------\n# Defaults — mirror the current pipeline so comparisons are apples-to-apples\n# ---------------------------------------------------------------------------\n# graphrag_client._build_extract_prompt falls back to these when no ontology\n# has been detected yet.\nDEFAULT_ENTITY_LABELS = [\n    \"Person\", \"Organization\", \"Product\", \"Concept\", \"Event\", \"Location\", \"Date\",\n]\nDEFAULT_RELATION_LABELS = [",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_ENTITY_LABELS",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_ENTITY_LABELS = [\n    \"Person\", \"Organization\", \"Product\", \"Concept\", \"Event\", \"Location\", \"Date\",\n]\nDEFAULT_RELATION_LABELS = [\n    \"FOUNDED\", \"WORKS_FOR\", \"LOCATED_IN\", \"RELATED_TO\", \"IS_A\",\n]\n# chonkie \"large_chunk\" settings from clients/chunker_client.py\nDEFAULT_CHUNK_SIZE = 3000\nDEFAULT_CHUNK_OVERLAP = 200\n# Verified to exist on the Hub. Swap via --gliner-model / --glirel-model:",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_RELATION_LABELS",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_RELATION_LABELS = [\n    \"FOUNDED\", \"WORKS_FOR\", \"LOCATED_IN\", \"RELATED_TO\", \"IS_A\",\n]\n# chonkie \"large_chunk\" settings from clients/chunker_client.py\nDEFAULT_CHUNK_SIZE = 3000\nDEFAULT_CHUNK_OVERLAP = 200\n# Verified to exist on the Hub. Swap via --gliner-model / --glirel-model:\n#   urchade/gliner_small-v2.1        fastest, lowest quality\n#   urchade/gliner_medium-v2.1       default — good speed/quality balance\n#   urchade/gliner_large-v2.1        best quality, ~3x slower",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_CHUNK_SIZE",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_CHUNK_SIZE = 3000\nDEFAULT_CHUNK_OVERLAP = 200\n# Verified to exist on the Hub. Swap via --gliner-model / --glirel-model:\n#   urchade/gliner_small-v2.1        fastest, lowest quality\n#   urchade/gliner_medium-v2.1       default — good speed/quality balance\n#   urchade/gliner_large-v2.1        best quality, ~3x slower\n#   urchade/gliner_multi-v2.1        multilingual\n#   gliner-community/gliner_*-v2.5   newer community retrain\nDEFAULT_GLINER_MODEL = \"urchade/gliner_medium-v2.1\"\nDEFAULT_GLIREL_MODEL = \"jackboyla/glirel-large-v0\"",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_CHUNK_OVERLAP",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_CHUNK_OVERLAP = 200\n# Verified to exist on the Hub. Swap via --gliner-model / --glirel-model:\n#   urchade/gliner_small-v2.1        fastest, lowest quality\n#   urchade/gliner_medium-v2.1       default — good speed/quality balance\n#   urchade/gliner_large-v2.1        best quality, ~3x slower\n#   urchade/gliner_multi-v2.1        multilingual\n#   gliner-community/gliner_*-v2.5   newer community retrain\nDEFAULT_GLINER_MODEL = \"urchade/gliner_medium-v2.1\"\nDEFAULT_GLIREL_MODEL = \"jackboyla/glirel-large-v0\"\n# Joint NER+RE in a single forward pass, via the maintained `gliner` package.",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_GLINER_MODEL",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_GLINER_MODEL = \"urchade/gliner_medium-v2.1\"\nDEFAULT_GLIREL_MODEL = \"jackboyla/glirel-large-v0\"\n# Joint NER+RE in a single forward pass, via the maintained `gliner` package.\n# Selected with --joint. Apache 2.0, 0.5B params, ~1.9 GB on disk.\nDEFAULT_RELEX_MODEL = \"knowledgator/gliner-relex-large-v1.0\"\nRELEX_BATCH = 8\n# GLiREL is DeBERTa-based (512-token limit). Chunks here are ~750 tokens, so\n# each chunk is re-windowed before relation extraction or the tail is silently\n# truncated and those relations are lost.\nGLIREL_WINDOW_TOKENS = 380",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_GLIREL_MODEL",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_GLIREL_MODEL = \"jackboyla/glirel-large-v0\"\n# Joint NER+RE in a single forward pass, via the maintained `gliner` package.\n# Selected with --joint. Apache 2.0, 0.5B params, ~1.9 GB on disk.\nDEFAULT_RELEX_MODEL = \"knowledgator/gliner-relex-large-v1.0\"\nRELEX_BATCH = 8\n# GLiREL is DeBERTa-based (512-token limit). Chunks here are ~750 tokens, so\n# each chunk is re-windowed before relation extraction or the tail is silently\n# truncated and those relations are lost.\nGLIREL_WINDOW_TOKENS = 380\nGLIREL_WINDOW_STRIDE = 320",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_RELEX_MODEL",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "DEFAULT_RELEX_MODEL = \"knowledgator/gliner-relex-large-v1.0\"\nRELEX_BATCH = 8\n# GLiREL is DeBERTa-based (512-token limit). Chunks here are ~750 tokens, so\n# each chunk is re-windowed before relation extraction or the tail is silently\n# truncated and those relations are lost.\nGLIREL_WINDOW_TOKENS = 380\nGLIREL_WINDOW_STRIDE = 320\n# GLiREL needs an explicit negative class to be able to predict \"nothing here\".\nNO_RELATION = \"no relation\"\n# ---------------------------------------------------------------------------",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "RELEX_BATCH",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "RELEX_BATCH = 8\n# GLiREL is DeBERTa-based (512-token limit). Chunks here are ~750 tokens, so\n# each chunk is re-windowed before relation extraction or the tail is silently\n# truncated and those relations are lost.\nGLIREL_WINDOW_TOKENS = 380\nGLIREL_WINDOW_STRIDE = 320\n# GLiREL needs an explicit negative class to be able to predict \"nothing here\".\nNO_RELATION = \"no relation\"\n# ---------------------------------------------------------------------------\n# Result types — same shape as graphrag_client.Extraction",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "GLIREL_WINDOW_TOKENS",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "GLIREL_WINDOW_TOKENS = 380\nGLIREL_WINDOW_STRIDE = 320\n# GLiREL needs an explicit negative class to be able to predict \"nothing here\".\nNO_RELATION = \"no relation\"\n# ---------------------------------------------------------------------------\n# Result types — same shape as graphrag_client.Extraction\n# ---------------------------------------------------------------------------\n@dataclass\nclass Entity:\n    name: str",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "GLIREL_WINDOW_STRIDE",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "GLIREL_WINDOW_STRIDE = 320\n# GLiREL needs an explicit negative class to be able to predict \"nothing here\".\nNO_RELATION = \"no relation\"\n# ---------------------------------------------------------------------------\n# Result types — same shape as graphrag_client.Extraction\n# ---------------------------------------------------------------------------\n@dataclass\nclass Entity:\n    name: str\n    type: str",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "NO_RELATION",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "NO_RELATION = \"no relation\"\n# ---------------------------------------------------------------------------\n# Result types — same shape as graphrag_client.Extraction\n# ---------------------------------------------------------------------------\n@dataclass\nclass Entity:\n    name: str\n    type: str\n    score: float = 0.0\n@dataclass",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "_CONTINUATION_WORDS",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "_CONTINUATION_WORDS = {\n    \"a\", \"an\", \"the\", \"and\", \"or\", \"but\", \"nor\", \"of\", \"to\", \"in\", \"on\", \"at\",\n    \"by\", \"for\", \"with\", \"from\", \"as\", \"than\", \"per\", \"into\", \"onto\", \"over\",\n    \"under\", \"via\", \"vs\", \"page\", \"pages\", \"see\", \"refer\", \"including\",\n    \"include\", \"includes\", \"such\", \"is\", \"are\", \"was\", \"were\", \"be\", \"been\",\n}\n_UNICODE_SPACE = re.compile(r\"[     ﻿]\")\n_HYPHEN_BREAK = re.compile(r\"(\\w)[-‐‑]\\n+[ \\t]*(\\w)\")\n_MULTISPACE = re.compile(r\"[ \\t]{2,}\")\ndef _continues(prev: str, nxt: str) -> bool:",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "_UNICODE_SPACE",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "_UNICODE_SPACE = re.compile(r\"[     ﻿]\")\n_HYPHEN_BREAK = re.compile(r\"(\\w)[-‐‑]\\n+[ \\t]*(\\w)\")\n_MULTISPACE = re.compile(r\"[ \\t]{2,}\")\ndef _continues(prev: str, nxt: str) -> bool:\n    \"\"\"True if a line break between prev and nxt is a wrap, not a paragraph.\"\"\"\n    if not prev or not nxt:\n        return False\n    # Sentence clearly finished.\n    if prev[-1] in \".!?:;\":\n        return False",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "_HYPHEN_BREAK",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "_HYPHEN_BREAK = re.compile(r\"(\\w)[-‐‑]\\n+[ \\t]*(\\w)\")\n_MULTISPACE = re.compile(r\"[ \\t]{2,}\")\ndef _continues(prev: str, nxt: str) -> bool:\n    \"\"\"True if a line break between prev and nxt is a wrap, not a paragraph.\"\"\"\n    if not prev or not nxt:\n        return False\n    # Sentence clearly finished.\n    if prev[-1] in \".!?:;\":\n        return False\n    # Next line starts mid-sentence.",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "_MULTISPACE",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "_MULTISPACE = re.compile(r\"[ \\t]{2,}\")\ndef _continues(prev: str, nxt: str) -> bool:\n    \"\"\"True if a line break between prev and nxt is a wrap, not a paragraph.\"\"\"\n    if not prev or not nxt:\n        return False\n    # Sentence clearly finished.\n    if prev[-1] in \".!?:;\":\n        return False\n    # Next line starts mid-sentence.\n    if nxt[0].islower():",
+        "detail": "backend.scripts.gliner_extract",
+        "documentation": {}
+    },
+    {
+        "label": "_TOKEN_RE",
+        "kind": 5,
+        "importPath": "backend.scripts.gliner_extract",
+        "description": "backend.scripts.gliner_extract",
+        "peekOfCode": "_TOKEN_RE = re.compile(r\"\\w+(?:[-'’]\\w+)*|[^\\w\\s]\")\ndef tokenize_with_spans(text: str) -> Tuple[List[str], List[Tuple[int, int]]]:\n    \"\"\"Approximate spaCy tokenization, keeping (start, end) char spans.\"\"\"\n    tokens: List[str] = []\n    spans: List[Tuple[int, int]] = []\n    for m in _TOKEN_RE.finditer(text):\n        tokens.append(m.group())\n        spans.append((m.start(), m.end()))\n    return tokens, spans\ndef char_span_to_token_range(",
+        "detail": "backend.scripts.gliner_extract",
         "documentation": {}
     },
     {
@@ -8451,7 +10252,7 @@
         "kind": 6,
         "importPath": "backend.services.ingestion_service",
         "description": "backend.services.ingestion_service",
-        "peekOfCode": "class IngestionService:\n    \"\"\"Service for handling document ingestion pipeline\"\"\"\n    def __init__(self):\n        \"\"\"Initialize service with required clients.\"\"\"\n        from clients.unstructured_client import get_unstructured_client\n        self.idrivee2_client = get_idrivee2_client()\n        self.postgres_client = get_postgres_client()\n        self.graphrag_client = get_graphrag_client()\n        self.unstructured_client = get_unstructured_client()\n    def cleanup(self):",
+        "peekOfCode": "class IngestionService:\n    \"\"\"Service for handling document ingestion pipeline\"\"\"\n    def __init__(self):\n        \"\"\"Initialize service with required clients.\"\"\"\n        from clients.unstructured_client import get_unstructured_client\n        self.idrivee2_client = get_idrivee2_client()\n        self.postgres_client = get_postgres_client()\n        # Attribute name kept as `graphrag_client` for a minimal diff; it is now\n        # the new two-layer KG pipeline (drop-in interface).\n        self.graphrag_client = get_kg_pipeline()",
         "detail": "backend.services.ingestion_service",
         "documentation": {}
     },
