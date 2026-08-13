@@ -58,6 +58,15 @@ dependencies = [
     "scikit-image>=0.26.0",
     "numpy>=2.4.1",
     "faiss-cpu>=1.8.0",
+    # Encoder extraction for the KG revamp (hybrid: GLiNER-Relex + GLiNER2).
+    # Pull in torch/transformers transitively. Models (~2GB) download at runtime;
+    # if unavailable the pipeline falls back to LLM-only extraction.
+    # gliner is pinned to the exact git commit that carries the GLiNER-Relex
+    # model class + inference() API (the PyPI release does not). Verified working
+    # locally; re-verify if bumping.
+    "gliner @ git+https://github.com/urchade/GLiNER.git@c3bb38dcab04ede890997f26a0dbe11fbea4dc7e",
+    "gliner2>=1.3.2",
+    "torch>=2.2.0",
     "yt-dlp>=2026.1.29",
     "pydub>=0.25.1",
     "scenedetect>=0.6.5",

@@ -511,14 +511,24 @@ def _get_falkor_connection(graph_name: str):
 
 def _ensure_indexes(g) -> None:
     """Idempotently create vector + range indexes."""
-    # Vector index on Chunk.embedding
+    # Vector index on Chunk.embedding. NOTE: the db.idx.vector.createNodeIndex
+    # procedure is NOT registered in current FalkorDB — the previous call failed
+    # on every ingest (silently, via `except: pass`), so no vector index ever
+    # existed and `search()` always fell back to a full scan. The DDL form below
+    # is the supported syntax; dimension must be inlined (OPTIONS rejects params).
     try:
         g.query(
-            "CALL db.idx.vector.createNodeIndex('Chunk', 'embedding', $dim, 'cosine')",
-            {"dim": settings.EMBEDDING_DIM},
+            f"CREATE VECTOR INDEX FOR (c:Chunk) ON (c.embedding) "
+            f"OPTIONS {{dimension: {int(settings.EMBEDDING_DIM)}, "
+            f"similarityFunction: 'cosine'}}"
         )
-    except Exception:
-        pass  # Already exists
+        logger.info("Created Chunk.embedding vector index")
+    except Exception as e:
+        # Expected after the first ingest: index already exists. Anything else
+        # is a real problem and must NOT be swallowed silently again.
+        msg = str(e).lower()
+        if "already" not in msg and "exist" not in msg:
+            logger.warning(f"Vector index creation failed: {e}")
 
     # Range indexes for fast property lookups
     for label, prop in [
@@ -535,10 +545,33 @@ def _ensure_indexes(g) -> None:
 # Dynamic ontology (in-memory, merged per doc)
 # ---------------------------------------------------------------------------
 
+# Total characters sent to the ontology detector, spread over this many windows
+# taken evenly across the document (see _spread_sample).
+_ONTOLOGY_SAMPLE_CHARS = 12000
+_ONTOLOGY_SAMPLE_WINDOWS = 6
+
 class _OntologySchema:
+    """Per-org ontology.
+
+    `*_descriptions` hold the one-line definition the detector produces for each
+    label. _ONTOLOGY_PROMPT has always asked for these; they used to be parsed
+    and dropped. They are kept now because label strings alone are a weak signal
+    for "is this type new?" — "Company" vs "Enterprise" are only moderately
+    similar as strings, while their definitions are near-identical. Descriptions
+    are also the schema format encoder extractors (GLiNER2) accept directly.
+
+    `relation_patterns` holds the (source_label, target_label) pairs the detector
+    proposes per relation, which is what makes inverse pairs detectable —
+    HAS_EXECUTIVE and LEADS_ORGANIZATION connect the same two types in opposite
+    directions.
+    """
+
     def __init__(self):
         self.entity_labels: List[str] = []
         self.relation_labels: List[str] = []
+        self.entity_descriptions: Dict[str, str] = {}
+        self.relation_descriptions: Dict[str, str] = {}
+        self.relation_patterns: Dict[str, List[List[str]]] = {}
 
 
 _schemas: Dict[str, _OntologySchema] = {}
@@ -569,20 +602,123 @@ def _write_lock(graph_name: str) -> asyncio.Lock:
     return _write_locks[graph_name]
 
 
+# The org's ontology is persisted as a singleton node in its own graph so it
+# survives worker recycle (worker_max_tasks_per_child), redeploys, and is shared
+# across replicas — the in-memory _schemas dict alone loses all three. Dict
+# fields (descriptions, patterns) are stored as JSON strings since FalkorDB
+# node properties can't hold maps.
+_SCHEMA_NODE_LABEL = "_OntologySchema"
+
+
+def _load_schema_from_graph(graph_name: str) -> Optional[_OntologySchema]:
+    """Read the persisted ontology for this graph, or None if absent."""
+    try:
+        g = _get_falkor_connection(graph_name)
+        rows = g.query(
+            f"MATCH (s:{_SCHEMA_NODE_LABEL} {{id: 'singleton'}}) "
+            "RETURN s.entity_labels, s.relation_labels, s.entity_descriptions, "
+            "s.relation_descriptions, s.relation_patterns"
+        ).result_set
+    except Exception as e:
+        logger.warning(f"Could not load persisted schema for {graph_name}: {e}")
+        return None
+
+    if not rows:
+        return None
+
+    row = rows[0]
+    schema = _OntologySchema()
+    schema.entity_labels = list(row[0] or [])
+    schema.relation_labels = list(row[1] or [])
+    try:
+        schema.entity_descriptions = json.loads(row[2]) if row[2] else {}
+        schema.relation_descriptions = json.loads(row[3]) if row[3] else {}
+        schema.relation_patterns = json.loads(row[4]) if row[4] else {}
+    except (json.JSONDecodeError, TypeError) as e:
+        logger.warning(f"Corrupt persisted schema JSON for {graph_name}: {e}")
+    return schema
+
+
+def _save_schema_to_graph(graph_name: str, schema: _OntologySchema) -> None:
+    """Persist the merged ontology as a singleton node."""
+    try:
+        g = _get_falkor_connection(graph_name)
+        g.query(
+            f"MERGE (s:{_SCHEMA_NODE_LABEL} {{id: 'singleton'}}) "
+            "SET s.entity_labels = $el, s.relation_labels = $rl, "
+            "s.entity_descriptions = $ed, s.relation_descriptions = $rd, "
+            "s.relation_patterns = $rp",
+            {
+                "el": schema.entity_labels,
+                "rl": schema.relation_labels,
+                "ed": json.dumps(schema.entity_descriptions),
+                "rd": json.dumps(schema.relation_descriptions),
+                "rp": json.dumps(schema.relation_patterns),
+            },
+        )
+    except Exception as e:
+        logger.warning(f"Could not persist schema for {graph_name}: {e}")
+
+
 async def _ensure_schema(organization_id: str, sample_text: str) -> _OntologySchema:
     """Detect ontology for this doc and merge into org's running schema."""
     graph_name = _graph_name(organization_id)
     async with _schema_lock(graph_name):
+        # On a cold in-memory cache (fresh process, post-deploy, or a replica
+        # that has never seen this org) load the persisted schema from the graph
+        # rather than starting from empty — otherwise every restart re-discovers
+        # the ontology from scratch and the type set drifts.
+        existing = _schemas.get(graph_name)
+        if existing is None:
+            existing = await asyncio.to_thread(_load_schema_from_graph, graph_name)
+            if existing is None:
+                existing = _OntologySchema()
+            _schemas[graph_name] = existing
+
         new_schema = await _detect_schema(sample_text, graph_name)
-        existing = _schemas.get(graph_name, _OntologySchema())
         merged = _merge_schemas(existing, new_schema, graph_name)
         _schemas[graph_name] = merged
+        # Persist so it survives restart/recycle/deploy and reaches other replicas.
+        await asyncio.to_thread(_save_schema_to_graph, graph_name, merged)
         return merged
 
 
+def _spread_sample(text: str, budget: int = _ONTOLOGY_SAMPLE_CHARS,
+                   windows: int = _ONTOLOGY_SAMPLE_WINDOWS) -> str:
+    """Sample evenly across the document rather than taking the first N chars.
+
+    Taking the head describes a long document by its front matter. On a 1.29M
+    character annual report, 8000 leading characters is 0.6% of the text — all
+    of it cover pages — which produced an ontology with Award, Website and
+    HAS_ANNIVERSARY and nothing about credit risk or loan portfolios. Every
+    entity extracted from the other 99.4% then has to fit that ontology.
+
+    Short documents fall through unchanged.
+    """
+    text = text.strip()
+    if len(text) <= budget:
+        return text
+
+    per_window = budget // windows
+    # Space window starts evenly across the document; the last one is pulled
+    # back from the end so the tail is represented too.
+    span = len(text) - per_window
+    starts = [round(i * span / (windows - 1)) for i in range(windows)]
+
+    parts: List[str] = []
+    for start in starts:
+        piece = text[start: start + per_window]
+        # Trim partial words at the edges so the LLM sees clean text.
+        if start > 0:
+            piece = piece.partition(" ")[2]
+        parts.append(piece.strip())
+
+    return "\n\n[...]\n\n".join(p for p in parts if p)
+
+
 async def _detect_schema(sample_text: str, graph_name: str) -> _OntologySchema:
-    # Use first 8000 chars as sample — enough context, cheap to send
-    sample = sample_text[:8000].strip()
+    # Sample across the whole document, not just the opening pages.
+    sample = _spread_sample(sample_text)
     prompt = _ONTOLOGY_PROMPT.format(sample=sample)
     try:
         raw = await _llm_json(prompt, settings.ONTOLOGY_MODEL)
@@ -598,6 +734,9 @@ async def _detect_schema(sample_text: str, graph_name: str) -> _OntologySchema:
         if label and len(label) >= 3 and label not in seen_e:
             seen_e.add(label)
             schema.entity_labels.append(label)
+            desc = (item.get("description") or "").strip()
+            if desc:
+                schema.entity_descriptions[label] = desc
 
     seen_r: set = set()
     for item in data.get("relations", []):
@@ -605,6 +744,16 @@ async def _detect_schema(sample_text: str, graph_name: str) -> _OntologySchema:
         if label and len(label) >= 3 and label not in seen_r:
             seen_r.add(label)
             schema.relation_labels.append(label)
+            desc = (item.get("description") or "").strip()
+            if desc:
+                schema.relation_descriptions[label] = desc
+            patterns = [
+                [str(p[0]).strip(), str(p[1]).strip()]
+                for p in (item.get("patterns") or [])
+                if isinstance(p, (list, tuple)) and len(p) >= 2
+            ]
+            if patterns:
+                schema.relation_patterns[label] = patterns
 
     logger.info(
         f"Ontology detected for {graph_name}: "
@@ -619,6 +768,15 @@ def _merge_schemas(
     graph_name: str,
 ) -> _OntologySchema:
     merged = _OntologySchema()
+    # Existing descriptions win — the first definition of a label stays
+    # authoritative, so a later document cannot silently redefine a type.
+    merged.entity_descriptions = dict(new.entity_descriptions)
+    merged.entity_descriptions.update(existing.entity_descriptions)
+    merged.relation_descriptions = dict(new.relation_descriptions)
+    merged.relation_descriptions.update(existing.relation_descriptions)
+    merged.relation_patterns = dict(new.relation_patterns)
+    merged.relation_patterns.update(existing.relation_patterns)
+
     seen_e = set(existing.entity_labels)
     merged.entity_labels = list(existing.entity_labels)
     added_e = []
@@ -819,12 +977,16 @@ class GraphRAGClient:
         # for big docs, but always emit for small docs.
         emit_every = max(1, total // 20)
 
-        async def _process(idx: int, chunk_text: str):
-            cid = _chunk_id(document_id, idx)
-            embedding, extraction = await asyncio.gather(
-                _embed_texts([chunk_text]),
-                _extract_chunk(chunk_text, schema, sem),
-            )
+        # Embed ALL chunks in ONE batched call (it fans out internally at
+        # _EMBED_BATCH=1024 per request) instead of one request per chunk. The
+        # per-chunk version fired `total` concurrent OpenAI requests with no cap
+        # → 429s on large documents. Extraction still runs per-chunk under the
+        # LLM_CONCURRENCY semaphore, concurrently with embedding.
+        async def _embed_all() -> List[List[float]]:
+            return await _embed_texts(chunk_texts)
+
+        async def _extract_one(chunk_text: str) -> Extraction:
+            extraction = await _extract_chunk(chunk_text, schema, sem)
             completed["n"] += 1
             n = completed["n"]
             if n == total or n % emit_every == 0:
@@ -834,9 +996,17 @@ class GraphRAGClient:
                     n,
                     total,
                 )
-            return cid, chunk_text, embedding[0], extraction
+            return extraction
 
-        results = await asyncio.gather(*[_process(i, t) for i, t in enumerate(chunk_texts)])
+        embeddings, extractions = await asyncio.gather(
+            _embed_all(),
+            asyncio.gather(*[_extract_one(t) for t in chunk_texts]),
+        )
+
+        results = [
+            (_chunk_id(document_id, i), chunk_texts[i], embeddings[i], extractions[i])
+            for i in range(total)
+        ]
 
         # Step 4: collect all raw entity names for resolution
         all_entity_names: List[str] = []
@@ -857,15 +1027,34 @@ class GraphRAGClient:
         # not-yet-written entities and create duplicate canonicals. This tail is
         # short (~load + resolve + write), so high worker concurrency stays safe.
         async with _write_lock(graph_name):
-            # Fetch existing entity names from graph to seed cross-document resolution
+            # Seed cross-document resolution with the org's existing canonicals.
+            # The per-org FAISS cache already holds them, so when it is warm we
+            # use it and SKIP the `MATCH (e:Entity) RETURN e.name` scan — that
+            # scan is unbounded and grows linearly with the graph, right here
+            # inside the serialized critical section. We only fall back to the
+            # full graph load on a COLD cache (fresh process / post-deploy),
+            # where it is needed once to warm FAISS or new entities can't merge
+            # with existing ones and duplicate canonicals appear.
             existing_entity_names: List[str] = []
             try:
-                g_pre = await asyncio.to_thread(_get_falkor_connection, graph_name)
-                rows = await asyncio.to_thread(
-                    lambda: g_pre.query("MATCH (e:Entity) RETURN e.name").result_set
-                )
-                existing_entity_names = [row[0] for row in rows if row[0]]
-                logger.info(f"Loaded {len(existing_entity_names)} existing entities from graph for resolution seeding")
+                cache = get_entity_vector_cache() if organization_id else None
+                known = await cache.known_names(organization_id) if cache else set()
+                if known:
+                    existing_entity_names = list(known)
+                    logger.info(
+                        f"Seeded resolution from FAISS cache ({len(known)} names); "
+                        f"skipped full graph scan"
+                    )
+                else:
+                    g_pre = await asyncio.to_thread(_get_falkor_connection, graph_name)
+                    rows = await asyncio.to_thread(
+                        lambda: g_pre.query("MATCH (e:Entity) RETURN e.name").result_set
+                    )
+                    existing_entity_names = [row[0] for row in rows if row[0]]
+                    logger.info(
+                        f"Cold cache — loaded {len(existing_entity_names)} entities "
+                        f"from graph to warm resolution"
+                    )
             except Exception as e:
                 logger.warning(f"Could not load existing entities for resolution: {e}")
 
@@ -1017,8 +1206,27 @@ class GraphRAGClient:
                     ).result_set
                 )
             else:
-                vector_rows = await asyncio.to_thread(
-                    lambda: g.query(
+                # Use the vector index for ANN retrieval instead of scanning
+                # every Chunk in the org and computing distance in-query. The
+                # index returns the k nearest candidates; we recompute exact
+                # cosine distance on just those k so `dist` semantics (lower =
+                # closer) and ordering match the scoped path exactly.
+                def _indexed_search():
+                    # queryNodes returns `score` = cosine distance (0 = identical,
+                    # verified against real data), already nearest-first; ORDER BY
+                    # is belt-and-suspenders. Matches the scoped path's `dist`.
+                    return g.query(
+                        """
+                        CALL db.idx.vector.queryNodes('Chunk', 'embedding', $k, vecf32($qv))
+                        YIELD node, score
+                        RETURN node.id, node.document_id, node.text, score
+                        ORDER BY score ASC
+                        """,
+                        {"qv": qv, "k": top_k},
+                    ).result_set
+
+                def _scan_search():
+                    return g.query(
                         """
                         MATCH (c:Chunk)
                         WITH c, vec.cosineDistance(c.embedding, vecf32($qv)) AS dist
@@ -1027,7 +1235,16 @@ class GraphRAGClient:
                         """,
                         {"qv": qv, "k": top_k},
                     ).result_set
-                )
+
+                try:
+                    vector_rows = await asyncio.to_thread(_indexed_search)
+                except Exception as idx_err:
+                    # Index missing (e.g. never ingested) → fall back to scan so
+                    # search still works rather than hard-failing.
+                    logger.warning(
+                        f"Vector index query failed ({idx_err}); falling back to scan"
+                    )
+                    vector_rows = await asyncio.to_thread(_scan_search)
         except Exception as e:
             logger.error(f"Vector search failed: {e}")
             return []
