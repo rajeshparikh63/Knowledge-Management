@@ -38,8 +38,29 @@ from clients.kg.extraction import Extraction, validate, MIN_CONFIDENCE
 _MODEL_CACHE: Dict[str, Any] = {}
 
 
+def _pin_torch_threads() -> None:
+    """Cap torch's own thread pool to 1, once per process.
+
+    The OMP_NUM_THREADS env var above only constrains OpenMP-backed ops;
+    torch sizes its own ATen intra-op pool independently (defaults to
+    CPU core count) unless told otherwise. With multiple Celery threads
+    each calling model.inference() concurrently, uncapped torch threads
+    are what actually oversubscribed the container ("libgomp: Thread
+    creation failed") even after the env vars were set. Pinning this to 1
+    is what makes it SAFE to run several inference calls concurrently —
+    each one now costs ~1 native thread instead of ~core-count.
+    """
+    import torch
+    torch.set_num_threads(1)
+    try:
+        torch.set_num_interop_threads(1)  # only callable once; ignore if already set
+    except RuntimeError:
+        pass
+
+
 def _load_gliner(model_name: str):
     if model_name not in _MODEL_CACHE:
+        _pin_torch_threads()
         from gliner import GLiNER
         logger.info(f"Loading GLiNER model (cached): {model_name}")
         m = GLiNER.from_pretrained(model_name)
@@ -66,6 +87,7 @@ class GlinerExtractor:
         entity_threshold: float = 0.5,
         relation_threshold: float = 0.5,
     ):
+        _pin_torch_threads()
         from gliner2 import GLiNER2  # lazy: heavy import
 
         self.ontology = ontology
