@@ -69,7 +69,7 @@ const CitationTooltip = React.memo(function CitationTooltip({
             </div>
 
             {/* Source text preview */}
-            <div className="text-xs text-slate-300 dark:text-slate-400 leading-relaxed max-h-64 overflow-y-auto tactical-scrollbar">
+            <div className="text-xs text-muted-foreground dark:text-muted-foreground leading-relaxed max-h-64 overflow-y-auto tactical-scrollbar">
               {source.text}
             </div>
 

@@ -48,12 +48,12 @@ const FolderItem = React.memo(function FolderItem({
       style={{ animationDelay: `${animationDelay}ms` }}
     >
       {/* Folder Header */}
-      <div className="group rounded-lg transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
+      <div className="group rounded-lg transition-colors hover:bg-surface-2 dark:hover:bg-accent/60">
         <div className="flex items-center gap-2 px-2 py-2">
           <button
             onClick={() => onToggleFolder(folderName)}
             disabled={isDeletingFolder}
-            className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
+            className="text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
           >
             <motion.svg
               className="w-3.5 h-3.5"
@@ -84,10 +84,10 @@ const FolderItem = React.memo(function FolderItem({
           />
 
           {isDeletingFolder ? (
-            <div className="w-3.5 h-3.5 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin flex-shrink-0" />
+            <div className="w-3.5 h-3.5 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin flex-shrink-0" />
           ) : (
             <svg
-              className="w-4 h-4 text-zinc-500 dark:text-zinc-400 flex-shrink-0"
+              className="w-4 h-4 text-muted-foreground dark:text-muted-foreground flex-shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -100,19 +100,19 @@ const FolderItem = React.memo(function FolderItem({
           )}
 
           <div className="flex-1 min-w-0">
-            <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
+            <div className="text-sm font-medium text-foreground dark:text-foreground truncate">
               {folderName}
             </div>
           </div>
 
-          <span className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono flex-shrink-0">
+          <span className="text-[11px] text-muted-foreground dark:text-muted-foreground font-mono flex-shrink-0">
             {folderDocCount}
           </span>
 
           {!isDeletingFolder && (
             <button
               onClick={() => onDeleteFolder(folderName)}
-              className="opacity-0 group-hover:opacity-100 text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-all p-0.5 flex-shrink-0"
+              className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-red-600 dark:hover:text-red-400 transition-all p-0.5 flex-shrink-0"
               title="Delete folder"
             >
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -134,7 +134,7 @@ const FolderItem = React.memo(function FolderItem({
             transition={{ duration: 0.18, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <div className="ml-3 pl-3 border-l border-zinc-200 dark:border-zinc-800 space-y-0.5">
+            <div className="ml-3 pl-3 border-l border-border dark:border-border space-y-0.5">
               {folderDocs.map((doc, index) => (
                 <DocumentItem
                   key={doc.id}

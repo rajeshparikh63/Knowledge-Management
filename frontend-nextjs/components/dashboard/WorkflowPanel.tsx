@@ -239,13 +239,13 @@ export default function WorkflowPanel({
   // Collapsed
   if (isCollapsed) {
     return (
-      <div className="w-14 bg-white dark:bg-[#0a0a0a] border-l border-zinc-200 dark:border-zinc-800 flex flex-col relative">
+      <div className="w-14 bg-white dark:bg-[#0a0a0a] border-l border-border dark:border-border flex flex-col relative">
         <button
           onClick={() => setIsCollapsed(false)}
-          className="w-full h-12 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-center"
+          className="w-full h-12 hover:bg-surface-2 dark:hover:bg-accent transition-colors border-b border-border dark:border-border flex items-center justify-center"
           title="Expand workflows"
         >
-          <svg className="w-4 h-4 text-zinc-600 dark:text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-4 h-4 text-muted-foreground dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M11 19l-7-7 7-7M19 19l-7-7 7-7" />
           </svg>
         </button>
@@ -259,8 +259,8 @@ export default function WorkflowPanel({
                 disabled={!workflow.available}
                 className={`relative w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                   workflow.available
-                    ? "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
-                    : "text-zinc-300 dark:text-zinc-700 cursor-not-allowed"
+                    ? "text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent"
+                    : "text-foreground dark:text-muted-foreground cursor-not-allowed"
                 }`}
                 title={workflow.title + (workflow.available ? "" : " (coming soon)")}
               >
@@ -274,21 +274,21 @@ export default function WorkflowPanel({
   }
 
   return (
-    <div className="flex-1 bg-white dark:bg-[#0a0a0a] border-l border-zinc-200 dark:border-zinc-800 flex flex-col relative">
+    <div className="flex-1 bg-white dark:bg-[#0a0a0a] border-l border-border dark:border-border flex flex-col relative">
       {/* Header */}
-      <div className="border-b border-zinc-200 dark:border-zinc-800 px-4 py-3">
+      <div className="border-b border-border dark:border-border px-4 py-3">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400">
+            <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground dark:text-muted-foreground">
               Workflows
             </h2>
-            <p className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">
+            <p className="text-[11px] text-muted-foreground dark:text-muted-foreground mt-0.5">
               Generate intelligence products
             </p>
           </div>
           <button
             onClick={() => setIsCollapsed(true)}
-            className="p-1.5 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+            className="p-1.5 rounded-md text-muted-foreground hover:text-foreground dark:hover:text-white hover:bg-secondary dark:hover:bg-accent transition-colors"
             title="Collapse"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -310,13 +310,13 @@ export default function WorkflowPanel({
               disabled={!workflow.available}
               className={`relative rounded-xl border p-3 text-left transition-all group ${
                 workflow.available
-                  ? "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 cursor-pointer"
-                  : "border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/60 opacity-60 cursor-not-allowed"
+                  ? "border-border bg-white dark:bg-background hover:border-brand/40 hover:bg-surface-2 dark:hover:bg-accent/60 hover:-translate-y-0.5 hover:shadow-sm cursor-pointer"
+                  : "border-border dark:border-border bg-surface-2 dark:bg-background/60 opacity-60 cursor-not-allowed"
               }`}
               title={workflow.description}
             >
               {!workflow.available && (
-                <span className="absolute top-2 right-2 px-1.5 py-0.5 rounded-md bg-zinc-200 dark:bg-zinc-800 text-[9px] font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                <span className="absolute top-2 right-2 px-1.5 py-0.5 rounded-md bg-secondary dark:bg-secondary text-[9px] font-medium text-muted-foreground dark:text-muted-foreground uppercase tracking-wider">
                   Soon
                 </span>
               )}
@@ -324,8 +324,8 @@ export default function WorkflowPanel({
               <div
                 className={`mb-2 ${
                   workflow.available
-                    ? "text-zinc-700 dark:text-zinc-300"
-                    : "text-zinc-400 dark:text-zinc-600"
+                    ? "text-brand"
+                    : "text-muted-foreground dark:text-muted-foreground"
                 }`}
               >
                 {workflow.icon}
@@ -334,8 +334,8 @@ export default function WorkflowPanel({
               <div
                 className={`text-[13px] font-medium leading-tight ${
                   workflow.available
-                    ? "text-zinc-900 dark:text-zinc-100"
-                    : "text-zinc-500 dark:text-zinc-500"
+                    ? "text-foreground dark:text-foreground"
+                    : "text-muted-foreground dark:text-muted-foreground"
                 }`}
               >
                 {workflow.title}
@@ -352,14 +352,14 @@ export default function WorkflowPanel({
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="mt-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 p-3">
+              <div className="mt-3 rounded-xl border border-border dark:border-border bg-surface-2 dark:bg-card/40 p-3">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-medium text-zinc-900 dark:text-zinc-100">
+                  <span className="text-xs font-medium text-foreground dark:text-foreground">
                     {selectedDocs.size} document{selectedDocs.size !== 1 ? "s" : ""} selected
                   </span>
                 </div>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                <p className="text-xs text-muted-foreground dark:text-muted-foreground">
                   Ready to generate intelligence products.
                 </p>
               </div>
@@ -382,14 +382,14 @@ export default function WorkflowPanel({
       {isGenerating && (
         <div className="absolute inset-0 bg-white/80 dark:bg-black/70 backdrop-blur-sm flex items-center justify-center z-10">
           <div className="text-center">
-            <div className="inline-block w-8 h-8 border-2 border-zinc-300 border-t-zinc-900 dark:border-zinc-700 dark:border-t-zinc-100 rounded-full animate-spin mb-3" />
-            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+            <div className="inline-block w-8 h-8 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin mb-3" />
+            <p className="text-sm font-medium text-foreground dark:text-foreground">
               {selectedWorkflow === "audio-overview" && "Generating audio overview"}
               {selectedWorkflow === "mind-map" && "Generating mind map"}
               {selectedWorkflow === "flashcards" && "Generating flashcards"}
               {selectedWorkflow === "reports" && "Generating report"}
             </p>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
               Analyzing {selectedDocs.size} document{selectedDocs.size !== 1 ? "s" : ""}
             </p>
           </div>

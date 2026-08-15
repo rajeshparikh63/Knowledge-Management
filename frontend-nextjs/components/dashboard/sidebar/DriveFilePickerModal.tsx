@@ -227,22 +227,22 @@ export default function DriveFilePickerModal({
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl max-w-2xl w-full overflow-hidden max-h-[85vh] flex flex-col"
+            className="bg-white dark:bg-background rounded-xl border border-border dark:border-border shadow-2xl max-w-2xl w-full overflow-hidden max-h-[85vh] flex flex-col"
           >
             {/* Header */}
-            <div className="px-5 py-3.5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between flex-shrink-0">
+            <div className="px-5 py-3.5 border-b border-border dark:border-border flex items-center justify-between flex-shrink-0">
               <div>
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="text-sm font-semibold text-foreground dark:text-foreground">
                   Pick from Google Drive
                 </h3>
-                <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
+                <p className="text-[11px] text-muted-foreground dark:text-muted-foreground mt-0.5">
                   Select files to ingest. Folder:{" "}
                   <span className="font-medium">{folderName}</span>
                 </p>
               </div>
               <button
                 onClick={onClose}
-                className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 p-1 rounded"
+                className="text-muted-foreground hover:text-muted-foreground dark:hover:text-foreground p-1 rounded"
                 title="Close (Esc)"
               >
                 <svg
@@ -258,10 +258,10 @@ export default function DriveFilePickerModal({
             </div>
 
             {/* Search */}
-            <div className="px-5 py-3 border-b border-zinc-100 dark:border-zinc-900 flex-shrink-0">
+            <div className="px-5 py-3 border-b border-border dark:border-border flex-shrink-0">
               <div className="relative">
                 <svg
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-400"
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -276,7 +276,7 @@ export default function DriveFilePickerModal({
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search by file name…"
                   autoFocus
-                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600"
+                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border border-border dark:border-border bg-surface-2 dark:bg-card text-foreground dark:text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring dark:focus:ring-ring"
                 />
               </div>
             </div>
@@ -284,8 +284,8 @@ export default function DriveFilePickerModal({
             {/* File list */}
             <div className="flex-1 overflow-y-auto tactical-scrollbar min-h-0">
               {loading ? (
-                <div className="flex items-center justify-center py-12 text-xs text-zinc-500">
-                  <div className="w-3.5 h-3.5 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin mr-2" />
+                <div className="flex items-center justify-center py-12 text-xs text-muted-foreground">
+                  <div className="w-3.5 h-3.5 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin mr-2" />
                   Loading files…
                 </div>
               ) : error ? (
@@ -293,7 +293,7 @@ export default function DriveFilePickerModal({
                   {error}
                 </div>
               ) : files.length === 0 ? (
-                <div className="px-5 py-12 text-center text-xs text-zinc-500">
+                <div className="px-5 py-12 text-center text-xs text-muted-foreground">
                   {debouncedSearch
                     ? `No files matching "${debouncedSearch}"`
                     : "No supported files in your Drive"}
@@ -312,9 +312,9 @@ export default function DriveFilePickerModal({
                             : "cursor-pointer"
                         } ${
                           isSel && !isAdded
-                            ? "bg-zinc-100 dark:bg-zinc-900"
+                            ? "bg-secondary dark:bg-card"
                             : !isAdded
-                              ? "hover:bg-zinc-50 dark:hover:bg-zinc-900/60"
+                              ? "hover:bg-surface-2 dark:hover:bg-accent/60"
                               : ""
                         }`}
                         onClick={() => toggleSelect(file)}
@@ -329,7 +329,7 @@ export default function DriveFilePickerModal({
                         <MimeIcon mime={file.mime_type} />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5">
-                            <span className="text-xs text-zinc-900 dark:text-zinc-100 truncate">
+                            <span className="text-xs text-foreground dark:text-foreground truncate">
                               {file.name}
                             </span>
                             {isAdded && (
@@ -338,7 +338,7 @@ export default function DriveFilePickerModal({
                               </span>
                             )}
                           </div>
-                          <div className="text-[10px] text-zinc-500 dark:text-zinc-500 mt-0.5">
+                          <div className="text-[10px] text-muted-foreground dark:text-muted-foreground mt-0.5">
                             {humanType(file.mime_type)}
                             {file.size > 0 && ` · ${humanSize(file.size)}`}
                             {file.modified_time &&
@@ -351,11 +351,11 @@ export default function DriveFilePickerModal({
                 </ul>
               )}
               {nextPageToken && !loading && (
-                <div className="px-4 py-3 border-t border-zinc-100 dark:border-zinc-900">
+                <div className="px-4 py-3 border-t border-border dark:border-border">
                   <button
                     onClick={handleLoadMore}
                     disabled={loadingMore}
-                    className="w-full text-[11px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 py-1.5 rounded disabled:opacity-50"
+                    className="w-full text-[11px] text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground py-1.5 rounded disabled:opacity-50"
                   >
                     {loadingMore ? "Loading…" : "Load more"}
                   </button>
@@ -364,13 +364,13 @@ export default function DriveFilePickerModal({
             </div>
 
             {/* Footer */}
-            <div className="px-5 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 flex items-center gap-3 flex-shrink-0">
+            <div className="px-5 py-3 border-t border-border dark:border-border bg-surface-2 dark:bg-card/40 flex items-center gap-3 flex-shrink-0">
               <div className="flex items-center gap-2 text-[11px]">
                 <button
                   onClick={
                     allVisibleSelected ? clearSelection : selectAllVisible
                   }
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                  className="text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground"
                   disabled={files.length === 0}
                 >
                   {allVisibleSelected
@@ -379,10 +379,10 @@ export default function DriveFilePickerModal({
                 </button>
                 {selectedCount > 0 && (
                   <>
-                    <span className="text-zinc-300 dark:text-zinc-700">·</span>
+                    <span className="text-foreground dark:text-muted-foreground">·</span>
                     <button
                       onClick={clearSelection}
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                      className="text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground"
                     >
                       Clear all ({selectedCount})
                     </button>
@@ -392,14 +392,14 @@ export default function DriveFilePickerModal({
               <div className="flex-1" />
               <button
                 onClick={onClose}
-                className="text-xs px-3 py-1.5 rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                className="text-xs px-3 py-1.5 rounded-md text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent"
               >
                 Cancel
               </button>
               <button
                 onClick={handleIngest}
                 disabled={selectedCount === 0 || submitting}
-                className="text-xs px-3 py-1.5 rounded-md bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                className="text-xs px-3 py-1.5 rounded-md bg-brand text-brand-foreground hover:bg-brand-hover shadow-accent disabled:opacity-50 disabled:cursor-not-allowed font-medium"
               >
                 {submitting
                   ? "Queuing…"
@@ -467,13 +467,13 @@ function MimeIcon({ mime }: { mime: string }) {
   const colors: Record<string, string> = {
     "application/pdf": "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300",
     "application/vnd.google-apps.document":
-      "bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300",
+      "bg-brand/15 text-brand dark:bg-brand/15 dark:text-brand",
     "application/vnd.google-apps.spreadsheet":
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
     "application/vnd.google-apps.presentation":
-      "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
+      "bg-brand text-brand dark:bg-brand dark:text-brand",
     "text/plain":
-      "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
+      "bg-secondary text-muted-foreground dark:bg-secondary dark:text-foreground",
     "text/csv":
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
   };
@@ -497,7 +497,7 @@ function MimeIcon({ mime }: { mime: string }) {
   };
   const cls =
     colors[mime] ||
-    "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400";
+    "bg-secondary text-muted-foreground dark:bg-secondary dark:text-muted-foreground";
   const label = labels[mime] || "FILE";
   return (
     <div

@@ -102,14 +102,14 @@ const IngestionPipeline = React.memo(function IngestionPipeline({
                   className={[
                     "w-2.5 h-2.5 rounded-full flex items-center justify-center text-[8px] leading-none transition-colors",
                     failed && state === "pending"
-                      ? "bg-zinc-200 dark:bg-zinc-800"
+                      ? "bg-secondary dark:bg-secondary"
                       : failed && state === "done"
                         ? "bg-red-500"
                         : state === "done"
                           ? "bg-emerald-500"
                           : state === "active"
-                            ? "bg-zinc-900 dark:bg-zinc-100 animate-pulse"
-                            : "bg-zinc-200 dark:bg-zinc-800",
+                            ? "bg-card dark:bg-secondary animate-pulse"
+                            : "bg-secondary dark:bg-secondary",
                   ].join(" ")}
                 >
                   {state === "done" && !failed && (
@@ -130,8 +130,8 @@ const IngestionPipeline = React.memo(function IngestionPipeline({
                   className={[
                     "text-[8px] mt-0.5 leading-none tracking-tight",
                     state === "active"
-                      ? "text-zinc-900 dark:text-zinc-100 font-medium"
-                      : "text-zinc-400 dark:text-zinc-600",
+                      ? "text-foreground dark:text-foreground font-medium"
+                      : "text-muted-foreground dark:text-muted-foreground",
                   ].join(" ")}
                 >
                   {step.label}
@@ -142,10 +142,10 @@ const IngestionPipeline = React.memo(function IngestionPipeline({
                   className={[
                     "flex-1 h-px mb-3 transition-colors",
                     failed
-                      ? "bg-zinc-200 dark:bg-zinc-800"
+                      ? "bg-secondary dark:bg-secondary"
                       : idx < currentStepIndex
                         ? "bg-emerald-500/60"
-                        : "bg-zinc-200 dark:bg-zinc-800",
+                        : "bg-secondary dark:bg-secondary",
                   ].join(" ")}
                 />
               )}
@@ -160,14 +160,14 @@ const IngestionPipeline = React.memo(function IngestionPipeline({
           className={`text-[10px] mt-1.5 truncate ${
             failed
               ? "text-red-500 dark:text-red-400"
-              : "text-zinc-500 dark:text-zinc-500"
+              : "text-muted-foreground dark:text-muted-foreground"
           }`}
         >
           {doc.processing_stage_description}
         </div>
       )}
       {showCount && !failed && (
-        <div className="text-[10px] text-zinc-400 dark:text-zinc-600 mt-0.5">
+        <div className="text-[10px] text-muted-foreground dark:text-muted-foreground mt-0.5">
           {progress!.current} / {progress!.total} chunks
         </div>
       )}

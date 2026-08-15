@@ -40,7 +40,7 @@ const VoiceButton = React.memo(function VoiceButton({ disabled }: { disabled?: b
           ? "Start voice call (no documents selected)"
           : `Start voice call (${selectedDocs.size} document${selectedDocs.size === 1 ? "" : "s"})`
       }
-      className="absolute right-11 bottom-2 w-8 h-8 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+      className="absolute right-11 bottom-2 w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary dark:text-muted-foreground dark:hover:text-foreground dark:hover:bg-accent disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
     >
       {busy ? (
         <div className="w-3.5 h-3.5 border-2 border-current/30 border-t-current rounded-full animate-spin" />

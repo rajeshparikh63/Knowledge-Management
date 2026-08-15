@@ -100,10 +100,20 @@ const startBackgroundPolling = (
   };
 
   const pollingIntervalMs = calculatePollingInterval(maxFileSizeMB);
-  // Background polling started
+
+  // Hard cap so a document stuck in "processing" (e.g. a dead worker) can't make
+  // this background loop poll the API forever. After this window we give up and
+  // let the user refresh manually.
+  const startedAt = Date.now();
+  const MAX_POLL_MS = 15 * 60 * 1000; // 15 minutes
 
   // Poll SPECIFIC documents by ID to check for status updates (more efficient)
   const pollInterval = setInterval(async () => {
+    if (Date.now() - startedAt > MAX_POLL_MS) {
+      clearInterval(pollInterval);
+      set({ uploadStatus: null, uploadProgress: null });
+      return;
+    }
     try {
       // Fetch each document by ID to check status
       const statusChecks = await Promise.all(

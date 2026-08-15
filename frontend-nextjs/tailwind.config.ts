@@ -11,6 +11,13 @@ const config: Config = {
     extend: {
       colors: {
         "tactical-green": "#10b981",
+        brand: {
+          DEFAULT: "rgb(var(--accent-brand-rgb) / <alpha-value>)",
+          hover: "var(--accent-brand-hover)",
+          foreground: "var(--accent-brand-foreground)",
+        },
+        "surface-1": "var(--surface-1)",
+        "surface-2": "var(--surface-2)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -49,6 +56,13 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        xs: "var(--shadow-xs)",
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        accent: "var(--shadow-accent)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],

@@ -12,7 +12,7 @@ export default function ThemeToggle() {
   }, []);
 
   const btnClass =
-    "w-8 h-8 flex items-center justify-center rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors";
+    "w-8 h-8 flex items-center justify-center rounded-lg text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-white hover:bg-muted dark:hover:bg-muted transition-colors";
 
   if (!mounted) {
     return (

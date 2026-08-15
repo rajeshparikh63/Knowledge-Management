@@ -178,7 +178,7 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
 
   if (!status.loaded) {
     return (
-      <div className="text-xs text-slate-500 text-center py-4">
+      <div className="text-xs text-muted-foreground text-center py-4">
         Checking Drive…
       </div>
     );
@@ -189,16 +189,16 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
       <div className="space-y-3">
         {/* Reconnect banner — refresh token died */}
         {status.connected && status.needsReconnect && (
-          <div className="p-3 bg-amber-400/10 border border-amber-400/40 text-[11px] text-amber-300">
+          <div className="p-3 bg-brand/10 border border-brand/40 text-[11px] text-brand">
             <div className="font-semibold mb-1">⚠️ Drive connection expired</div>
-            <div className="mb-2 text-amber-200/80">
+            <div className="mb-2 text-brand/80">
               Your Google Drive access was revoked or expired. Reconnect to
               keep ingesting files.
             </div>
             <button
               onClick={startOAuth}
               disabled={busy === "connect"}
-              className="w-full py-1.5 bg-amber-400 text-slate-900 font-semibold text-[11px] tracking-wider hover:bg-amber-300 disabled:opacity-60"
+              className="w-full py-1.5 bg-brand text-foreground font-semibold text-[11px] tracking-wider hover:bg-brand disabled:opacity-60"
             >
               {busy === "connect" ? "RECONNECTING…" : "RECONNECT"}
             </button>
@@ -207,7 +207,7 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
 
         {!status.connected ? (
           <>
-            <div className="text-[11px] text-slate-400 leading-relaxed">
+            <div className="text-[11px] text-muted-foreground leading-relaxed">
               Authorize access to Google Drive. After connecting, you choose
               which folders to ingest — only files in those folders are
               added to your knowledge base.
@@ -215,7 +215,7 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
             <button
               onClick={startOAuth}
               disabled={busy === "connect"}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-amber-400 text-slate-900 font-semibold text-xs tracking-wider hover:bg-amber-300 disabled:opacity-60 transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-brand text-foreground font-semibold text-xs tracking-wider hover:bg-brand disabled:opacity-60 transition-colors"
             >
               <GoogleDriveIcon className="w-4 h-4" />
               {busy === "connect" ? "CONNECTING…" : "CONNECT GOOGLE DRIVE"}
@@ -224,10 +224,10 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
         ) : (
           <>
             {/* Connected pill */}
-            <div className="p-3 bg-slate-800/50 border border-amber-400/20">
+            <div className="p-3 bg-muted/50 border border-brand/20">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-xs text-slate-200 truncate">
+                <span className="text-xs text-foreground truncate">
                   Connected as <strong>{status.email}</strong>
                 </span>
               </div>
@@ -238,14 +238,14 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
               <button
                 onClick={() => setFolderPickerOpen(true)}
                 disabled={busy !== null}
-                className="py-2 px-3 bg-amber-400 text-slate-900 font-semibold text-xs tracking-wider hover:bg-amber-300 disabled:opacity-60 transition-colors"
+                className="py-2 px-3 bg-brand text-foreground font-semibold text-xs tracking-wider hover:bg-brand disabled:opacity-60 transition-colors"
               >
                 CHOOSE FOLDERS
               </button>
               <button
                 onClick={() => setFilePickerOpen(true)}
                 disabled={busy !== null}
-                className="py-2 px-3 border border-amber-400/30 text-amber-400 font-semibold text-xs tracking-wider hover:bg-amber-400/10 disabled:opacity-60 transition-colors"
+                className="py-2 px-3 border border-brand/30 text-brand font-semibold text-xs tracking-wider hover:bg-brand/10 disabled:opacity-60 transition-colors"
               >
                 PICK FILES
               </button>
@@ -254,7 +254,7 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
             <button
               onClick={handleDisconnect}
               disabled={busy !== null}
-              className="w-full py-1.5 text-[10px] tracking-widest text-slate-500 hover:text-red-400 disabled:opacity-60 transition-colors uppercase"
+              className="w-full py-1.5 text-[10px] tracking-widest text-muted-foreground hover:text-red-400 disabled:opacity-60 transition-colors uppercase"
             >
               {busy === "disconnect" ? "Disconnecting…" : "Disconnect Drive"}
             </button>
@@ -262,7 +262,7 @@ export default function GoogleDriveSection({ onIngestStarted }: Props) {
         )}
 
         {toast && (
-          <div className="text-[10px] text-amber-300 text-center bg-amber-400/5 border border-amber-400/20 py-1.5 px-2">
+          <div className="text-[10px] text-brand text-center bg-brand/5 border border-brand/20 py-1.5 px-2">
             {toast}
           </div>
         )}

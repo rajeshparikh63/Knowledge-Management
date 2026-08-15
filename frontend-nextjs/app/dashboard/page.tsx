@@ -136,8 +136,8 @@ export default function DashboardPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#0a0a0a]">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-6 h-6 border-2 border-zinc-300 border-t-zinc-900 dark:border-zinc-700 dark:border-t-zinc-100 rounded-full animate-spin" />
-          <span className="text-zinc-500 text-xs">Loading</span>
+          <div className="w-6 h-6 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin" />
+          <span className="text-muted-foreground text-xs">Loading</span>
         </div>
       </div>
     );
@@ -150,7 +150,7 @@ export default function DashboardPage() {
         <Header />
         <div className="flex-1 flex flex-col overflow-hidden relative">
           {/* Mobile toolbar */}
-          <div className="flex items-center justify-between px-3 py-2 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-border dark:border-border bg-white/90 dark:bg-card/90">
             <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
               <SheetTrigger>
                 <button className="tactical-btn p-2 text-xs">
@@ -168,7 +168,7 @@ export default function DashboardPage() {
               </SheetContent>
             </Sheet>
 
-            <span className="text-xs text-slate-500 tracking-widest">SOLDIERIQ</span>
+            <span className="text-xs text-muted-foreground tracking-widest">SOLDIERIQ</span>
 
             <Sheet open={workflowOpen} onOpenChange={setWorkflowOpen}>
               <SheetTrigger>
@@ -213,7 +213,7 @@ export default function DashboardPage() {
               </Suspense>
             </ErrorBoundary>
             <div
-              className="absolute right-0 top-0 bottom-0 w-1 cursor-col-resize hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-10"
+              className="absolute right-0 top-0 bottom-0 w-1 cursor-col-resize hover:bg-secondary dark:hover:bg-secondary transition-colors z-10"
               onMouseDown={() => setIsResizingLeft(true)}
             >
               <div className="absolute inset-y-0 -left-1 -right-1" />
@@ -252,7 +252,7 @@ export default function DashboardPage() {
         <div className="relative flex flex-shrink-0" style={{ width: actualRightWidth }}>
           {!isWorkflowCollapsed && (
             <div
-              className="absolute left-0 top-0 bottom-0 w-1 cursor-col-resize hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors z-10"
+              className="absolute left-0 top-0 bottom-0 w-1 cursor-col-resize hover:bg-secondary dark:hover:bg-secondary transition-colors z-10"
               onMouseDown={() => setIsResizingRight(true)}
             >
               <div className="absolute inset-y-0 -left-1 -right-1" />

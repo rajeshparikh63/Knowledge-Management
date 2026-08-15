@@ -1232,22 +1232,6 @@
         "documentation": {}
     },
     {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1296,103 +1280,7 @@
         "documentation": {}
     },
     {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1440,6 +1328,150 @@
         "documentation": {}
     },
     {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -1512,7 +1544,15 @@
         "documentation": {}
     },
     {
-        "label": "Optional",
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1728,7 +1768,15 @@
         "documentation": {}
     },
     {
-        "label": "Optional",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1737,14 +1785,6 @@
     },
     {
         "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -2300,6 +2340,30 @@
         "documentation": {}
     },
     {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -2692,6 +2756,38 @@
         "documentation": {}
     },
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "UploadFile",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -2721,6 +2817,30 @@
         "description": "starlette.responses",
         "isExtraImport": true,
         "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "app.logger",
+        "description": "app.logger",
+        "isExtraImport": true,
+        "detail": "app.logger",
         "documentation": {}
     },
     {
@@ -3733,6 +3853,14 @@
         "documentation": {}
     },
     {
+        "label": "workspace",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
         "label": "BaseSettings",
         "importPath": "pydantic_settings",
         "description": "pydantic_settings",
@@ -3983,6 +4111,30 @@
     },
     {
         "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -4295,6 +4447,14 @@
         "documentation": {}
     },
     {
+        "label": "get_mongodb_client",
+        "importPath": "auth.database",
+        "description": "auth.database",
+        "isExtraImport": true,
+        "detail": "auth.database",
+        "documentation": {}
+    },
+    {
         "label": "KeycloakOpenID",
         "importPath": "keycloak",
         "description": "keycloak",
@@ -4433,6 +4593,30 @@
     },
     {
         "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -5264,170 +5448,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "dataclass",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "httpx",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "httpx",
-        "description": "httpx",
-        "detail": "httpx",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_postgres_client",
-        "importPath": "clients.postgres_client",
-        "description": "clients.postgres_client",
-        "isExtraImport": true,
-        "detail": "clients.postgres_client",
-        "documentation": {}
-    },
-    {
-        "label": "hashlib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "hashlib",
-        "description": "hashlib",
-        "detail": "hashlib",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncOpenAI",
-        "importPath": "openai",
-        "description": "openai",
-        "isExtraImport": true,
-        "detail": "openai",
-        "documentation": {}
-    },
-    {
-        "label": "get_chunker_client",
-        "importPath": "clients.chunker_client",
-        "description": "clients.chunker_client",
-        "isExtraImport": true,
-        "detail": "clients.chunker_client",
-        "documentation": {}
-    },
-    {
-        "label": "validate_content_for_embeddings",
-        "importPath": "clients.chunker_client",
-        "description": "clients.chunker_client",
-        "isExtraImport": true,
-        "detail": "clients.chunker_client",
-        "documentation": {}
-    },
-    {
-        "label": "get_entity_vector_cache",
-        "importPath": "clients.entity_vector_cache",
-        "description": "clients.entity_vector_cache",
-        "isExtraImport": true,
-        "detail": "clients.entity_vector_cache",
-        "documentation": {}
-    },
-    {
-        "label": "tempfile",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "tempfile",
-        "description": "tempfile",
-        "detail": "tempfile",
-        "documentation": {}
-    },
-    {
         "label": "Groq",
         "importPath": "groq",
         "description": "groq",
@@ -5968,6 +5988,23 @@
         "documentation": {}
     },
     {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user_keycloak",
+        "importPath": "auth.keycloak_auth",
+        "description": "auth.keycloak_auth",
+        "isExtraImport": true,
+        "detail": "auth.keycloak_auth",
+        "documentation": {}
+    },
+    {
         "label": "get_current_user_keycloak",
         "importPath": "auth.keycloak_auth",
         "description": "auth.keycloak_auth",
@@ -6080,6 +6117,22 @@
         "documentation": {}
     },
     {
+        "label": "get_user_profile_crud",
+        "importPath": "orgs.crud",
+        "description": "orgs.crud",
+        "isExtraImport": true,
+        "detail": "orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_profile_crud",
+        "importPath": "orgs.crud",
+        "description": "orgs.crud",
+        "isExtraImport": true,
+        "detail": "orgs.crud",
+        "documentation": {}
+    },
+    {
         "label": "create_chat_agent",
         "importPath": "services.chat",
         "description": "services.chat",
@@ -6173,15 +6226,6 @@
         "description": "services.flashcard_generator",
         "isExtraImport": true,
         "detail": "services.flashcard_generator",
-        "documentation": {}
-    },
-    {
-        "label": "secrets",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "secrets",
-        "description": "secrets",
-        "detail": "secrets",
         "documentation": {}
     },
     {
@@ -6534,6 +6578,30 @@
         "description": "clients.youtube_downloader",
         "isExtraImport": true,
         "detail": "clients.youtube_downloader",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_context",
+        "importPath": "orgs.dependencies",
+        "description": "orgs.dependencies",
+        "isExtraImport": true,
+        "detail": "orgs.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "WorkspaceOrganization",
+        "importPath": "orgs.models",
+        "description": "orgs.models",
+        "isExtraImport": true,
+        "detail": "orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "SwitchOrganizationRequest",
+        "importPath": "orgs.models",
+        "description": "orgs.models",
+        "isExtraImport": true,
+        "detail": "orgs.models",
         "documentation": {}
     },
     {
@@ -8466,177 +8534,6 @@
         "documentation": {}
     },
     {
-        "label": "_OrgCache",
-        "kind": 6,
-        "importPath": "backend.clients.entity_vector_cache",
-        "description": "backend.clients.entity_vector_cache",
-        "peekOfCode": "class _OrgCache:\n    \"\"\"In-memory state for one org's FAISS index + name list.\"\"\"\n    __slots__ = (\"org_id\", \"index\", \"names\", \"name_to_pos\", \"lock\", \"_dirty\")\n    def __init__(self, org_id: str, dim: int):\n        if faiss is None:\n            raise RuntimeError(\"faiss-cpu is not installed\")\n        self.org_id = org_id\n        # IndexFlatIP on L2-normalized vectors → cosine similarity\n        self.index = faiss.IndexFlatIP(dim)\n        self.names: List[str] = []",
-        "detail": "backend.clients.entity_vector_cache",
-        "documentation": {}
-    },
-    {
-        "label": "EntityVectorCache",
-        "kind": 6,
-        "importPath": "backend.clients.entity_vector_cache",
-        "description": "backend.clients.entity_vector_cache",
-        "peekOfCode": "class EntityVectorCache:\n    \"\"\"Process-wide registry of per-org caches.\"\"\"\n    def __init__(self, dim: int = None):\n        self.dim = dim or settings.EMBEDDING_DIM\n        self._orgs: Dict[str, _OrgCache] = {}\n        self._registry_lock = asyncio.Lock()\n    async def _get_or_load(self, org_id: str) -> _OrgCache:\n        if org_id in self._orgs:\n            return self._orgs[org_id]\n        async with self._registry_lock:",
-        "detail": "backend.clients.entity_vector_cache",
-        "documentation": {}
-    },
-    {
-        "label": "get_entity_vector_cache",
-        "kind": 2,
-        "importPath": "backend.clients.entity_vector_cache",
-        "description": "backend.clients.entity_vector_cache",
-        "peekOfCode": "def get_entity_vector_cache() -> EntityVectorCache:\n    global _singleton\n    if _singleton is None:\n        _singleton = EntityVectorCache()\n    return _singleton",
-        "detail": "backend.clients.entity_vector_cache",
-        "documentation": {}
-    },
-    {
-        "label": "DriveFile",
-        "kind": 6,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "class DriveFile:\n    \"\"\"One discovered file's metadata — kept lean since we only need this much.\"\"\"\n    id: str\n    name: str\n    mime_type: str\n    size: int\n    modified_at: Optional[datetime]\n    web_url: Optional[str]\nclass GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "GoogleDriveError",
-        "kind": 6,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "class GoogleDriveError(RuntimeError):\n    \"\"\"Anything from Drive that's not a 2xx response.\"\"\"\n@dataclass\nclass _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "_Tokens",
-        "kind": 6,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "class _Tokens:\n    access_token: str\n    refresh_token: str\n    expires_at: datetime  # always tz-aware (UTC)\ndef build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "GoogleDriveClient",
-        "kind": 6,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "class GoogleDriveClient:\n    \"\"\"Per-(org, user) Drive client. Refreshes + persists tokens automatically.\"\"\"\n    def __init__(\n        self,\n        organization_id: str,\n        user_id: str,\n        tokens: _Tokens,\n    ):\n        self.organization_id = organization_id\n        self.user_id = user_id",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "build_authorize_url",
-        "kind": 2,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "def build_authorize_url(state: str) -> str:\n    \"\"\"Build the URL we redirect the user to for the consent screen.\"\"\"\n    if not settings.GOOGLE_CLIENT_ID or not settings.GOOGLE_CLIENT_SECRET:\n        raise GoogleDriveError(\n            \"GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET not configured\"\n        )\n    from urllib.parse import urlencode\n    params = {\n        \"client_id\": settings.GOOGLE_CLIENT_ID,\n        \"response_type\": \"code\",",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "logger = logging.getLogger(__name__)\n# Google endpoints\nTOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "TOKEN_URL",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "TOKEN_URL = \"https://oauth2.googleapis.com/token\"\nAUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "AUTHORIZE_URL",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "AUTHORIZE_URL = \"https://accounts.google.com/o/oauth2/v2/auth\"\nUSERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "USERINFO_URL",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "USERINFO_URL = \"https://openidconnect.googleapis.com/v1/userinfo\"\nDRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "DRIVE_API",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "DRIVE_API = \"https://www.googleapis.com/drive/v3\"\n# Refresh proactively before actual expiry so we don't race a 401.\n_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "_REFRESH_LEEWAY",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "_REFRESH_LEEWAY = timedelta(seconds=60)\n# Google-native MIME types → what we export them as. The keys are what\n# Drive reports; the values are what we send to MarkItDown / the parser.\n_EXPORT_MIME: Dict[str, str] = {\n    \"application/vnd.google-apps.document\":     \"text/plain\",\n    \"application/vnd.google-apps.spreadsheet\":  \"text/csv\",\n    \"application/vnd.google-apps.presentation\": \"text/plain\",\n}\n# Only enumerate these during auto-discovery. Everything else is either\n# unparseable for our pipeline, irrelevant (images, video unless we add",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "_INCLUDE_MIME",
-        "kind": 5,
-        "importPath": "backend.clients.google_drive_client",
-        "description": "backend.clients.google_drive_client",
-        "peekOfCode": "_INCLUDE_MIME = {\n    # Google-native (handled via export to text/csv)\n    \"application/vnd.google-apps.document\",\n    \"application/vnd.google-apps.spreadsheet\",\n    \"application/vnd.google-apps.presentation\",\n    # Documents\n    \"application/pdf\",\n    \"application/msword\",\n    \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\n    \"application/vnd.ms-excel\",",
-        "detail": "backend.clients.google_drive_client",
-        "documentation": {}
-    },
-    {
-        "label": "ExtractedEntity",
-        "kind": 6,
-        "importPath": "backend.clients.graphrag_client",
-        "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class ExtractedEntity(pydantic.BaseModel):\n    name: str\n    type: str\nclass ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)",
-        "detail": "backend.clients.graphrag_client",
-        "documentation": {}
-    },
-    {
-        "label": "ExtractedTriple",
-        "kind": 6,
-        "importPath": "backend.clients.graphrag_client",
-        "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class ExtractedTriple(pydantic.BaseModel):\n    subject: str\n    predicate: str\n    object: str\n    confidence: float = pydantic.Field(ge=0.0, le=1.0)\nclass Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts",
-        "detail": "backend.clients.graphrag_client",
-        "documentation": {}
-    },
-    {
-        "label": "Extraction",
-        "kind": 6,
-        "importPath": "backend.clients.graphrag_client",
-        "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class Extraction(pydantic.BaseModel):\n    entities: List[ExtractedEntity] = pydantic.Field(default_factory=list)\n    triples: List[ExtractedTriple] = pydantic.Field(default_factory=list)\n# ---------------------------------------------------------------------------\n# Ontology prompts\n# ---------------------------------------------------------------------------\n_ONTOLOGY_PROMPT = \"\"\"\\\nYou are designing a knowledge-graph ontology for a corpus.\nRead the SAMPLE TEXT and propose a compact ontology that captures the kinds of\nthings and relationships present. Aim for 6–12 entity types and 6–14 relation",
-        "detail": "backend.clients.graphrag_client",
-        "documentation": {}
-    },
-    {
-        "label": "_OntologySchema",
-        "kind": 6,
-        "importPath": "backend.clients.graphrag_client",
-        "description": "backend.clients.graphrag_client",
-        "peekOfCode": "class _OntologySchema:\n    def __init__(self):\n        self.entity_labels: List[str] = []\n        self.relation_labels: List[str] = []\n_schemas: Dict[str, _OntologySchema] = {}\n_schema_locks: Dict[str, asyncio.Lock] = {}\ndef _schema_lock(graph_name: str) -> asyncio.Lock:\n    if graph_name not in _schema_locks:\n        _schema_locks[graph_name] = asyncio.Lock()\n    return _schema_locks[graph_name]",
-        "detail": "backend.clients.graphrag_client",
-        "documentation": {}
-    },
-    {
         "label": "GraphRAGClient",
         "kind": 6,
         "importPath": "backend.clients.graphrag_client",
@@ -9348,6 +9245,168 @@
         "documentation": {}
     },
     {
+        "label": "OrganizationCRUD",
+        "kind": 6,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "class OrganizationCRUD:\n    def __init__(self):\n        self.collection = get_mongodb_client().get_collection(\"organizations\")\n    def get(self, org_id: str) -> Optional[dict]:\n        return self.collection.find_one({\"_id\": org_id})\n    def create(self, name: str, owner_user_id: str, org_id: Optional[str] = None) -> dict:\n        \"\"\"Create an organization. If org_id is provided (e.g. an existing\n        Keycloak personal-org UUID), it is used as the _id so the FalkorDB\n        graph `org_<id>` continues to line up.\"\"\"\n        oid = org_id or str(uuid.uuid4())",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfileCRUD",
+        "kind": 6,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "class UserProfileCRUD:\n    def __init__(self):\n        self.collection = get_mongodb_client().get_collection(\"user_profiles\")\n    def get(self, user_id: str) -> Optional[dict]:\n        return self.collection.find_one({\"_id\": user_id})\n    def get_or_provision(\n        self,\n        user_id: str,\n        email: Optional[str],\n        first_name: Optional[str],",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "InvitationCRUD",
+        "kind": 6,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "class InvitationCRUD:\n    def __init__(self):\n        self.collection = get_mongodb_client().get_collection(\"invitations\")\n    @staticmethod\n    def _hash(token: str) -> str:\n        return hashlib.sha256(token.encode(\"utf-8\")).hexdigest()\n    def create(\n        self,\n        org_id: str,\n        org_name: str,",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "get_organization_crud",
+        "kind": 2,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "def get_organization_crud() -> OrganizationCRUD:\n    global _org_crud\n    with _lock:\n        if _org_crud is None:\n            _org_crud = OrganizationCRUD()\n        return _org_crud\ndef get_user_profile_crud() -> UserProfileCRUD:\n    global _profile_crud\n    with _lock:\n        if _profile_crud is None:",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_profile_crud",
+        "kind": 2,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "def get_user_profile_crud() -> UserProfileCRUD:\n    global _profile_crud\n    with _lock:\n        if _profile_crud is None:\n            _profile_crud = UserProfileCRUD()\n        return _profile_crud\ndef get_invitation_crud() -> InvitationCRUD:\n    global _invitation_crud\n    with _lock:\n        if _invitation_crud is None:",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "get_invitation_crud",
+        "kind": 2,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "def get_invitation_crud() -> InvitationCRUD:\n    global _invitation_crud\n    with _lock:\n        if _invitation_crud is None:\n            _invitation_crud = InvitationCRUD()\n        return _invitation_crud",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "VALID_ROLES",
+        "kind": 5,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "VALID_ROLES = {\"admin\", \"user\"}\nINVITATION_TTL_DAYS = 7\ndef _now() -> datetime:\n    return datetime.utcnow()\ndef _slugify(name: str) -> str:\n    base = re.sub(r\"[^a-z0-9]+\", \"-\", (name or \"org\").lower()).strip(\"-\") or \"org\"\n    return f\"{base}-{uuid.uuid4().hex[:6]}\"\n# ============================================================================\n# Organizations\n# ============================================================================",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "INVITATION_TTL_DAYS",
+        "kind": 5,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "INVITATION_TTL_DAYS = 7\ndef _now() -> datetime:\n    return datetime.utcnow()\ndef _slugify(name: str) -> str:\n    base = re.sub(r\"[^a-z0-9]+\", \"-\", (name or \"org\").lower()).strip(\"-\") or \"org\"\n    return f\"{base}-{uuid.uuid4().hex[:6]}\"\n# ============================================================================\n# Organizations\n# ============================================================================\nclass OrganizationCRUD:",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "_lock",
+        "kind": 5,
+        "importPath": "backend.orgs.crud",
+        "description": "backend.orgs.crud",
+        "peekOfCode": "_lock = threading.RLock()\ndef get_organization_crud() -> OrganizationCRUD:\n    global _org_crud\n    with _lock:\n        if _org_crud is None:\n            _org_crud = OrganizationCRUD()\n        return _org_crud\ndef get_user_profile_crud() -> UserProfileCRUD:\n    global _profile_crud\n    with _lock:",
+        "detail": "backend.orgs.crud",
+        "documentation": {}
+    },
+    {
+        "label": "OrganizationResponse",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class OrganizationResponse(BaseModel):\n    id: str\n    name: str\n    slug: str\n    owner_user_id: str\n    created_at: Optional[datetime] = None\n# ----------------------------------------------------------------------------\n# Workspace (the orgs the current user belongs to + switching)\n# ----------------------------------------------------------------------------\nclass WorkspaceOrganization(BaseModel):",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "WorkspaceOrganization",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class WorkspaceOrganization(BaseModel):\n    \"\"\"One organization the current user is an active member of.\"\"\"\n    id: str                 # organization_id\n    name: str\n    role: str               # \"admin\" | \"user\"\n    status: str             # \"active\"\n    is_current: bool = False\nclass SwitchOrganizationRequest(BaseModel):\n    organization_id: str\n# ----------------------------------------------------------------------------",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "SwitchOrganizationRequest",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class SwitchOrganizationRequest(BaseModel):\n    organization_id: str\n# ----------------------------------------------------------------------------\n# Members (people inside a given organization)\n# ----------------------------------------------------------------------------\nclass OrganizationMember(BaseModel):\n    user_id: str\n    email: Optional[str] = None\n    firstName: Optional[str] = None\n    lastName: Optional[str] = None",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "OrganizationMember",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class OrganizationMember(BaseModel):\n    user_id: str\n    email: Optional[str] = None\n    firstName: Optional[str] = None\n    lastName: Optional[str] = None\n    role: str\n    status: str\n    joined_at: Optional[datetime] = None\n    is_owner: bool = False\n# ----------------------------------------------------------------------------",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "InviteUserRequest",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class InviteUserRequest(BaseModel):\n    \"\"\"Body for POST /api/invitations (org admin only).\"\"\"\n    email: EmailStr = Field(..., description=\"Email address to invite\")\n    role: str = Field(\"user\", description=\"Role in the org: 'admin' or 'user'\")\n    document_ids: List[str] = Field(\n        default_factory=list,\n        description=\"Document ids to grant the invitee access to on acceptance\",\n    )\nclass AcceptInvitationRequest(BaseModel):\n    \"\"\"Body for POST /api/invitations/accept (public).",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "AcceptInvitationRequest",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class AcceptInvitationRequest(BaseModel):\n    \"\"\"Body for POST /api/invitations/accept (public).\n    firstName / lastName / password are required only when the invited email\n    does not yet have an account (a brand-new user is provisioned in Keycloak).\n    \"\"\"\n    token: str = Field(..., description=\"Invitation token from the email link\")\n    firstName: Optional[str] = Field(None, min_length=1, max_length=100)\n    lastName: Optional[str] = Field(None, min_length=1, max_length=100)\n    password: Optional[str] = Field(None, min_length=8, max_length=128)\nclass InvitationResponse(BaseModel):",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "InvitationResponse",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class InvitationResponse(BaseModel):\n    id: str\n    organization_id: str\n    organization_name: Optional[str] = None\n    email: str\n    role: str\n    status: str                      # pending | accepted | revoked | expired\n    invited_by_name: Optional[str] = None\n    createdAt: Optional[datetime] = None\n    expiresAt: Optional[datetime] = None",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "ValidateInvitationResponse",
+        "kind": 6,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "class ValidateInvitationResponse(BaseModel):\n    email: str\n    organization_name: str\n    role: str\n    invited_by_name: Optional[str] = None\n    user_exists: bool\n    createdAt: Optional[datetime] = None\n    expiresAt: Optional[datetime] = None",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
+        "label": "VALID_ROLES",
+        "kind": 5,
+        "importPath": "backend.orgs.models",
+        "description": "backend.orgs.models",
+        "peekOfCode": "VALID_ROLES = {\"admin\", \"user\"}\n# ----------------------------------------------------------------------------\n# Organizations\n# ----------------------------------------------------------------------------\nclass OrganizationResponse(BaseModel):\n    id: str\n    name: str\n    slug: str\n    owner_user_id: str\n    created_at: Optional[datetime] = None",
+        "detail": "backend.orgs.models",
+        "documentation": {}
+    },
+    {
         "label": "SignupRequest",
         "kind": 6,
         "importPath": "backend.routers.auth",
@@ -9723,6 +9782,15 @@
         "description": "backend.routers.upload",
         "peekOfCode": "router = APIRouter(prefix=\"/upload\", tags=[\"upload\"])\n@router.post(\"/documents\")\nasync def upload_documents(\n    files: List[UploadFile] = File(..., description=\"Multiple files to upload\"),\n    folder_name: str = Form(..., description=\"Folder name for organization\"),\n    current_user: dict = Depends(get_current_user_keycloak)\n):\n    \"\"\"\n    Upload multiple documents for ingestion (Celery background processing)\n    This endpoint:",
         "detail": "backend.routers.upload",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.workspace",
+        "description": "backend.routers.workspace",
+        "peekOfCode": "router = APIRouter(prefix=\"/workspace\", tags=[\"workspace\"])\n@router.get(\"/organizations\", response_model=List[WorkspaceOrganization])\nasync def get_user_organizations(context: Dict = Depends(get_current_context)):\n    \"\"\"All organizations the current user is an active member of.\"\"\"\n    profiles = get_user_profile_crud()\n    profile = context.get(\"profile\") or profiles.get(context[\"id\"])\n    return profiles.list_workspace(profile)\n@router.post(\"/switch\")\nasync def switch_organization(\n    payload: SwitchOrganizationRequest,",
+        "detail": "backend.routers.workspace",
         "documentation": {}
     },
     {

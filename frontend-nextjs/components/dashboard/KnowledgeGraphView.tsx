@@ -312,13 +312,13 @@ export default function KnowledgeGraphView({
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6">
       <div
         className={`relative w-full max-w-7xl h-[85vh] rounded-lg shadow-2xl flex flex-col overflow-hidden ${
-          isDark ? "bg-slate-900 text-slate-100" : "bg-white text-slate-900"
+          isDark ? "bg-card text-foreground" : "bg-white text-foreground"
         }`}
       >
         {/* Header */}
         <div
           className={`flex items-center justify-between px-5 py-3 border-b ${
-            isDark ? "border-slate-700" : "border-slate-200"
+            isDark ? "border-border" : "border-border"
           }`}
         >
           <div>
@@ -326,7 +326,7 @@ export default function KnowledgeGraphView({
             {graph.query && (
               <p
                 className={`text-xs mt-0.5 ${
-                  isDark ? "text-slate-400" : "text-slate-500"
+                  isDark ? "text-muted-foreground" : "text-muted-foreground"
                 }`}
               >
                 For: <span className="italic">"{graph.query}"</span>
@@ -340,10 +340,10 @@ export default function KnowledgeGraphView({
                 <span className="w-3 h-3 rounded-full bg-red-500" /> Anchor
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-indigo-500" /> Entity
+                <span className="w-3 h-3 rounded-full bg-brand" /> Entity
               </span>
               <span
-                className={isDark ? "text-slate-500" : "text-slate-400"}
+                className={isDark ? "text-muted-foreground" : "text-muted-foreground"}
               >
                 {nodes.length} nodes · {links.length} edges
               </span>
@@ -351,7 +351,7 @@ export default function KnowledgeGraphView({
             <button
               onClick={onClose}
               className={`p-1.5 rounded transition-colors ${
-                isDark ? "hover:bg-slate-800" : "hover:bg-slate-100"
+                isDark ? "hover:bg-muted" : "hover:bg-muted"
               }`}
               title="Close (Esc)"
             >
@@ -379,7 +379,7 @@ export default function KnowledgeGraphView({
             {nodes.length === 0 ? (
               <div
                 className={`absolute inset-0 flex items-center justify-center text-sm ${
-                  isDark ? "text-slate-500" : "text-slate-400"
+                  isDark ? "text-muted-foreground" : "text-muted-foreground"
                 }`}
               >
                 No graph data — the retrieval returned no entity relations.
@@ -393,8 +393,8 @@ export default function KnowledgeGraphView({
           <aside
             className={`w-80 border-l overflow-y-auto p-4 text-sm ${
               isDark
-                ? "border-slate-700 bg-slate-950/40"
-                : "border-slate-200 bg-slate-50"
+                ? "border-border bg-background/40"
+                : "border-border bg-muted"
             }`}
           >
             {selectedTriple ? (
@@ -405,8 +405,8 @@ export default function KnowledgeGraphView({
                     onClick={() => setSelectedTriple(null)}
                     className={`text-xs ${
                       isDark
-                        ? "text-slate-400 hover:text-slate-200"
-                        : "text-slate-500 hover:text-slate-700"
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     clear
@@ -414,13 +414,13 @@ export default function KnowledgeGraphView({
                 </div>
                 <div
                   className={`p-3 rounded text-xs leading-relaxed ${
-                    isDark ? "bg-slate-800" : "bg-white border border-slate-200"
+                    isDark ? "bg-muted" : "bg-white border border-border"
                   }`}
                 >
                   <div className="font-medium">{selectedTriple.subject}</div>
                   <div
                     className={`my-1 italic ${
-                      isDark ? "text-slate-400" : "text-slate-500"
+                      isDark ? "text-muted-foreground" : "text-muted-foreground"
                     }`}
                   >
                     → {selectedTriple.predicate} →
@@ -429,7 +429,7 @@ export default function KnowledgeGraphView({
                   {selectedTriple.confidence != null && (
                     <div
                       className={`mt-2 ${
-                        isDark ? "text-slate-500" : "text-slate-400"
+                        isDark ? "text-muted-foreground" : "text-muted-foreground"
                       }`}
                     >
                       confidence:{" "}
@@ -443,7 +443,7 @@ export default function KnowledgeGraphView({
                 <h3 className="font-semibold mb-2">{hoveredEntity}</h3>
                 <p
                   className={`text-xs mb-3 ${
-                    isDark ? "text-slate-400" : "text-slate-500"
+                    isDark ? "text-muted-foreground" : "text-muted-foreground"
                   }`}
                 >
                   Mentioned in {hoveredChunks.length} retrieved chunk
@@ -455,20 +455,20 @@ export default function KnowledgeGraphView({
                       key={c.chunk_id}
                       className={`p-2 rounded text-xs ${
                         isDark
-                          ? "bg-slate-800"
-                          : "bg-white border border-slate-200"
+                          ? "bg-muted"
+                          : "bg-white border border-border"
                       }`}
                     >
                       <div
                         className={`flex items-center gap-2 mb-1 text-[10px] uppercase tracking-wide ${
-                          isDark ? "text-slate-500" : "text-slate-400"
+                          isDark ? "text-muted-foreground" : "text-muted-foreground"
                         }`}
                       >
                         <span
                           className={`px-1.5 py-0.5 rounded ${
                             c.via === "graph"
-                              ? "bg-amber-500/20 text-amber-500"
-                              : "bg-sky-500/20 text-sky-500"
+                              ? "bg-brand/20 text-brand"
+                              : "bg-brand/20 text-brand"
                           }`}
                         >
                           {c.via}
@@ -488,7 +488,7 @@ export default function KnowledgeGraphView({
             ) : (
               <div
                 className={`text-xs ${
-                  isDark ? "text-slate-500" : "text-slate-400"
+                  isDark ? "text-muted-foreground" : "text-muted-foreground"
                 }`}
               >
                 <p className="mb-2">

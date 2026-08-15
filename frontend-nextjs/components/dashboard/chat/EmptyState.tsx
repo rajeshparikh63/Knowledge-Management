@@ -12,9 +12,9 @@ const EmptyState = React.memo(function EmptyState() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-zinc-900 dark:bg-white mb-5">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-brand-hover mb-5 shadow-accent">
           <svg
-            className="w-5 h-5 text-white dark:text-zinc-900"
+            className="w-6 h-6 text-brand-foreground"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -27,15 +27,15 @@ const EmptyState = React.memo(function EmptyState() {
           </svg>
         </div>
 
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mb-3">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground mb-3">
           What would you like to know?
         </h2>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6">
+        <p className="text-sm text-muted-foreground leading-relaxed mb-6">
           Select documents from your repository, or ask a question in general mode.
           Answers are grounded in your sources with inline citations.
         </p>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-500 dark:text-zinc-400">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface-2 text-xs text-muted-foreground shadow-xs">
           <svg
             className="w-3.5 h-3.5"
             viewBox="0 0 24 24"

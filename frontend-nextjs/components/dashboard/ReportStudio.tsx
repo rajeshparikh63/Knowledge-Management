@@ -211,21 +211,21 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
   if (documentIds.length === 0) {
     return (
       <>
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-200/90 dark:bg-slate-950/90 backdrop-blur-sm">
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-8 max-w-md mx-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-secondary/90 dark:bg-background/90 backdrop-blur-sm">
+        <div className="bg-white dark:bg-card border border-border dark:border-border rounded-lg p-8 max-w-md mx-4">
           <div className="text-center">
-            <svg className="w-16 h-16 text-slate-400 dark:text-slate-700 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-muted-foreground dark:text-foreground mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 tracking-wider mb-2">
+            <h3 className="text-sm font-bold text-muted-foreground dark:text-muted-foreground tracking-wider mb-2">
               NO DOCUMENTS SELECTED
             </h3>
-            <p className="text-[11px] text-slate-500 mb-6">
+            <p className="text-[11px] text-muted-foreground mb-6">
               Select one or more documents from the sidebar to generate reports
             </p>
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold tracking-wider transition-colors"
+              className="px-4 py-2 bg-secondary dark:bg-muted hover:bg-secondary dark:hover:bg-secondary text-foreground dark:text-muted-foreground text-sm font-semibold tracking-wider transition-colors"
             >
               CLOSE
             </button>
@@ -249,35 +249,35 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
   if (showPromptEditor) {
     return (
       <>
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-200/90 dark:bg-slate-950/90 backdrop-blur-sm p-4">
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-secondary/90 dark:bg-background/90 backdrop-blur-sm p-4">
+        <div className="bg-white dark:bg-card border border-border dark:border-border rounded-lg max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
           {/* Header */}
-          <div className="border-b border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between bg-slate-50 dark:bg-slate-900/50">
+          <div className="border-b border-border dark:border-border p-4 flex items-center justify-between bg-muted dark:bg-card/50">
             <div className="flex items-center gap-3">
               <button
                 onClick={handleBackToFormats}
-                className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-colors"
+                className="p-1 hover:bg-secondary dark:hover:bg-muted rounded transition-colors"
                 title="Back to formats"
               >
-                <svg className="w-5 h-5 text-slate-400 hover:text-blue-600 dark:hover:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-muted-foreground hover:text-brand dark:hover:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
-                <h2 className="text-sm font-bold text-blue-700 dark:text-amber-400 tracking-wider">
+                <h2 className="text-sm font-bold text-brand dark:text-brand tracking-wider">
                   {showCustomPrompt ? 'CREATE YOUR OWN' : selectedFormat?.name.toUpperCase()}
                 </h2>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-colors"
+              className="p-1 hover:bg-secondary dark:hover:bg-muted rounded transition-colors"
               title="Close"
             >
-              <svg className="w-5 h-5 text-slate-400 hover:text-blue-600 dark:hover:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-muted-foreground hover:text-brand dark:hover:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -299,17 +299,17 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
             {showCustomPrompt ? (
               <div>
                 <div className="mb-4">
-                  <label className="text-xs font-bold text-blue-700 dark:text-amber-400 tracking-wider block mb-2">
+                  <label className="text-xs font-bold text-brand dark:text-brand tracking-wider block mb-2">
                     DESCRIBE YOUR REPORT
                   </label>
-                  <p className="text-[10px] text-slate-500 mb-3">
+                  <p className="text-[10px] text-muted-foreground mb-3">
                     For example: Create a formal competitive review of the 2026 functional beverage market for a new wellness drink.
                   </p>
                   <textarea
                     value={customFormatPrompt}
                     onChange={(e) => setCustomFormatPrompt(e.target.value)}
                     disabled={isGenerating}
-                    className="w-full h-64 bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded px-4 py-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed resize-none focus:outline-none focus:border-blue-500 dark:focus:border-amber-400 transition-colors tactical-scrollbar disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full h-64 bg-muted dark:bg-background border border-border dark:border-border rounded px-4 py-3 text-sm text-foreground dark:text-muted-foreground leading-relaxed resize-none focus:outline-none focus:border-brand dark:focus:border-brand transition-colors tactical-scrollbar disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="Describe the report you want to create..."
                   />
                 </div>
@@ -317,11 +317,11 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                 <button
                   onClick={handleGenerateReport}
                   disabled={isGenerating || !customFormatPrompt.trim()}
-                  className="w-full px-6 py-4 bg-blue-600 dark:bg-amber-400 hover:bg-blue-700 dark:hover:bg-amber-500 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed text-white dark:text-slate-950 disabled:text-slate-400 dark:disabled:text-slate-500 font-bold text-sm tracking-wider transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-6 py-4 bg-brand dark:bg-brand hover:bg-brand-hover dark:hover:bg-brand disabled:bg-secondary dark:disabled:bg-secondary disabled:cursor-not-allowed text-white dark:text-foreground disabled:text-muted-foreground dark:disabled:text-muted-foreground font-bold text-sm tracking-wider transition-colors flex items-center justify-center gap-2"
                 >
                   {isGenerating ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white dark:border-slate-950 border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-2 border-white dark:border-border border-t-transparent rounded-full animate-spin"></div>
                       GENERATING...
                     </>
                   ) : (
@@ -362,22 +362,22 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
   // Show format selection view
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-200/90 dark:bg-slate-950/90 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-secondary/90 dark:bg-background/90 backdrop-blur-sm p-4">
+      <div className="bg-white dark:bg-card border border-border dark:border-border rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="border-b border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between bg-slate-50 dark:bg-slate-900/50">
+        <div className="border-b border-border dark:border-border p-4 flex items-center justify-between bg-muted dark:bg-card/50">
           <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <h2 className="text-sm font-bold text-blue-700 dark:text-amber-400 tracking-wider">CREATE REPORT</h2>
+            <h2 className="text-sm font-bold text-brand dark:text-brand tracking-wider">CREATE REPORT</h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-colors"
+            className="p-1 hover:bg-secondary dark:hover:bg-muted rounded transition-colors"
             title="Close"
           >
-            <svg className="w-5 h-5 text-slate-400 hover:text-blue-600 dark:hover:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-muted-foreground hover:text-brand dark:hover:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -398,17 +398,17 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
 
           {/* Format Section */}
           <div className="mb-8">
-            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wider mb-4">FORMAT</h3>
+            <h3 className="text-xs font-bold text-muted-foreground dark:text-muted-foreground tracking-wider mb-4">FORMAT</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Create Your Own */}
               <button
                 onClick={handleCreateYourOwn}
-                className="tactical-panel p-4 text-left transition-all group hover:border-blue-400 dark:hover:border-amber-400/50 min-h-[140px] flex flex-col"
+                className="tactical-panel p-4 text-left transition-all group hover:border-brand/50 dark:hover:border-brand/50 min-h-[140px] flex flex-col"
               >
-                <div className="text-sm font-semibold text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-amber-400 mb-2">
+                <div className="text-sm font-semibold text-foreground dark:text-foreground group-hover:text-brand dark:group-hover:text-brand mb-2">
                   Create Your Own
                 </div>
-                <div className="text-[10px] text-slate-500 leading-relaxed flex-1">
+                <div className="text-[10px] text-muted-foreground leading-relaxed flex-1">
                   Craft reports your way by specifying structure, style, tone, and more
                 </div>
               </button>
@@ -418,7 +418,7 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                 <button
                   key={format.id}
                   onClick={() => handleFormatSelect(format)}
-                  className="tactical-panel p-4 text-left transition-all group hover:border-blue-400 dark:hover:border-amber-400/50 min-h-[140px] flex flex-col relative"
+                  className="tactical-panel p-4 text-left transition-all group hover:border-brand/50 dark:hover:border-brand/50 min-h-[140px] flex flex-col relative"
                 >
                   {/* Edit Icon */}
                   <button
@@ -426,18 +426,18 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                       e.stopPropagation();
                       handleFormatEdit(format);
                     }}
-                    className="absolute top-3 right-3 p-1 opacity-0 group-hover:opacity-100 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all"
+                    className="absolute top-3 right-3 p-1 opacity-0 group-hover:opacity-100 hover:bg-secondary dark:hover:bg-muted rounded transition-all"
                     title="Edit prompt"
                   >
-                    <svg className="w-4 h-4 text-slate-400 hover:text-blue-600 dark:hover:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted-foreground hover:text-brand dark:hover:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                   </button>
 
-                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-amber-400 mb-2">
+                  <div className="text-sm font-semibold text-foreground dark:text-foreground group-hover:text-brand dark:group-hover:text-brand mb-2">
                     {format.name}
                   </div>
-                  <div className="text-[10px] text-slate-500 leading-relaxed flex-1">
+                  <div className="text-[10px] text-muted-foreground leading-relaxed flex-1">
                     {format.description}
                   </div>
                 </button>
@@ -452,7 +452,7 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                 <svg className="w-4 h-4 text-tactical-green" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
                 </svg>
-                <h3 className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wider">SUGGESTED FORMAT</h3>
+                <h3 className="text-xs font-bold text-muted-foreground dark:text-muted-foreground tracking-wider">SUGGESTED FORMAT</h3>
               </div>
               {suggestionsStatus === 'loading' && (
                 <div className="flex items-center gap-2">
@@ -463,8 +463,8 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
             </div>
 
             {suggestionsStatus === 'loading' && (
-              <div className="tactical-panel p-6 bg-slate-100 dark:bg-slate-900/30 text-center">
-                <div className="text-[11px] text-slate-500">
+              <div className="tactical-panel p-6 bg-muted dark:bg-card/30 text-center">
+                <div className="text-[11px] text-muted-foreground">
                   AI is analyzing your documents to suggest custom formats...
                 </div>
               </div>
@@ -486,7 +486,7 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                       className="tactical-panel p-4 text-left transition-all group hover:border-tactical-green/50 min-h-[140px] flex flex-col relative border-tactical-green/30"
                     >
                       {/* AI Badge */}
-                      <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-tactical-green text-slate-950 text-[8px] font-bold tracking-wider">
+                      <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-tactical-green text-foreground text-[8px] font-bold tracking-wider">
                         AI
                       </div>
 
@@ -496,18 +496,18 @@ export default function ReportStudio({ onClose }: ReportStudioProps) {
                           e.stopPropagation();
                           handleFormatEdit(format);
                         }}
-                        className="absolute top-10 right-3 p-1 opacity-0 group-hover:opacity-100 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all"
+                        className="absolute top-10 right-3 p-1 opacity-0 group-hover:opacity-100 hover:bg-secondary dark:hover:bg-muted rounded transition-all"
                         title="Edit prompt"
                       >
-                        <svg className="w-4 h-4 text-slate-400 hover:text-tactical-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-muted-foreground hover:text-tactical-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
                       </button>
 
-                      <div className="text-sm font-semibold text-slate-700 dark:text-slate-200 group-hover:text-tactical-green mb-2">
+                      <div className="text-sm font-semibold text-foreground dark:text-foreground group-hover:text-tactical-green mb-2">
                         {format.name}
                       </div>
-                      <div className="text-[10px] text-slate-500 leading-relaxed flex-1">
+                      <div className="text-[10px] text-muted-foreground leading-relaxed flex-1">
                         {format.description}
                       </div>
                     </button>

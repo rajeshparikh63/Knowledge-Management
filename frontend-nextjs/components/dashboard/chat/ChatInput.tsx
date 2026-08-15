@@ -35,11 +35,11 @@ const ChatInput = React.memo(function ChatInput({
   }, [inputMessage]);
 
   return (
-    <div className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] px-4 py-3 flex-shrink-0">
+    <div className="border-t border-border dark:border-border bg-white dark:bg-[#0a0a0a] px-4 py-3 flex-shrink-0">
       <div className="max-w-4xl mx-auto">
         {/* Status Bar */}
         <div className="flex items-center justify-between mb-2 text-xs">
-          <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400">
+          <div className="flex items-center gap-2 text-muted-foreground dark:text-muted-foreground">
             {selectedDocsCount > 0 ? (
               <>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -49,14 +49,14 @@ const ChatInput = React.memo(function ChatInput({
               </>
             ) : (
               <>
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground dark:bg-secondary" />
                 <span>General mode</span>
               </>
             )}
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="text-zinc-500 dark:text-zinc-400">
+            <span className="text-muted-foreground dark:text-muted-foreground">
               {isLoading ? "Thinking…" : "Ready"}
             </span>
             {takEnabled && takCredentials && (
@@ -70,7 +70,7 @@ const ChatInput = React.memo(function ChatInput({
 
         {/* Input Form */}
         <form onSubmit={onSend} className="relative">
-          <div className="relative rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 focus-within:border-zinc-400 dark:focus-within:border-zinc-600 focus-within:ring-2 focus-within:ring-zinc-900/5 dark:focus-within:ring-white/5 transition-all">
+          <div className="relative rounded-xl border border-border bg-white dark:bg-background focus-within:border-brand/60 focus-within:ring-2 focus-within:ring-brand/15 transition-all">
             <textarea
               ref={textareaRef}
               value={inputMessage}
@@ -82,14 +82,14 @@ const ChatInput = React.memo(function ChatInput({
                   : "Ask about your selected documents…"
               }
               disabled={isLoading}
-              className="w-full bg-transparent pl-4 pr-12 py-3 resize-none max-h-40 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none disabled:opacity-50"
+              className="w-full bg-transparent pl-4 pr-12 py-3 resize-none max-h-40 text-sm text-foreground dark:text-foreground placeholder:text-muted-foreground dark:placeholder:text-muted-foreground focus:outline-none disabled:opacity-50"
               rows={1}
             />
             <VoiceButton disabled={isLoading} />
             <button
               type="submit"
               disabled={isLoading || !inputMessage.trim()}
-              className="absolute right-2 bottom-2 w-8 h-8 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+              className="absolute right-2 bottom-2 w-8 h-8 rounded-lg bg-brand text-brand-foreground hover:bg-brand-hover shadow-accent disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed transition-all flex items-center justify-center"
               aria-label="Send"
             >
               {isLoading ? (
@@ -111,7 +111,7 @@ const ChatInput = React.memo(function ChatInput({
           </div>
         </form>
 
-        <div className="mt-2 text-[11px] text-zinc-400 dark:text-zinc-600 text-center">
+        <div className="mt-2 text-[11px] text-muted-foreground dark:text-muted-foreground text-center">
           <kbd className="font-mono">Enter</kbd> to send ·{" "}
           <kbd className="font-mono">Shift</kbd> + <kbd className="font-mono">Enter</kbd> for new line
         </div>

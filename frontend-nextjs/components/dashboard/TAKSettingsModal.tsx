@@ -140,13 +140,13 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center" style={{ zIndex: Z_INDEX.MODAL }}>
-      <div className="bg-white dark:bg-slate-900 border-2 border-amber-400/30 w-full max-w-2xl max-h-[90vh] overflow-y-auto tactical-panel">
+      <div className="bg-white dark:bg-card border-2 border-brand/30 w-full max-w-2xl max-h-[90vh] overflow-y-auto tactical-panel">
         {/* Header */}
-        <div className="border-b-2 border-amber-400/20 p-6 bg-gradient-to-r from-slate-50 to-amber-50/20 dark:from-slate-900 dark:to-amber-900/10">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-amber-400 tracking-wider">
+        <div className="border-b-2 border-brand/20 p-6 bg-gradient-to-r from-muted to-brand/20 dark:from-card dark:to-brand/10">
+          <h2 className="text-2xl font-bold text-foreground dark:text-brand tracking-wider">
             TAK CONFIGURATION
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">
             Configure Team Awareness Kit integration for AI agent
           </p>
         </div>
@@ -155,18 +155,18 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
         <div className="p-6 space-y-6">
           {isLoading ? (
             <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-400 mx-auto"></div>
-              <p className="text-slate-600 dark:text-slate-400 mt-4">Loading configuration...</p>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand mx-auto"></div>
+              <p className="text-muted-foreground dark:text-muted-foreground mt-4">Loading configuration...</p>
             </div>
           ) : (
             <>
               {/* Enable TAK Toggle */}
-              <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 border border-amber-400/20">
+              <div className="flex items-center justify-between p-4 bg-muted dark:bg-muted/50 border border-brand/20">
                 <div>
-                  <label className="text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide">
+                  <label className="text-sm font-bold text-foreground dark:text-brand tracking-wide">
                     ENABLE TAK INTEGRATION
                   </label>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                  <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                     Allow AI agent to interact with TAK network
                   </p>
                 </div>
@@ -174,7 +174,7 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                   type="button"
                   onClick={() => setLocalTAKEnabled(!takEnabled)}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    takEnabled ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700'
+                    takEnabled ? 'bg-brand' : 'bg-secondary dark:bg-secondary'
                   }`}
                 >
                   <span
@@ -189,7 +189,7 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                 <>
                   {/* TAK Host */}
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide mb-2">
+                    <label className="block text-sm font-bold text-foreground dark:text-brand tracking-wide mb-2">
                       TAK HOST *
                     </label>
                     <input
@@ -197,13 +197,13 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                       value={takHost}
                       onChange={(e) => setTakHost(e.target.value)}
                       placeholder="e.g., tak.company.com or 192.168.1.100"
-                      className="w-full px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-amber-400/20 text-slate-900 dark:text-slate-100 focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none font-mono"
+                      className="w-full px-4 py-2 bg-white dark:bg-muted border-2 border-border dark:border-brand/20 text-foreground dark:text-foreground focus:border-brand dark:focus:border-brand focus:outline-none font-mono"
                     />
                   </div>
 
                   {/* TAK Port */}
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide mb-2">
+                    <label className="block text-sm font-bold text-foreground dark:text-brand tracking-wide mb-2">
                       TAK PORT *
                     </label>
                     <input
@@ -212,13 +212,13 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                       onChange={(e) => setTakPort(parseInt(e.target.value) || 8087)}
                       min="1"
                       max="65535"
-                      className="w-full px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-amber-400/20 text-slate-900 dark:text-slate-100 focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none font-mono"
+                      className="w-full px-4 py-2 bg-white dark:bg-muted border-2 border-border dark:border-brand/20 text-foreground dark:text-foreground focus:border-brand dark:focus:border-brand focus:outline-none font-mono"
                     />
                   </div>
 
                   {/* TAK Username */}
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide mb-2">
+                    <label className="block text-sm font-bold text-foreground dark:text-brand tracking-wide mb-2">
                       TAK USERNAME
                     </label>
                     <input
@@ -226,16 +226,16 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                       value={takUsername}
                       onChange={(e) => setTakUsername(e.target.value)}
                       placeholder="e.g., soldieriq-agent (optional for public servers)"
-                      className="w-full px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-amber-400/20 text-slate-900 dark:text-slate-100 focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none font-mono"
+                      className="w-full px-4 py-2 bg-white dark:bg-muted border-2 border-border dark:border-brand/20 text-foreground dark:text-foreground focus:border-brand dark:focus:border-brand focus:outline-none font-mono"
                     />
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                       Optional - leave empty for public servers
                     </p>
                   </div>
 
                   {/* TAK Password */}
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide mb-2">
+                    <label className="block text-sm font-bold text-foreground dark:text-brand tracking-wide mb-2">
                       TAK PASSWORD
                     </label>
                     <input
@@ -243,16 +243,16 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                       value={takPassword}
                       onChange={(e) => setTakPassword(e.target.value)}
                       placeholder="Enter TAK server password (optional)"
-                      className="w-full px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-amber-400/20 text-slate-900 dark:text-slate-100 focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none font-mono"
+                      className="w-full px-4 py-2 bg-white dark:bg-muted border-2 border-border dark:border-brand/20 text-foreground dark:text-foreground focus:border-brand dark:focus:border-brand focus:outline-none font-mono"
                     />
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                       Optional - password is stored locally for chat integration
                     </p>
                   </div>
 
                   {/* Agent Callsign */}
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 dark:text-amber-400 tracking-wide mb-2">
+                    <label className="block text-sm font-bold text-foreground dark:text-brand tracking-wide mb-2">
                       AGENT CALLSIGN
                     </label>
                     <input
@@ -260,9 +260,9 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                       value={agentCallsign}
                       onChange={(e) => setAgentCallsign(e.target.value)}
                       placeholder="SoldierIQ-Agent"
-                      className="w-full px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-amber-400/20 text-slate-900 dark:text-slate-100 focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none font-mono"
+                      className="w-full px-4 py-2 bg-white dark:bg-muted border-2 border-border dark:border-brand/20 text-foreground dark:text-foreground focus:border-brand dark:focus:border-brand focus:outline-none font-mono"
                     />
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1">
                       Identifier shown on TAK network for AI agent
                     </p>
                   </div>
@@ -290,7 +290,7 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                 <button
                   onClick={handleSave}
                   disabled={isSaving}
-                  className="flex-1 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold tracking-wider transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-6 py-3 bg-brand hover:bg-brand text-white font-bold tracking-wider transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
                     clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)'
                   }}
@@ -314,7 +314,7 @@ export default function TAKSettingsModal({ isOpen, onClose }: TAKSettingsModalPr
                 <button
                   onClick={onClose}
                   disabled={isSaving}
-                  className="px-6 py-3 bg-slate-500 hover:bg-slate-600 text-white font-bold tracking-wider transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-secondary hover:bg-secondary text-white font-bold tracking-wider transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
                     clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)'
                   }}

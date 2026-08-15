@@ -74,17 +74,17 @@ export default function DriveImportBanner({ documents }: Props) {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="overflow-hidden border-b border-zinc-200 dark:border-zinc-800"
+          className="overflow-hidden border-b border-border dark:border-border"
         >
           <div className="px-4 py-2.5">
             <div className="flex items-center gap-2">
               {isComplete ? (
                 <span className="text-emerald-500 text-sm">✓</span>
               ) : (
-                <div className="w-3.5 h-3.5 border-2 border-amber-400/30 border-t-amber-400 rounded-full animate-spin flex-shrink-0" />
+                <div className="w-3.5 h-3.5 border-2 border-brand/30 border-t-brand rounded-full animate-spin flex-shrink-0" />
               )}
               <div className="flex-1 min-w-0">
-                <div className="text-[12px] font-medium text-zinc-800 dark:text-zinc-200 truncate">
+                <div className="text-[12px] font-medium text-foreground dark:text-foreground truncate">
                   {isScanning
                     ? "Scanning Google Drive…"
                     : isComplete
@@ -99,7 +99,7 @@ export default function DriveImportBanner({ documents }: Props) {
               </div>
               <button
                 onClick={clearDriveImport}
-                className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-xs flex-shrink-0"
+                className="text-muted-foreground hover:text-muted-foreground dark:hover:text-foreground text-xs flex-shrink-0"
                 title="Dismiss"
               >
                 ✕
@@ -108,9 +108,9 @@ export default function DriveImportBanner({ documents }: Props) {
 
             {/* Progress bar */}
             {!isScanning && (
-              <div className="mt-2 h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+              <div className="mt-2 h-1 rounded-full bg-secondary dark:bg-secondary overflow-hidden">
                 <motion.div
-                  className={`h-full ${isComplete ? "bg-emerald-500" : "bg-amber-400"}`}
+                  className={`h-full ${isComplete ? "bg-emerald-500" : "bg-brand"}`}
                   initial={{ width: 0 }}
                   animate={{ width: `${pct}%` }}
                   transition={{ duration: 0.3 }}
