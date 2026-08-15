@@ -15,6 +15,17 @@ Labels are humanized because encoders score natural-language labels better
 """
 from __future__ import annotations
 
+import os
+
+# Must be set before torch/gliner import anywhere in the process (they read
+# these at init to size their OpenMP thread pools). Without this, Celery's
+# --pool=threads workers each let torch spawn a full thread pool per
+# concurrent inference call, oversubscribing the container's thread limit
+# ("libgomp: Thread creation failed") and corrupting in-flight model calls.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
 import re
 from typing import Any, Dict, List, Optional
 
