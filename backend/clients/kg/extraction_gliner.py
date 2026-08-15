@@ -87,6 +87,7 @@ class GlinerExtractor:
         entity_threshold: float = 0.5,
         relation_threshold: float = 0.5,
     ):
+        _pin_torch_threads()
         from gliner2 import GLiNER2  # lazy: heavy import
 
         self.ontology = ontology
