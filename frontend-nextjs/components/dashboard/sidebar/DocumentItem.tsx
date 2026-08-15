@@ -67,8 +67,8 @@ const DocumentItem = React.memo(function DocumentItem({
           : isFailed
             ? "opacity-60"
             : isSelected
-              ? "bg-secondary dark:bg-card"
-              : "hover:bg-surface-2 dark:hover:bg-accent/60"
+              ? "bg-zinc-100 dark:bg-zinc-900"
+              : "hover:bg-zinc-50 dark:hover:bg-zinc-900/60"
       }`}
     >
       <div className="flex items-start gap-2 px-2 py-1.5">
@@ -92,14 +92,14 @@ const DocumentItem = React.memo(function DocumentItem({
                 type="button"
                 onClick={handleOpen}
                 disabled={opening}
-                className="text-left text-xs text-foreground dark:text-foreground break-words flex-1 leading-tight cursor-pointer hover:text-foreground dark:hover:text-foreground hover:underline underline-offset-2 decoration-muted-foreground dark:decoration-muted-foreground disabled:opacity-60"
+                className="text-left text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-50 hover:underline underline-offset-2 decoration-zinc-400 dark:decoration-zinc-600 disabled:opacity-60"
                 title="Open file in a new tab"
               >
                 {doc.file_name}
                 {opening && " …"}
               </button>
             ) : (
-              <div className="text-xs text-foreground dark:text-foreground break-words flex-1 leading-tight">
+              <div className="text-xs text-zinc-800 dark:text-zinc-200 break-words flex-1 leading-tight">
                 {doc.file_name}
               </div>
             )}
@@ -107,7 +107,7 @@ const DocumentItem = React.memo(function DocumentItem({
               <div className="w-3 h-3 border-2 border-red-300 border-t-red-600 rounded-full animate-spin flex-shrink-0 mt-0.5" />
             )}
             {!isDeleting && doc.status === "processing" && (
-              <div className="w-3 h-3 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin flex-shrink-0 mt-0.5" />
+              <div className="w-3 h-3 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin flex-shrink-0 mt-0.5" />
             )}
           </div>
           {isDeleting && (
@@ -124,7 +124,7 @@ const DocumentItem = React.memo(function DocumentItem({
             </div>
           )}
           {!isDeleting && (!doc.status || doc.status === "completed") && doc.created_at && (
-            <div className="text-[10px] text-muted-foreground mt-0.5">
+            <div className="text-[10px] text-zinc-500 mt-0.5">
               {new Date(doc.created_at).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -136,7 +136,7 @@ const DocumentItem = React.memo(function DocumentItem({
         {!isDeleting && (
           <button
             onClick={() => onDelete(doc.id)}
-            className={`text-muted-foreground hover:text-red-600 dark:hover:text-red-400 transition-all p-0.5 flex-shrink-0 ${
+            className={`text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-all p-0.5 flex-shrink-0 ${
               isFailed ? "opacity-100" : "opacity-0 group-hover:opacity-100"
             }`}
             title="Delete document"

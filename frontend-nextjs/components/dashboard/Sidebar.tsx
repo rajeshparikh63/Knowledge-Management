@@ -164,7 +164,7 @@ export default function Sidebar() {
   );
 
   return (
-    <div className="flex-1 bg-surface-2 border-r border-border flex flex-col relative">
+    <div className="flex-1 bg-white dark:bg-[#0a0a0a] border-r border-zinc-200 dark:border-zinc-800 flex flex-col relative">
       <SidebarHeader
         totalDocs={totalDocs}
         selectedCount={validSelectedCount}

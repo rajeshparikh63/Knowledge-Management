@@ -46,16 +46,16 @@ export default function Header() {
   const hasUserMessages = messages.some((msg) => msg.role === "user");
 
   const navBtnClass =
-    "inline-flex items-center gap-1.5 px-3 h-8 rounded-lg text-xs font-medium text-muted-foreground dark:text-foreground hover:text-foreground dark:hover:text-white hover:bg-secondary dark:hover:bg-accent transition-colors";
+    "inline-flex items-center gap-1.5 px-3 h-8 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors";
 
   return (
-    <header className="h-14 bg-white dark:bg-[#0a0a0a] border-b border-border dark:border-border flex items-center justify-between px-4 relative z-30">
+    <header className="h-14 bg-white dark:bg-[#0a0a0a] border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-4 relative z-30">
       <div className="flex items-center gap-4 min-w-0">
         {/* Logo */}
         <div className="flex items-center gap-2.5 flex-shrink-0">
-          <div className="w-7 h-7 rounded-md bg-brand flex items-center justify-center shadow-accent">
+          <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-white flex items-center justify-center">
             <svg
-              className="w-4 h-4 text-brand-foreground"
+              className="w-4 h-4 text-white dark:text-zinc-900"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -67,12 +67,12 @@ export default function Header() {
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
             </svg>
           </div>
-          <span className="text-sm font-semibold tracking-tight text-foreground dark:text-foreground">
+          <span className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
             SoldierIQ
           </span>
         </div>
 
-        <div className="h-5 w-px bg-secondary dark:bg-secondary" />
+        <div className="h-5 w-px bg-zinc-200 dark:bg-zinc-800" />
 
         {/* Model Selector */}
         <ModelSelector />
@@ -107,7 +107,7 @@ export default function Header() {
           <span className="hidden md:inline">Book call</span>
         </button>
 
-        <div className="mx-1 h-5 w-px bg-secondary dark:bg-secondary" />
+        <div className="mx-1 h-5 w-px bg-zinc-200 dark:bg-zinc-800" />
 
         <ThemeToggle />
 
@@ -118,16 +118,16 @@ export default function Header() {
               e.stopPropagation();
               setShowMenu((prev) => !prev);
             }}
-            className="flex items-center gap-2 pl-1.5 pr-2.5 h-9 rounded-lg hover:bg-secondary dark:hover:bg-accent transition-colors"
+            className="flex items-center gap-2 pl-1.5 pr-2.5 h-9 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
           >
-            <div className="w-6 h-6 rounded-full bg-card dark:bg-secondary text-white dark:text-foreground text-[11px] font-semibold flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-[11px] font-semibold flex items-center justify-center">
               {user?.email?.charAt(0).toUpperCase()}
             </div>
-            <span className="hidden sm:inline text-xs font-medium text-muted-foreground dark:text-foreground max-w-[140px] truncate">
+            <span className="hidden sm:inline text-xs font-medium text-zinc-700 dark:text-zinc-300 max-w-[140px] truncate">
               {user?.email}
             </span>
             <svg
-              className={`w-3.5 h-3.5 text-muted-foreground transition-transform ${showMenu ? "rotate-180" : ""}`}
+              className={`w-3.5 h-3.5 text-zinc-500 transition-transform ${showMenu ? "rotate-180" : ""}`}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -150,12 +150,12 @@ export default function Header() {
                 }}
               />
               <div
-                className="absolute right-0 top-full mt-1.5 w-56 rounded-xl bg-white dark:bg-background border border-border dark:border-border shadow-xl overflow-hidden"
+                className="absolute right-0 top-full mt-1.5 w-56 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-xl overflow-hidden"
                 style={{ zIndex: Z_INDEX.DROPDOWN + 1 }}
               >
-                <div className="px-3 py-2.5 border-b border-border dark:border-border">
-                  <div className="text-[11px] text-muted-foreground">Signed in as</div>
-                  <div className="text-xs font-medium text-foreground dark:text-foreground truncate">
+                <div className="px-3 py-2.5 border-b border-zinc-200 dark:border-zinc-800">
+                  <div className="text-[11px] text-zinc-500">Signed in as</div>
+                  <div className="text-xs font-medium text-zinc-900 dark:text-zinc-100 truncate">
                     {user?.email}
                   </div>
                 </div>
@@ -165,7 +165,7 @@ export default function Header() {
                       setShowMenu(false);
                       setShowTAKSettings(true);
                     }}
-                    className="w-full flex items-center gap-2 px-2.5 py-2 text-left text-sm text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent rounded-lg transition-colors"
+                    className="w-full flex items-center gap-2 px-2.5 py-2 text-left text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
@@ -204,22 +204,22 @@ export default function Header() {
             className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md animate-in zoom-in-95 duration-150 px-4"
             style={{ zIndex: Z_INDEX.MODAL + 1 }}
           >
-            <div className="rounded-xl bg-white dark:bg-background border border-border dark:border-border shadow-2xl overflow-hidden">
-              <div className="px-6 py-5 border-b border-border dark:border-border">
-                <h3 className="text-base font-semibold text-foreground dark:text-foreground">
+            <div className="rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden">
+              <div className="px-6 py-5 border-b border-zinc-200 dark:border-zinc-800">
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
                   Coming soon
                 </h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-0.5">
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
                   {comingSoonDialog.feature} is in development.
                 </p>
               </div>
-              <div className="px-6 py-4 text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed">
+              <div className="px-6 py-4 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 We&apos;re actively working on this feature. Check back soon for updates.
               </div>
-              <div className="px-6 py-4 border-t border-border dark:border-border bg-surface-2 dark:bg-card/50 flex justify-end">
+              <div className="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 flex justify-end">
                 <button
                   onClick={closeComingSoonDialog}
-                  className="px-4 py-2 rounded-lg bg-brand text-brand-foreground text-sm font-medium hover:bg-brand-hover shadow-accent transition-colors"
+                  className="px-4 py-2 rounded-lg bg-zinc-900 text-white text-sm font-medium hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 transition-colors"
                 >
                   Got it
                 </button>

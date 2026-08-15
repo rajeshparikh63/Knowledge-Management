@@ -52,18 +52,18 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
         // Create markmap with theme-appropriate colors
         // Theme-aware colors
         const lightColors = [
-          '#7a7249', // olive-drab (root)
-          '#67613c', // deeper olive
-          '#54502f', // deeper olive
-          '#413d23', // deeper olive
-          '#2e2b18', // deepest field-drab
+          '#2563eb', // blue-600 (root)
+          '#1d4ed8', // blue-700
+          '#1e40af', // blue-800
+          '#1e3a8a', // blue-900
+          '#172554', // blue-950
         ];
         const darkColors = [
-          '#c2ba8c', // luminous olive (root)
-          '#b0a878', // olive-drab
-          '#9a9264', // mid olive
-          '#847d52', // mid olive
-          '#6e6842', // deep olive
+          '#fbbf24', // amber-400 (root)
+          '#f59e0b', // amber-500
+          '#d97706', // amber-600
+          '#b45309', // amber-700
+          '#92400e', // amber-800
         ];
 
         const options = {
@@ -111,17 +111,17 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
   }, [mindMapData, isDark]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-secondary/90 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="w-full h-full max-w-7xl max-h-[90vh] bg-white dark:bg-background border border-brand/30 dark:border-brand/30 shadow-2xl flex flex-col">
+    <div className="fixed inset-0 z-50 bg-slate-200/90 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="w-full h-full max-w-7xl max-h-[90vh] bg-white dark:bg-slate-950 border border-blue-200 dark:border-amber-400/30 shadow-2xl flex flex-col">
         {/* Header */}
-        <div className="border-b border-border dark:border-border bg-muted dark:bg-card/50 backdrop-blur-sm p-4 flex items-center justify-between">
+        <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 backdrop-blur-sm p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <svg className="w-6 h-6 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
             <div>
-              <h2 className="text-lg font-bold text-brand dark:text-brand tracking-wider">MIND MAP</h2>
-              <p className="text-[10px] text-muted-foreground tracking-wider">
+              <h2 className="text-lg font-bold text-blue-700 dark:text-amber-400 tracking-wider">MIND MAP</h2>
+              <p className="text-[10px] text-slate-500 tracking-wider">
                 {mindMapData.node_count} NODES • {mindMapData.edge_count} CONNECTIONS
               </p>
             </div>
@@ -129,10 +129,10 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
 
           <button
             onClick={onClose}
-            className="tactical-panel p-2 hover:bg-secondary dark:hover:bg-muted transition-colors group"
+            className="tactical-panel p-2 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group"
             aria-label="Close"
           >
-            <svg className="w-5 h-5 text-muted-foreground group-hover:text-brand dark:group-hover:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -141,7 +141,7 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
         {/* Content */}
         <div className="flex-1 flex overflow-hidden">
           {/* Sidebar - Summary & Key Points */}
-          <div className="w-80 border-r border-border dark:border-border bg-muted dark:bg-card/30 overflow-y-auto tactical-scrollbar p-4">
+          <div className="w-80 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30 overflow-y-auto tactical-scrollbar p-4">
             {/* Summary */}
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
@@ -150,7 +150,7 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
                 </svg>
                 <h3 className="text-xs font-bold text-tactical-green tracking-wider">SUMMARY</h3>
               </div>
-              <p className="text-xs text-foreground dark:text-muted-foreground leading-relaxed">
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                 {mindMapData.summary}
               </p>
             </div>
@@ -158,31 +158,31 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
             {/* Key Points */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <svg className="w-4 h-4 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
-                <h3 className="text-xs font-bold text-brand dark:text-brand tracking-wider">KEY POINTS</h3>
+                <h3 className="text-xs font-bold text-blue-600 dark:text-amber-400 tracking-wider">KEY POINTS</h3>
               </div>
               <ul className="space-y-2">
                 {mindMapData.key_points.map((point, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <span className="text-[10px] text-brand dark:text-brand font-mono mt-0.5">▸</span>
-                    <span className="text-xs text-foreground dark:text-muted-foreground leading-relaxed">{point}</span>
+                    <span className="text-[10px] text-blue-600 dark:text-amber-400 font-mono mt-0.5">▸</span>
+                    <span className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Document Info */}
-            <div className="mt-6 tactical-panel p-3 bg-muted dark:bg-card/50">
-              <div className="text-[10px] text-muted-foreground tracking-wider">
+            <div className="mt-6 tactical-panel p-3 bg-slate-100 dark:bg-slate-900/50">
+              <div className="text-[10px] text-slate-500 tracking-wider">
                 <div className="flex items-center justify-between mb-1">
                   <span>DOCUMENTS:</span>
-                  <span className="text-brand dark:text-brand font-bold">{mindMapData.document_count}</span>
+                  <span className="text-blue-600 dark:text-amber-400 font-bold">{mindMapData.document_count}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>ID:</span>
-                  <span className="text-muted-foreground font-mono text-[9px]">
+                  <span className="text-slate-400 font-mono text-[9px]">
                     {mindMapData.mind_map_id.slice(0, 8)}...
                   </span>
                 </div>
@@ -191,12 +191,12 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
           </div>
 
           {/* Mind Map Canvas */}
-          <div className="flex-1 relative bg-muted dark:bg-background">
+          <div className="flex-1 relative bg-slate-100 dark:bg-slate-950">
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="inline-block w-8 h-8 border-2 border-brand dark:border-brand border-t-transparent rounded-full animate-spin mb-2"></div>
-                  <p className="text-xs text-muted-foreground dark:text-muted-foreground tracking-wider">RENDERING MIND MAP...</p>
+                  <div className="inline-block w-8 h-8 border-2 border-blue-600 dark:border-amber-400 border-t-transparent rounded-full animate-spin mb-2"></div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 tracking-wider">RENDERING MIND MAP...</p>
                 </div>
               </div>
             )}
@@ -261,34 +261,34 @@ export default function MindMapViewer({ mindMapData, onClose }: MindMapViewerPro
         </div>
 
         {/* Footer - Controls */}
-        <div className="border-t border-border dark:border-border bg-muted dark:bg-card/50 backdrop-blur-sm p-3">
+        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 backdrop-blur-sm p-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 text-[10px] text-muted-foreground tracking-wider">
+            <div className="flex items-center gap-4 text-[10px] text-slate-500 tracking-wider">
               <div className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-secondary dark:bg-muted border border-border dark:border-border rounded text-[9px]">SCROLL</kbd>
+                <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded text-[9px]">SCROLL</kbd>
                 <span>Zoom</span>
               </div>
               <div className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-secondary dark:bg-muted border border-border dark:border-border rounded text-[9px]">DRAG</kbd>
+                <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded text-[9px]">DRAG</kbd>
                 <span>Pan</span>
               </div>
               <div className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-secondary dark:bg-muted border border-border dark:border-border rounded text-[9px]">CLICK</kbd>
+                <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded text-[9px]">CLICK</kbd>
                 <span>Expand/Collapse Nodes</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => markmapRef.current?.fit()}
-                className="tactical-panel px-3 py-1.5 hover:bg-secondary dark:hover:bg-muted transition-colors group flex items-center gap-2"
+                className="tactical-panel px-3 py-1.5 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors group flex items-center gap-2"
                 title="Reset View"
               >
-                <svg className="w-3 h-3 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
-                <span className="text-[9px] text-muted-foreground tracking-wider">FIT VIEW</span>
+                <span className="text-[9px] text-slate-400 tracking-wider">FIT VIEW</span>
               </button>
-              <div className="text-[9px] text-muted-foreground tracking-wider font-mono">
+              <div className="text-[9px] text-slate-600 tracking-wider font-mono">
                 TACTICAL VISUALIZATION SYSTEM v1.0
               </div>
             </div>

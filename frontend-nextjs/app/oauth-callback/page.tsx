@@ -51,16 +51,16 @@ function CallbackInner() {
   }, [router, params]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-3 bg-background text-foreground">
-      <div className="w-5 h-5 border-2 border-brand/30 border-t-amber-400 rounded-full animate-spin" />
-      <div className="text-sm text-muted-foreground">{msg}</div>
+    <div className="min-h-screen flex flex-col items-center justify-center gap-3 bg-slate-950 text-slate-200">
+      <div className="w-5 h-5 border-2 border-amber-400/30 border-t-amber-400 rounded-full animate-spin" />
+      <div className="text-sm text-slate-400">{msg}</div>
     </div>
   );
 }
 
 export default function OAuthCallback() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background text-muted-foreground">Loading…</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-400">Loading…</div>}>
       <CallbackInner />
     </Suspense>
   );

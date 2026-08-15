@@ -8,84 +8,58 @@
    Default app tokens (dashboard). Clean, neutral.
    ========================================================================= */
 :root {
-  /* Modern AI product — sophisticated cool-neutral palette, premium depth. */
   --background: #ffffff;
-  --foreground: #0b0b12;
+  --foreground: #0a0a0a;
   --card: #ffffff;
-  --card-foreground: #0b0b12;
+  --card-foreground: #0a0a0a;
   --popover: #ffffff;
-  --popover-foreground: #0b0b12;
-  --primary: #0b0b12;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a;
   --primary-foreground: #ffffff;
-  --secondary: #f5f5f8;
-  --secondary-foreground: #1a1a22;
-  --muted: #f5f5f8;
-  --muted-foreground: #6a6a77;      /* ≥4.5:1 on white */
-  --accent: #f1f1f6;
-  --accent-foreground: #1a1a22;
-  --destructive: #e5484d;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e8e8ee;
-  --input: #e2e2ea;
-  --ring: #7a7249;                   /* olive-drab focus ring — operational identity */
-  --radius: 0.625rem;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
+  --radius: 0.5rem;
 
-  --accent-brand: #7a7249;          /* olive-drab — SoldierIQ operational accent */
-  --accent-brand-rgb: 122 114 73;   /* channels so Tailwind brand/NN opacity works */
-  --accent-brand-hover: #67613c;
-  --accent-brand-foreground: #ffffff;
+  --accent-brand: #4f46e5;
+  --accent-brand-hover: #4338ca;
 
-  /* Elevation — real depth (offset + soft blur), not zero-blur halos. */
-  --shadow-xs: 0 1px 2px rgba(9, 9, 18, 0.05);
-  --shadow-sm: 0 1px 3px rgba(9, 9, 18, 0.06), 0 1px 2px rgba(9, 9, 18, 0.04);
-  --shadow-md: 0 4px 14px -3px rgba(9, 9, 18, 0.10), 0 2px 6px -2px rgba(9, 9, 18, 0.06);
-  --shadow-lg: 0 14px 40px -10px rgba(9, 9, 18, 0.14), 0 6px 16px -6px rgba(9, 9, 18, 0.08);
-  --shadow-accent: 0 6px 20px -4px rgba(122, 114, 73, 0.32);
-
-  /* Layered surfaces for panels/popovers. */
-  --surface-1: #ffffff;
-  --surface-2: #fafafb;
-
-  /* Motion curves. */
+  /* Emil's motion curves. */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .dark {
-  --background: #0b0b0f;             /* deep cool near-black */
-  --foreground: #f6f6f8;
-  --card: #141419;
-  --card-foreground: #f6f6f8;
-  --popover: #16161c;
-  --popover-foreground: #f6f6f8;
-  --primary: #f6f6f8;
-  --primary-foreground: #0b0b0f;
-  --secondary: #1a1a21;
-  --secondary-foreground: #f6f6f8;
-  --muted: #1a1a21;
-  --muted-foreground: #9b9baa;      /* ≥4.5:1 on --background */
-  --accent: #212129;
-  --accent-foreground: #f6f6f8;
-  --destructive: #e5484d;
-  --destructive-foreground: #ffffff;
-  --border: #26262f;
-  --input: #2a2a34;
-  --ring: #b0a878;
-
-  --accent-brand: #b0a878;          /* luminous olive-drab in dark */
-  --accent-brand-rgb: 176 168 120;  /* channels so Tailwind brand/NN opacity works */
-  --accent-brand-hover: #c2ba8c;
-  --accent-brand-foreground: #14140c;
-
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.30);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.40), 0 1px 2px rgba(0, 0, 0, 0.30);
-  --shadow-md: 0 6px 18px -4px rgba(0, 0, 0, 0.50), 0 2px 8px -2px rgba(0, 0, 0, 0.40);
-  --shadow-lg: 0 18px 44px -12px rgba(0, 0, 0, 0.62), 0 8px 20px -8px rgba(0, 0, 0, 0.45);
-  --shadow-accent: 0 6px 24px -4px rgba(176, 168, 120, 0.38);
-
-  --surface-1: #141419;
-  --surface-2: #1a1a21;
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #111111;
+  --card-foreground: #fafafa;
+  --popover: #111111;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #0a0a0a;
+  --secondary: #171717;
+  --secondary-foreground: #fafafa;
+  --muted: #171717;
+  --muted-foreground: #a1a1aa;
+  --accent: #171717;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+  --accent-brand: #6366f1;
+  --accent-brand-hover: #818cf8;
 }
 
 @layer base {
@@ -113,30 +87,8 @@
     font-feature-settings: "liga" 0;
   }
   ::selection {
-    background-color: color-mix(in srgb, var(--accent-brand) 22%, transparent);
+    background-color: rgba(165, 168, 130, 0.28);
     color: inherit;
-  }
-
-  /* App browser surfaces — themed, never left as browser defaults.
-     (.ops keeps its own selection/scroll treatment via later rules.) */
-  html { scrollbar-color: var(--border) transparent; scrollbar-width: thin; }
-  *::-webkit-scrollbar { width: 10px; height: 10px; }
-  *::-webkit-scrollbar-track { background: transparent; }
-  *::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 9999px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-  }
-  *::-webkit-scrollbar-thumb:hover {
-    background: var(--muted-foreground);
-    background-clip: padding-box;
-  }
-  input, textarea, [contenteditable] { caret-color: var(--accent-brand); }
-  :focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
-    border-radius: 5px;
   }
 }
 

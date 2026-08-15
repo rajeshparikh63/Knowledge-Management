@@ -39,14 +39,14 @@ export default function PromptEditor({
   };
 
   return (
-    <div className="tactical-panel p-4 bg-secondary dark:bg-card/50">
+    <div className="tactical-panel p-4 bg-slate-200 dark:bg-slate-900/50">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <svg className="w-4 h-4 text-brand dark:text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-blue-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
           </svg>
-          <h3 className="text-[10px] font-bold text-brand dark:text-brand tracking-wider">
+          <h3 className="text-[10px] font-bold text-blue-700 dark:text-amber-400 tracking-wider">
             CUSTOMIZE PROMPT
           </h3>
         </div>
@@ -55,7 +55,7 @@ export default function PromptEditor({
         {isEdited && (
           <button
             onClick={handleReset}
-            className="px-2 py-1 text-[9px] font-bold tracking-wider text-muted-foreground dark:text-muted-foreground hover:text-brand dark:hover:text-brand transition-colors"
+            className="px-2 py-1 text-[9px] font-bold tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-amber-400 transition-colors"
             title="Reset to original prompt"
           >
             RESET
@@ -68,7 +68,7 @@ export default function PromptEditor({
         value={prompt}
         onChange={(e) => handlePromptChange(e.target.value)}
         disabled={disabled || isGenerating}
-        className="w-full h-48 bg-muted dark:bg-background border border-border dark:border-border rounded px-3 py-2 text-[11px] text-foreground dark:text-muted-foreground leading-relaxed resize-none focus:outline-none focus:border-brand dark:focus:border-brand transition-colors tactical-scrollbar disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full h-48 bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded px-3 py-2 text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed resize-none focus:outline-none focus:border-blue-500 dark:focus:border-amber-400 transition-colors tactical-scrollbar disabled:opacity-50 disabled:cursor-not-allowed"
         placeholder="Enter your custom prompt here..."
       />
 
@@ -78,7 +78,7 @@ export default function PromptEditor({
           <svg className="w-3 h-3 text-tactical-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <p className="text-[9px] text-muted-foreground leading-relaxed">
+          <p className="text-[9px] text-slate-500 leading-relaxed">
             {isEdited
               ? 'Prompt has been modified. Click RESET to restore original.'
               : 'Edit the prompt to customize your report generation.'
@@ -87,7 +87,7 @@ export default function PromptEditor({
         </div>
 
         {/* Character Count */}
-        <div className="text-[9px] text-muted-foreground font-mono">
+        <div className="text-[9px] text-slate-600 font-mono">
           {prompt.length} chars
         </div>
       </div>
@@ -96,11 +96,11 @@ export default function PromptEditor({
       <button
         onClick={onGenerate}
         disabled={disabled || isGenerating || !prompt.trim()}
-        className="w-full mt-4 px-4 py-3 bg-brand dark:bg-brand hover:bg-brand-hover dark:hover:bg-brand disabled:bg-secondary dark:disabled:bg-secondary disabled:cursor-not-allowed text-white dark:text-foreground disabled:text-muted-foreground dark:disabled:text-muted-foreground font-bold text-sm tracking-wider transition-colors flex items-center justify-center gap-2"
+        className="w-full mt-4 px-4 py-3 bg-blue-600 dark:bg-amber-400 hover:bg-blue-700 dark:hover:bg-amber-500 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed text-white dark:text-slate-950 disabled:text-slate-400 dark:disabled:text-slate-500 font-bold text-sm tracking-wider transition-colors flex items-center justify-center gap-2"
       >
         {isGenerating ? (
           <>
-            <div className="w-4 h-4 border-2 border-white dark:border-border border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-4 h-4 border-2 border-white dark:border-slate-950 border-t-transparent rounded-full animate-spin"></div>
             GENERATING...
           </>
         ) : (

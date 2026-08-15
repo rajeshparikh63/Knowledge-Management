@@ -173,22 +173,22 @@ export default function DriveFolderPickerModal({
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-background rounded-xl border border-border dark:border-border shadow-2xl max-w-xl w-full overflow-hidden max-h-[85vh] flex flex-col"
+            className="bg-white dark:bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl max-w-xl w-full overflow-hidden max-h-[85vh] flex flex-col"
           >
             {/* Header */}
-            <div className="px-5 py-3.5 border-b border-border dark:border-border flex items-center justify-between flex-shrink-0">
+            <div className="px-5 py-3.5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between flex-shrink-0">
               <div>
-                <h3 className="text-sm font-semibold text-foreground dark:text-foreground">
+                <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                   Choose folders to ingest
                 </h3>
-                <p className="text-[11px] text-muted-foreground dark:text-muted-foreground mt-0.5">
+                <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
                   All supported files in the selected folders (and their
                   subfolders) will be ingested.
                 </p>
               </div>
               <button
                 onClick={onClose}
-                className="text-muted-foreground hover:text-muted-foreground dark:hover:text-foreground p-1 rounded"
+                className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 p-1 rounded"
                 title="Close (Esc)"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -198,22 +198,22 @@ export default function DriveFolderPickerModal({
             </div>
 
             {/* Search */}
-            <div className="px-5 py-3 border-b border-border dark:border-border flex-shrink-0">
+            <div className="px-5 py-3 border-b border-zinc-100 dark:border-zinc-900 flex-shrink-0">
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search folders by path…"
                 autoFocus
-                className="w-full px-3 py-1.5 text-xs rounded-md border border-border dark:border-border bg-surface-2 dark:bg-card text-foreground dark:text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring dark:focus:ring-ring"
+                className="w-full px-3 py-1.5 text-xs rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600"
               />
             </div>
 
             {/* Folder list */}
             <div className="flex-1 overflow-y-auto tactical-scrollbar min-h-0">
               {loading ? (
-                <div className="flex items-center justify-center py-12 text-xs text-muted-foreground">
-                  <div className="w-3.5 h-3.5 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin mr-2" />
+                <div className="flex items-center justify-center py-12 text-xs text-zinc-500">
+                  <div className="w-3.5 h-3.5 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin mr-2" />
                   Loading folders…
                 </div>
               ) : error ? (
@@ -221,7 +221,7 @@ export default function DriveFolderPickerModal({
                   {error}
                 </div>
               ) : filtered.length === 0 ? (
-                <div className="px-5 py-12 text-center text-xs text-muted-foreground">
+                <div className="px-5 py-12 text-center text-xs text-zinc-500">
                   {search ? "No folders match" : "No folders found in your Drive"}
                 </div>
               ) : (
@@ -239,9 +239,9 @@ export default function DriveFolderPickerModal({
                             : "cursor-pointer"
                         } ${
                           isSel && !isAdded
-                            ? "bg-secondary dark:bg-card"
+                            ? "bg-zinc-100 dark:bg-zinc-900"
                             : !isAdded
-                              ? "hover:bg-surface-2 dark:hover:bg-accent/60"
+                              ? "hover:bg-zinc-50 dark:hover:bg-zinc-900/60"
                               : ""
                         }`}
                       >
@@ -253,7 +253,7 @@ export default function DriveFolderPickerModal({
                           className="tactical-checkbox flex-shrink-0"
                         />
                         <svg
-                          className="w-4 h-4 flex-shrink-0 text-brand"
+                          className="w-4 h-4 flex-shrink-0 text-amber-500"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                         >
@@ -261,12 +261,12 @@ export default function DriveFolderPickerModal({
                         </svg>
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1.5">
-                            <span className="text-xs text-foreground dark:text-foreground truncate">
+                            <span className="text-xs text-zinc-900 dark:text-zinc-100 truncate">
                               {folder.name}
                             </span>
                             {folder.shared_drive && (
                               <span
-                                className="flex-shrink-0 text-[9px] px-1 py-px rounded bg-brand/15 text-brand dark:bg-brand/15 dark:text-brand"
+                                className="flex-shrink-0 text-[9px] px-1 py-px rounded bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
                                 title={`Shared drive: ${folder.shared_drive}`}
                               >
                                 shared
@@ -279,7 +279,7 @@ export default function DriveFolderPickerModal({
                             )}
                           </div>
                           {folder.path !== folder.name && (
-                            <div className="text-[10px] text-muted-foreground truncate">
+                            <div className="text-[10px] text-zinc-500 truncate">
                               {folder.path}
                             </div>
                           )}
@@ -292,11 +292,11 @@ export default function DriveFolderPickerModal({
             </div>
 
             {/* Footer */}
-            <div className="px-5 py-3 border-t border-border dark:border-border bg-surface-2 dark:bg-card/40 flex items-center gap-3 flex-shrink-0">
+            <div className="px-5 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 flex items-center gap-3 flex-shrink-0">
               {selectedCount > 0 && (
                 <button
                   onClick={() => setSelected(new Set())}
-                  className="text-[11px] text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground"
+                  className="text-[11px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                 >
                   Clear ({selectedCount})
                 </button>
@@ -304,14 +304,14 @@ export default function DriveFolderPickerModal({
               <div className="flex-1" />
               <button
                 onClick={onClose}
-                className="text-xs px-3 py-1.5 rounded-md text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent"
+                className="text-xs px-3 py-1.5 rounded-md text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800"
               >
                 Cancel
               </button>
               <button
                 onClick={handleIngest}
                 disabled={selectedCount === 0 || submitting}
-                className="text-xs px-3 py-1.5 rounded-md bg-brand text-brand-foreground hover:bg-brand-hover shadow-accent disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                className="text-xs px-3 py-1.5 rounded-md bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
               >
                 {submitting
                   ? "Queuing…"

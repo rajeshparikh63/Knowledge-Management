@@ -24,32 +24,32 @@ interface MessageBubbleProps {
 const PROSE_CLASSES = `prose dark:prose-invert max-w-none font-sans
   text-[15px] leading-[1.75]
   prose-headings:font-semibold prose-headings:tracking-tight prose-headings:leading-tight
-  prose-headings:text-foreground dark:prose-headings:text-foreground
+  prose-headings:text-zinc-900 dark:prose-headings:text-zinc-100
   prose-h1:text-2xl prose-h1:mb-6 prose-h1:mt-10
   prose-h2:text-xl prose-h2:mb-5 prose-h2:mt-8
   prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-7
   prose-h4:text-base prose-h4:mb-3 prose-h4:mt-6
   prose-p:mb-5 prose-p:leading-[1.75]
-  prose-p:text-muted-foreground dark:prose-p:text-foreground
+  prose-p:text-zinc-700 dark:prose-p:text-zinc-300
   prose-ul:my-5 prose-ul:space-y-2
   prose-ol:my-5 prose-ol:space-y-2
-  prose-li:text-muted-foreground dark:prose-li:text-foreground prose-li:my-1
-  prose-blockquote:border-l-2 prose-blockquote:border-border dark:prose-blockquote:border-border
-  prose-blockquote:pl-4 prose-blockquote:my-5 prose-blockquote:text-muted-foreground dark:prose-blockquote:text-muted-foreground prose-blockquote:italic prose-blockquote:not-italic
-  prose-a:text-foreground dark:prose-a:text-foreground prose-a:underline prose-a:underline-offset-4
-  prose-strong:text-foreground dark:prose-strong:text-foreground prose-strong:font-semibold
-  prose-em:text-muted-foreground dark:prose-em:text-foreground
-  prose-code:text-foreground dark:prose-code:text-foreground
-  prose-code:bg-secondary dark:prose-code:bg-card
+  prose-li:text-zinc-700 dark:prose-li:text-zinc-300 prose-li:my-1
+  prose-blockquote:border-l-2 prose-blockquote:border-zinc-300 dark:prose-blockquote:border-zinc-700
+  prose-blockquote:pl-4 prose-blockquote:my-5 prose-blockquote:text-zinc-600 dark:prose-blockquote:text-zinc-400 prose-blockquote:italic prose-blockquote:not-italic
+  prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-a:underline-offset-4
+  prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 prose-strong:font-semibold
+  prose-em:text-zinc-700 dark:prose-em:text-zinc-300
+  prose-code:text-zinc-900 dark:prose-code:text-zinc-100
+  prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900
   prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[13px] prose-code:font-mono
   prose-code:before:content-[''] prose-code:after:content-['']
-  prose-pre:bg-surface-2 dark:prose-pre:bg-background prose-pre:border prose-pre:border-border dark:prose-pre:border-border
+  prose-pre:bg-zinc-50 dark:prose-pre:bg-zinc-950 prose-pre:border prose-pre:border-zinc-200 dark:prose-pre:border-zinc-800
   prose-pre:my-5 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-  prose-hr:border-border dark:prose-hr:border-border prose-hr:my-8
+  prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-hr:my-8
   prose-table:my-5 prose-table:text-sm
-  prose-thead:border-b prose-thead:border-border dark:prose-thead:border-border
-  prose-th:text-foreground dark:prose-th:text-foreground prose-th:py-2 prose-th:px-3 prose-th:text-left prose-th:font-semibold
-  prose-td:border-t prose-td:border-border dark:prose-td:border-border prose-td:py-2 prose-td:px-3
+  prose-thead:border-b prose-thead:border-zinc-200 dark:prose-thead:border-zinc-800
+  prose-th:text-zinc-900 dark:prose-th:text-zinc-100 prose-th:py-2 prose-th:px-3 prose-th:text-left prose-th:font-semibold
+  prose-td:border-t prose-td:border-zinc-100 dark:prose-td:border-zinc-900 prose-td:py-2 prose-td:px-3
   [&>*:first-child]:mt-0 [&>*:last-child]:mb-0
   [&_ul]:list-disc [&_ul]:pl-6
   [&_ol]:list-decimal [&_ol]:pl-6`;
@@ -99,11 +99,11 @@ const MessageBubble = React.memo(function MessageBubble({
         className="data-load flex justify-end"
         style={{ animationDelay: `${animationDelay}ms` }}
       >
-        <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-secondary dark:bg-card px-4 py-2.5">
-          <div className="text-[15px] text-foreground dark:text-foreground whitespace-pre-wrap leading-relaxed">
+        <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-zinc-100 dark:bg-zinc-900 px-4 py-2.5">
+          <div className="text-[15px] text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap leading-relaxed">
             {message.content}
           </div>
-          <div className="text-[11px] text-muted-foreground dark:text-muted-foreground mt-1 text-right">
+          <div className="text-[11px] text-zinc-500 dark:text-zinc-500 mt-1 text-right">
             {timeStr}
           </div>
         </div>
@@ -118,9 +118,9 @@ const MessageBubble = React.memo(function MessageBubble({
     >
       <div className="max-w-[92%] w-full">
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-6 h-6 rounded-md bg-brand flex items-center justify-center flex-shrink-0 shadow-accent">
+          <div className="w-6 h-6 rounded-md bg-zinc-900 dark:bg-white flex items-center justify-center flex-shrink-0">
             <svg
-              className="w-3.5 h-3.5 text-brand-foreground"
+              className="w-3.5 h-3.5 text-white dark:text-zinc-900"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -132,10 +132,10 @@ const MessageBubble = React.memo(function MessageBubble({
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
             </svg>
           </div>
-          <span className="text-xs font-medium text-foreground dark:text-foreground">
+          <span className="text-xs font-medium text-zinc-900 dark:text-zinc-100">
             SoldierIQ
           </span>
-          <span className="text-[11px] text-muted-foreground">· {timeStr}</span>
+          <span className="text-[11px] text-zinc-500">· {timeStr}</span>
         </div>
 
         <div className="pl-8">
@@ -160,7 +160,7 @@ const MessageBubble = React.memo(function MessageBubble({
 
                         return (
                           <span
-                            className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 ml-0.5 text-[10px] font-semibold text-muted-foreground dark:text-foreground bg-secondary dark:bg-card border border-border dark:border-border rounded-md cursor-pointer hover:bg-secondary dark:hover:bg-accent transition-colors align-super"
+                            className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 ml-0.5 text-[10px] font-semibold text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors align-super"
                             onMouseEnter={(e) => {
                               const rect = e.currentTarget.getBoundingClientRect();
                               onCitationHover(
@@ -186,7 +186,7 @@ const MessageBubble = React.memo(function MessageBubble({
                       <a
                         href={href}
                         {...props}
-                        className="text-foreground dark:text-foreground underline underline-offset-4 hover:text-muted-foreground dark:hover:text-foreground"
+                        className="text-zinc-900 dark:text-zinc-100 underline underline-offset-4 hover:text-zinc-700 dark:hover:text-zinc-300"
                       >
                         {children}
                       </a>
@@ -198,8 +198,8 @@ const MessageBubble = React.memo(function MessageBubble({
               </ReactMarkdown>
             </div>
           ) : (
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <div className="w-3.5 h-3.5 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin" />
+            <div className="flex items-center gap-2 text-zinc-500 text-sm">
+              <div className="w-3.5 h-3.5 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin" />
               Thinking…
             </div>
           )}
@@ -207,7 +207,7 @@ const MessageBubble = React.memo(function MessageBubble({
           {hasGraph && message.isStreaming !== true && onOpenGraph && (
             <button
               onClick={() => onOpenGraph(message)}
-              className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-1 rounded-md border border-border dark:border-border bg-surface-2 dark:bg-card text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent transition-colors"
+              className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               title="See how the retrieved entities and relations connect"
             >
               <svg
@@ -227,7 +227,7 @@ const MessageBubble = React.memo(function MessageBubble({
                 <line x1="17" y1="8" x2="13" y2="16" />
               </svg>
               View knowledge graph
-              <span className="text-[10px] text-muted-foreground dark:text-muted-foreground">
+              <span className="text-[10px] text-zinc-500 dark:text-zinc-500">
                 {message.graph!.anchors?.length ?? 0} entities ·{" "}
                 {message.graph!.triples?.length ?? 0} relations
               </span>

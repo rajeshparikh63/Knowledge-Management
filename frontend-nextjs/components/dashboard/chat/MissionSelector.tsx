@@ -52,21 +52,21 @@ const MissionSelector = React.memo(function MissionSelector({
   };
 
   return (
-    <div className="border-b border-border dark:border-border bg-white dark:bg-[#0a0a0a] px-4 py-2.5">
+    <div className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] px-4 py-2.5">
       <div className="flex items-center gap-2 max-w-4xl mx-auto">
-        <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">
+        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
           Mission
         </span>
         <div className="relative flex-1 max-w-sm" ref={dropdownRef}>
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg border border-border dark:border-border bg-white dark:bg-background text-sm hover:border-border dark:hover:border-border transition-colors"
+            className="w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
           >
-            <span className="truncate text-foreground dark:text-foreground">
+            <span className="truncate text-zinc-900 dark:text-zinc-100">
               {currentMissionName}
             </span>
             <svg
-              className={`w-3.5 h-3.5 text-muted-foreground transition-transform flex-shrink-0 ${
+              className={`w-3.5 h-3.5 text-zinc-500 transition-transform flex-shrink-0 ${
                 showDropdown ? "rotate-180" : ""
               }`}
               fill="none"
@@ -87,10 +87,10 @@ const MissionSelector = React.memo(function MissionSelector({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="absolute top-full left-0 right-0 mt-1.5 rounded-xl bg-white dark:bg-background border border-border dark:border-border shadow-xl z-50 overflow-hidden"
+                className="absolute top-full left-0 right-0 mt-1.5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-xl z-50 overflow-hidden"
               >
                 {missions.length === 0 ? (
-                  <div className="px-4 py-3 text-xs text-muted-foreground dark:text-muted-foreground text-center">
+                  <div className="px-4 py-3 text-xs text-zinc-500 dark:text-zinc-400 text-center">
                     No missions yet. Create one to get started.
                   </div>
                 ) : (
@@ -99,16 +99,16 @@ const MissionSelector = React.memo(function MissionSelector({
                       <button
                         key={mission.id}
                         onClick={() => handleSelect(mission)}
-                        className={`w-full px-2.5 py-2 text-left rounded-lg hover:bg-secondary dark:hover:bg-accent transition-colors ${
+                        className={`w-full px-2.5 py-2 text-left rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors ${
                           mission.id === currentMissionId
-                            ? "bg-secondary dark:bg-card"
+                            ? "bg-zinc-100 dark:bg-zinc-900"
                             : ""
                         }`}
                       >
-                        <div className="text-sm font-medium text-foreground dark:text-foreground truncate">
+                        <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
                           {mission.name}
                         </div>
-                        <div className="text-[11px] text-muted-foreground dark:text-muted-foreground mt-0.5">
+                        <div className="text-[11px] text-zinc-500 dark:text-zinc-500 mt-0.5">
                           {new Date(mission.createdAt).toLocaleString()}
                         </div>
                       </button>
@@ -122,7 +122,7 @@ const MissionSelector = React.memo(function MissionSelector({
 
         <button
           onClick={onCreate}
-          className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand text-brand-foreground hover:bg-brand-hover shadow-accent transition-all"
+          className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 transition-colors"
           title="New mission"
           aria-label="Create new mission"
         >

@@ -460,7 +460,7 @@ export default function ChatArea() {
       {/* Loading Session Overlay */}
       {isLoadingSession && (
         <div className="absolute inset-0 bg-white/70 dark:bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center">
-          <div className="w-10 h-10 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin" />
+          <div className="w-10 h-10 border-2 border-zinc-300 border-t-zinc-900 dark:border-zinc-700 dark:border-t-zinc-100 rounded-full animate-spin" />
         </div>
       )}
 
@@ -505,17 +505,17 @@ export default function ChatArea() {
       {/* New Mission Modal */}
       {showNewMissionModal && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
-          <div className="bg-white dark:bg-background rounded-xl border border-border dark:border-border shadow-2xl max-w-md w-full overflow-hidden">
-            <div className="px-6 py-4 border-b border-border dark:border-border">
-              <h3 className="text-base font-semibold text-foreground dark:text-foreground">
+          <div className="bg-white dark:bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl max-w-md w-full overflow-hidden">
+            <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
+              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
                 New mission
               </h3>
-              <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-0.5">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
                 Missions group related conversations and documents.
               </p>
             </div>
             <div className="p-6">
-              <label className="block text-xs font-medium text-muted-foreground dark:text-foreground mb-1.5">
+              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
                 Mission name
               </label>
               <input
@@ -534,20 +534,20 @@ export default function ChatArea() {
                 autoFocus
               />
             </div>
-            <div className="border-t border-border dark:border-border px-6 py-4 flex gap-2 justify-end bg-surface-2 dark:bg-card/40">
+            <div className="border-t border-zinc-200 dark:border-zinc-800 px-6 py-4 flex gap-2 justify-end bg-zinc-50 dark:bg-zinc-900/40">
               <button
                 onClick={() => {
                   setShowNewMissionModal(false);
                   setNewMissionName("");
                 }}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-accent transition-colors"
+                className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleCreateMission}
                 disabled={!newMissionName.trim()}
-                className="px-4 py-2 rounded-lg bg-brand text-brand-foreground text-sm font-medium hover:bg-brand-hover shadow-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="px-4 py-2 rounded-lg bg-zinc-900 text-white text-sm font-medium hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 Create mission
               </button>

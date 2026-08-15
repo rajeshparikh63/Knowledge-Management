@@ -40,12 +40,12 @@ export default class ErrorBoundary extends Component<
       }
 
       return (
-        <div className="flex items-center justify-center min-h-[300px] p-6 bg-card/80 border border-brand/20 relative">
+        <div className="flex items-center justify-center min-h-[300px] p-6 bg-slate-900/80 border border-amber-400/20 relative">
           {/* Corner brackets */}
-          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-brand/60" />
-          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-brand/60" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-brand/60" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-brand/60" />
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-amber-400/60" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-amber-400/60" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-amber-400/60" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-amber-400/60" />
 
           <div className="text-center max-w-md space-y-4">
             {/* Warning icon */}
@@ -67,17 +67,17 @@ export default class ErrorBoundary extends Component<
               </div>
             </div>
 
-            <h3 className="font-rajdhani text-lg font-bold uppercase tracking-wider text-brand">
+            <h3 className="font-rajdhani text-lg font-bold uppercase tracking-wider text-amber-400">
               System Malfunction
             </h3>
-            <p className="text-sm text-muted-foreground font-mono">
+            <p className="text-sm text-slate-400 font-mono">
               Something went wrong. The component encountered an unexpected
               error.
             </p>
 
             {this.state.error && (
-              <div className="mt-3 p-3 bg-background border border-border rounded text-left">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+              <div className="mt-3 p-3 bg-slate-950 border border-slate-700 rounded text-left">
+                <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
                   Error Details
                 </p>
                 <p className="text-xs text-red-400 font-mono break-all">

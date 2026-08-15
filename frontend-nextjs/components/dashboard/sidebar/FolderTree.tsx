@@ -61,8 +61,8 @@ const FolderTree = React.memo(function FolderTree({
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-12">
-        <div className="w-5 h-5 border-2 border-border border-t-border dark:border-border dark:border-t-border rounded-full animate-spin mb-3" />
-        <div className="text-muted-foreground text-xs">Loading</div>
+        <div className="w-5 h-5 border-2 border-zinc-300 border-t-zinc-700 dark:border-zinc-700 dark:border-t-zinc-300 rounded-full animate-spin mb-3" />
+        <div className="text-zinc-500 text-xs">Loading</div>
       </div>
     );
   }
@@ -70,9 +70,9 @@ const FolderTree = React.memo(function FolderTree({
   if (folderList.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center px-4">
-        <div className="w-10 h-10 rounded-full bg-secondary dark:bg-card flex items-center justify-center mb-3">
+        <div className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center mb-3">
           <svg
-            className="w-5 h-5 text-muted-foreground dark:text-muted-foreground"
+            className="w-5 h-5 text-zinc-400 dark:text-zinc-600"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -84,10 +84,10 @@ const FolderTree = React.memo(function FolderTree({
             <path d="M14 2v6h6" />
           </svg>
         </div>
-        <div className="text-sm font-medium text-foreground dark:text-foreground mb-1">
+        <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">
           No documents yet
         </div>
-        <div className="text-xs text-muted-foreground dark:text-muted-foreground leading-relaxed max-w-[220px]">
+        <div className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-[220px]">
           Upload a document to create your first knowledge base.
         </div>
       </div>
